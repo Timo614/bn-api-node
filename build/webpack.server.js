@@ -1,0 +1,25 @@
+const webpack = require('webpack');
+const serverConfig = {
+  target: "node",
+  mode: "development",
+  devtool: "inline-source-map",
+  entry: "./src/index.ts",
+  output: {
+    filename: "bundle.node.js"
+  },
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: [".ts", ".tsx", ".js"]
+  },
+  plugins: [
+    new webpack.DefinePlugin({ "global.GENTLY": false })
+  ],
+  module: {
+    rules: [
+      // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
+      { test: /\.tsx?$/, loader: "ts-loader" }
+    ]
+  }
+};
+
+module.exports = serverConfig;
