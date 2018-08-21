@@ -1,0 +1,26 @@
+{
+  "name": "bn-api-node",
+  "version": "0.0.1",
+  "description": "Bigneon Javascript Middleware",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/big-neon/bn-api-node.git"
+  },
+  "keywords": [
+    "bigneon"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/big-neon/bn-api-node/issues"
+  },
+  "homepage": "https://github.com/big-neon/bn-api-node#readme",
+  "devDependencies": {
+    "ts-loader": "^4.5.0",
+    "typescript": "^3.0.1"
+  }
+}
