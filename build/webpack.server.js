@@ -5,7 +5,10 @@ const serverConfig = {
   devtool: "inline-source-map",
   entry: "./src/index.ts",
   output: {
-    filename: "bundle.node.js"
+    filename: "bundle.node.js",
+    libraryTarget: 'umd',
+    library: 'Bigneon',
+    umdNamedDefine: true
   },
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
