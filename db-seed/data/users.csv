@@ -1,0 +1,4 @@
+id,first_name,last_name,email,phone,hashed_pw,password_modified_at,created_at,last_used,active,role,password_reset_token,password_reset_requested_at
+, Alice, Smith, alice@token.com, +1-555-1234,,,,,,,,
+,Bob,Jones,bj@snooth.aus,+23-23-5433,,,,,,,,
+,Charlie,Kahn,charles@here.com,+1-514-5433,,,,,,,,
