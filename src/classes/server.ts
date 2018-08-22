@@ -23,5 +23,4 @@ export class Server {
             self[key] = resource;
         }
     }
-
 }
