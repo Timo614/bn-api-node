@@ -26,6 +26,14 @@ export class RequestMethod {
             data: {}
         }) => {
             let path = `${this.path}/${method.path}`.replace(/\/\//g, '/');
+            // If the path has an {id} parameter, replace it with the id
+            if (path.match('{id}')) {
+                if (!options.data.id) {
+                    return Promise.reject(`${path} has an id field in its path, but no id was provided in the data object`)
+                }
+                path = path.replace('{id}', options.data.id);
+                delete options.data.id;
+            }
             let client = method.requiresAuth ? this.client.getAuthAgent(options.headers) : this.client.getPublicAgent(options.headers);
 
             let promise;
