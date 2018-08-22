@@ -19,4 +19,4 @@ export const instanceOfRequestMethod = (base: any = {}) :RequestMethodInterface 
         },
         ...base
     } as RequestMethodInterface;
-}
+};
