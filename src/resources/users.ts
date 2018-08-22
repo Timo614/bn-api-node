@@ -33,6 +33,14 @@ export default {
             path: '',
             required: ['email'],
             requiresAuth: true
+        }),
+
+        instanceOfRequestMethod({
+            name: 'show',
+            method: 'GET',
+            path: '{id}',
+            required: [],
+            requiresAuth: true
         })
     ]
 } as ResourceInterface
