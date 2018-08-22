@@ -21,26 +21,23 @@ export class RequestMethod {
     }
 
     _request(method: RequestMethodInterface): any {
-        return (options: any = {
-            headers: {},
-            data: {}
-        }) => {
+        return (data: any = {}, headers: any = {}) => {
             let path = `${this.path}/${method.path}`.replace(/\/\//g, '/');
-            let client = method.requiresAuth ? this.client.getAuthAgent(options.headers) : this.client.getPublicAgent(options.headers);
-
+            let client = method.requiresAuth ? this.client.getAuthAgent(headers) : this.client.getPublicAgent(headers);
+            console.log(headers, data);
             let promise;
             switch (method.method) {
                 case 'POST':
-                    promise = client.post(path).send(options.data);
+                    promise = client.post(path).send(data);
                     break;
                 case 'PUT':
-                    promise = client.put(path).send(options.data);
+                    promise = client.put(path).send(data);
                     break;
                 case 'DELETE':
-                    promise = client.delete(path).send(options.data);
+                    promise = client.delete(path).send(data);
                     break;
                 case 'GET':
-                    promise = client.get(path).send(options.data);
+                    promise = client.get(path).send(data);
                     break;
             }
             if (promise) {
