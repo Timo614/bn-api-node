@@ -1,22 +1,31 @@
 import { instanceOfRequestMethod } from "../interfaces/server/request-method.interface";
 import { ResourceInterface } from "../interfaces/server/resource";
+import { ArtistInterface } from "../interfaces/resources/artist.interface";
 
 export default {
-  path: "users",
+  path: "artists",
 
   methods: [
     instanceOfRequestMethod({
       name: "create",
       method: "POST",
-      path: "/register",
-      required: ["first_name", "last_name", "email", "phone", "password"],
+      path: "",
+      required: ["name", "bio"],
       requiresAuth: false
     }),
 
     instanceOfRequestMethod({
-      name: "current",
+      name: "edit",
+      method: "PUT",
+      path: "",
+      required: ["name", "bio"],
+      requiresAuth: false
+    }),
+
+    instanceOfRequestMethod({
+      name: "index",
       method: "GET",
-      path: "/me",
+      path: "",
       required: [],
       requiresAuth: true
     }),
@@ -25,12 +34,12 @@ export default {
       name: "find",
       method: "GET",
       path: "",
-      required: ["email"],
+      required: [],
       requiresAuth: true
     }),
 
     instanceOfRequestMethod({
-      name: "show",
+      name: "read",
       method: "GET",
       path: "/{id}",
       required: [],
