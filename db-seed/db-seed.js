@@ -1,26 +1,19 @@
 require("dotenv").config();
 const program = require('commander');
-const fs = require('fs');
-const csv = require('csv-parse/lib/sync');
 const q = require('./queries');
 
 program.version("1.0.0")
     .description("BigNeon seed and API e2e testing")
-    .option("-t, --testonly", "Do not seed database, but run tests only")
+    .option("-s, --seedonly", "Only seed database, do not run assertions")
     .option("-H, --host [value]", "The BigNeon API url", process.env.BIGNEON_API || "http://localhost:9000")
     .parse(process.argv);
 
 const config = {
-    testOnly: program.testonly || false,
+    seedOnly: program.seedonly || false,
     host: program.host
 };
 
 seedDatabase(config);
-
-function readFile(path) {
-    const csv_data = fs.readFileSync(path);
-    return csv(csv_data, {columns: true});
-}
 
 async function seedDatabase(config) {
     const status = await q.checkStatus();
@@ -28,5 +21,7 @@ async function seedDatabase(config) {
         console.log(`BigNeon API server (${config.host}) is offline. Exiting`);
         process.exit(1);
     }
+    const usersAdded = await q.addUsers(config.seedOnly);
+    console.log(usersAdded);
 }
 
