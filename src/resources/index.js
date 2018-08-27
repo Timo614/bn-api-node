@@ -1,9 +1,11 @@
 import Auth from './auth';
 import Users from './users';
 import Artist from './artists';
+import Status from './status';
 
 export default {
-  auth: Auth,
-  user: Users,
-  artist: Artist
+    artist: Artist,
+    auth: Auth,
+    status: Status,
+    users: Users
 }
