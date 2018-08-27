@@ -11,7 +11,7 @@ export interface ArtistInterface {
   bandcamp_username?: string;
 }
 
-export const instanceOfArtist = (base: any = {}): ArtistInterface => {
+export const createArtist = (base: any = {}): ArtistInterface => {
   return {
     ...{
       id: "",

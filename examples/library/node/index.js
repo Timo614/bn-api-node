@@ -2,7 +2,7 @@ const Bigneon = require('../../../dist/bundle.node.js');
 const server = Bigneon.server;
 
 
-console.log(Bigneon.resourceInterfaces.instanceOfArtist());
+console.log(Bigneon.resourceInterfaces.createArtist());
 let bigneon = new Bigneon.server();
 bigneon.auth.create({
   data: {
