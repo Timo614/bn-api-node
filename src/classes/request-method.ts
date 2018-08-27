@@ -22,7 +22,7 @@ export class RequestMethod {
 
     _request(method: RequestMethodInterface): any {
         return (data: any = {}, headers: any = {}) => {
-            let path = `${this.path}/${method.path}`.replace(/\/\//g, '/');
+            let path = `${this.path}${method.path}`.replace(/\/\//g, '/');
           
             // If the path has an {id} parameter, replace it with the id
             if (path.match('{id}')) {

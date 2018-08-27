@@ -8,7 +8,7 @@ export default {
         instanceOfRequestMethod({
             name: 'create',
             method: 'POST',
-            path: 'register',
+            path: '/register',
             required: [
                 'first_name',
                 'last_name',
@@ -22,7 +22,7 @@ export default {
         instanceOfRequestMethod({
             name: 'current',
             method: 'GET',
-            path: 'me',
+            path: '/me',
             required: [],
             requiresAuth: true
         }),
@@ -38,7 +38,7 @@ export default {
         instanceOfRequestMethod({
             name: 'show',
             method: 'GET',
-            path: '{id}',
+            path: '/{id}',
             required: [],
             requiresAuth: true
         })

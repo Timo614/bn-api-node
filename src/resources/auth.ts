@@ -8,7 +8,7 @@ export default {
         instanceOfRequestMethod({
             name: 'create',
             method: 'POST',
-            path: 'token',
+            path: '/token',
             required: ['email', 'password'],
             requiresAuth: false
         }),
@@ -16,7 +16,7 @@ export default {
         instanceOfRequestMethod({
             name: 'refresh',
             method: 'POST',
-            path: 'token/refresh',
+            path: '/token/refresh',
             required: ['refresh_token'],
         }),
     ]
