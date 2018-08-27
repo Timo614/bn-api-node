@@ -9,7 +9,7 @@ export class RequestMethod {
 
     constructor(resource: ResourceInterface, client: SuperagentClient) {
         let self: any = this;
-        let path = '/' + resource.path + '/';
+        let path = '/' + resource.path;
         this.path = path;
         this.client = client;
         for (let i in resource.methods) {
