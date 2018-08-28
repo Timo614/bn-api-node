@@ -8,7 +8,8 @@
     "build": "./node_modules/.bin/webpack --config ./build/webpack.config.js",
     "build-web": "./node_modules/.bin/webpack --config ./build/webpack.browser.js",
     "build-server": "./node_modules/.bin/webpack --config ./build/webpack.server.js",
-    "build-tsc": "./node_modules/.bin/tsc"
+    "build-tsc": "./node_modules/.bin/tsc",
+    "db-seed": "npm run build-tsc && cd db-seed && node db-seed"
   },
   "repository": {
     "type": "git",
