@@ -3,11 +3,16 @@ export interface EventInterface {
     name: string;
     organization_id: string;
     venue_id: string;
+    event_start: Date;
+    door_time: Date;
+    publish_date: Date;
+    is_external: boolean;
+    promo_image_url?: string;
+    additional_info?: string;
+    age_limit?: number;
+    external_url?: string;
     created_at?: Date;
     ticket_sell_date?: Date;
-    event_start: Date;
-    is_external: boolean;
-    external_url?: string;
 }
 
 export const createEvent = (base: any = {}): EventInterface => {
@@ -21,7 +26,12 @@ export const createEvent = (base: any = {}): EventInterface => {
             ticket_sell_date: "",
             event_start: "",
             is_external: false,
-            external_url: ""
+            external_url: "",
+            promo_image_url: "",
+            additional_info: "",
+            age_limit: 0,
+            door_time: "",
+            publish_date: "",
         },
         ...base
     } as EventInterface;
