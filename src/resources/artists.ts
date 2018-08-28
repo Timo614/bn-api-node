@@ -11,7 +11,7 @@ export default {
       method: "POST",
       path: "",
       required: ["name", "bio"],
-      requiresAuth: false
+      requiresAuth: true
     }),
 
     instanceOfRequestMethod({
@@ -19,7 +19,7 @@ export default {
       method: "PUT",
       path: "",
       required: ["name", "bio"],
-      requiresAuth: false
+      requiresAuth: true
     }),
 
     instanceOfRequestMethod({

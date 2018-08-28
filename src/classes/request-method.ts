@@ -1,3 +1,4 @@
+import fs from 'fs';
 import {ResourceInterface} from "../interfaces/server/resource";
 import {RequestMethodInterface} from "../interfaces/server/request-method.interface";
 import SuperagentClient from "./superagent-client";
@@ -23,7 +24,7 @@ export class RequestMethod {
     _request(method: RequestMethodInterface): any {
         return (data: any = {}, headers: any = {}) => {
             let path = `${this.path}${method.path}`.replace(/\/\//g, '/');
-          
+
             // If the path has an {id} parameter, replace it with the id
             if (path.match('{id}')) {
                 if (!data.id) {
@@ -35,20 +36,40 @@ export class RequestMethod {
             let client = method.requiresAuth ? this.client.getAuthAgent(headers) : this.client.getPublicAgent(headers);
 
             let promise;
-            switch (method.method) {
-                case 'POST':
-                    promise = client.post(path).send(data);
-                    break;
-                case 'PUT':
-                    promise = client.put(path).send(data);
-                    break;
-                case 'DELETE':
-                    promise = client.delete(path).send(data);
-                    break;
-                case 'GET':
-                    promise = client.get(path).query(data);
-                    break;
+
+            if (process.env.NODE_ENV !== 'production') {
+
+                let mockPath = process.env.MOCK_DIR + '/' + method.method.toLowerCase()  + path.replace(/\//g, '.') + '.json';
+                if (fs.existsSync(mockPath)) {
+                    try {
+                        let data = fs.readFileSync(mockPath,{encoding: 'utf8'});
+                        promise = Promise.resolve({body: data});
+                    }catch (e) {
+                        console.log('Err', e);
+                    }
+
+                }
             }
+
+            //If no promise has been set, because either we are in production or there was no mock data file do the request.
+            if (!promise) {
+                switch (method.method) {
+                    case 'POST':
+                        promise = client.post(path).send(data);
+                        break;
+                    case 'PUT':
+                        promise = client.put(path).send(data);
+                        break;
+                    case 'DELETE':
+                        promise = client.delete(path).send(data);
+                        break;
+                    case 'GET':
+                        promise = client.get(path).query(data);
+                        break;
+                }
+
+            }
+
             if (promise) {
                 return promise;
             } else {
