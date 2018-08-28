@@ -46,7 +46,7 @@ export class RequestMethod {
                     promise = client.delete(path).send(data);
                     break;
                 case 'GET':
-                    promise = client.get(path).send(data);
+                    promise = client.get(path).query(data);
                     break;
             }
             if (promise) {
