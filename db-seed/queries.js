@@ -46,25 +46,10 @@ function assertAPICall(seedOnly, path, result, expected) {
     return status;
 }
 
-/**
- * Registers all users listed in data/users.csv into the database and confirms
- */
-function addUsers(seedOnly) {
-    const users = readFile('./data/users.csv');
-    const results = users.map(async user => {
-        let result;
-        try {
-            result = await server.users.create(user);
-        } catch (e) {
-            result = e.response;
-        }
-        return assertAPICall(seedOnly, 'users/register', result, {statusCode: 200});
-    });
-    return Promise.all(results);
-}
+
 
 module.exports = {
     server: server,
     checkStatus: checkStatus,
-    addUsers: addUsers
+    readCSV: readFile
 };
