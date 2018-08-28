@@ -46,10 +46,22 @@ function assertAPICall(seedOnly, path, result, expected) {
     return status;
 }
 
+/**
+ * Take a promise and assert that the promise is rejected
+ */
+function shouldFail(promise) {
+    return promise.then(() => {
+        throw new Error('The request should fail');
+    }).catch(err => {
+        return err.response;
+    });
+}
+
 
 
 module.exports = {
     server: server,
     checkStatus: checkStatus,
-    readCSV: readFile
+    readCSV: readFile,
+    shouldFail: shouldFail
 };

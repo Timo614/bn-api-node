@@ -74,9 +74,6 @@ export class RequestMethod {
                 }
 
             }
-
-
-
             if (promise) {
                 if (method.afterRequest) {
                     return promise.then((data:any = {}):Promise<any> => {

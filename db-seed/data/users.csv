@@ -2,3 +2,5 @@ first_name,last_name,email,phone,password
 Alice,Smith,alice@token.com, +1-555-1234,alicepw
 Bob,Jones,bj@snooth.aus,+23-23-5433,bobpw
 Charlie,Kahn,charles@here.com,+1-514-5433,charliepw
+Org,Owner,orgowner1@bigneon.com,515-123-1000,orgowner1
+Org,Member,orgmember@bigneon.com,515-123-2000,orgmember1
