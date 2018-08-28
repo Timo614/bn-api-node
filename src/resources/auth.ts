@@ -10,7 +10,11 @@ export default {
             method: 'POST',
             path: '/token',
             required: ['email', 'password'],
-            requiresAuth: false
+            requiresAuth: false,
+            afterRequest(client:any = {}, data:any = {}): Promise<any> {
+                client.setToken (data.body.access_token);
+                return Promise.resolve(data);
+            }
         }),
 
         instanceOfRequestMethod({

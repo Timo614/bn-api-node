@@ -33,6 +33,11 @@ export class RequestMethod {
                 path = path.replace('{id}', data.id);
                 delete data.id;
             }
+
+
+            if (method.beforeRequest) {
+                method.beforeRequest(this.client, method, data, headers);
+            }
             let client = method.requiresAuth ? this.client.getAuthAgent(headers) : this.client.getPublicAgent(headers);
 
             let promise;
@@ -70,7 +75,14 @@ export class RequestMethod {
 
             }
 
+
+
             if (promise) {
+                if (method.afterRequest) {
+                    return promise.then((data:any = {}):Promise<any> => {
+                        return method.afterRequest(this.client, data);
+                    });
+                }
                 return promise;
             } else {
                 return Promise.reject('Invalid Method');

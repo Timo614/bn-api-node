@@ -13,6 +13,8 @@ export default class SuperagentClient {
     superagent: any;
     agent: any;
 
+    token: string;
+
     constructor(server: ServerInterface, headers: any = {
         'Content-Type': 'application/json'
     }) {
@@ -32,13 +34,17 @@ export default class SuperagentClient {
         return agent;
     }
 
+    public setToken(token:string):void{
+        this.token = token;
+    }
+
     public getPublicAgent(headers: any = {}) {
         return this._getAgent(headers);
     }
 
-    public getAuthAgent(token: string, headers: any = {}) {
+    public getAuthAgent(headers: any = {}) {
         let agent = this._getAgent(headers);
-        agent.set("Authorization", `Bearer ${token}`);
+        agent.set("Authorization", `Bearer ${this.token}`);
         return agent;
     }
 }

@@ -9,9 +9,9 @@ bigneon.auth.create({
     email: 'superuser@test.com',
     password: 'password'
 }).then(result => {
-    console.log(result.body);
+    // console.log(result.body);
     // bigneon.artist.create({
-    //     name: 'Bob',
+    //     name: 'Bob the rob',
     //     bio: 'artist nbio',
     //     youtube_video_urls: []
     // }).then(result => {
