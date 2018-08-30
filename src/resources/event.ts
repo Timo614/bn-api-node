@@ -26,7 +26,7 @@ export default {
             method: "GET",
             path: "",
             required: [],
-            requiresAuth: true
+            requiresAuth: false
         }),
 
         instanceOfRequestMethod({

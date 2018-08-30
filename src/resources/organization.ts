@@ -43,6 +43,17 @@ export default {
             path: "/{id}",
             required: [],
             requiresAuth: true
-        })
+        }),
+
+        instanceOfRequestMethod({
+            name: "events",
+            method: "GET",
+            path: "/{id}/events",
+            required: [],
+            requiresAuth: true
+
+        }),
+
+
     ]
 } as ResourceInterface;
