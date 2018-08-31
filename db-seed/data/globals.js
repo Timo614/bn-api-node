@@ -10,7 +10,10 @@ const globals = {
             password: process.env.SUPERUSER_PASSWORD,
         }
     },
-    admin: null
+    admin: null,
+    organizations: [],
+    venues: []
 };
+
 
 module.exports = globals;

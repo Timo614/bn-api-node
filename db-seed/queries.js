@@ -25,7 +25,7 @@ function checkStatus() {
  */
 function readFile(path) {
     const csv_data = fs.readFileSync(path);
-    return csv(csv_data, {columns: true});
+    return csv(csv_data, { columns: true, trim: true });
 }
 
 function assertAPICall(seedOnly, path, result, expected) {
