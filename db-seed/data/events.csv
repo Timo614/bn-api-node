@@ -1,2 +1,2 @@
-name, organization_id, venue_id, event_start
-It's my party, Da Klub, Da Klub,2018-11-13T12:00:00
+name, organization_id, venue_id, event_start, door_time, is_external
+It's my party, Da Klub, Da Klub,2018-11-13T12:00:00.000,2018-11-13T12:00:00.000,0

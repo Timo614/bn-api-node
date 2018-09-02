@@ -9,6 +9,7 @@ program.version("1.0.0")
     .description("BigNeon seed and API e2e testing")
     .option("-b, --bail", "Stop after first failed test")
     .option("-H, --host [value]", "The BigNeon API url", process.env.BIGNEON_API || "http://localhost:9000")
+    .option("-t, --test [value,value]", "Run a specific test")
     .parse(process.argv);
 
 seedDatabase();
@@ -21,9 +22,28 @@ async function seedDatabase() {
 
     const testDir = `${__dirname}/tests`;
 
-// Add each .js file to the mocha instance
+    console.log(program.test);
+    // Add each .js file to the mocha instance
+    const onlyRunTheseTests = program.test ? program.test.split(',').map(item => {
+        let parts = item.toLowerCase().split('.');
+        if (parts[parts.length - 1].toLowerCase() === 'js') {
+            //Remove js file extensions
+            parts.pop();
+        }
+        return parts.join('.');
+    }) : [];
+
     fs.readdirSync(testDir).filter(file => {
-        return file.substr(-3) === '.js';
+        //Only allow .js files
+        if (file.substr(-3) === '.js') {
+            let basename = path.basename(file, '.js').toLowerCase();
+            if (onlyRunTheseTests.length ) {
+                return onlyRunTheseTests.indexOf(basename) > -1;
+            }
+            return true;
+        }
+        return false;
+
     }).forEach(file => {
         const testFile = path.join(testDir, file)
         mocha.addFile(testFile);
