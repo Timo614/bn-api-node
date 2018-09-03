@@ -22,7 +22,6 @@ async function seedDatabase() {
 
     const testDir = `${__dirname}/tests`;
 
-    console.log(program.test);
     // Add each .js file to the mocha instance
     const onlyRunTheseTests = program.test ? program.test.split(',').map(item => {
         let parts = item.toLowerCase().split('.');
