@@ -17,10 +17,16 @@ export default {
             name: "edit",
             method: "PUT",
             path: "/{id}",
-            required: [],
+            required: ['id'],
             requiresAuth: true
         }),
-
+        instanceOfRequestMethod({
+            name: "delete",
+            method: "DELETE",
+            path: "/{id}",
+            required: ['id'],
+            requiresAuth: true
+        }),
         instanceOfRequestMethod({
             name: "index",
             method: "GET",
@@ -41,7 +47,7 @@ export default {
             name: "read",
             method: "GET",
             path: "/{id}",
-            required: [],
+            required: ['id'],
             requiresAuth: true
         })
     ]
