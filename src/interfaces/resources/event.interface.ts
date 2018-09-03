@@ -1,3 +1,5 @@
+import {createTicket, TicketInterface} from "./ticket.interface";
+
 export interface EventInterface {
     id?: string;
     name: string;
@@ -13,9 +15,13 @@ export interface EventInterface {
     external_url?: string;
     created_at?: Date;
     ticket_sell_date?: Date;
+    tickets: Array<TicketInterface>;
 }
 
 export const createEvent = (base: any = {}): EventInterface => {
+    if (base && base.tickets) {
+        base.tickets = base.tickets.map((ticket: any) => createTicket(ticket));
+    }
     return {
         ...{
             id: "",
@@ -32,6 +38,7 @@ export const createEvent = (base: any = {}): EventInterface => {
             age_limit: 0,
             door_time: "",
             publish_date: "",
+            tickets: []
         },
         ...base
     } as EventInterface;

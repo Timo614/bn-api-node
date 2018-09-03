@@ -21,19 +21,39 @@ export class RequestMethod {
         }
     }
 
+    _replacePathVariables(path: string, data: any = {}, removeDataAfterReplace: boolean = true): string {
+        let regex = /{([a-zA-Z0-9_-]+)}/g;
+        let newPath = path;
+        let matches;
+        do {
+            matches = regex.exec(newPath);
+            if (matches) {
+                let dataKey = matches[1];
+                if (data.hasOwnProperty(dataKey)) {
+                    let dataValue = data[dataKey];
+                    newPath = newPath.replace(matches[0], dataValue);
+                    if (removeDataAfterReplace) {
+                        delete data[dataKey];
+                    }
+                }else {
+                    throw (`${path} is expecting ${dataKey} but it has not been provided in the data object`);
+                }
+            }
+
+        } while (matches);
+        return newPath;
+    }
+
     _request(method: RequestMethodInterface): any {
         return (data: any = {}, headers: any = {}) => {
             let path = `${this.path}${method.path}`.replace(/\/\//g, '/');
+            // If the path has any {identifier} parameter, replace it with the data[identifier] key
 
-            // If the path has an {id} parameter, replace it with the id
-            if (path.match('{id}')) {
-                if (!data.id) {
-                    return Promise.reject(`${path} has an id field in its path, but no id was provided in the data object`)
-                }
-                path = path.replace('{id}', data.id);
-                delete data.id;
+            try {
+                path = this._replacePathVariables(path, data);
+            }catch(e) {
+                return Promise.reject(e);
             }
-
 
             if (method.beforeRequest) {
                 method.beforeRequest(this.client, method, data, headers);
@@ -44,12 +64,12 @@ export class RequestMethod {
 
             if (process.env.NODE_ENV !== 'production') {
 
-                let mockPath = process.env.MOCK_DIR + '/' + method.method.toLowerCase()  + path.replace(/\//g, '.') + '.json';
+                let mockPath = process.env.MOCK_DIR + '/' + method.method.toLowerCase() + path.replace(/\//g, '.') + '.json';
                 if (fs.existsSync(mockPath)) {
                     try {
-                        let data = fs.readFileSync(mockPath,{encoding: 'utf8'});
+                        let data = fs.readFileSync(mockPath, {encoding: 'utf8'});
                         promise = Promise.resolve({body: data});
-                    }catch (e) {
+                    } catch (e) {
                         console.log('Err', e);
                     }
 
@@ -76,7 +96,7 @@ export class RequestMethod {
             }
             if (promise) {
                 if (method.afterRequest) {
-                    return promise.then((data:any = {}):Promise<any> => {
+                    return promise.then((data: any = {}): Promise<any> => {
                         return method.afterRequest(this.client, data);
                     });
                 }
