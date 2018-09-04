@@ -10,9 +10,9 @@ const assert = require('assert');
  */
 function checkStatus() {
     return server.status.get().then(res => {
-        return res.statusCode === 200;
+        return res.status === 200;
     }).catch(err => {
-        console.error(err.response && err.response.body || err);
+        console.error(err.response && err.response.data || err);
         return false;
     });
 }

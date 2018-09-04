@@ -9,15 +9,23 @@ describe('/venues/', function () {
     const venues = q.readCSV('./data/venues.csv');
     it('an unauthenticated user cannot add an Venue', function () {
         return q.shouldFail(server.venue.create(venues[0])).then(res => {
-            assert.strictEqual(res.statusCode, 401);
+            assert.strictEqual(res.status, 401);
         });
     });
 
     venues.forEach(function (venue) {
         it(`SuperUser registers ${venue.name}`, async function () {
             let result = await global.admin.venue.create(venue);
-            assert.strictEqual(result.statusCode, 201, `${venue.name} was not added; ${result.text}`);
-            global.venues[result.body.name] = result.body;
+            assert.strictEqual(result.status, 201, `${venue.name} was not added; ${result.data}`);
+            global.venues[result.data.name] = result.data;
         });
+    });
+
+    it('an unauthenticated user can search for a venue by name', async function () {
+        const response = await server.venue.find({name: venues[0].name});
+        assert.strictEqual(response.status, 200);
+        const matches = response.data;
+        assert.strictEqual(matches.length, 1);
+        assert.strictEqual(matches[0].name, venues[0].name);
     });
 });

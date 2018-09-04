@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const serverConfig = {
   target: "node",
-  mode: "development",
+  mode: "production",
   devtool: "inline-source-map",
   entry: "./src/index.ts",
   output: {

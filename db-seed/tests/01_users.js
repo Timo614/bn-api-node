@@ -17,7 +17,7 @@ describe('Users', function() {
     describe('Superadmin user', function () {
         it('logs in', async function () {
             let result = await superUser.auth.create(global.userData.superadmin);
-            assert.strictEqual(result.statusCode, 200);
+            assert.strictEqual(result.status, 200);
             global.admin = superUser;
         });
     });
@@ -28,7 +28,7 @@ describe('Users', function() {
         users.forEach(function (user) {
             it(`registers ${user.first_name} ${user.last_name}`, async function () {
                 let result = await addUser(server, user);
-                assert.strictEqual(result.statusCode, 200, `${user.last_name} was not added`);
+                assert.strictEqual(result.status, 200, `${user.last_name} was not added`);
             });
         });
     });
@@ -36,8 +36,8 @@ describe('Users', function() {
     describe('Find specific users', function () {
         it('Finds Org Owner1', async function () {
             const result = await superUser.users.find({email: 'orgowner1@bigneon.com'});
-            assert.strictEqual(result.statusCode, 200);
-            const orgOwner = result.body;
+            assert.strictEqual(result.status, 200);
+            const orgOwner = result.data;
             assert.strictEqual(orgOwner.first_name, 'Org');
             assert.strictEqual(orgOwner.last_name, 'Owner');
             assert.strictEqual(orgOwner.phone, '515-123-1000');

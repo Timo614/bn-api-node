@@ -11,8 +11,9 @@ const globals = {
         }
     },
     admin: null,
-    organizations: [],
-    venues: []
+    organizations: {},
+    venues: {},
+    events: {}
 };
 
 

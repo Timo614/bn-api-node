@@ -1,4 +1,4 @@
-import SuperagentClient from "../../classes/superagent-client";
+import XhrClient from "../../classes/xhr-client";
 
 export interface RequestMethodInterface {
     name: string;
@@ -8,9 +8,9 @@ export interface RequestMethodInterface {
     requiresAuth: boolean;
     encode: any;
 
-    beforeRequest(client: SuperagentClient, method: RequestMethodInterface, data: any, headers: any ): void;
+    beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any ): void;
 
-    afterRequest(client: SuperagentClient, response: any ): Promise<any>;
+    afterRequest(client: XhrClient, response: any ): Promise<any>;
 
 }
 

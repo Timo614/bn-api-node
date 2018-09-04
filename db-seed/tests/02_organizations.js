@@ -9,15 +9,15 @@ describe('/organizations/', function () {
     const orgs = q.readCSV('./data/organizations.csv');
     it('an unauthenticated user cannot add an Organization', function () {
         return q.shouldFail(server.organization.create(orgs[0])).then(res => {
-            assert.strictEqual(res.statusCode, 401);
+            assert.strictEqual(res.status, 401);
         });
     });
 
     orgs.forEach(function (org) {
         it(`SuperUser registers ${org.name}`, async function () {
             let result = await global.admin.organization.create({ owner_user_id: global.orgOwner1.id, ...org });
-            assert.strictEqual(result.statusCode, 201, `${org.name} was not added; ${result.text}`);
-            global.organizations[result.body.name] = result.body;
+            assert.strictEqual(result.status, 201, `${org.name} was not added; ${result.data}`);
+            global.organizations[result.data.name] = result.data;
         });
     });
 });

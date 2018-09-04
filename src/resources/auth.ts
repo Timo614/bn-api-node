@@ -12,7 +12,7 @@ export default {
             required: ['email', 'password'],
             requiresAuth: false,
             afterRequest(client:any = {}, data:any = {}): Promise<any> {
-                client.setToken (data.body.access_token);
+                client.setToken (data.data.access_token);
                 return Promise.resolve(data);
             }
         }),

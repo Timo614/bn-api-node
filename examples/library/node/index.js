@@ -5,10 +5,20 @@ const server = Bigneon.server;
 let bigneon = new Bigneon.server();
 
 const s = require('../../../dist/classes/server').Server;
-let b = new s({}, {});
-b.eventTicket.create({event_id: '', 'id': ''}).catch(e => {
-    console.error(e);
+
+const Mocker = require('../../../dist/classes/mocker').Mocker;
+console.log(Mocker);
+let mocker = new Mocker({
+    'get.events': {
+        data: [{a: 1}, {b:2}],
+        reject: false
+    }
 });
+let b = new s({}, {});
+b.event.index().then(result => {console.log(result)});
+// b.eventTicket.create({event_id: '', 'id': ''}).catch(e => {
+//     console.error(e);
+// });
 //
 // bigneon.auth.create({
 //     email: 'superuser@test.com',

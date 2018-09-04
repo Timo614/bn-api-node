@@ -11,7 +11,7 @@ describe('/events/', function () {
 
     it('an unauthenticated user cannot add an event', function () {
         return q.shouldFail(server.event.create(events[0])).then(res => {
-            assert.strictEqual(res.statusCode, 401);
+            assert.strictEqual(res.status, 401);
         });
     });
 
@@ -20,42 +20,41 @@ describe('/events/', function () {
             event.venue_id = global.venues[event.venue_id].id;
             event.organization_id = global.organizations[event.organization_id].id;
             let result = await global.admin.event.create(event);
-            assert.strictEqual(result.statusCode, 201, `${event.name} was not added; ${result.text}`);
-            global.events[result.body.name] = result.body;
+            global.events[result.data.name] = result.data;
+            assert.strictEqual(result.status, 201, `${event.name} was not added; ${result.data}`);
         });
     });
 
     it('an unauthenticated user can retrieve the event list', async function () {
         const response = await server.event.index();
-        assert.strictEqual(response.statusCode, 200);
-        list = response.body;
+        assert.strictEqual(response.status, 200);
+        list = response.data;
         assert.strictEqual(list.length, events.length);
-        assert.strictEqual(list[0].name, events[0].name);
     });
 
     it('an unauthenticated user can retrieve an event', async function () {
         const response = await server.event.read({id: list[0].id});
-        assert.strictEqual(response.statusCode, 200);
-        assert.strictEqual(response.body.name, events[0].name);
+        assert.strictEqual(response.status, 200);
+        assert.strictEqual(response.data.name, list[0].name);
     });
 
     it('an unauthenticated user can search for an event by name', async function () {
         const response = await server.event.find({name: events[0].name});
-        assert.strictEqual(response.statusCode, 200);
-        const matches = response.body;
+        assert.strictEqual(response.status, 200);
+        const matches = response.data;
         assert.strictEqual(matches.length, 1);
         assert.strictEqual(matches[0].name, events[0].name);
     });
 
     it('an unauthenticated user cannot update an event', function () {
         return q.shouldFail(server.event.edit({id: list[0].id, name: "My First Event"})).then(res => {
-            assert.strictEqual(res.statusCode, 401);
+            assert.strictEqual(res.status, 401);
         });
     });
 
     it('A superuser can edit an event', async function () {
         const response = await global.admin.event.edit({id: list[0].id, name: "My First Event"});
-        assert.strictEqual(response.statusCode, 200);
-        assert.strictEqual(response.body.name, "My First Event");
+        assert.strictEqual(response.status, 200);
+        assert.strictEqual(response.data.name, "My First Event");
     });
 });

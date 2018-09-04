@@ -13,7 +13,7 @@ describe('Artists', function() {
     let list = null;
     it('an unauthenticated user cannot add an Artist', function() {
        return q.shouldFail(server.artist.create(artists[0])).then(res => {
-           assert.strictEqual(res.statusCode, 401);
+           assert.strictEqual(res.status, 401);
        });
     });
 
@@ -21,28 +21,28 @@ describe('Artists', function() {
         it(`SuperUser registers ${artist.name}`, async function() {
             const art = normalizeArtist(artist);
             let result = await global.admin.artist.create(art);
-            assert.strictEqual(result.statusCode, 201, `${artist.name} was not added; ${result.text}`);
+            assert.strictEqual(result.status, 201, `${artist.name} was not added; ${result.data}`);
         });
     });
 
     it('an unauthenticated user can retrieve the artist list', async function() {
         const response = await server.artist.index();
-        assert.strictEqual(response.statusCode, 200);
-        list = response.body;
+        assert.strictEqual(response.status, 200);
+        list = response.data;
         assert.strictEqual(list.length, artists.length);
         assert.strictEqual(list[0].name, artists[0].name);
     });
 
     it('an unauthenticated user can retrieve an artist', async function() {
         const response = await server.artist.read({id: list[1].id});
-        assert.strictEqual(response.statusCode, 200);
-        assert.strictEqual(response.body.name, 'Billy Joel');
+        assert.strictEqual(response.status, 200);
+        assert.strictEqual(response.data.name, 'Billy Joel');
     });
 
     it('an unauthenticated user can search for an artist by name', async function() {
         const response = await server.artist.find({name: 'The Killers'});
-        assert.strictEqual(response.statusCode, 200);
-        const matches = response.body;
+        assert.strictEqual(response.status, 200);
+        const matches = response.data;
         assert.strictEqual(matches.length, 1);
         assert.strictEqual(matches[0].name, 'The Killers');
         assert.strictEqual(matches[0].facebook_username, 'KillersMusic');
