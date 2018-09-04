@@ -6,6 +6,7 @@ export interface EventInterface {
     organization_id: string;
     venue_id: string;
     event_start: Date;
+    event_end: Date;
     door_time: Date;
     publish_date: Date;
     is_external: boolean;
@@ -16,6 +17,11 @@ export interface EventInterface {
     created_at?: Date;
     ticket_sell_date?: Date;
     tickets: Array<TicketInterface>;
+
+
+    blockchain_id?: string;
+    blockchain_expiry_date: number;//Unix timestamp or block height
+
 }
 
 export const createEvent = (base: any = {}): EventInterface => {
@@ -38,7 +44,9 @@ export const createEvent = (base: any = {}): EventInterface => {
             age_limit: 0,
             door_time: "",
             publish_date: "",
-            tickets: []
+            tickets: [],
+            blockchain_id: "",
+            blockchain_expiry_date: 0,
         },
         ...base
     } as EventInterface;
