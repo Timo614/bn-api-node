@@ -1,29 +1,28 @@
-const Bigneon = require('../../../dist/bundle.node.js');
-const server = Bigneon.server;
-
+const Bigneon = require('../../../dist/bundle.node.js').default;
 // console.log(Bigneon.resourceInterfaces.createArtist());
-let bigneon = new Bigneon.server();
-
-const s = require('../../../dist/classes/server').Server;
-
-const Mocker = require('../../../dist/classes/mocker').Mocker;
-console.log(Mocker);
-let mocker = new Mocker({
-    'get.events': {
-        data: [{a: 1}, {b:2}],
-        reject: false
-    }
-});
-let b = new s({}, {});
-b.event.index().then(result => {console.log(result)});
+let bigneon = new Bigneon.Server();
+//
+// const s = require('../../../dist/classes/server').Server;
+//
+// const Mocker = require('../../../dist/classes/mocker').Mocker;
+// console.log(Mocker);
+// let mocker = new Mocker({
+//     'get.events': {
+//         data: [{a: 1}, {b:2}],
+//         reject: false
+//     }
+// });
+// let b = new s({}, {});
+// b.event.index().then(result => {console.log(result)});
 // b.eventTicket.create({event_id: '', 'id': ''}).catch(e => {
 //     console.error(e);
 // });
 //
-// bigneon.auth.create({
-//     email: 'superuser@test.com',
-//     password: 'password'
-// }).then(async result => {
+bigneon.auth.create({
+    email: 'superuser@test.com',
+    password: 'password'
+})
+// .then(async result => {
 //     // bigneon.organization.events({id: 'cda5b9f9-bd02-498a-9993-a22ac1321f42'}).then(events => {
 //     //     console.log(events.body);
 //     // });

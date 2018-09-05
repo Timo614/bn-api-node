@@ -25,3 +25,5 @@ export class Server {
         }
     }
 }
+
+export default Server;
