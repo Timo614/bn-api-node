@@ -16,7 +16,7 @@ export default {
         instanceOfRequestMethod({
             name: "edit",
             method: "PUT",
-            path: "",
+            path: "/{id}",
             required: [],
             requiresAuth: true
         }),
