@@ -34,8 +34,8 @@ export default class XhrClient {
                 ...this.headers,
                 ...headers
             },
-
         });
+
 
         return agent;
     }

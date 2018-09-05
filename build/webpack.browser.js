@@ -16,7 +16,7 @@ const clientConfig = {
         extensions: [".ts", ".tsx", ".js"]
     },
     plugins: [
-        new BundleAnalyzerPlugin()
+        // new BundleAnalyzerPlugin()
     ],
     module: {
         rules: [

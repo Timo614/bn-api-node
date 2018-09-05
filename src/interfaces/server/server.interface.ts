@@ -6,6 +6,7 @@ export interface ServerInterface {
     apiVersion: string;
     prefix: string;
     timeout: number;
+    returnDataOnly: boolean;
 }
 
 export const createServer = (base: any = {}): ServerInterface => {
@@ -21,7 +22,8 @@ export const createServer = (base: any = {}): ServerInterface => {
             basePath: "",
             apiVersion: "v1",
             timeout: 3000,
-            prefix: false
+            prefix: false,
+            returnDataOnly: false
         },
         ...base
     };

@@ -45,7 +45,7 @@ export class RequestMethod {
     }
 
     _request(method: RequestMethodInterface): any {
-        return (data: any = {}, headers: any = {}) => {
+        return (data: any = {}, headers: any = {}, returnDataOnly: boolean = false) => {
             let path = `${this.path}${method.path}`.replace(/\/\//g, '/');
             // If the path has any {identifier} parameter, replace it with the data[identifier] key
 
@@ -85,11 +85,17 @@ export class RequestMethod {
 
             }
             if (promise) {
+                if (this.client.server.returnDataOnly || returnDataOnly) {
+                    promise = promise.then(response => {
+                        return Promise.resolve(response.data);
+                    })
+                }
                 if (method.afterRequest) {
-                    return promise.then((data: any = {}): Promise<any> => {
+                    promise = promise.then((data: any = {}): Promise<any> => {
                         return method.afterRequest(this.client, data);
                     });
                 }
+
                 return promise;
             } else {
                 return Promise.reject('Invalid Method');
