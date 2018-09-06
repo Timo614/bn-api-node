@@ -28,7 +28,7 @@ describe('Users', function() {
         users.forEach(function (user) {
             it(`registers ${user.first_name} ${user.last_name}`, async function () {
                 let result = await addUser(server, user);
-                assert.strictEqual(result.status, 200, `${user.last_name} was not added`);
+                assert.strictEqual(result.status, 201, `${user.last_name} was not added`);
             });
         });
     });
