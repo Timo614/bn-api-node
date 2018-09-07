@@ -14,6 +14,14 @@ export default {
     }),
 
     instanceOfRequestMethod({
+      name: "update",
+      method: "PUT",
+      path: "/me",
+      requireOne: ["first_name", "last_name", "email", "phone"],
+      requiresAuth: true
+    }),
+
+    instanceOfRequestMethod({
       name: "current",
       method: "GET",
       path: "/me",
