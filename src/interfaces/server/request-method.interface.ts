@@ -4,7 +4,8 @@ export interface RequestMethodInterface {
     name: string;
     method: string;
     path: string;
-    required?: string[];
+    required?: Array<string>;//All of these fields must be present
+    requireOne?: Array<string>;//At least one of these fields must be present
     requiresAuth: boolean;
     encode: any;
 
@@ -21,6 +22,7 @@ export const instanceOfRequestMethod = (base: any = {}): RequestMethodInterface 
             path: '',
             name: '',
             required: [],
+            requireOne: [],
             requiresAuth: true,
             encode: (data: any) => data,
         },
