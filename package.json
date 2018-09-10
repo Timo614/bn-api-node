@@ -4,7 +4,7 @@
   "description": "Bigneon Javascript Middleware",
   "main": "./dist/bundle.client.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run build-tsc && ./node_modules/.bin/mocha test/index.js",
     "build": "npm run build-tsc && ./node_modules/.bin/webpack --config ./build/webpack.config.js",
     "build-web": "./node_modules/.bin/webpack --config ./build/webpack.browser.js",
     "build-server": "./node_modules/.bin/webpack --config ./build/webpack.server.js",
@@ -30,6 +30,8 @@
   ],
   "homepage": "https://github.com/big-neon/bn-api-node#readme",
   "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
     "ts-loader": "^4.5.0",
     "typescript": "^3.0.1",
     "webpack": "^4.17.0",
