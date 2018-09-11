@@ -1,7 +1,7 @@
 import {createTicketPricing, TicketPricingInterface} from "./ticket-pricing.interface";
 
 export interface TicketInterface {
-    id?: string;
+    readonly id?: string;
     event_id: string;
     name: string;
     description?: string;
@@ -9,12 +9,14 @@ export interface TicketInterface {
     end_date: Date;
     quantity: number;
     limit: number;//Per person
-    pricing: Array<TicketPricingInterface>;
+    price_points: Array<TicketPricingInterface>;
+    readonly created_at?: Date;
+    readonly updated_at?: Date;
 }
 
 export const createTicket = (base: any = {}): TicketInterface => {
-    if (base && base.pricing) {
-        base.pricing = base.pricing.map((ticketPricing: any) => createTicketPricing(ticketPricing));
+    if (base && base.price_points) {
+        base.price_points = base.price_points.map((ticketPricing: any) => createTicketPricing(ticketPricing));
     }
     return {
         ...{
@@ -26,7 +28,9 @@ export const createTicket = (base: any = {}): TicketInterface => {
             end_date: "",
             quantity: 0,
             limit: 0,//Per person
-            pricing: []
+            price_points: [],
+            created_at: "",
+            updated_at: "",
         },
         ...base
     } as TicketInterface;

@@ -5,28 +5,26 @@ export default {
     path: "events/{event_id}/tickets",
 
     methods: [
+        /**
+         * Create a ticket type
+         * @name create
+         * @param params {TicketInterface}
+         * @return TicketInterface
+         */
         instanceOfRequestMethod({
             name: "create",
             method: "POST",
             path: "",
-            required: ["event_id", "name", "start_date", "end_date", "quantity", "limit", "pricing"],
+            required: ["event_id", "name"],
             requiresAuth: true
         }),
 
-        instanceOfRequestMethod({
-            name: "edit",
-            method: "PUT",
-            path: "/{id}",
-            required: ["event_id", "id"],
-            requiresAuth: true
-        }),
-        instanceOfRequestMethod({
-            name: "delete",
-            method: "DELETE",
-            path: "/{id}",
-            required: ["event_id", "id"],
-            requiresAuth: true
-        }),
+        /**
+         * Get a list of tickets for the event
+         * @name index
+         * @param params {event_id}
+         * @return Array<TicketInterface>
+         */
         instanceOfRequestMethod({
             name: "index",
             method: "GET",
@@ -35,6 +33,31 @@ export default {
             requiresAuth: false
         }),
 
+        /**
+         * @notimplemented
+         */
+        instanceOfRequestMethod({
+            name: "edit",
+            method: "PUT",
+            path: "/{id}",
+            required: ["event_id", "id"],
+            requiresAuth: true
+        }),
+
+        /**
+         * @notimplemented
+         */
+        instanceOfRequestMethod({
+            name: "delete",
+            method: "DELETE",
+            path: "/{id}",
+            required: ["event_id", "id"],
+            requiresAuth: true
+        }),
+
+        /**
+         * @notimplemented
+         */
         instanceOfRequestMethod({
             name: "find",
             method: "GET",

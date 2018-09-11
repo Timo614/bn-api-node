@@ -8,7 +8,7 @@ export default {
         /**
          * Add your interest to an event
          * @name create
-         *
+         * @return EventInterestInterface
          */
         instanceOfRequestMethod({
             name: "create",
@@ -21,6 +21,7 @@ export default {
         /**
          * Remove your interest from an event
          * @name delete
+         * @return EventInterestInterface
          */
         instanceOfRequestMethod({
             name: "delete",
