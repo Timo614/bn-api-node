@@ -1,6 +1,7 @@
-import Auth from './auth';
-import Users from './users';
 import Artist from './artists';
+import Auth from './auth';
+import Cart from './cart';
+import Users from './users';
 import Status from './status';
 import Event from './event';
 import EventTicket from './event-tickets';
@@ -9,9 +10,10 @@ import Venue from './venue';
 export default {
     artist: Artist,
     auth: Auth,
+    cart: Cart,
+    event: Event,
     status: Status,
     users: Users,
-    event: Event,
     organization: Organization,
     venue: Venue,
     eventTicket: EventTicket

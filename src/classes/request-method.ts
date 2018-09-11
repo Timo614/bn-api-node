@@ -44,6 +44,43 @@ export class RequestMethod {
         return newPath;
     }
 
+    /**
+     * Checks the if any required fields are present in the data object
+     * @param method
+     * @param data
+     * @private
+     * @throws
+     */
+    _requiredFieldsPresent(method: RequestMethodInterface, data:any = {}) {
+        let missingRequiredFields = [];
+        method.required = method.required || [];
+
+        for (let i in method.required) {
+            let requiredField = method.required[i];
+            if (!data.hasOwnProperty(requiredField)) {
+                missingRequiredFields.push(requiredField);
+            }
+        }
+        if (missingRequiredFields.length) {
+            throw `There are required fields missing: ${method.required.join(', ')}`;
+        }
+
+        method.requireOne = method.requireOne || [];
+
+        if (method.requireOne.length) {
+            for (let i in method.requireOne) {
+                let requiredField = method.requireOne[i];
+                if (data.hasOwnProperty(requiredField)) {
+                    return true;
+                }
+            }
+            throw `At least one of these fields is missing: ${method.requireOne.join(', ')}`;
+        }
+
+
+        return true;
+    }
+
     _request(method: RequestMethodInterface): any {
         return (data: any = {}, headers: any = {}, returnDataOnly: boolean = false) => {
             let path = `${this.path}${method.path}`.replace(/\/\//g, '/');
@@ -51,6 +88,7 @@ export class RequestMethod {
 
             try {
                 path = this._replacePathVariables(path, data);
+                this._requiredFieldsPresent(method, data);
             } catch (e) {
                 return Promise.reject(e);
             }

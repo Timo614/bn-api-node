@@ -17,8 +17,9 @@ module.exports = ((global) => {
 
             it('The first event is called Event 1', () => {
                 assert.strictEqual(events[0].name, 'Event 1', 'The first event is named Event 1');
-            })
+            });
         });
+
 
     })
 });
