@@ -96,6 +96,7 @@ export class RequestMethod {
             if (method.beforeRequest) {
                 method.beforeRequest(this.client, method, data, headers);
             }
+
             let axiosInstance = method.requiresAuth ? this.client.getAuthAgent(headers) : this.client.getPublicAgent(headers);
 
             let promise;
