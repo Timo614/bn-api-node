@@ -1,49 +1,70 @@
-import { instanceOfRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
-import { ArtistInterface } from "../interfaces/resources/artist.interface";
+import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {ResourceInterface} from "../interfaces/server/resource";
+import {ArtistInterface} from "../interfaces/resources/artist.interface";
 
 export default {
-  path: "artists",
+    path: "artists",
 
-  methods: [
-    instanceOfRequestMethod({
-      name: "create",
-      method: "POST",
-      path: "",
-      required: ["name", "bio"],
-      requiresAuth: true
-    }),
+    methods: [
+        /**
+         * Get a single artist
+         * @param id
+         */
+        instanceOfRequestMethod({
+            name: "read",
+            method: "GET",
+            path: "/{id}",
+            required: ['id'],
+            requiresAuth: false
+        }),
 
-    instanceOfRequestMethod({
-      name: "edit",
-      method: "PUT",
-      path: "",
-      required: ["name", "bio"],
-      requiresAuth: true
-    }),
+        /**
+         * Edit an artist
+         * @param id
+         */
+        instanceOfRequestMethod({
+            name: "edit",
+            method: "PUT",
+            path: "/{id}",
+            required: ["id"],
+            requireOne: ["name", "bio"],
+            requiresAuth: true
+        }),
 
-    instanceOfRequestMethod({
-      name: "index",
-      method: "GET",
-      path: "",
-      required: [],
-      requiresAuth: true
-    }),
+        /**
+         * List artists
+         * @TODO Add pagination params
+         */
+        instanceOfRequestMethod({
+            name: "index",
+            method: "GET",
+            path: "",
+            required: [],
+            requiresAuth: true
+        }),
 
-    instanceOfRequestMethod({
-      name: "find",
-      method: "GET",
-      path: "",
-      required: [],
-      requiresAuth: true
-    }),
-
-    instanceOfRequestMethod({
-      name: "read",
-      method: "GET",
-      path: "/{id}",
-      required: [],
-      requiresAuth: true
-    })
-  ]
+        /**
+         * Find artists
+         * @notimplemented
+         */
+        instanceOfRequestMethod({
+            name: "find",
+            method: "GET",
+            path: "",
+            required: [],
+            requiresAuth: true
+        }),
+        /**
+         * Create an artist
+         * @param name
+         * @param bio
+         */
+        instanceOfRequestMethod({
+            name: "create",
+            method: "POST",
+            path: "",
+            required: ["name", "bio"],
+            requiresAuth: true
+        }),
+    ]
 } as ResourceInterface;

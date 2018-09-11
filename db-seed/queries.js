@@ -28,6 +28,54 @@ function readFile(path) {
     return csv(csv_data, { columns: true, trim: true });
 }
 
+/**
+ * Compares a row from the database and an instance of a resource interface
+ * If the fields match except for the excluded fields the test passes
+ * @param dbRow
+ * @param interfaceInstance
+ * @param message
+ * @param excludedFields
+ */
+function assertFieldsMatch(dbRow, interfaceInstance, message = '', excludedFields = ['id', 'created_at', 'updated_at']) {
+    dbRow = {...dbRow};
+    interfaceInstance = {...interfaceInstance};
+
+    excludedFields.forEach(field => {
+        delete dbRow[field];
+        delete interfaceInstance[field];
+    });
+
+    let interfaceFieldsMissing =[ ];
+    let dbFieldsMissing = [];
+
+    Object.keys(dbRow).forEach(dbField => {
+        delete dbRow[dbField];
+        if (!interfaceInstance.hasOwnProperty(dbField)) {
+            interfaceFieldsMissing.push(dbField);
+        }
+        delete interfaceInstance[dbField];
+    });
+    Object.keys(interfaceInstance).forEach(interfaceField => {
+        delete interfaceInstance[interfaceField];
+        if (!dbRow.hasOwnProperty(interfaceField)) {
+            dbFieldsMissing.push(interfaceField);
+        }
+        delete interfaceInstance[interfaceField];
+    });
+
+    let errorStrings = [];
+    if (interfaceFieldsMissing.length) {
+        errorStrings.push(`The Interface is missing: ${interfaceFieldsMissing.join(', ')}`);
+    }
+    if (dbFieldsMissing.length) {
+        errorStrings.push(`The DB is missing ${dbFieldsMissing.join(', ')}`);
+    }
+    if (errorStrings.length) {
+        assert.strictEqual(0, errorStrings.length, message + errorStrings.join(' ') );
+    }
+
+}
+
 function assertAPICall(seedOnly, path, result, expected) {
     let status = { success: true, message: `${path}: ${JSON.stringify(expected)}` };
     if (seedOnly) {
@@ -63,5 +111,6 @@ module.exports = {
     server: server,
     checkStatus: checkStatus,
     readCSV: readFile,
-    shouldFail: shouldFail
+    shouldFail: shouldFail,
+    assertFieldsMatch:assertFieldsMatch
 };
