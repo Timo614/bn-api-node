@@ -36,6 +36,8 @@ export default {
         /**
          * List artists
          * @name index
+         * @param params {paginationParams}
+         * @return Array<ArtistInterface>
          * @TODO Add pagination params
          */
         instanceOfRequestMethod({

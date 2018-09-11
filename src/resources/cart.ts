@@ -1,6 +1,9 @@
 import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
+/**
+ * @alias order
+ */
 export default {
     path: "cart",
 

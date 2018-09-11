@@ -9,8 +9,8 @@ export interface ArtistInterface {
     snapchat_username?: string;
     soundcloud_username?: string;
     bandcamp_username?: string;
-    readonly created_at?: string;
-    readonly updated_at?: string;
+    readonly created_at?: Date;
+    readonly updated_at?: Date;
 }
 
 export const createArtist = (base: any = {}): ArtistInterface => {

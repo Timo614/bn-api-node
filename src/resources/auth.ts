@@ -9,7 +9,7 @@ export default {
          * Authenticate a user
          * @name create
          * @param params {email, password}
-         *
+         * @returns UserInterface
          */
         instanceOfRequestMethod({
             name: 'create',
