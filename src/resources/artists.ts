@@ -8,7 +8,8 @@ export default {
     methods: [
         /**
          * Get a single artist
-         * @param id
+         * @name read
+         * @param params {id}
          */
         instanceOfRequestMethod({
             name: "read",
@@ -20,7 +21,8 @@ export default {
 
         /**
          * Edit an artist
-         * @param id
+         * @name edit
+         * @param params {id}
          */
         instanceOfRequestMethod({
             name: "edit",
@@ -33,6 +35,7 @@ export default {
 
         /**
          * List artists
+         * @name index
          * @TODO Add pagination params
          */
         instanceOfRequestMethod({
@@ -45,6 +48,8 @@ export default {
 
         /**
          * Find artists
+         * @name find
+         * @params {}
          * @notimplemented
          */
         instanceOfRequestMethod({

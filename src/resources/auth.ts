@@ -5,6 +5,12 @@ export default {
     path: 'auth',
 
     methods: [
+        /**
+         * Authenticate a user
+         * @name create
+         * @param params {email, password}
+         *
+         */
         instanceOfRequestMethod({
             name: 'create',
             method: 'POST',
@@ -17,11 +23,17 @@ export default {
             }
         }),
 
+        /**
+         * Refresh a user's auth token
+         * @name refresh
+         * @param params {refresh_token}
+         */
         instanceOfRequestMethod({
             name: 'refresh',
             method: 'POST',
             path: '/token/refresh',
             required: ['refresh_token'],
+            requiresAuth: false,
         }),
     ]
 
