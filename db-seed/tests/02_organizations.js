@@ -15,7 +15,7 @@ describe('/organizations/', function () {
 
     orgs.forEach(function (org) {
         it(`SuperUser registers ${org.name}`, async function () {
-            let result = await global.admin.organization.create({ owner_user_id: global.orgOwner1.id, ...org });
+            let result = await global.adminServer.organization.create({ owner_user_id: global.orgOwner1.id, ...org });
             assert.strictEqual(result.status, 201, `${org.name} was not added; ${result.data}`);
             global.organizations[result.data.name] = result.data;
         });

@@ -17,11 +17,29 @@ export class RequestMethod {
             let method: RequestMethodInterface = resource.methods[i];
             let name: string = method.name;
             let request: any = this._request(method);
-            self[name] = request;
+            let namespace = self;
+            //This allows us to nest methods in a namespace
+            if (method.namespace) {
+                if (!self.hasOwnProperty(method.namespace)) {
+                    self[method.namespace] = {};
+                }
+                namespace = self[method.namespace];
+            }
+            //Attach the request method to the namespace
+            namespace[name] = request;
         }
     }
 
-    _replacePathVariables(path: string, data: any = {}, removeDataAfterReplace: boolean = true): string {
+    /**
+     * Checks for {key} in the path and replaces it with the value in the data object
+     * @param path
+     * @param data
+     * @param method
+     * @private
+     */
+    _replacePathVariables(path: string, data: any = {}, method: RequestMethodInterface): string {
+        let listOfRequiredFields = [].concat(method.requireOne || []).concat(method.required || []);
+
         let regex = /{([a-zA-Z0-9_-]+)}/g;
         let newPath = path;
         let matches;
@@ -32,7 +50,8 @@ export class RequestMethod {
                 if (data.hasOwnProperty(dataKey)) {
                     let dataValue = data[dataKey];
                     newPath = newPath.replace(matches[0], dataValue);
-                    if (removeDataAfterReplace) {
+                    //Remove the data key if it is not required
+                    if (listOfRequiredFields.indexOf(dataKey) === -1) {
                         delete data[dataKey];
                     }
                 } else {
@@ -44,13 +63,52 @@ export class RequestMethod {
         return newPath;
     }
 
+    /**
+     * Checks the if any required fields are present in the data object
+     * @param method
+     * @param data
+     * @param path
+     * @private
+     * @throws
+     */
+    _requiredFieldsPresent(method: RequestMethodInterface, data: any = {}, path = '') {
+        let missingRequiredFields = [];
+        method.required = method.required || [];
+
+        for (let i in method.required) {
+            let requiredField = method.required[i];
+            if (!data.hasOwnProperty(requiredField)) {
+                missingRequiredFields.push(requiredField);
+            }
+        }
+        if (missingRequiredFields.length) {
+            throw `${path} is expecting these fields: ${method.required.join(', ')}`;
+        }
+
+        method.requireOne = method.requireOne || [];
+
+        if (method.requireOne.length) {
+            for (let i in method.requireOne) {
+                let requiredField = method.requireOne[i];
+                if (data.hasOwnProperty(requiredField)) {
+                    return true;
+                }
+            }
+            throw `${path} is expecting at least one of these fields: ${method.requireOne.join(', ')}`;
+        }
+
+
+        return true;
+    }
+
     _request(method: RequestMethodInterface): any {
         return (data: any = {}, headers: any = {}, returnDataOnly: boolean = false) => {
             let path = `${this.path}${method.path}`.replace(/\/\//g, '/');
             // If the path has any {identifier} parameter, replace it with the data[identifier] key
 
             try {
-                path = this._replacePathVariables(path, data);
+                this._requiredFieldsPresent(method, data || {}, path);
+                path = this._replacePathVariables(path, data, method);
             } catch (e) {
                 return Promise.reject(e);
             }
@@ -58,6 +116,7 @@ export class RequestMethod {
             if (method.beforeRequest) {
                 method.beforeRequest(this.client, method, data, headers);
             }
+
             let axiosInstance = method.requiresAuth ? this.client.getAuthAgent(headers) : this.client.getPublicAgent(headers);
 
             let promise;
@@ -74,6 +133,9 @@ export class RequestMethod {
                         break;
                     case 'PUT':
                         promise = axiosInstance.put(path, data);
+                        break;
+                    case 'PATCH':
+                        promise = axiosInstance.patch(path, data);
                         break;
                     case 'DELETE':
                         promise = axiosInstance.delete(path, {params: data});

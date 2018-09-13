@@ -45,6 +45,10 @@ export default class XhrClient {
     }
 
     public getPublicAgent(headers: any = {}) {
+        if (this.token) {
+            //Always attempt to send an authed one if there is a token
+            return this.getAuthAgent(headers);
+        }
         return this._getAgent(headers);
     }
 

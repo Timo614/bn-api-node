@@ -15,7 +15,7 @@ describe('/venues/', function () {
 
     venues.forEach(function (venue) {
         it(`SuperUser registers ${venue.name}`, async function () {
-            let result = await global.admin.venue.create(venue);
+            let result = await global.adminServer.venue.create(venue);
             assert.strictEqual(result.status, 201, `${venue.name} was not added; ${result.data}`);
             global.venues[result.data.name] = result.data;
         });

@@ -1,4 +1,6 @@
 import {createTicket, TicketInterface} from "./ticket.interface";
+import {EventArtistInterface} from "./event-artist.interface";
+import {EventInterestInterface} from "./event-interest.interface";
 
 export interface EventInterface {
     id?: string;
@@ -14,14 +16,18 @@ export interface EventInterface {
     additional_info?: string;
     age_limit?: number;
     external_url?: string;
-    created_at?: Date;
+    status?: string;
     ticket_sell_date?: Date;
-    tickets: Array<TicketInterface>;
+    cancelled_at?: Date;
+    created_at?: Date;
+    updated_at?:Date;
 
+    tickets: Array<TicketInterface>;
+    artists?: Array<EventArtistInterface>;
+    interests?: Array<EventInterestInterface>;
 
     blockchain_id?: string;
     blockchain_expiry_date: number;//Unix timestamp or block height
-
 }
 
 export const createEvent = (base: any = {}): EventInterface => {
@@ -45,6 +51,9 @@ export const createEvent = (base: any = {}): EventInterface => {
             door_time: "",
             publish_date: "",
             tickets: [],
+            artists: [],
+            interests: [],
+            cancelled_at: "",
             blockchain_id: "",
             blockchain_expiry_date: 0,
         },

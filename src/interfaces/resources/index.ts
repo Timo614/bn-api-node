@@ -1,5 +1,4 @@
 import {createArtist} from "./artist.interface";
-import {createCart} from "./cart.interface";
 import {createEvent} from "./event.interface";
 import {createEventArtist} from "./event-artist.interface";
 import {createEventHistory} from "./event-histories.interface";
@@ -13,7 +12,6 @@ import {createUser} from "./user.interface";
 
 export default {
     createArtist,
-    createCart,
     createEvent,
     createEventArtist,
     createEventHistory,

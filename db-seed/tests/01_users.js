@@ -18,7 +18,7 @@ describe('Users', function() {
         it('logs in', async function () {
             let result = await superUser.auth.create(global.userData.superadmin);
             assert.strictEqual(result.status, 200);
-            global.admin = superUser;
+            global.adminServer = superUser;
         });
     });
 
