@@ -5,6 +5,20 @@ export default {
     path: "organizations",
 
     methods: [
+
+        /**
+         * Invite a user to the organization
+         * @name invite
+         * @param params {id, user_id | user_email}
+         */
+        instanceOfRequestMethod({
+            name: "invite",
+            method: "POST",
+            path: "/{id}/invite",
+            required: ["id"],
+            requireOne: ["user_id", "user_email"],
+            requiresAuth: true
+        }),
         instanceOfRequestMethod({
             name: "create",
             method: "POST",
@@ -53,6 +67,7 @@ export default {
             requiresAuth: true
 
         }),
+
 
 
     ]

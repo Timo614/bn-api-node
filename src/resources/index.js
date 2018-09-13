@@ -5,6 +5,7 @@ import Event from './event';
 import EventArtist from './event-artists';
 import EventInterest from './event-interests';
 import EventTicket from './event-tickets';
+import Invitations from './invitations';
 
 import Users from './users';
 import Status from './status';
@@ -18,6 +19,7 @@ export default {
     eventArtist: EventArtist,
     eventInterest:EventInterest,
     eventTicket: EventTicket,
+    invitation: Invitations,
     status: Status,
     users: Users,
     organization: Organization,

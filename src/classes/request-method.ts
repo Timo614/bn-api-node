@@ -21,7 +21,7 @@ export class RequestMethod {
         }
     }
 
-    _replacePathVariables(path: string, data: any = {}, removeDataAfterReplace: boolean = true): string {
+    _replacePathVariables(path: string, data: any = {}, removeDataAfterReplace: boolean = false): string {
         let regex = /{([a-zA-Z0-9_-]+)}/g;
         let newPath = path;
         let matches;
@@ -48,10 +48,11 @@ export class RequestMethod {
      * Checks the if any required fields are present in the data object
      * @param method
      * @param data
+     * @param path
      * @private
      * @throws
      */
-    _requiredFieldsPresent(method: RequestMethodInterface, data:any = {}) {
+    _requiredFieldsPresent(method: RequestMethodInterface, data:any = {}, path = '') {
         let missingRequiredFields = [];
         method.required = method.required || [];
 
@@ -62,7 +63,7 @@ export class RequestMethod {
             }
         }
         if (missingRequiredFields.length) {
-            throw `There are required fields missing: ${method.required.join(', ')}`;
+            throw `${path} is expecting these fields: ${method.required.join(', ')}`;
         }
 
         method.requireOne = method.requireOne || [];
@@ -74,7 +75,7 @@ export class RequestMethod {
                     return true;
                 }
             }
-            throw `At least one of these fields is missing: ${method.requireOne.join(', ')}`;
+            throw `${path} is expecting at least one of these fields: ${method.requireOne.join(', ')}`;
         }
 
 
@@ -87,8 +88,8 @@ export class RequestMethod {
             // If the path has any {identifier} parameter, replace it with the data[identifier] key
 
             try {
+                this._requiredFieldsPresent(method, data || {}, path);
                 path = this._replacePathVariables(path, data);
-                this._requiredFieldsPresent(method, data);
             } catch (e) {
                 return Promise.reject(e);
             }

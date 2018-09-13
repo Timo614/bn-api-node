@@ -22,7 +22,7 @@ describe('Artists', function() {
     artists.forEach(function(artist) {
         it(`SuperUser registers ${artist.name}`, async function() {
             const art = normalizeArtist(artist);
-            let result = await global.admin.artist.create(art);
+            let result = await global.adminServer.artist.create(art);
             assert.strictEqual(result.status, 201, `${artist.name} was not added; ${result.data}`);
         });
     });

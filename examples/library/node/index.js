@@ -1,6 +1,13 @@
 const Bigneon = require('../../../dist/bundle.node.js').default;
 // console.log(Bigneon.resourceInterfaces.createArtist());
 let bigneon = new Bigneon.Server();
+
+(async () => {
+    let event = await bigneon.event.read({id: 'b0edbfce-e806-463f-898f-073b0feb52bd'});
+    console.log(event.data);
+
+})();
+return;
 //
 // const s = require('../../../dist/classes/server').Server;
 //
