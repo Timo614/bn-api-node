@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
 export default {
@@ -12,7 +12,7 @@ export default {
          * @return
          * @TODO change the url and the method when big-neon/bn-api#277 is merged
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "accept",
             method: "GET",
             path: "/accept_invite",
@@ -26,7 +26,7 @@ export default {
          * @return
          * @TODO change the url and the method when big-neon/bn-api#277 is merged
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "decline",
             method: "GET",
             path: "/decline_invite",
@@ -41,7 +41,7 @@ export default {
          * @return Invitation
          * @TODO change the url and the method when big-neon/bn-api#277 is merged
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "read",
             method: "GET",
             path: "",

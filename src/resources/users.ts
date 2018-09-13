@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
 export default {
@@ -11,7 +11,7 @@ export default {
          * @name create
          * @return
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "create",
             method: "POST",
             path: "/register",
@@ -22,7 +22,7 @@ export default {
         /**
          * Update your own user
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "update",
             method: "PUT",
             path: "/me",
@@ -33,7 +33,7 @@ export default {
         /**
          * Get your current user
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "current",
             method: "GET",
             path: "/me",
@@ -46,7 +46,7 @@ export default {
          * @name index
          * @return Array<UserInterface>
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "index",
             method: "GET",
             path: "",
@@ -58,7 +58,7 @@ export default {
          * Find a user
          * @notimplemented
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "find",
             method: "GET",
             path: "",
@@ -72,7 +72,7 @@ export default {
          * @param {id}
          * @return UserInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "read",
             method: "GET",
             path: "/{id}",
@@ -85,7 +85,7 @@ export default {
          * @name organization.index
          * @return Array<UserInterface>
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'organizations',
             name: "index",
             method: "GET",

@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
 export default {
@@ -11,7 +11,7 @@ export default {
          * @param params {id}
          * @return RegionInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "read",
             method: "GET",
             path: "/{id}",
@@ -25,7 +25,7 @@ export default {
          * @param params {id, ...RegionInterface}
          * @return RegionInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "update",
             method: "PUT",
             path: "/{id}",
@@ -39,7 +39,7 @@ export default {
          * @param {RegionInterface}
          * @return RegionInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "create",
             method: "POST",
             path: "",
@@ -52,7 +52,7 @@ export default {
          * @name index
          * @return Array<RegionInterface>
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "index",
             method: "GET",
             path: "",

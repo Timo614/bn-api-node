@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
 export default {
@@ -12,7 +12,7 @@ export default {
          * @param params {EventArtistInterface}
          * @return EventArtistInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "create",
             method: "POST",
             path: "",
@@ -24,7 +24,7 @@ export default {
          * Update event artist list
          * Pushes an array of UpdateArtistRequest over the existing data
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "update",
             method: "PUT",
             path: "/{id}",

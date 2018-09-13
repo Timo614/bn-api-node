@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
 export default {
@@ -9,7 +9,7 @@ export default {
          * Create a venue
          * @name create
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "create",
             method: "POST",
             path: "",
@@ -17,7 +17,7 @@ export default {
             requiresAuth: true
         }),
 
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "update",
             method: "PUT",
             path: "/{id}",
@@ -28,7 +28,7 @@ export default {
         /**
          * @name index
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "index",
             method: "GET",
             path: "",
@@ -39,7 +39,7 @@ export default {
         /**
          * @notimplemented
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "find",
             method: "GET",
             path: "",
@@ -51,7 +51,7 @@ export default {
          * Get a venue
          * @name read
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "read",
             method: "GET",
             path: "/{id}",
@@ -63,7 +63,7 @@ export default {
          * Get a list of events at a venue
          * @name events.index
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'events',
             name: "index",
             method: "GET",
@@ -76,7 +76,7 @@ export default {
          * Add venue to an organization
          * @name events.index
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'organizations',
             name: "create",
             method: "POST",

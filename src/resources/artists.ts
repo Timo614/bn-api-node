@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 import {ArtistInterface} from "../interfaces/resources/artist.interface";
 
@@ -11,7 +11,7 @@ export default {
          * @name read
          * @param params {id}
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "read",
             method: "GET",
             path: "/{id}",
@@ -24,7 +24,7 @@ export default {
          * @name update
          * @param params {id}
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "update",
             method: "PUT",
             path: "/{id}",
@@ -40,7 +40,7 @@ export default {
          * @return Array<ArtistInterface>
          * @TODO Add pagination params
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "index",
             method: "GET",
             path: "",
@@ -54,7 +54,7 @@ export default {
          * @params {}
          * @notimplemented
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "find",
             method: "GET",
             path: "",
@@ -66,7 +66,7 @@ export default {
          * @param name
          * @param bio
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "create",
             method: "POST",
             path: "",

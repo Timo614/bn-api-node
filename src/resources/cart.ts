@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
 /**
@@ -15,7 +15,7 @@ export default {
          * @param params {ticket_type_id:string, quantity}
          * @returns OrderInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "add",
             method: "POST",
             path: "",

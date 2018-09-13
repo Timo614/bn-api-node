@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
 export default {
@@ -13,7 +13,7 @@ export default {
          * @TODO add pagination
          */
 
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "index",
             method: "GET",
             path: "",
@@ -28,7 +28,7 @@ export default {
          * @return Array<EventInterface>
          * @notimplemented
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "find",
             method: "GET",
             path: "",
@@ -42,7 +42,7 @@ export default {
          * @param params EventInterface
          * @return EventInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "create",
             method: "POST",
             path: "",
@@ -56,7 +56,7 @@ export default {
          * @param params EventInterface
          * @return EventInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "update",
             method: "PUT",
             path: "/{id}",
@@ -69,7 +69,7 @@ export default {
          * @param params {id}
          * @return EventInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "delete",
             method: "DELETE",
             path: "/{id}",
@@ -83,7 +83,7 @@ export default {
          * @param params {id}
          * @return EventInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "read",
             method: "GET",
             path: "/{id}",

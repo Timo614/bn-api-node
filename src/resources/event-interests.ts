@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
 export default {
@@ -10,7 +10,7 @@ export default {
          * @name create
          * @return EventInterestInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "create",
             method: "POST",
             path: "",
@@ -23,7 +23,7 @@ export default {
          * @name delete
          * @return EventInterestInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "delete",
             method: "DELETE",
             path: "",

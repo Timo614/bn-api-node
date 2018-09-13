@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
 export default {
@@ -11,7 +11,7 @@ export default {
          * @param params {TicketInterface}
          * @return TicketInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "create",
             method: "POST",
             path: "",
@@ -25,7 +25,7 @@ export default {
          * @param params {event_id}
          * @return Array<TicketInterface>
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "index",
             method: "GET",
             path: "",
@@ -36,7 +36,7 @@ export default {
         /**
          * @notimplemented
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "update",
             method: "PUT",
             path: "/{id}",
@@ -47,7 +47,7 @@ export default {
         /**
          * @notimplemented
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "delete",
             method: "DELETE",
             path: "/{id}",
@@ -58,7 +58,7 @@ export default {
         /**
          * @notimplemented
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "find",
             method: "GET",
             path: "",
@@ -66,7 +66,7 @@ export default {
             requiresAuth: false
         }),
 
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "read",
             method: "GET",
             path: "/{id}",

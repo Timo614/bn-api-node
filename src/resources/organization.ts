@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
 export default {
@@ -12,7 +12,7 @@ export default {
          * @param params {id}
          * @return OrganizationInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "read",
             method: "GET",
             path: "/{id}",
@@ -26,7 +26,7 @@ export default {
          * @param params {id, ...OrganizationInterface}
          * @return OrganizationInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "update",
             method: "PATCH",
             path: "/{id}",
@@ -40,7 +40,7 @@ export default {
          * @param {OrganizationInterface}
          * @return OrganizationInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "create",
             method: "POST",
             path: "",
@@ -53,7 +53,7 @@ export default {
          * @name index
          * @return Array<OrganizationInterface>
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "index",
             method: "GET",
             path: "",
@@ -67,7 +67,7 @@ export default {
          * @return Array<OrganizationInterface>
          * @notimplemented
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "find",
             method: "GET",
             path: "",
@@ -83,7 +83,7 @@ export default {
          * @param params {id}
          * @return Array<ArtistInterface>
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'artists',
             name: "index",
             method: "GET",
@@ -98,7 +98,7 @@ export default {
          * @param params {ArtistInterface}
          * @return ArtistInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'artists',
             name: "create",
             method: "POST",
@@ -113,7 +113,7 @@ export default {
          * @param params {id}
          * @return Array<ArtistInterface>
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'events',
             name: "index",
             method: "GET",
@@ -128,7 +128,7 @@ export default {
          * @param params {id}
          * @return Array<FeeSchedule>
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'fee_schedule',
             name: "index",
             method: "GET",
@@ -142,7 +142,7 @@ export default {
          * @name invite.create
          * @param params {id, user_id | user_email}
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'invite',
             name: "create",
             method: "POST",
@@ -157,7 +157,7 @@ export default {
          * @name owner.update
          * @param params {id, owner_user_id}
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'owner',
             name: "update",
             method: "PUT",
@@ -171,7 +171,7 @@ export default {
          * @name users.create
          * @param params {id, user_id }
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'users',
             name: "create",
             method: "POST",
@@ -185,7 +185,7 @@ export default {
          * @name users.delete
          * @param params {id, user_id}
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'users',
             name: "delete",
             method: "DELETE",
@@ -199,7 +199,7 @@ export default {
          * @name users.index
          * @param params {id}
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'users',
             name: "index",
             method: "GET",
@@ -213,7 +213,7 @@ export default {
          * @name venues.index
          * @param params {id}
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'venues',
             name: "index",
             method: "GET",
@@ -227,7 +227,7 @@ export default {
          * @name venues.create
          * @param params {id, ...VenueInterface}
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             namespace: 'venues',
             name: "create",
             method: "POST",

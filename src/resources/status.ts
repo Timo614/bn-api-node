@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
 export default {
@@ -9,7 +9,7 @@ export default {
          * Get the status of the server
          * @name read
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: 'read',
             method: 'GET',
             path: '',

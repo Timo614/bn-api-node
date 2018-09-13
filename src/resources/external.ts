@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
 export default {
@@ -11,7 +11,7 @@ export default {
          * @param params {facebookResponse}
          * @return AuthResponse
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: "facebookLogin",
             method: "POST",
             path: "/facebook/web_login",

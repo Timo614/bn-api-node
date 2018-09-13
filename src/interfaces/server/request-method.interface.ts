@@ -14,7 +14,7 @@ export interface RequestMethodInterface {
 
 }
 
-export const instanceOfRequestMethod = (base: any = {}): RequestMethodInterface => {
+export const createRequestMethod = (base: any = {}): RequestMethodInterface => {
     return {
         ...{
             namespace: '',

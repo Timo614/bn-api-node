@@ -1,4 +1,4 @@
-import {instanceOfRequestMethod} from "../interfaces/server/request-method.interface";
+import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
 
 export default {
@@ -11,7 +11,7 @@ export default {
          * @param params {email, password}
          * @returns UserInterface
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: 'create',
             method: 'POST',
             path: '/token',
@@ -28,7 +28,7 @@ export default {
          * @name refresh
          * @param params {refresh_token}
          */
-        instanceOfRequestMethod({
+        createRequestMethod({
             name: 'refresh',
             method: 'POST',
             path: '/token/refresh',
