@@ -5,8 +5,12 @@ export default {
     path: 'status',
 
     methods: [
+        /**
+         * Get the status of the server
+         * @name read
+         */
         instanceOfRequestMethod({
-            name: 'get',
+            name: 'read',
             method: 'GET',
             path: '',
             requiresAuth: false

@@ -9,7 +9,7 @@ const assert = require('assert');
  * Returns a promise for a boolean for the status of the API server
  */
 function checkStatus() {
-    return server.status.get().then(res => {
+    return server.status.read().then(res => {
         return res.status === 200;
     }).catch(err => {
         console.error(err.response && err.response.data || err);
