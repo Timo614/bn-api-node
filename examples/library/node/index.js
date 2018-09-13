@@ -30,14 +30,15 @@ bigneon.auth.create({
 })
     .then(async result => {
 
-        // let artist = await bigneon.organization.artist.add({id: 'aa3eb446-ffe3-4234-8f0f-bd7a053f91b0'});
-        let response = await bigneon.organization.artist.create({
-            id: 'aa3eb446-ffe3-4234-8f0f-bd7a053f91b0',
-            organization_id: 'aa3eb446-ffe3-4234-8f0f-bd7a053f91b0',
-            name: "Keith Artist",
-            bio: "A short bio"
-        });
-        console.log(response);
+        let artist = await bigneon.organization.artist.index({id: 'aa3eb446-ffe3-4234-8f0f-bd7a053f91b0'});
+        console.log(artist);
+        // let response = await bigneon.organization.artist.create({
+        //     id: 'aa3eb446-ffe3-4234-8f0f-bd7a053f91b0',
+        //     organization_id: 'aa3eb446-ffe3-4234-8f0f-bd7a053f91b0',
+        //     name: "Keith Artist",
+        //     bio: "A short bio"
+        // });
+        // console.log(response);
         // bigneon.organization.events({id: 'cda5b9f9-bd02-498a-9993-a22ac1321f42'}).then(events => {
         //     console.log(events.body);
         // });

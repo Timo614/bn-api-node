@@ -17,9 +17,9 @@ export default {
 
         instanceOfRequestMethod({
             name: "edit",
-            method: "PUT",
-            path: "",
-            required: [],
+            method: "PATCH",
+            path: "/{id}",
+            required: ['id'],
             requiresAuth: true
         }),
 
@@ -47,11 +47,18 @@ export default {
             requiresAuth: true
         }),
 
+        /**
+         * List the events that are a part of this organization
+         * @name event.index
+         * @param params {id}
+         * @return Array<ArtistInterface>
+         */
         instanceOfRequestMethod({
-            name: "events",
+            namespace: 'event',
+            name: "index",
             method: "GET",
             path: "/{id}/events",
-            required: [],
+            required: ['id'],
             requiresAuth: true
 
         }),
@@ -60,6 +67,7 @@ export default {
          * List the artists that are a part of this organization
          * @name artist.index
          * @param params {id}
+         * @return Array<ArtistInterface>
          */
         instanceOfRequestMethod({
             namespace: 'artist',
