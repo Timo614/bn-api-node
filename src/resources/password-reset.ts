@@ -6,48 +6,32 @@ export default {
 
     methods: [
         /**
-         * Accept an invitation
-         * @name accept
-         * @param params {security_token}
+         * Start the password reset process
+         * @name create
+         * @param params {email}
          * @return
-         * @TODO change the url and the method when big-neon/bn-api#277 is merged
          */
         instanceOfRequestMethod({
-            name: "accept",
-            method: "GET",
-            path: "/accept_invite",
-            required: ["security_token"],
+            name: "create",
+            method: "POST",
+            path: "",
+            required: ["email"],
             requiresAuth: false
         }),
         /**
-         * Decline an invitation
-         * @name decline
-         * @param params {security_token}
+         * Reset your password
+         * @name update
+         * @param params {password_reset_token, password}
          * @return
-         * @TODO change the url and the method when big-neon/bn-api#277 is merged
          */
         instanceOfRequestMethod({
-            name: "decline",
-            method: "GET",
-            path: "/decline_invite",
-            required: ["security_token"],
+            name: "update",
+            method: "PUT",
+            path: "",
+            required: ["password_reset_token", "password"],
             requiresAuth: false
         }),
 
-        /**
-         * View an invitation
-         * @name read
-         * @param params {security_token}
-         * @return Invitation
-         * @TODO change the url and the method when big-neon/bn-api#277 is merged
-         */
-        instanceOfRequestMethod({
-            name: "read",
-            method: "GET",
-            path: "",
-            required: ["security_token"],
-            requiresAuth: false
-        }),
 
 
     ]
