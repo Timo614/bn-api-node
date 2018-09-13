@@ -10,22 +10,22 @@ describe('/invitations/', () => {
         let adminServer, org;
         it('Invites a user that exists alice@token.com ', async () => {
             adminServer = await global.getAdminServer();
-            let orgs = await adminServer.organization.index();
+            let orgs = await adminServer.organizations.index();
             org = orgs.data[0];
 
-            // let response = await adminServer.organization.invite.create({id: org.id, user_email: "alice@token.com"});
+            // let response = await adminServer.organizations.invite.create({id: org.id, user_email: "alice@token.com"});
             // assert.strictEqual(response.status, 200);
             // console.log(response);
         });
 
         it('Invites a new user bob@sagget.com', async () => {
-            // let response = await adminServer.organization.invite.create({id: org.id, user_email: "bob@sagget.com"});
+            // let response = await adminServer.organizations.invite.create({id: org.id, user_email: "bob@sagget.com"});
             // assert.strictEqual(response.status, 500);
 
         });
 
         it('Invites an invalid email that doesn\'t exist asdf😰kkruigfvsa.asdnf3', () => {
-            // return q.shouldFail(adminServer.organization.invite.create({
+            // return q.shouldFail(adminServer.organizations.invite.create({
             //     id: org.id,
             //     user_email: "asdf😰kkruigfvsa.asdnf3"
             // })).then(res => {
@@ -35,15 +35,15 @@ describe('/invitations/', () => {
         describe('Invitees check, accept and decline', () => {
             it('Unauthorized user can view their invite', async () => {
 
-                // let response = await server.invitation.read({security_token: 'security_token'});
+                // let response = await server.invitations.read({security_token: 'security_token'});
             });
 
             it('Authorized user can accept their invite', async () => {
-                // let response = server.invitation.accept({security_token: 'security_token'});
+                // let response = server.invitations.accept({security_token: 'security_token'});
             });
 
             it('Unauthorized user can decline their invite', async () => {
-                // let response = server.invitation.decline({security_token: 'security_token'});
+                // let response = server.invitations.decline({security_token: 'security_token'});
             });
         })
 
