@@ -22,7 +22,7 @@ export default {
 
         /**
          * Update a single organization
-         * @name read
+         * @name update
          * @param params {id, ...OrganizationInterface}
          * @return OrganizationInterface
          */
