@@ -1,5 +1,6 @@
 export interface ArtistInterface {
     readonly id?: string;
+    readonly organization_id?: string;
     is_private?: boolean;
     name: string;
     bio: string;
@@ -19,6 +20,7 @@ export interface ArtistInterface {
 export const createArtist = (base: any = {}): ArtistInterface => {
     return {
         ...{
+            organization_id: "",
             is_private: false,
             name: "",
             bio: "",

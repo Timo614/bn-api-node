@@ -30,7 +30,16 @@ export class RequestMethod {
         }
     }
 
-    _replacePathVariables(path: string, data: any = {}, removeDataAfterReplace: boolean = true): string {
+    /**
+     * Checks for {key} in the path and replaces it with the value in the data object
+     * @param path
+     * @param data
+     * @param method
+     * @private
+     */
+    _replacePathVariables(path: string, data: any = {}, method: RequestMethodInterface): string {
+        let listOfRequiredFields = [].concat(method.requireOne || []).concat(method.required || []);
+
         let regex = /{([a-zA-Z0-9_-]+)}/g;
         let newPath = path;
         let matches;
@@ -41,7 +50,8 @@ export class RequestMethod {
                 if (data.hasOwnProperty(dataKey)) {
                     let dataValue = data[dataKey];
                     newPath = newPath.replace(matches[0], dataValue);
-                    if (removeDataAfterReplace) {
+                    //Remove the data key if it is not required
+                    if (listOfRequiredFields.indexOf(dataKey) === -1) {
                         delete data[dataKey];
                     }
                 } else {
@@ -98,7 +108,7 @@ export class RequestMethod {
 
             try {
                 this._requiredFieldsPresent(method, data || {}, path);
-                path = this._replacePathVariables(path, data, method.method === 'GET');
+                path = this._replacePathVariables(path, data, method);
             } catch (e) {
                 return Promise.reject(e);
             }

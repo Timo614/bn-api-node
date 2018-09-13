@@ -49,12 +49,12 @@ describe('/events/', function () {
         });
 
         it('an unauthenticated user cannot update an event', function () {
-            return q.shouldFail(server.event.edit({id: list[0].id, name: "My First Event"})).then(res => {
+            return q.shouldFail(server.event.update({id: list[0].id, name: "My First Event"})).then(res => {
                 assert.strictEqual(res.status, 401);
             });
         });
 
-        it('A superuser can edit an event', async function () {
+        it('A superuser can update an event', async function () {
             const response = await global.adminServer.event.update({id: list[0].id, name: "My First Event"});
             assert.strictEqual(response.status, 200);
             assert.strictEqual(response.data.name, "My First Event");

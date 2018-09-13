@@ -14,6 +14,7 @@ import TicketPricing from './ticket-pricing';
 
 import Users from './users';
 import Venue from './venue';
+
 export default {
     artist: Artist,
     auth: Auth,
