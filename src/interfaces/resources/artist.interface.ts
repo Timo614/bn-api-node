@@ -1,8 +1,11 @@
 export interface ArtistInterface {
     readonly id?: string;
+    is_private?: boolean;
     name: string;
     bio: string;
     website_url?: string;
+    image_url?: string;
+    thumb_image_url?: string;
     youtube_video_urls?: Array<string>;
     facebook_username?: string;
     instagram_username?: string;
@@ -16,9 +19,12 @@ export interface ArtistInterface {
 export const createArtist = (base: any = {}): ArtistInterface => {
     return {
         ...{
+            is_private: false,
             name: "",
             bio: "",
             website_url: "",
+            image_url: "",
+            thumb_image_url: "",
             youtube_video_urls: [],
             facebook_username: "",
             instagram_username: "",

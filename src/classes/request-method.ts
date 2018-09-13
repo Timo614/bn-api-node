@@ -19,12 +19,11 @@ export class RequestMethod {
             let request: any = this._request(method);
             let namespace = self;
             //This allows us to nest methods in a namespace
-            if (method.namespace && !self.hasOwnProperty(method.namespace)) {
-
-
-                self[method.namespace] = {};
+            if (method.namespace ) {
+                if (!self.hasOwnProperty(method.namespace)) {
+                    self[method.namespace] = {};
+                }
                 namespace = self[method.namespace];
-                console.log(method.namespace, self);
             }
             //Attach the request method to the namespace
             namespace[name] = request;
@@ -99,7 +98,7 @@ export class RequestMethod {
 
             try {
                 this._requiredFieldsPresent(method, data || {}, path);
-                path = this._replacePathVariables(path, data);
+                path = this._replacePathVariables(path, data, method.method === 'GET');
             } catch (e) {
                 return Promise.reject(e);
             }

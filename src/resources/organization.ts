@@ -58,18 +58,32 @@ export default {
 
         /**
          * List the artists that are a part of this organization
-         * @name artist.read
+         * @name artist.index
          * @param params {id}
          */
         instanceOfRequestMethod({
             namespace: 'artist',
-            name: "read",
+            name: "index",
             method: "GET",
             path: "/{id}/artists",
             required: ["id"],
             requiresAuth: true
         }),
 
+        /**
+         * Add an artist to this organization
+         * @name artist.create
+         * @param params {ArtistInterface}
+         * @return ArtistInterface
+         */
+        instanceOfRequestMethod({
+            namespace: 'artist',
+            name: "create",
+            method: "POST",
+            path: "/{id}/artists",
+            required: ["id", "organization_id", "name", "bio"],
+            requiresAuth: true
+        }),
 
         /**
          * Invite a user to the organization
@@ -85,7 +99,6 @@ export default {
             requireOne: ["user_id", "user_email"],
             requiresAuth: true
         }),
-
 
 
     ]
