@@ -1,5 +1,8 @@
 import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
+import EventArtist from './namespaced/event-artists';
+import EventInterest from './namespaced/event-interests';
+import EventTicket from './namespaced/event-tickets';
 
 export default {
     path: "events",
@@ -91,4 +94,7 @@ export default {
             requiresAuth: true
         })
     ]
+        .concat(EventArtist.methods)
+        .concat(EventInterest.methods)
+        .concat(EventTicket.methods)
 } as ResourceInterface;

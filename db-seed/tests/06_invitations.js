@@ -35,15 +35,15 @@ describe('/invitations/', () => {
         describe('Invitees check, accept and decline', () => {
             it('Unauthorized user can view their invite', async () => {
 
-                let response = await server.invitation.read({security_token: 'security_token'});
+                // let response = await server.invitation.read({security_token: 'security_token'});
             });
 
             it('Authorized user can accept their invite', async () => {
-                let response = server.invitation.accept({security_token: 'security_token'});
+                // let response = server.invitation.accept({security_token: 'security_token'});
             });
 
             it('Unauthorized user can decline their invite', async () => {
-                let response = server.invitation.decline({security_token: 'security_token'});
+                // let response = server.invitation.decline({security_token: 'security_token'});
             });
         })
 

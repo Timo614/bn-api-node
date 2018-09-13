@@ -29,9 +29,11 @@ bigneon.auth.create({
     password: 'password'
 })
     .then(async result => {
-
-        let artist = await bigneon.organization.artist.index({id: 'aa3eb446-ffe3-4234-8f0f-bd7a053f91b0'});
-        console.log(artist);
+        console.log(bigneon.event.artists);
+        let events = await bigneon.organization.events.index({id:'9885dac8-9b81-4e0b-a268-54450195f86f'});
+        console.log(events);
+        // let artist = await bigneon.organization.artist.index({id: 'aa3eb446-ffe3-4234-8f0f-bd7a053f91b0'});
+        // console.log(artist);
         // let response = await bigneon.organization.artist.create({
         //     id: 'aa3eb446-ffe3-4234-8f0f-bd7a053f91b0',
         //     organization_id: 'aa3eb446-ffe3-4234-8f0f-bd7a053f91b0',

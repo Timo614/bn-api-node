@@ -1,34 +1,36 @@
-import {createRequestMethod} from "../interfaces/server/request-method.interface";
-import {ResourceInterface} from "../interfaces/server/resource";
+import {createRequestMethod} from "../../interfaces/server/request-method.interface";
+import {ResourceInterface} from "../../interfaces/server/resource";
 
 export default {
-    path: "events/{event_id}/artists",
 
     methods: [
 
         /**
          * Add an artist to an event
-         * @name create
+         * @name artists.create
          * @param params {EventArtistInterface}
          * @return EventArtistInterface
          */
         createRequestMethod({
+            namespace: 'artists',
             name: "create",
             method: "POST",
-            path: "",
-            required: ["event_id", "artist_id", "rank", "set_time"],
+            path: "/{id}/artists",
+            required: ["id", "artist_id", "rank", "set_time"],
             requiresAuth: true
         }),
 
         /**
          * Update event artist list
          * Pushes an array of UpdateArtistRequest over the existing data
+         * @name artists.update
          */
         createRequestMethod({
+            namespace: 'artists',
             name: "update",
             method: "PUT",
-            path: "/{id}",
-            required: ["event_id", "id"],
+            path: "/{id}/artists",
+            required: ["id"],
             requiresAuth: true
         }),
 

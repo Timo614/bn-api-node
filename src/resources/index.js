@@ -2,9 +2,6 @@ import Artist from './artists';
 import Auth from './auth';
 import Cart from './cart';
 import Event from './event';
-import EventArtist from './event-artists';
-import EventInterest from './event-interests';
-import EventTicket from './event-tickets';
 import External from './external';
 import Invitations from './invitations';
 import Organization from './organization';
@@ -20,9 +17,6 @@ export default {
     auth: Auth,
     cart: Cart,
     event: Event,
-    eventArtist: EventArtist,
-    eventInterest:EventInterest,
-    eventTicket: EventTicket,
     external: External,
     organization: Organization,
     region: Regions,
