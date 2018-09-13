@@ -19,7 +19,7 @@ export class RequestMethod {
             let request: any = this._request(method);
             let namespace = self;
             //This allows us to nest methods in a namespace
-            if (method.namespace ) {
+            if (method.namespace) {
                 if (!self.hasOwnProperty(method.namespace)) {
                     self[method.namespace] = {};
                 }
@@ -61,7 +61,7 @@ export class RequestMethod {
      * @private
      * @throws
      */
-    _requiredFieldsPresent(method: RequestMethodInterface, data:any = {}, path = '') {
+    _requiredFieldsPresent(method: RequestMethodInterface, data: any = {}, path = '') {
         let missingRequiredFields = [];
         method.required = method.required || [];
 
@@ -123,6 +123,9 @@ export class RequestMethod {
                         break;
                     case 'PUT':
                         promise = axiosInstance.put(path, data);
+                        break;
+                    case 'PATCH':
+                        promise = axiosInstance.patch(path, data);
                         break;
                     case 'DELETE':
                         promise = axiosInstance.delete(path, {params: data});
