@@ -52,12 +52,12 @@ export default {
 
         /**
          * Edit Event
-         * @name edit
+         * @name update
          * @param params EventInterface
          * @return EventInterface
          */
         instanceOfRequestMethod({
-            name: "edit",
+            name: "update",
             method: "PUT",
             path: "/{id}",
             required: ['id'],

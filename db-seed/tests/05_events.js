@@ -55,7 +55,7 @@ describe('/events/', function () {
         });
 
         it('A superuser can edit an event', async function () {
-            const response = await global.adminServer.event.edit({id: list[0].id, name: "My First Event"});
+            const response = await global.adminServer.event.update({id: list[0].id, name: "My First Event"});
             assert.strictEqual(response.status, 200);
             assert.strictEqual(response.data.name, "My First Event");
         });
