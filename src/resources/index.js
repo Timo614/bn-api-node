@@ -13,16 +13,16 @@ import Users from './users';
 import Venue from './venue';
 
 export default {
-    artist: Artist,
+    artists: Artist,
     auth: Auth,
     cart: Cart,
-    event: Event,
+    events: Event,
     external: External,
-    organization: Organization,
-    region: Regions,
-    invitation: Invitations,
+    organizations: Organization,
+    regions: Regions,
+    invitations: Invitations,
     status: Status,
     ticketPricing: TicketPricing,
     users: Users,
-    venue: Venue
+    venues: Venue
 }

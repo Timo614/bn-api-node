@@ -124,21 +124,6 @@ export default {
         }),
 
         /**
-         * List the events that are a part of this organization
-         * @name fee_schedule.index
-         * @param params {id}
-         * @return Array<FeeSchedule>
-         */
-        createRequestMethod({
-            namespace: 'fee_schedule',
-            name: "index",
-            method: "GET",
-            path: "/{id}/fee_schedule",
-            required: ['id'],
-            requiresAuth: true
-        }),
-
-        /**
          * Invite a user to the organization
          * @name invite.create
          * @param params {id, user_id | user_email}
