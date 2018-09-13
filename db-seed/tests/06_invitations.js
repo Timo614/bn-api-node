@@ -13,19 +13,19 @@ describe('/invitations/', () => {
             let orgs = await adminServer.organization.index();
             org = orgs.data[0];
 
-            // let response = await adminServer.organization.invite({id: org.id, user_email: "alice@token.com"});
+            // let response = await adminServer.organization.invite.create({id: org.id, user_email: "alice@token.com"});
             // assert.strictEqual(response.status, 200);
             // console.log(response);
         });
 
         it('Invites a new user bob@sagget.com', async () => {
-            // let response = await adminServer.organization.invite({id: org.id, user_email: "bob@sagget.com"});
+            // let response = await adminServer.organization.invite.create({id: org.id, user_email: "bob@sagget.com"});
             // assert.strictEqual(response.status, 500);
 
         });
 
         it('Invites an invalid email that doesn\'t exist asdf😰kkruigfvsa.asdnf3', () => {
-            // return q.shouldFail(adminServer.organization.invite({
+            // return q.shouldFail(adminServer.organization.invite.create({
             //     id: org.id,
             //     user_email: "asdf😰kkruigfvsa.asdnf3"
             // })).then(res => {
