@@ -1,6 +1,7 @@
 import XhrClient from "../../classes/xhr-client";
 
 export interface RequestMethodInterface {
+    namespace?: string;
     name: string;
     method: string;
     path: string;
@@ -16,6 +17,7 @@ export interface RequestMethodInterface {
 export const instanceOfRequestMethod = (base: any = {}): RequestMethodInterface => {
     return {
         ...{
+            namespace: '',
             method: 'GET',
             path: '',
             name: '',

@@ -17,11 +17,21 @@ export class RequestMethod {
             let method: RequestMethodInterface = resource.methods[i];
             let name: string = method.name;
             let request: any = this._request(method);
-            self[name] = request;
+            let namespace = self;
+            //This allows us to nest methods in a namespace
+            if (method.namespace && !self.hasOwnProperty(method.namespace)) {
+
+
+                self[method.namespace] = {};
+                namespace = self[method.namespace];
+                console.log(method.namespace, self);
+            }
+            //Attach the request method to the namespace
+            namespace[name] = request;
         }
     }
 
-    _replacePathVariables(path: string, data: any = {}, removeDataAfterReplace: boolean = false): string {
+    _replacePathVariables(path: string, data: any = {}, removeDataAfterReplace: boolean = true): string {
         let regex = /{([a-zA-Z0-9_-]+)}/g;
         let newPath = path;
         let matches;

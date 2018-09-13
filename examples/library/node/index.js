@@ -3,8 +3,8 @@ const Bigneon = require('../../../dist/bundle.node.js').default;
 let bigneon = new Bigneon.Server();
 
 (async () => {
-    let event = await bigneon.event.read({id: 'b0edbfce-e806-463f-898f-073b0feb52bd'});
-    console.log(event.data);
+    let event = await bigneon.organization.artist.read({id: 'aa3eb446-ffe3-4234-8f0f-bd7a053f91b0'});
+    console.log(event);
 
 })();
 return;

@@ -6,19 +6,7 @@ export default {
 
     methods: [
 
-        /**
-         * Invite a user to the organization
-         * @name invite
-         * @param params {id, user_id | user_email}
-         */
-        instanceOfRequestMethod({
-            name: "invite",
-            method: "POST",
-            path: "/{id}/invite",
-            required: ["id"],
-            requireOne: ["user_id", "user_email"],
-            requiresAuth: true
-        }),
+
         instanceOfRequestMethod({
             name: "create",
             method: "POST",
@@ -66,6 +54,36 @@ export default {
             required: [],
             requiresAuth: true
 
+        }),
+
+        /**
+         * List the artists that are a part of this organization
+         * @name artist.read
+         * @param params {id}
+         */
+        instanceOfRequestMethod({
+            namespace: 'artist',
+            name: "read",
+            method: "GET",
+            path: "/{id}/artists",
+            required: ["id"],
+            requiresAuth: true
+        }),
+
+
+        /**
+         * Invite a user to the organization
+         * @name invitation.create
+         * @param params {id, user_id | user_email}
+         */
+        instanceOfRequestMethod({
+            namespace: 'invitation',
+            name: "create",
+            method: "POST",
+            path: "/{id}/invite",
+            required: ["id"],
+            requireOne: ["user_id", "user_email"],
+            requiresAuth: true
         }),
 
 
