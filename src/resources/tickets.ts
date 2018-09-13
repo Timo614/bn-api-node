@@ -14,7 +14,7 @@ export default {
         }),
 
         instanceOfRequestMethod({
-            name: "edit",
+            name: "update",
             method: "PUT",
             path: "/{id}",
             required: ["id"],

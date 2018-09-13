@@ -37,7 +37,7 @@ export default {
          * @notimplemented
          */
         instanceOfRequestMethod({
-            name: "edit",
+            name: "update",
             method: "PUT",
             path: "/{id}",
             required: ["event_id", "id"],

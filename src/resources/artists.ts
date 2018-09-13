@@ -21,11 +21,11 @@ export default {
 
         /**
          * Edit an artist
-         * @name edit
+         * @name update
          * @param params {id}
          */
         instanceOfRequestMethod({
-            name: "edit",
+            name: "update",
             method: "PUT",
             path: "/{id}",
             required: ["id"],
