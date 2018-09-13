@@ -1,5 +1,6 @@
 import {createRequestMethod} from "../interfaces/server/request-method.interface";
 import {ResourceInterface} from "../interfaces/server/resource";
+import FeeSchedule from './namespaced/organization-fee-schedules';
 
 export default {
     path: "organizations",
@@ -237,5 +238,5 @@ export default {
         }),
 
 
-    ]
+    ].concat(FeeSchedule.methods)
 } as ResourceInterface;
