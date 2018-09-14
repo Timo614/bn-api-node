@@ -14,7 +14,7 @@ describe('Artists', function() {
     const artists = q.readCSV('./data/artists.csv');
 
     it('an unauthenticated user cannot add an Artist', function() {
-       return q.shouldFail(server.artist.create(artists[0])).then(res => {
+       return q.shouldFail(server.artists.create(artists[0])).then(res => {
            assert.strictEqual(res.status, 401);
        });
     });
@@ -22,7 +22,7 @@ describe('Artists', function() {
     artists.forEach(function(artist) {
         it(`SuperUser registers ${artist.name}`, async function() {
             const art = normalizeArtist(artist);
-            let result = await global.adminServer.artist.create(art);
+            let result = await global.adminServer.artists.create(art);
             assert.strictEqual(result.status, 201, `${artist.name} was not added; ${result.data}`);
         });
     });
@@ -32,7 +32,7 @@ describe('Artists', function() {
         let list = null;
         let artist;
         it('an unauthenticated user can retrieve the artist list', async function() {
-            const response = await server.artist.index();
+            const response = await server.artists.index();
             assert.strictEqual(response.status, 200);
             list = response.data;
             assert.strictEqual(list.length, artists.length);
@@ -40,7 +40,7 @@ describe('Artists', function() {
         });
 
         it('an unauthenticated user can retrieve an artist', async function() {
-            artist = await server.artist.read({id: list[1].id});
+            artist = await server.artists.read({id: list[1].id});
             assert.strictEqual(artist.status, 200);
             assert.strictEqual(artist.data.name, 'Billy Joel');
         });
@@ -53,7 +53,7 @@ describe('Artists', function() {
 
 
     it('an unauthenticated user can search for an artist by name', async function() {
-        const response = await server.artist.find({name: 'The Killers'});
+        const response = await server.artists.find({name: 'The Killers'});
         assert.strictEqual(response.status, 200);
         const matches = response.data;
         assert.strictEqual(matches.length, 1);
