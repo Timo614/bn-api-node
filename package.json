@@ -11,8 +11,8 @@
     "build-tsc": "./node_modules/.bin/tsc",
     "db-seed": "npm run build-tsc && cd db-seed && node db-seed",
     "prepublish": "npm run build",
-    "eslint-validate": "node_modules/eslint/bin/eslint.js -c .eslintrc --ext .ts ./src/*",
-    "eslint-fix": "node_modules/eslint/bin/eslint.js -c .eslintrc --ext .ts ./src/* --fix",
+    "eslint-validate": "node_modules/eslint/bin/eslint.js -c .eslintrc --ext .ts --ext .js ./src/*",
+    "eslint-fix": "node_modules/eslint/bin/eslint.js -c .eslintrc --ext .ts --ext .js ./src/* --fix",
     "postinstall": "git config core.hooksPath .githooks"
   },
   "repository": {
