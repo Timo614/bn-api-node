@@ -7,14 +7,14 @@ export interface EventHistoryInterface {
 }
 
 export const createEventHistory = (base: any = {}): EventHistoryInterface => {
-    return {
-        ...{
-            id: "",
-            event_id: "",
-            order_id: "",
-            user_id: "",
-            protocol_reference_hash: ""
-        },
-        ...base
-    }  as EventHistoryInterface;
+	return {
+		...{
+			id: "",
+			event_id: "",
+			order_id: "",
+			user_id: "",
+			protocol_reference_hash: ""
+		},
+		...base
+	}  as EventHistoryInterface;
 };

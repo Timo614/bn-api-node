@@ -9,15 +9,15 @@ export interface EventArtistInterface {
 }
 
 export const createEventArtist = (base: any = {}): EventArtistInterface => {
-    return {
-        ... {
-            id: "",
-            event_id: "",
-            artist_id: "",
-            rank: 0,
-            set_time: "",
+	return {
+		... {
+			id: "",
+			event_id: "",
+			artist_id: "",
+			rank: 0,
+			set_time: "",
 
-        },
-        ...base
-    }  as EventArtistInterface;
+		},
+		...base
+	}  as EventArtistInterface;
 };

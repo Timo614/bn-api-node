@@ -21,6 +21,10 @@ Bigneon Javascript Middleware
 
 `npm run db-seed`
 
+`npm run eslint-validate`
+
+`npm run eslint-fix`
+
 
 # Development
 For local development using bn-web, link bn-node-api as an npm module in bn-web:

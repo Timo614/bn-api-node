@@ -15,21 +15,21 @@ export interface VenueInterface {
 
 export const createTicket = (base: any = {}): VenueInterface => {
 
-    return {
-        ...{
-            id: "",
-            organization_id: "",
-            name: "",
-            address: "",
-            city: "",
-            state: "",
-            country: "",
-            zip: "",
-            phone: "",
-            latitude: 0,
-            longitude: 0,
-            maximum_capacity: 0,
-        },
-        ...base
-    } as VenueInterface;
+	return {
+		...{
+			id: "",
+			organization_id: "",
+			name: "",
+			address: "",
+			city: "",
+			state: "",
+			country: "",
+			zip: "",
+			phone: "",
+			latitude: 0,
+			longitude: 0,
+			maximum_capacity: 0,
+		},
+		...base
+	} as VenueInterface;
 };

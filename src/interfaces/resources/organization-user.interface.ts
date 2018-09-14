@@ -5,13 +5,13 @@ export interface OrganizationUserInterface {
 }
 
 export const createOrganizationUser = (base: any = {}): OrganizationUserInterface => {
-    return {
-        ...{
-            id: "",
-            organization_id: "",
-            user_id: ""
-        },
-        ...base
+	return {
+		...{
+			id: "",
+			organization_id: "",
+			user_id: ""
+		},
+		...base
 
-    }as OrganizationUserInterface;
+	}as OrganizationUserInterface;
 };

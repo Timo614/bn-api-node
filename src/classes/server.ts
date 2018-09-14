@@ -1,29 +1,33 @@
 import {
-    createServer,
-    ServerInterface
+	createServer,
+	ServerInterface
 } from "../interfaces/server/server.interface";
 import XhrClient from "./xhr-client";
 
-import Resources from '../resources/index';
-import {RequestMethod} from "./request-method";
-import {MockerInterface} from "../interfaces/mocks/mocker.interface";
+import Resources from "../resources/index";
+import { RequestMethod } from "./request-method";
+import { MockerInterface } from "../interfaces/mocks/mocker.interface";
 
 export class Server {
-    private serverInterface: ServerInterface;
-    private client: any;
+	private serverInterface: ServerInterface;
 
-    constructor(options: any, headers: any = {}, mocker?: MockerInterface) {
-        let self:any = this;
-        this.serverInterface = createServer(options);
-        this.client = new XhrClient(this.serverInterface, headers, mocker);
+	private client: any;
 
-        for (let key in Resources) {
-            let resourceData: any  = Resources[key];
+	constructor(options: any, headers: any = {}, mocker?: MockerInterface) {
+		let self: any = this;
+		this.serverInterface = createServer(options);
+		this.client = new XhrClient(this.serverInterface, headers, mocker);
 
-            let resource:RequestMethod = new RequestMethod(resourceData, this.client);
-            self[key] = resource;
-        }
-    }
+		for (let key in Resources) {
+			let resourceData: any = Resources[key];
+
+			let resource: RequestMethod = new RequestMethod(
+				resourceData,
+				this.client
+			);
+			self[key] = resource;
+		}
+	}
 }
 
 export default Server;

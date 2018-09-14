@@ -4,9 +4,9 @@ import Mocker from "./classes/mocker";
 
 
 let defaultExport = {
-    Server,
-    Mocker,
-    ResourceInterfaces
+	Server,
+	Mocker,
+	ResourceInterfaces
 };
 
 export default defaultExport;

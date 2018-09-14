@@ -11,19 +11,19 @@ export interface OrganizationInvitationInterface {
 }
 
 export const createOrganizationInvitation = (base: any = {}): OrganizationInvitationInterface => {
-    return {
-        ...{
-            id: "",
-            organization_id: "",
-            inviter_id: "",
-            user_email: "",
-            create_at: "",
-            security_token: "",
-            user_id: "",
-            status_change_at: "",
-            accepted: 0
-        },
-        ...base
+	return {
+		...{
+			id: "",
+			organization_id: "",
+			inviter_id: "",
+			user_email: "",
+			create_at: "",
+			security_token: "",
+			user_id: "",
+			status_change_at: "",
+			accepted: 0
+		},
+		...base
 
-    }as OrganizationInvitationInterface;
+	}as OrganizationInvitationInterface;
 };

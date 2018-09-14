@@ -10,23 +10,23 @@ export interface ServerInterface {
 }
 
 export const createServer = (base: any = {}): ServerInterface => {
-    base.prefix =
+	base.prefix =
         base.prefix ||
         false;
 
-    let instance = {
-        ...{
-            protocol: "http",
-            host: "localhost",
-            port: 9000,
-            basePath: "",
-            apiVersion: "v1",
-            timeout: 3000,
-            prefix: false,
-            returnDataOnly: false
-        },
-        ...base
-    };
-    instance.prefix = instance.prefix || `${instance.protocol}://${instance.host}:${instance.port}${instance.basePath}`;
-    return instance as ServerInterface;
+	let instance = {
+		...{
+			protocol: "http",
+			host: "localhost",
+			port: 9000,
+			basePath: "",
+			apiVersion: "v1",
+			timeout: 3000,
+			prefix: false,
+			returnDataOnly: false
+		},
+		...base
+	};
+	instance.prefix = instance.prefix || `${instance.protocol}://${instance.host}:${instance.port}${instance.basePath}`;
+	return instance as ServerInterface;
 };

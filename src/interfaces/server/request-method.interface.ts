@@ -15,16 +15,16 @@ export interface RequestMethodInterface {
 }
 
 export const createRequestMethod = (base: any = {}): RequestMethodInterface => {
-    return {
-        ...{
-            namespace: '',
-            method: 'GET',
-            path: '',
-            name: '',
-            required: [],
-            requireOne: [],
-            requiresAuth: true,
-        },
-        ...base
-    } as RequestMethodInterface;
+	return {
+		...{
+			namespace: "",
+			method: "GET",
+			path: "",
+			name: "",
+			required: [],
+			requireOne: [],
+			requiresAuth: true,
+		},
+		...base
+	} as RequestMethodInterface;
 };

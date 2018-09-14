@@ -7,14 +7,14 @@ export interface EventInterestInterface {
 }
 
 export const createEventInterest = (base: any = {}): EventInterestInterface => {
-    return {
-        ...{
-            id: "",
-            event_id: "",
-            user_id: "",
-            created_at: "",
-            updated_at: ""
-        },
-        ...base
-    } as EventInterestInterface;
+	return {
+		...{
+			id: "",
+			event_id: "",
+			user_id: "",
+			created_at: "",
+			updated_at: ""
+		},
+		...base
+	} as EventInterestInterface;
 };

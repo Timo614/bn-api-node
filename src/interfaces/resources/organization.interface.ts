@@ -1,4 +1,4 @@
-import {VenueInterface} from "./venue.interface";
+import { VenueInterface } from "./venue.interface";
 
 export interface OrganizationInterface {
     id?: string;
@@ -14,19 +14,19 @@ export interface OrganizationInterface {
 }
 
 export const createOrganization = (base: any = {}): OrganizationInterface => {
-    return {
-        ...{
-            id: "",
-            owner_user_id: "",
-            name: "",
-            address: "",
-            city: "",
-            state: "",
-            country: "",
-            zip: "",
-            phone: "",
-            venues: []
-        },
-        ...base
-    } as OrganizationInterface
+	return {
+		...{
+			id: "",
+			owner_user_id: "",
+			name: "",
+			address: "",
+			city: "",
+			state: "",
+			country: "",
+			zip: "",
+			phone: "",
+			venues: []
+		},
+		...base
+	} as OrganizationInterface
 };

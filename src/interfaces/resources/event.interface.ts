@@ -1,6 +1,6 @@
-import {createTicket, TicketInterface} from "./ticket.interface";
-import {EventArtistInterface} from "./event-artist.interface";
-import {EventInterestInterface} from "./event-interest.interface";
+import { createTicket, TicketInterface } from "./ticket.interface";
+import { EventArtistInterface } from "./event-artist.interface";
+import { EventInterestInterface } from "./event-interest.interface";
 
 export interface EventInterface {
     id?: string;
@@ -31,32 +31,32 @@ export interface EventInterface {
 }
 
 export const createEvent = (base: any = {}): EventInterface => {
-    if (base && base.tickets) {
-        base.tickets = base.tickets.map((ticket: any) => createTicket(ticket));
-    }
-    return {
-        ...{
-            id: "",
-            name: "",
-            organization_id: "",
-            venue_id: "",
-            created_at: "",
-            ticket_sell_date: "",
-            event_start: "",
-            is_external: false,
-            external_url: "",
-            promo_image_url: "",
-            additional_info: "",
-            age_limit: 0,
-            door_time: "",
-            publish_date: "",
-            tickets: [],
-            artists: [],
-            interests: [],
-            cancelled_at: "",
-            blockchain_id: "",
-            blockchain_expiry_date: 0,
-        },
-        ...base
-    } as EventInterface;
+	if (base && base.tickets) {
+		base.tickets = base.tickets.map((ticket: any) => createTicket(ticket));
+	}
+	return {
+		...{
+			id: "",
+			name: "",
+			organization_id: "",
+			venue_id: "",
+			created_at: "",
+			ticket_sell_date: "",
+			event_start: "",
+			is_external: false,
+			external_url: "",
+			promo_image_url: "",
+			additional_info: "",
+			age_limit: 0,
+			door_time: "",
+			publish_date: "",
+			tickets: [],
+			artists: [],
+			interests: [],
+			cancelled_at: "",
+			blockchain_id: "",
+			blockchain_expiry_date: 0,
+		},
+		...base
+	} as EventInterface;
 };

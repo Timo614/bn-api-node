@@ -14,19 +14,19 @@ export interface OrderItemInterface {
 }
 
 export const createOrderItem = (base: any = {}): OrderItemInterface => {
-    return {
-        ...{
-            id: "",
-            order_id: "",
-            item_type: "",
-            cost: 0,
-            ticket_instance_id: "",
-            price_point_id: "",
-            fee_schedule_range_id: "",
-            parent_id: "",
-            created_at: "",
-            updated_at: "",
-        },
-        ...base
-    } as OrderItemInterface;
+	return {
+		...{
+			id: "",
+			order_id: "",
+			item_type: "",
+			cost: 0,
+			ticket_instance_id: "",
+			price_point_id: "",
+			fee_schedule_range_id: "",
+			parent_id: "",
+			created_at: "",
+			updated_at: "",
+		},
+		...base
+	} as OrderItemInterface;
 };

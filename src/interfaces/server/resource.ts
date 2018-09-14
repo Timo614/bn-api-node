@@ -1,4 +1,4 @@
-import {RequestMethodInterface} from "./request-method.interface";
+import { RequestMethodInterface } from "./request-method.interface";
 
 export interface ResourceInterface {
     path:string,
@@ -6,11 +6,11 @@ export interface ResourceInterface {
 }
 
 export const instanceOfResource = (base:any = {}) : ResourceInterface => {
-    return {
-        ...{
-            path: '',
-            methods: []
-        },
-        ...base
-    } as ResourceInterface;
+	return {
+		...{
+			path: "",
+			methods: []
+		},
+		...base
+	} as ResourceInterface;
 }

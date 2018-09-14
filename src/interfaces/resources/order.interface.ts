@@ -1,4 +1,4 @@
-import {OrderItemInterface} from "./order-item.interface";
+import { OrderItemInterface } from "./order-item.interface";
 
 export interface OrderInterface {
     readonly id?: string;
@@ -12,17 +12,17 @@ export interface OrderInterface {
 }
 
 export const createOrder = (base: any = {}): OrderInterface => {
-    return {
-        ...{
-            id: "",
-            user_id: "",
-            order_items: [],
-            status: "",
-            order_type: "",
-            expires_at: "",
-            created_at: "",
-            updated_at: "",
-        },
-        ...base
-    } as OrderInterface;
+	return {
+		...{
+			id: "",
+			user_id: "",
+			order_items: [],
+			status: "",
+			order_type: "",
+			expires_at: "",
+			created_at: "",
+			updated_at: "",
+		},
+		...base
+	} as OrderInterface;
 };

@@ -18,23 +18,23 @@ export interface ArtistInterface {
 }
 
 export const createArtist = (base: any = {}): ArtistInterface => {
-    return {
-        ...{
-            organization_id: "",
-            is_private: false,
-            name: "",
-            bio: "",
-            website_url: "",
-            image_url: "",
-            thumb_image_url: "",
-            youtube_video_urls: [],
-            facebook_username: "",
-            instagram_username: "",
-            snapchat_username: "",
-            soundcloud_username: "",
-            bandcamp_username: ""
-        },
-        ...base
-    } as ArtistInterface;
+	return {
+		...{
+			organization_id: "",
+			is_private: false,
+			name: "",
+			bio: "",
+			website_url: "",
+			image_url: "",
+			thumb_image_url: "",
+			youtube_video_urls: [],
+			facebook_username: "",
+			instagram_username: "",
+			snapchat_username: "",
+			soundcloud_username: "",
+			bandcamp_username: ""
+		},
+		...base
+	} as ArtistInterface;
 };
 

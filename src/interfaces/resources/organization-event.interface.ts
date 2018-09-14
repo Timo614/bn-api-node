@@ -5,13 +5,13 @@ export interface OrganizationVenueInterface {
 }
 
 export const createOrganizationVenue = (base: any = {}): OrganizationVenueInterface => {
-    return {
-        ...{
-            id: "",
-            organization_id: "",
-            venue_id: ""
-        },
-        ...base
+	return {
+		...{
+			id: "",
+			organization_id: "",
+			venue_id: ""
+		},
+		...base
 
-    }as OrganizationVenueInterface;
+	}as OrganizationVenueInterface;
 };

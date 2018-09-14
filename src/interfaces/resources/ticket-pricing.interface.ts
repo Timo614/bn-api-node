@@ -12,18 +12,18 @@ export interface TicketPricingInterface {
 }
 
 export const createTicketPricing = (base: any = {}): TicketPricingInterface => {
-    return {
-        ...{
-            id: "",
-            ticket_type_id: "",
-            name: "",
-            description: "",
-            start_date: "",
-            end_date: "",
-            price_in_cents: 0,
-            created_at: "",
-            updated_at: "",
-        },
-        ...base
-    } as TicketPricingInterface;
+	return {
+		...{
+			id: "",
+			ticket_type_id: "",
+			name: "",
+			description: "",
+			start_date: "",
+			end_date: "",
+			price_in_cents: 0,
+			created_at: "",
+			updated_at: "",
+		},
+		...base
+	} as TicketPricingInterface;
 };
