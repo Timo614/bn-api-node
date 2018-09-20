@@ -8,19 +8,18 @@ export default {
 	path: "cart",
 
 	methods: [
-
 		/**
-         * Add a ticket to the users cart
-         * @name add
-         * @param params {ticket_type_id:string, quantity}
-         * @returns OrderInterface
-         */
+		 * Add a ticket to the users cart
+		 * @name add
+		 * @param params {ticket_type_id:string, quantity:integer}
+		 * @returns OrderInterface
+		 */
 		createRequestMethod({
 			name: "add",
 			method: "POST",
 			path: "",
 			required: ["ticket_type_id", "quantity"],
-			requiresAuth: false,
+			requiresAuth: false
 		}),
 
 		// instanceOfRequestMethod({
@@ -37,13 +36,14 @@ export default {
 		//     required: ['id'],
 		//     requiresAuth: true
 		// }),
-		// instanceOfRequestMethod({
-		//     name: "index",
-		//     method: "GET",
-		//     path: "",
-		//     required: [],
-		//     requiresAuth: false
-		// }),
+
+		createRequestMethod({
+			name: "index",
+			method: "GET",
+			path: "",
+			required: [],
+			requiresAuth: false
+		})
 		//
 		// instanceOfRequestMethod({
 		//     name: "find",
