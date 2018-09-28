@@ -11,6 +11,7 @@ const clientConfig = {
         library: 'Bigneon',
         umdNamedDefine: true
     },
+
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
         extensions: [".ts", ".tsx", ".js"]
@@ -21,7 +22,7 @@ const clientConfig = {
     module: {
         rules: [
             // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-            {test: /\.tsx?$/, loader: "ts-loader"}
+            {test: /\.tsx?$/, loaders: ["babel-loader", "ts-loader"]}
         ]
     }
 };
