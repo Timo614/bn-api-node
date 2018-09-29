@@ -149,7 +149,7 @@ export class RequestMethod {
 
 			//If no promise has been set, because either we are in production or there was no mock data file do the request.
 			if (!promise) {
-				switch (method.method) {
+				switch (method.method.toUpperCase()) {
 					case "POST":
 						promise = axiosInstance.post(path, data);
 						break;

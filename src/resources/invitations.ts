@@ -2,7 +2,7 @@ import { createRequestMethod } from "../interfaces/server/request-method.interfa
 import { ResourceInterface } from "../interfaces/server/resource";
 
 export default {
-	path: "organizations",
+	path: "invitations",
 
 	methods: [
 		/**
@@ -14,8 +14,8 @@ export default {
          */
 		createRequestMethod({
 			name: "accept",
-			method: "GET",
-			path: "/accept_invite",
+			method: "POST",
+			path: "",
 			required: ["security_token"],
 			requiresAuth: false
 		}),
@@ -28,8 +28,8 @@ export default {
          */
 		createRequestMethod({
 			name: "decline",
-			method: "GET",
-			path: "/decline_invite",
+			method: "DELETE",
+			path: "",
 			required: ["security_token"],
 			requiresAuth: false
 		}),
