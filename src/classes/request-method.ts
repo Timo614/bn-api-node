@@ -137,10 +137,14 @@ export class RequestMethod {
 
 			let promise;
 
-			if (this.client.mocker) {
-				promise = this.client.mocker.mock(
-					method.method.toLowerCase() + path.replace(/\//g, ".")
-				);
+			if (this.client.mocker ) {
+				let mockerPath = method.method.toLowerCase() + path.replace(/\//g, ".");
+				if (this.client.mocker.hasMock(mockerPath)) {
+					promise = this.client.mocker.mock(
+						mockerPath
+					);
+				}
+
 			}
 
 			//If no promise has been set, because either we are in production or there was no mock data file do the request.
