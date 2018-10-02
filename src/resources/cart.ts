@@ -29,13 +29,13 @@ export default {
 		//     required: ['id'],
 		//     requiresAuth: true
 		// }),
-		// instanceOfRequestMethod({
-		//     name: "delete",
-		//     method: "DELETE",
-		//     path: "/{id}",
-		//     required: ['id'],
-		//     requiresAuth: true
-		// }),
+		createRequestMethod({
+			name: "delete",
+			method: "DELETE",
+			path: "",
+			required: ["cart_item_id", "quantity"],
+			requiresAuth: true
+		}),
 
 		createRequestMethod({
 			name: "index",

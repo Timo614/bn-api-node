@@ -13,7 +13,7 @@ export default {
 			namespace: "tickets",
 			name: "create",
 			method: "POST",
-			path: "/{event_id}/tickets",
+			path: "/{event_id}/ticket_types",
 			required: ["event_id", "name"],
 			requiresAuth: true
 		}),
@@ -28,7 +28,7 @@ export default {
 			namespace: "tickets",
 			name: "update",
 			method: "PATCH",
-			path: "/{event_id}/tickets/{id}",
+			path: "/{event_id}/ticket_types/{id}",
 			required: ["event_id", "id"],
 			requiresAuth: true
 		}),
@@ -43,7 +43,7 @@ export default {
 			namespace: "tickets",
 			name: "index",
 			method: "GET",
-			path: "/{id}/tickets",
+			path: "/{id}/ticket_types",
 			required: ["id"],
 			requiresAuth: false
 		})

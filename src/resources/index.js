@@ -8,9 +8,10 @@ import Organization from "./organization";
 import Regions from "./regions";
 import Status from "./status";
 import TicketPricing from "./ticket-pricing";
-
 import Users from "./users";
 import Venue from "./venue";
+import Orders from "./orders";
+import Tickets from "./tickets";
 
 export default {
 	artists: Artist,
@@ -24,5 +25,7 @@ export default {
 	status: Status,
 	ticketPricing: TicketPricing,
 	users: Users,
-	venues: Venue
-}
+	venues: Venue,
+	orders: Orders,
+	tickets: Tickets
+};
