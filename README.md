@@ -37,7 +37,7 @@ bigneon.auth.authenticate({email: "email@example.com", "password": "password"})
 
 For all of the documentation go to [https://big-neon.github.io/bn-api-node/](https://big-neon.github.io/bn-api-node/)
 
-For endpoints [https://big-neon.github.io/bn-api-node/modules/_resources_index_.html](https://big-neon.github.io/bn-api-node/modules/_resources_index_.html)
+For endpoints [https://big-neon.github.io/bn-api-node/modules/\_resources\_index\_.html](https://big-neon.github.io/bn-api-node/modules/_resources_index_.html)
 
 
 # Running
