@@ -1,6 +1,5 @@
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
 import ResourceClass from "../../classes/abstracts/resource.class";
-import { TicketTypeInterface } from "../../interfaces/resources/ticket-type.interface";
 import { TicketInterface } from "../../interfaces/resources/ticket.interface";
 
 /**

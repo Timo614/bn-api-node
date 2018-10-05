@@ -67,8 +67,15 @@
 				<h1 id="bn-api-node">bn-api-node</h1>
 				<p>Bigneon Javascript Middleware</p>
 				<h1 id="install">Install</h1>
-				<p><code>git clone https://github.com/big-neon/bn-api-node.git</code></p>
-				<p><code>npm install</code></p>
+				<p><code>npm install bn-api-node</code></p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> Bigneon <span class="hljs-keyword">from</span> <span class="hljs-string">'bn-api-node'</span>;
+<span class="hljs-keyword">const</span> options = {};
+<span class="hljs-keyword">const</span> headers = {};
+<span class="hljs-keyword">const</span> mockData = {};
+<span class="hljs-keyword">const</span> bigneon = <span class="hljs-keyword">new</span> Bigneon.Server(options, headers, mockData);</code></pre>
+				<h1 id="documentation">Documentation</h1>
+				<p>For all of the documentation go to <a href="https://big-neon.github.io/bn-api-node/">https://big-neon.github.io/bn-api-node/</a></p>
+				<p>For endpoints <a href="https://big-neon.github.io/bn-api-node/modules/_resources_index_.html">https://big-neon.github.io/bn-api-node/modules/<em>resources</em>index_.html</a></p>
 				<h1 id="running">Running</h1>
 				<p><code>npm run test</code></p>
 				<p><code>npm run build</code></p>
@@ -76,11 +83,14 @@
 				<p><code>npm run build-server</code></p>
 				<p><code>npm run build-tsc</code></p>
 				<p><code>npm run db-seed</code></p>
+				<p><code>npm run docs</code></p>
 				<p><code>npm run eslint-validate</code></p>
 				<p><code>npm run eslint-fix</code></p>
 				<h1 id="development">Development</h1>
-				<p>For local development using bn-web, link bn-node-api as an npm module in bn-web:</p>
+				<p><code>git clone https://github.com/big-neon/bn-api-node.git</code></p>
 				<p><code>cd bn-api-node/</code></p>
+				<p><code>npm install</code></p>
+				<p>For local development using bn-web, link bn-node-api as an npm module in bn-web:</p>
 				<p><code>npm link</code></p>
 				<p><code>cd ../bn-web</code></p>
 				<p><code>npm link bn-api-node</code></p>
@@ -265,9 +275,6 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_resources_status_.html">"resources/status"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_resources_ticket_pricing_.html">"resources/ticket-<wbr>pricing"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_resources_tickets_.html">"resources/tickets"</a>

@@ -1,5 +1,4 @@
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../../interfaces/server/resource";
 import ResourceClass from "../../classes/abstracts/resource.class";
 import { ArtistInterface } from "../../interfaces/resources/artist.interface";
 

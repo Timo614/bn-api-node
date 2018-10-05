@@ -1,6 +1,5 @@
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
 import ResourceClass from "../../classes/abstracts/resource.class";
-import { OrganizationInvitationInterface } from "../../interfaces/resources/organization-invitation.interface";
 import { OrganizationInterface } from "../../interfaces/resources/organization.interface";
 import { UserInterface } from "../../interfaces/resources/user.interface";
 

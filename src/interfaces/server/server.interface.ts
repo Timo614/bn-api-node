@@ -1,12 +1,42 @@
 export interface ServerInterface {
+	/**
+	 * http or https
+	 * @default "http"
+	 */
     protocol: string;
-    host: string;
+	/**
+	 * @default "localhost"
+	 */
+	host: string;
+	/**
+	 * @default 9000
+	 */
     port: number;
-    basePath: string;
+	/**
+	 * A string that is appended to the url such as /v1 or /api
+	 * @default ""
+	 */
+	basePath: string;
+	/**
+	 * @default "v1"
+	 */
     apiVersion: string;
-    prefix: string;
+	/**
+	 * If prefix is supplied it is used as the absolute url
+	 * @default ""
+	 */
+	prefix: string;
+	/**
+	 * Request timeout
+	 * @default 3000
+	 */
     timeout: number;
-    returnDataOnly: boolean;
+	/**
+	 * If this is set to true then all responses come back with only the data portion
+	 * Otherwise they include the request and response
+	 * @default false
+	 */
+	returnDataOnly: boolean;
 }
 
 export const createServer = (base: any = {}): ServerInterface => {
