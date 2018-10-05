@@ -43,10 +43,11 @@ class CartResource extends ResourceClass {
 	/**
 	 * Gets the user's current cart
 	 * @auth false
+	 * @alias index
 	 */
 	read(): OrderInterface {
 		return createRequestMethod({
-			name: "read",
+			name: "index",
 			method: "GET",
 			path: "",
 			required: [],
