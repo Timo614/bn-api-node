@@ -69,10 +69,29 @@
 				<h1 id="install">Install</h1>
 				<p><code>npm install bn-api-node</code></p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> Bigneon <span class="hljs-keyword">from</span> <span class="hljs-string">'bn-api-node'</span>;
-<span class="hljs-keyword">const</span> options = {};
+<span class="hljs-keyword">const</span> options = {
+    <span class="hljs-attr">protocol</span>: <span class="hljs-string">"http"</span>,
+    <span class="hljs-attr">host</span>: <span class="hljs-string">"bigneon.dyn-ip.me"</span>,
+    <span class="hljs-attr">port</span>: <span class="hljs-number">80</span>,
+    <span class="hljs-attr">basePath</span>: <span class="hljs-string">"/api"</span>
+};
 <span class="hljs-keyword">const</span> headers = {};
-<span class="hljs-keyword">const</span> mockData = {};
-<span class="hljs-keyword">const</span> bigneon = <span class="hljs-keyword">new</span> Bigneon.Server(options, headers, mockData);</code></pre>
+<span class="hljs-keyword">const</span> mocker = <span class="hljs-literal">null</span>;<span class="hljs-comment">//This needs to be an instance of Mocker</span>
+<span class="hljs-keyword">const</span> bigneon = <span class="hljs-keyword">new</span> Bigneon.Server(options, headers, mocker);
+
+<span class="hljs-comment">//List events</span>
+bigneon.events.index().then(<span class="hljs-function"><span class="hljs-params">eventsResponse</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(eventsResponse.data);
+});
+
+<span class="hljs-comment">//Auth</span>
+bigneon.auth.authenticate({<span class="hljs-attr">email</span>: <span class="hljs-string">"email@example.com"</span>, <span class="hljs-string">"password"</span>: <span class="hljs-string">"password"</span>})
+    .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> {
+        <span class="hljs-comment">//We can now call authed endpoints</span>
+        bigneon.users.current().then(<span class="hljs-function"><span class="hljs-params">myUserResponse</span> =&gt;</span> {
+            <span class="hljs-built_in">console</span>.log(myUserResponse.data);
+        });
+    });</code></pre>
 				<h1 id="documentation">Documentation</h1>
 				<p>For all of the documentation go to <a href="https://big-neon.github.io/bn-api-node/">https://big-neon.github.io/bn-api-node/</a></p>
 				<p>For endpoints <a href="https://big-neon.github.io/bn-api-node/modules/_resources_index_.html">https://big-neon.github.io/bn-api-node/modules/<em>resources</em>index_.html</a></p>
