@@ -1,4 +1,5 @@
 import { createArtist } from "./artist.interface";
+import { createAuthToken } from "./auth-token.interface";
 import { createEvent } from "./event.interface";
 import { createEventArtist } from "./event-artist.interface";
 import { createEventHistory } from "./event-histories.interface";
@@ -8,10 +9,13 @@ import { createOrganization } from "./organization.interface";
 import { createOrganizationVenue } from "./organization-event.interface";
 import { createOrganizationInvitation } from "./organization-invitation.interface";
 import { createOrganizationUser } from "./organization-user.interface";
+import { createRegion } from "./region.interface";
+import { createTicket } from "./ticket.interface";
 import { createUser } from "./user.interface";
 
 export default {
 	createArtist,
+	createAuthToken,
 	createEvent,
 	createEventArtist,
 	createEventHistory,
@@ -21,5 +25,7 @@ export default {
 	createOrganizationVenue,
 	createOrganizationInvitation,
 	createOrganizationUser,
+	createRegion,
+	createTicket,
 	createUser,
 };

@@ -1,227 +1,89 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
-import FeeSchedule from "./namespaced/organization-fee-schedules";
+import ResourceClass from "../classes/abstracts/resource.class";
+import { OrganizationInterface } from "../interfaces/resources/organization.interface";
+import OrganizationArtistsResource from "./namespaced/organization-artists";
+import OrganizationEventsResource from "./namespaced/organization-events";
+import OrganizationFeeSchedulesResource from "./namespaced/organization-fee-schedules";
+import OrganizationInvitationsResource from "./namespaced/organization-invitations";
+import OrganizationOwnersResource from "./namespaced/organization-owner";
+import OrganizationUsersResource from "./namespaced/organization-users";
+import OrganizationVenueResource from "./namespaced/organization-venues";
 
-export default {
-	path: "organizations",
+/**
+ * @endpoint organizations
+ */
+class OrganizationsResource extends ResourceClass {
+	constructor() {
+		super("organizations");
+		this.namespaces = {
+			artists: OrganizationArtistsResource,
+			events: OrganizationEventsResource,
+			feeSchedules: OrganizationFeeSchedulesResource,
+			invite: OrganizationInvitationsResource,
+			owner: OrganizationOwnersResource,
+			users: OrganizationUsersResource,
+			venues: OrganizationVenueResource,
+		};
+	}
 
-	methods: [
-
-		/**
-         * Get a single organization
-         * @name read
-         * @param params {id}
-         * @return OrganizationInterface
-         */
-		createRequestMethod({
-			name: "read",
+	/**
+	 * Get an organization
+	 * @auth true
+	 * @params {id}
+	 * @requires {id}
+	 */
+	read(): OrganizationInterface {
+		return createRequestMethod({
 			method: "GET",
 			path: "/{id}",
 			required: ["id"],
 			requiresAuth: true
-		}),
+		}) as any;
+	}
 
-		/**
-         * Update a single organization
-         * @name update
-         * @param params {id, ...OrganizationInterface}
-         * @return OrganizationInterface
-         */
-		createRequestMethod({
-			name: "update",
+	/**
+	 * Update a single organization
+	 * @auth true
+	 * @params {id: uuid, ...OrganizationInterface}
+	 * @requires {id: uuid}
+	 */
+	update(): OrganizationInterface {
+		return createRequestMethod({
 			method: "PATCH",
 			path: "/{id}",
 			required: ["id"],
 			requiresAuth: true
-		}),
+		}) as any;
+	}
 
-		/**
-         * Create an organization
-         * @name create
-         * @param {OrganizationInterface}
-         * @return OrganizationInterface
-         */
-		createRequestMethod({
-			name: "create",
+	/**
+	 * Create an organization
+	 * @auth true
+	 * @params {...OrganizationInterface}
+	 * @required {owner_user_id: uuid, name: string}
+	 */
+	create(): OrganizationInterface {
+		return createRequestMethod({
 			method: "POST",
 			path: "",
 			required: ["owner_user_id", "name"],
 			requiresAuth: true
-		}),
+		}) as any;
+	}
 
-		/**
-         * List organizations
-         * @name index
-         * @return Array<OrganizationInterface>
-         */
-		createRequestMethod({
+
+	/**
+	 * List organizations
+	 * @auth true
+	 */
+	index(): Array<OrganizationInterface> {
+		return createRequestMethod({
 			name: "index",
 			method: "GET",
 			path: "",
 			required: [],
 			requiresAuth: true
-		}),
-
-		/**
-         * Find organizations
-         * @name index
-         * @return Array<OrganizationInterface>
-         * @notimplemented
-         */
-		createRequestMethod({
-			name: "find",
-			method: "GET",
-			path: "",
-			required: [],
-			requiresAuth: true
-		}),
-
-
-
-		/**
-         * List the artists that are a part of this organization
-         * @name artists.index
-         * @param params {id}
-         * @return Array<ArtistInterface>
-         */
-		createRequestMethod({
-			namespace: "artists",
-			name: "index",
-			method: "GET",
-			path: "/{id}/artists",
-			required: ["id"],
-			requiresAuth: true
-		}),
-
-		/**
-         * Add an artist to this organization
-         * @name artists.create
-         * @param params {ArtistInterface}
-         * @return ArtistInterface
-         */
-		createRequestMethod({
-			namespace: "artists",
-			name: "create",
-			method: "POST",
-			path: "/{id}/artists",
-			required: ["id", "organization_id", "name", "bio"],
-			requiresAuth: true
-		}),
-
-		/**
-         * List the events that are a part of this organization
-         * @name events.index
-         * @param params {id}
-         * @return Array<ArtistInterface>
-         */
-		createRequestMethod({
-			namespace: "events",
-			name: "index",
-			method: "GET",
-			path: "/{id}/events",
-			required: ["id"],
-			requiresAuth: true
-		}),
-
-		/**
-         * Invite a user to the organization
-         * @name invite.create
-         * @param params {id, user_id | user_email}
-         */
-		createRequestMethod({
-			namespace: "invite",
-			name: "create",
-			method: "POST",
-			path: "/{id}/invite",
-			required: ["id"],
-			requireOne: ["user_id", "user_email"],
-			requiresAuth: true
-		}),
-
-		/**
-         * Invite a user to the organization
-         * @name owner.update
-         * @param params {id, owner_user_id}
-         */
-		createRequestMethod({
-			namespace: "owner",
-			name: "update",
-			method: "PUT",
-			path: "/{id}/owner",
-			required: ["id", "owner_user_id"],
-			requiresAuth: true
-		}),
-
-		/**
-         * Add a user to the organization
-         * @name users.create
-         * @param params {id, user_id }
-         */
-		createRequestMethod({
-			namespace: "users",
-			name: "create",
-			method: "POST",
-			path: "/{id}/users",
-			required: ["id", "user_id"],
-			requiresAuth: true
-		}),
-
-		/**
-         * Delete a user from the organization
-         * @name users.delete
-         * @param params {id, user_id}
-         */
-		createRequestMethod({
-			namespace: "users",
-			name: "delete",
-			method: "DELETE",
-			path: "/{id}/users",
-			required: ["id", "user_id"],
-			requiresAuth: true
-		}),
-
-		/**
-         * List users in the organization
-         * @name users.index
-         * @param params {id}
-         */
-		createRequestMethod({
-			namespace: "users",
-			name: "index",
-			method: "GET",
-			path: "/{id}/users",
-			required: ["id"],
-			requiresAuth: true
-		}),
-
-		/**
-         * List venues in the organization
-         * @name venues.index
-         * @param params {id}
-         */
-		createRequestMethod({
-			namespace: "venues",
-			name: "index",
-			method: "GET",
-			path: "/{id}/venues",
-			required: ["id"],
-			requiresAuth: true
-		}),
-
-		/**
-         * Add venue to the organization
-         * @name venues.create
-         * @param params {id, ...VenueInterface}
-         */
-		createRequestMethod({
-			namespace: "venues",
-			name: "create",
-			method: "POST",
-			path: "/{id}/venues",
-			required: ["id", "name"],
-			requiresAuth: true
-		}),
-
-
-	].concat(FeeSchedule.methods)
-} as ResourceInterface;
+		}) as any;
+	}
+}
+export default OrganizationsResource;

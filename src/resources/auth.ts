@@ -1,41 +1,51 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
+import ResourceClass from "../classes/abstracts/resource.class";
+import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface";
 
-export default {
-	path: "auth",
+/**
+ * @endpoint auth
+ */
+class AuthResource extends ResourceClass {
+	constructor() {
+		super("auth");
+	}
 
-	methods: [
-		/**
-         * Authenticate a user
-         * @name create
-         * @param params {email, password}
-         * @returns UserInterface
-         */
-		createRequestMethod({
+	/**
+	 * Authenticate a user
+	 * @alias create
+	 * @auth false
+	 * @params {email:string, password: string}
+	 * @requires {email:string, password: string}
+	 */
+	authenticate(): AuthTokenInterface {
+		return createRequestMethod({
 			name: "create",
 			method: "POST",
 			path: "/token",
 			required: ["email", "password"],
 			requiresAuth: false,
-			afterRequest(client:any = {}, data:any = {}): Promise<any> {
-				client.setToken (data.data.access_token);
+			afterRequest(client: any = {}, data: any = {}): Promise<any> {
+				client.setToken(data.data.access_token);
 				return Promise.resolve(data);
 			}
-		}),
+		}) as any;
+	}
 
-		/**
-         * Refresh a user's auth token
-         * @name refresh
-         * @param params {refresh_token}
-         */
-		createRequestMethod({
+	/**
+	 * Refresh a user's token
+	 * @auth true
+	 * @params {refresh_token:string}
+	 * @requires {refresh_token:string}
+	 */
+	refresh(): AuthTokenInterface {
+		return createRequestMethod({
 			name: "refresh",
 			method: "POST",
 			path: "/token/refresh",
 			required: ["refresh_token"],
 			requiresAuth: false,
-		}),
-	]
+		}) as any;
+	}
+}
 
-
-} as ResourceInterface
+export default AuthResource;

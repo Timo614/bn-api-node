@@ -1,73 +1,49 @@
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
 import { ResourceInterface } from "../../interfaces/server/resource";
+import ResourceClass from "../../classes/abstracts/resource.class";
+import { EventArtistInterface } from "../../interfaces/resources/event-artist.interface";
 
-export default {
+/**
+ * @endpoint events.artists
+ */
+class EventArtistsResource extends ResourceClass {
+	constructor() {
+		super("events");
+	}
 
-	methods: [
-
-		/**
-         * Add an artist to an event
-         * @name artists.create
-         * @param params {EventArtistInterface}
-         * @return EventArtistInterface
-         */
-		createRequestMethod({
-			namespace: "artists",
+	/**
+	 * Add an artist to an event
+	 * @auth true
+	 * @params {EventArtistInterface}
+	 * @requires {event_id:uuid}
+	 */
+	create(): EventArtistInterface {
+		return createRequestMethod({
 			name: "create",
 			method: "POST",
-			path: "/{id}/artists",
-			required: ["id", "artist_id", "rank", "set_time"],
+			path: "/{event_id}/artists",
+			required: ["event_id", "artist_id", "rank", "set_time"],
 			requiresAuth: true
-		}),
+		}) as any;
+	}
 
-		/**
-         * Update event artist list
-         * Pushes an array of UpdateArtistRequest over the existing data
-         * @name artists.update
-         */
-		createRequestMethod({
-			namespace: "artists",
+	/**
+	 * Update event artist list
+	 * Pushes an array of UpdateArtistRequest over the existing data
+	 * @auth true
+	 * @name artists.update
+	 * @params [{EventArtistInterface}]
+	 * @requires {event_id:uuid}
+	 */
+	update(): Array<EventArtistInterface> {
+
+		return createRequestMethod({
 			name: "update",
 			method: "PUT",
-			path: "/{id}/artists",
-			required: ["id"],
+			path: "/{event_id}/artists",
+			required: ["event_id"],
 			requiresAuth: true
-		}),
-
-		// /**
-		//  * Delete an artist from an event
-		//  * @notimplemented
-		//  */
-		// instanceOfRequestMethod({
-		//     name: "delete",
-		//     method: "DELETE",
-		//     path: "/{id}",
-		//     required: ["event_id", "id"],
-		//     requiresAuth: true
-		// }),
-		//
-		// /**
-		//  * List artists for an event
-		//  * @notimplemented
-		//  */
-		// instanceOfRequestMethod({
-		//     name: "index",
-		//     method: "GET",
-		//     path: "",
-		//     required: ["event_id"],
-		//     requiresAuth: false
-		// }),
-		//
-		// /**
-		//  * Read an artist for an event
-		//  * @notimplemented
-		//  */
-		// instanceOfRequestMethod({
-		//     name: "read",
-		//     method: "GET",
-		//     path: "/{id}",
-		//     required: ["event_id", "id"],
-		//     requiresAuth: false
-		// })
-	]
-} as ResourceInterface;
+		}) as any;
+	}
+}
+export default EventArtistsResource;

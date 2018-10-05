@@ -1,56 +1,45 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
+import ResourceClass from "../classes/abstracts/resource.class";
+import { TicketInterface } from "../interfaces/resources/ticket.interface";
+import { UserInterface } from "../interfaces/resources/user.interface";
+import { EventInterface } from "../interfaces/resources/event.interface";
 
-export default {
-	path: "tickets",
+/**
+ * @endpoint tickets
+ */
+class TicketsResource extends ResourceClass {
+	constructor() {
+		super("tickets");
+	}
 
-	methods: [
-		createRequestMethod({
-			name: "transfer",
-			method: "PUT",
-			path: "/transfer/{id}",
-			required: ["id", "destination"],
-			requiresAuth: false
-		}),
+	/**
+	 * Gets the users tickets
+	 * @auth true
+	 * @params {start_utc: Date, end_utc: Date}
+	 */
+	index(): Array<TicketInterface> {
+		return createRequestMethod({
+			method: "GET",
+			path: "",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
 
-		createRequestMethod({
-			name: "update",
-			method: "PUT",
+	/**
+	 * Gets a single ticket
+	 * @auth true
+	 * @params {id: uuid}
+	 * @requires {id:uuid}
+	 */
+	read(): {ticket: TicketInterface, user: UserInterface, event: EventInterface} {
+		return createRequestMethod({
+			method: "GET",
 			path: "/{id}",
 			required: ["id"],
 			requiresAuth: true
-		}),
+		}) as any;
+	}
 
-		createRequestMethod({
-			name: "delete",
-			method: "DELETE",
-			path: "/{id}",
-			required: ["id"],
-			requiresAuth: false
-		}),
-
-		createRequestMethod({
-			name: "index",
-			method: "GET",
-			path: "",
-			required: [],
-			requiresAuth: false
-		}),
-
-		createRequestMethod({
-			name: "find",
-			method: "GET",
-			path: "",
-			required: [],
-			requiresAuth: false
-		}),
-
-		createRequestMethod({
-			name: "read",
-			method: "GET",
-			path: "/{id}",
-			required: ["id"],
-			requiresAuth: false
-		})
-	]
-} as ResourceInterface;
+}
+export default TicketsResource;

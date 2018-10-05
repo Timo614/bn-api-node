@@ -2,6 +2,7 @@ import XhrClient from "../../classes/xhr-client";
 
 export interface RequestMethodInterface {
     namespace?: string;
+    names: Array<string>;
     name: string;
     method: string;
     path: string;
@@ -20,6 +21,7 @@ export const createRequestMethod = (base: any = {}): RequestMethodInterface => {
 			namespace: "",
 			method: "GET",
 			path: "",
+			names: [],
 			name: "",
 			required: [],
 			requireOne: [],

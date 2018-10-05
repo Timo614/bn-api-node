@@ -1,38 +1,43 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
+import ResourceClass from "../classes/abstracts/resource.class";
+import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface";
 
-export default {
-	path: "password_reset",
+/**
+ * @endpoint passwordReset
+ */
+class PasswordResetResource extends ResourceClass {
+	constructor() {
+		super("password_reset");
+	}
 
-	methods: [
-		/**
-         * Start the password reset process
-         * @name create
-         * @param params {email}
-         * @return
-         */
-		createRequestMethod({
-			name: "create",
+	/**
+	 * Start the password reset process
+	 * @params {email:string}
+	 * @return
+	 */
+	create(): {message?:string, error?:string} {
+		return createRequestMethod({
 			method: "POST",
 			path: "",
 			required: ["email"],
 			requiresAuth: false
-		}),
-		/**
-         * Reset your password
-         * @name update
-         * @param params {password_reset_token, password}
-         * @return
-         */
-		createRequestMethod({
-			name: "update",
+		}) as any;
+	}
+
+	/**
+	 * Reset your password
+	 * @name update
+	 * @params {password_reset_token:string, password:string}
+	 * @return
+	 */
+	update():AuthTokenInterface {
+		return createRequestMethod({
 			method: "PUT",
 			path: "",
 			required: ["password_reset_token", "password"],
 			requiresAuth: false
-		}),
+		}) as any;
+	}
 
-
-
-	]
-} as ResourceInterface;
+}
+export default PasswordResetResource;

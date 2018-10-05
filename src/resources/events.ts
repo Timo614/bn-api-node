@@ -1,100 +1,135 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
-import EventArtist from "./namespaced/event-artists";
-import EventInterest from "./namespaced/event-interests";
-import EventTicket from "./namespaced/event-tickets";
+import ResourceClass from "../classes/abstracts/resource.class";
+import { EventInterface } from "../interfaces/resources/event.interface";
+import EventArtistsResource from "./namespaced/event-artists";
+import EventInterestsResource from "./namespaced/event-interests";
+import EventTicketTypesResource from "./namespaced/event-tickets-types";
+import EventTicketsResource from "./namespaced/event-tickets";
 
-export default {
-	path: "events",
+/**
+ * @endpoint events
+ */
+class EventsResource extends ResourceClass {
 
-	methods: [
-		/**
-         * List events
-         * @name find
-         * @param params {paginationParams}
-         * @return Array<EventInterface>
-         * @TODO add pagination
-         */
+	constructor() {
+		super("events");
+		this.namespaces = {
+			artists: EventArtistsResource,
+			interests: EventInterestsResource,
+			ticketTypes: EventTicketTypesResource,
+			tickets: EventTicketsResource,
+		};
+	}
 
-		createRequestMethod({
+
+	/**
+	 * List of events
+	 * @auth false
+	 * @params {skip: number, limit: number}
+	 */
+	index(): Array<EventInterface> {
+		return createRequestMethod({
 			name: "index",
 			method: "GET",
 			path: "",
 			required: [],
 			requiresAuth: false
-		}),
+		}) as any;
+	}
 
-		/**
-         * Find events
-         * @name find
-         * @param params {findParams}
-         * @return Array<EventInterface>
-         * @notimplemented
-         */
-		createRequestMethod({
-			name: "find",
-			method: "GET",
-			path: "",
-			required: [],
-			requiresAuth: false
-		}),
-
-		/**
-         * Create Event
-         * @name create
-         * @param params EventInterface
-         * @return EventInterface
-         */
-		createRequestMethod({
+	/**
+	 * Create an event
+	 * @auth true
+	 * @params {EventInterface}
+	 * @requires {name: string, organization_id: uuid, status: string}
+	 */
+	create(): EventInterface {
+		return createRequestMethod({
 			name: "create",
 			method: "POST",
 			path: "",
-			required: ["name", "organization_id", "venue_id", "event_start", "is_external"],
+			required: ["name", "organization_id", "status"],
 			requiresAuth: true
-		}),
+		}) as any;
+	}
 
-		/**
-         * Edit Event
-         * @name update
-         * @param params EventInterface
-         * @return EventInterface
-         */
-		createRequestMethod({
+	/**
+	 * Update an Event
+	 * @auth true
+	 * @params {...EventInterface}
+	 * @requires {id: uuid}
+	 */
+	update(): EventInterface {
+		return createRequestMethod({
 			name: "update",
 			method: "PUT",
 			path: "/{id}",
 			required: ["id"],
 			requiresAuth: true
-		}),
-		/**
-         * Delete Event
-         * @name delete
-         * @param params {id}
-         * @return EventInterface
-         */
-		createRequestMethod({
-			name: "delete",
+		}) as any;
+	}
+
+	/**
+	 * Cancel an event
+	 * @auth true
+	 * @params {id:uuid}
+	 * @requires {id:uuid}
+	 */
+	del(): EventInterface {
+		return createRequestMethod({
+			name: "cancel",
 			method: "DELETE",
 			path: "/{id}",
 			required: ["id"],
 			requiresAuth: true
-		}),
+		}) as any;
+	}
 
-		/**
-         * Read Event
-         * @name read
-         * @param params {id}
-         * @return EventInterface
-         */
-		createRequestMethod({
+	/**
+	 * Read an event
+	 * @auth false
+	 * @params {id:uuid}
+	 * @required {id: uuid}
+	 */
+	read(): EventInterface {
+		return createRequestMethod({
 			name: "read",
 			method: "GET",
 			path: "/{id}",
 			required: ["id"],
 			requiresAuth: true
-		})
-	]
-		.concat(EventArtist.methods)
-		.concat(EventInterest.methods)
-		.concat(EventTicket.methods)
-} as ResourceInterface;
+		}) as any;
+	}
+
+	/**
+	 * Publish an event
+	 * @auth true
+	 * @params {id:uuid}
+	 * @required {id: uuid}
+	 */
+	publish(): EventInterface {
+		return createRequestMethod({
+			method: "POST",
+			path: "/{id}/publish",
+			required: ["id"],
+			requiresAuth: true
+		}) as any;
+	}
+
+
+
+}
+
+export default EventsResource;
+
+// export default {
+// 	path: "events",
+//
+// 	methods: [
+//
+//
+// 	]
+// 		.concat(EventArtist.methods)
+// 		.concat(EventInterest.methods)
+// 		.concat(EventTicket.methods)
+// } as ResourceInterface;

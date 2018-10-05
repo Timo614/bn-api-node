@@ -1,64 +1,74 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
+import { OrderInterface } from "../interfaces/resources/order.interface";
+import ResourceClass from "../classes/abstracts/resource.class";
 
 /**
- * @alias order
+ * @endpoint cart
  */
-export default {
-	path: "cart",
+class CartResource extends ResourceClass {
+	constructor() {
+		super("cart");
+	}
 
-	methods: [
-		/**
-		 * Add a ticket to the users cart
-		 * @name add
-		 * @param params {ticket_type_id:string, quantity:integer}
-		 * @returns OrderInterface
-		 */
-		createRequestMethod({
+	/**
+	 * Add a ticket to the users cart
+	 * @auth false
+	 * @params {ticket_type_id:uuid, quantity:integer}
+	 */
+	add(): OrderInterface {
+		return createRequestMethod({
 			name: "add",
 			method: "POST",
 			path: "",
 			required: ["ticket_type_id", "quantity"],
 			requiresAuth: false
-		}),
+		}) as any;
+	}
 
-		// instanceOfRequestMethod({
-		//     name: "update",
-		//     method: "PUT",
-		//     path: "/{id}",
-		//     required: ['id'],
-		//     requiresAuth: true
-		// }),
-		createRequestMethod({
-			name: "delete",
+	/**
+	 * Delete a ticket from a users cart
+	 * @auth false
+	 * @params {cart_item_id: uuid, quantity: integer}
+	 */
+	del(): OrderInterface {
+		return createRequestMethod({
+			name: "del",
 			method: "DELETE",
 			path: "",
 			required: ["cart_item_id", "quantity"],
 			requiresAuth: true
-		}),
+		}) as any;
+	}
 
-		createRequestMethod({
-			name: "index",
+	/**
+	 * Gets the user's current cart
+	 * @auth false
+	 */
+	read(): OrderInterface {
+		return createRequestMethod({
+			name: "read",
 			method: "GET",
 			path: "",
 			required: [],
 			requiresAuth: false
-		})
-		//
-		// instanceOfRequestMethod({
-		//     name: "find",
-		//     method: "GET",
-		//     path: "",
-		//     required: [],
-		//     requiresAuth: true
-		// }),
-		//
-		// instanceOfRequestMethod({
-		//     name: "read",
-		//     method: "GET",
-		//     path: "/{id}",
-		//     required: ['id'],
-		//     requiresAuth: true
-		// })
-	]
-} as ResourceInterface;
+		}) as any;
+	}
+
+	/**
+	 * Checkout the cart
+	 * @params {amount: number, method: CheckoutMethodInterface}
+	 * @requires {method: CheckoutMethodInterface}
+	 * @TODO Create a response type
+	 * @TODO Create a request type
+	 */
+	checkout(): any {
+		return createRequestMethod({
+			method: "POST",
+			path: "/checkout",
+			required: ["method"],
+			requiresAuth: false
+		}) as any;
+	}
+}
+
+export default CartResource;

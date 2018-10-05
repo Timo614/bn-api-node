@@ -13,7 +13,8 @@
     "prepublish": "npm run build",
     "eslint-validate": "node_modules/eslint/bin/eslint.js  -c .eslintrc --ext .ts --ext .js ./src/",
     "eslint-fix": "node_modules/eslint/bin/eslint.js --fix -c .eslintrc --ext .ts --ext .js ./src/**/*",
-    "postinstall": "git config core.hooksPath .githooks"
+    "prepare": "git config core.hooksPath .githooks",
+    "docs": "node_modules/.bin/typedoc --out docs"
   },
   "repository": {
     "type": "git",
@@ -49,6 +50,7 @@
     "eslint-plugin-typescript": "^0.12.0",
     "mocha": "^5.2.0",
     "ts-loader": "^4.5.0",
+    "typedoc": "^0.12.0",
     "typescript": "^3.0.1",
     "typescript-eslint-parser": "^18.0.0",
     "webpack": "^4.17.0",

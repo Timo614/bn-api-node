@@ -1,33 +1,82 @@
 // import fs from 'fs';
 import { ResourceInterface } from "../interfaces/server/resource";
 import { RequestMethodInterface } from "../interfaces/server/request-method.interface";
+import { getAllMethodNames } from "../helpers/utils";
 import XhrClient from "./xhr-client";
+import ResourceClass from "./abstracts/resource.class";
 
 export class RequestMethod {
 	path: string;
 
 	client: XhrClient;
 
-	constructor(resource: ResourceInterface, client: XhrClient) {
+	constructor(resource: ResourceClass, client: XhrClient) {
+
+
 		let self: any = this;
 		let path = "/" + resource.path;
+
+
 		this.path = path;
 		this.client = client;
-		for (let i in resource.methods) {
-			let method: RequestMethodInterface = resource.methods[i];
-			let name: string = method.name;
+
+		let methods:Array<RequestMethodInterface> = resource.methods.concat(this._buildMethodArray(resource));
+
+		for (let i in methods) {
+			let method: RequestMethodInterface = methods[i];
+
 			let request: any = this._request(method);
-			let namespace = self;
-			//This allows us to nest methods in a namespace
-			if (method.namespace) {
-				if (!self.hasOwnProperty(method.namespace)) {
-					self[method.namespace] = {};
+			//Attach the request to the each of the names
+			method.names.forEach(name => {
+
+				let namespace = self;
+				//This allows us to nest methods in a namespace
+				if (method.namespace) {
+					if (!self.hasOwnProperty(method.namespace)) {
+						self[method.namespace] = {};
+					}
+					namespace = self[method.namespace];
 				}
-				namespace = self[method.namespace];
-			}
-			//Attach the request method to the namespace
-			namespace[name] = request;
+				//Attach the request method to the namespace
+				namespace[name] = request;
+			});
+
 		}
+	}
+
+	_buildMethodArray(resource: ResourceClass ):Array<RequestMethodInterface> {
+		let methods: Array<RequestMethodInterface> = [];
+		let availableMethods = getAllMethodNames(resource);
+
+		availableMethods.forEach(method => {
+			let resourceElement: any = (resource as any)[method];
+			let requestMethod = resourceElement();
+
+			//If we specify a name add it to the list of aliases
+			if (requestMethod.name) {
+				requestMethod.names.push(requestMethod.name);
+			}
+			//If the method name doesn't match any of the existing names, add it
+			if (requestMethod.names.indexOf(method) === -1) {
+				requestMethod.names.push(method);
+			}
+
+			methods.push(requestMethod);
+		});
+
+		for (let namespace in resource.namespaces) {
+			let NamespacedResource: ResourceClass = resource.namespaces[namespace] as ResourceClass;
+			// @ts-ignore
+			let namespacedResource: any = new NamespacedResource();
+
+			let namespaceMethods = this._buildMethodArray(namespacedResource).map(item => {
+				item.namespace = namespace;
+				return item;
+			});
+			methods = methods.concat(namespaceMethods);
+		}
+
+		return methods;
 	}
 
 	/**
@@ -91,7 +140,7 @@ export class RequestMethod {
 			}
 		}
 		if (missingRequiredFields.length) {
-			throw `${path} is expecting these fields: ${method.required.join(", ")}`;
+			throw new Error(`${path} is expecting these fields: ${method.required.join(", ")}`);
 		}
 
 		method.requireOne = method.requireOne || [];
@@ -103,9 +152,9 @@ export class RequestMethod {
 					return true;
 				}
 			}
-			throw `${path} is expecting at least one of these fields: ${method.requireOne.join(
+			throw new Error(`${path} is expecting at least one of these fields: ${method.requireOne.join(
 				", "
-			)}`;
+			)}`);
 		}
 
 		return true;
@@ -137,7 +186,7 @@ export class RequestMethod {
 
 			let promise;
 
-			if (this.client.mocker ) {
+			if (this.client.mocker) {
 				let mockerPath = method.method.toLowerCase() + path.replace(/\//g, ".");
 				if (this.client.mocker.hasMock(mockerPath)) {
 					promise = this.client.mocker.mock(
@@ -160,7 +209,7 @@ export class RequestMethod {
 						promise = axiosInstance.patch(path, data);
 						break;
 					case "DELETE":
-						promise = axiosInstance.delete(path, { params: data });
+						promise = axiosInstance.delete(path, { data });
 						break;
 					case "GET":
 						promise = axiosInstance.get(path, { params: data });

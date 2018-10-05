@@ -1,57 +1,70 @@
 if (!process.env.SUPERUSER_EMAIL) {
-    require('dotenv').config();
+	require("dotenv").config();
 }
-const Server = require('../../dist/classes/server').Server;
+const Server = require("../../dist/classes/server").Server;
 const globals = {
-    env: {...process.env},
-    userData: {
-        superadmin: {
-            first_name: 'System',
-            last_name: 'Administrator',
-            email: process.env.SUPERUSER_EMAIL,
-            phone: process.env.SUPERUSER_MOBILE,
-            password: process.env.SUPERUSER_PASSWORD,
-        }
-    },
+	env: { ...process.env },
+	userData: {
+		superadmin: {
+			first_name: "System",
+			last_name: "Administrator",
+			email: process.env.SUPERUSER_EMAIL,
+			phone: process.env.SUPERUSER_MOBILE,
+			password: process.env.SUPERUSER_PASSWORD,
+		},
+		adminData: false
+	},
 
-    adminServer: null,
-    publicServer: null,
+	adminServer: null,
+	publicServer: null,
 
 
-    admin: null,
-    organizations: {},
-    venues: {},
-    events: {},
+	admin: null,
+	organizations: {},
+	venues: {},
+	events: {},
 
-    async getAdminServer(params) {
-        if (!this.adminServer) {
-            this.adminServer = new Server(this._serverParams(params));
 
-            try {
-                await this.adminServer.auth.create(this.userData.superadmin);
-            } catch (e) {
-                console.log(e);
-            }
+	async getAdminData(params) {
+		if (!this.userData.adminData) {
+			let adminServer = await globals.getAdminServer(params);
+			try {
+				let res = await adminServer.users.current();
+				globals.userData.adminData = res.data;
+			}catch(e) {
+				console.log("Error fetching admin data", e);
+			}
+		}
+		return this.userData.adminData;
+	},
 
-        }
-        return this.adminServer;
-    },
-    getPublicServer(params) {
-        if (!this.publicServer) {
-            this.publicServer = new Server(this._serverParams(params));
-        }
-        return this.publicServer;
-    },
-    _serverParams(params) {
-        return {
-            ...{
-                protocol: process.env.API_PROTOCOL || 'http',
-                host: process.env.API_HOST || 'localhost',
-                port: process.env.API_PORT || 9000
-            },
-            ...params
-        }
-    },
+	async getAdminServer(params) {
+		if (!globals.adminServer) {
+			globals.adminServer = new Server(this._serverParams(params));
+			try {
+				await globals.adminServer.auth.create(globals.userData.superadmin);
+			} catch (e) {
+				console.error(e);
+			}
+		}
+		return globals.adminServer;
+	},
+	getPublicServer(params) {
+		if (!globals.publicServer) {
+			globals.publicServer = new Server(globals._serverParams(params));
+		}
+		return globals.publicServer;
+	},
+	_serverParams(params) {
+		return {
+			...{
+				protocol: process.env.API_PROTOCOL || "http",
+				host: process.env.API_HOST || "localhost",
+				port: process.env.API_PORT || 9000
+			},
+			...params
+		}
+	},
 
 };
 

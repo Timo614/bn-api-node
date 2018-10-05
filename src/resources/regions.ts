@@ -1,64 +1,75 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
 import { ResourceInterface } from "../interfaces/server/resource";
+import ResourceClass from "../classes/abstracts/resource.class";
+import { RegionInterface } from "../interfaces/resources/region.interface";
 
-export default {
-	path: "regions",
+/**
+ * @endpoint regions
+ */
 
-	methods: [
-		/**
-         * Get a single region
-         * @name read
-         * @param params {id}
-         * @return RegionInterface
-         */
-		createRequestMethod({
-			name: "read",
+class RegionsResource extends ResourceClass {
+	constructor() {
+		super("regions");
+	}
+
+	/**
+	 * Get a single region
+	 * @auth false
+	 * @params {id}
+	 * @requires {id}
+	 */
+	read(): RegionInterface {
+		return createRequestMethod({
 			method: "GET",
 			path: "/{id}",
 			required: ["id"],
-			requiresAuth: true
-		}),
+			requiresAuth: false
+		}) as any;
+	}
 
-		/**
-         * Update a single region
-         * @name update
-         * @param params {id, ...RegionInterface}
-         * @return RegionInterface
-         */
-		createRequestMethod({
-			name: "update",
+	/**
+	 * Update a single region
+	 * @auth true
+	 * @params {id, ...RegionInterface}
+	 */
+	update(): RegionInterface {
+		return createRequestMethod({
 			method: "PUT",
 			path: "/{id}",
 			required: ["id"],
 			requiresAuth: true
-		}),
+		}) as any;
 
-		/**
-         * Create an region
-         * @name create
-         * @param {RegionInterface}
-         * @return RegionInterface
-         */
-		createRequestMethod({
-			name: "create",
+	}
+
+	/**
+	 * Create an region
+	 * @auth true
+	 * @params {...RegionInterface}
+	 */
+	create(): RegionInterface {
+		return createRequestMethod({
 			method: "POST",
 			path: "",
 			required: ["name"],
 			requiresAuth: true
-		}),
+		}) as any;
+	}
 
-		/**
-         * List regions
-         * @name index
-         * @return Array<RegionInterface>
-         */
-		createRequestMethod({
-			name: "index",
+
+	/**
+	 * List regions
+	 * @auth false
+	 * @return Array<RegionInterface>
+	 */
+	index(): Array<RegionInterface> {
+		return createRequestMethod({
 			method: "GET",
 			path: "",
 			required: [],
-			requiresAuth: true
-		}),
+			requiresAuth: false
+		}) as any;
+	}
 
-	]
-} as ResourceInterface;
+}
+export default RegionsResource;

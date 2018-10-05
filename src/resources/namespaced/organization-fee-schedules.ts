@@ -1,38 +1,48 @@
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
 import { ResourceInterface } from "../../interfaces/server/resource";
+import ResourceClass from "../../classes/abstracts/resource.class";
+import { TicketTypeInterface } from "../../interfaces/resources/ticket-type.interface";
+import { FeeScheduleInterface } from "../../interfaces/resources/fee-schedule.interface";
 
-export default {
+/**
+ * @endpoint organizations.feeSchedules
+ */
+class OrganizationFeeSchedulesResource extends ResourceClass {
+	constructor() {
+		super("organizations");
+	}
 
-	methods: [
-		/**
-         * Create a ticket type
-         * @name feeSchedule.create
-         * @param params {TicketInterface}
-         * @return TicketInterface
-         */
-		createRequestMethod({
-			namespace: "feeSchedule",
+	/**
+	 * Create a ticket type
+	 * @auth true
+	 * @params {organization_id: uuid, TicketTypeInterface}
+	 */
+	create(): FeeScheduleInterface {
+		return createRequestMethod({
 			name: "create",
 			method: "POST",
-			path: "/{id}/fee_schedule",
-			required: ["id", "name", "ranges"],
+			path: "/{organization_id}/fee_schedule",
+			required: ["organization_id", "name", "ranges"],
 			requiresAuth: true
-		}),
+		}) as any;
+	}
 
-		/**
-         * Get a list of fee schedules for the event
-         * @name feeSchedule.index
-         * @param params {org_id}
-         * @return Array<FeeScheduleInterface>
-         */
-		createRequestMethod({
-			namespace: "feeSchedule",
+
+	/**
+	 * Get a list of fee schedules for the event
+	 * @params {organization_id:uuid}
+	 */
+	index(): Array<FeeScheduleInterface> {
+		return createRequestMethod({
 			name: "index",
 			method: "GET",
-			path: "/{id}/fee_schedule",
-			required: ["id"],
+			path: "/{organization_id}/fee_schedule",
+			required: ["organization_id"],
 			requiresAuth: false
-		}),
+		}) as any;
 
-	]
-} as ResourceInterface;
+	}
+
+}
+
+export default OrganizationFeeSchedulesResource;

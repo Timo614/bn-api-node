@@ -1,21 +1,26 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
+import ResourceClass from "../classes/abstracts/resource.class";
 
-export default {
-	path: "status",
+/**
+ * @endpoint status
+ */
+class StatusResource extends ResourceClass {
+	constructor() {
+		super("status");
+	}
 
-	methods: [
-		/**
-         * Get the status of the server
-         * @name read
-         */
-		createRequestMethod({
-			name: "read",
+	/**
+	 * Check the status of the server
+	 * @auth false
+	 * @response 200
+	 */
+	read(): void {
+		return createRequestMethod({
+			name: "status",
 			method: "GET",
 			path: "",
 			requiresAuth: false
-		})
-	]
-
-
-} as ResourceInterface
+		}) as any;
+	}
+}
+export default StatusResource;

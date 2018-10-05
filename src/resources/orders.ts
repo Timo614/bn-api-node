@@ -1,37 +1,42 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
+import ResourceClass from "../classes/abstracts/resource.class";
+import { OrderInterface } from "../interfaces/resources/order.interface";
 
-export default {
-	path: "orders",
+/**
+ * @endpoint orders
+ */
+class OrdersResource extends ResourceClass {
+	constructor() {
+		super("orders");
+	}
 
-	methods: [
-		/**
-		 * List orders
-		 * @name find
-		 * @param params {paginationParams}
-		 * @return Array<EventInterface>
-		 * @TODO add pagination
-		 */
-		createRequestMethod({
-			name: "index",
+	/**
+	 * List orders for user
+	 * @auth true
+	 */
+	index(): Array<OrderInterface> {
+		return createRequestMethod({
 			method: "GET",
 			path: "",
 			required: [],
-			requiresAuth: false
-		}),
+			requiresAuth: true
+		}) as any;
+	}
 
-		/**
-		 * Read Order
-		 * @name read
-		 * @param params {id}
-		 * @return EventInterface
-		 */
-		createRequestMethod({
-			name: "read",
+	/**
+	 * Read an order
+	 * @auth true
+	 * @params {id:uuid}
+	 * @requires {id:uuid}
+	 */
+	read(): OrderInterface {
+		return createRequestMethod({
 			method: "GET",
 			path: "/{id}",
 			required: ["id"],
 			requiresAuth: true
-		})
-	]
-} as ResourceInterface;
+		}) as any;
+	}
+}
+
+export default OrdersResource;

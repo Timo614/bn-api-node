@@ -9,11 +9,17 @@ import Regions from "./regions";
 import Status from "./status";
 import TicketPricing from "./ticket-pricing";
 import Users from "./users";
-import Venue from "./venue";
+import Venue from "./venues";
 import Orders from "./orders";
 import Tickets from "./tickets";
+import { ResourceInterface } from "../interfaces/server/resource";
+import ResourceClass from "../classes/abstracts/resource.class";
+import PasswordReset from "./password-reset";
 
-export default {
+/**
+ * List of available endpoints
+ */
+export const endpoints: { [endpoint: string]: ResourceInterface | ResourceClass } = {
 	artists: Artist,
 	auth: Auth,
 	cart: Cart,
@@ -23,9 +29,11 @@ export default {
 	regions: Regions,
 	invitations: Invitations,
 	status: Status,
+	passwordReset: PasswordReset,
 	ticketPricing: TicketPricing,
 	users: Users,
 	venues: Venue,
 	orders: Orders,
-	tickets: Tickets
-};
+	tickets: Tickets,
+} as any;
+export default endpoints;

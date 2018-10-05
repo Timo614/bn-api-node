@@ -1,23 +1,24 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
+import ResourceClass from "../classes/abstracts/resource.class";
+import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface";
 
-export default {
-	path: "external",
+class ExternalResource extends ResourceClass {
+	constructor() {
+		super("external");
+	}
 
-	methods: [
-		/**
-         * Login with facebook
-         * @name facebookLogin
-         * @param params {facebookResponse}
-         * @return AuthResponse
-         */
-		createRequestMethod({
-			name: "facebookLogin",
+	/**
+	 * Login with Facebook
+	 * @auth false
+	 * @params {accessToken: string, userID:string}
+	 */
+	facebookLogin(): AuthTokenInterface {
+		return createRequestMethod({
 			method: "POST",
 			path: "/facebook/web_login",
 			required: ["accessToken","userID", "expiresIn", "signedRequest", "reauthorize_required_in"],
-			requiresAuth: true
-		}),
-
-	]
-} as ResourceInterface;
+			requiresAuth: false
+		}) as any;
+	}
+}
+export default ExternalResource;

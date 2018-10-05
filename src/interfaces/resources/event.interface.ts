@@ -1,4 +1,4 @@
-import { createTicket, TicketInterface } from "./ticket.interface";
+import { createTicketType, TicketTypeInterface } from "./ticket-type.interface";
 import { EventArtistInterface } from "./event-artist.interface";
 import { EventInterestInterface } from "./event-interest.interface";
 
@@ -22,7 +22,7 @@ export interface EventInterface {
     created_at?: Date;
     updated_at?:Date;
 
-    tickets: Array<TicketInterface>;
+    tickets: Array<TicketTypeInterface>;
     artists?: Array<EventArtistInterface>;
     interests?: Array<EventInterestInterface>;
 
@@ -32,7 +32,7 @@ export interface EventInterface {
 
 export const createEvent = (base: any = {}): EventInterface => {
 	if (base && base.tickets) {
-		base.tickets = base.tickets.map((ticket: any) => createTicket(ticket));
+		base.tickets = base.tickets.map((ticket: any) => createTicketType(ticket));
 	}
 	return {
 		...{

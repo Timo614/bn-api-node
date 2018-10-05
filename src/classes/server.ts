@@ -5,9 +5,9 @@ import {
 import XhrClient from "./xhr-client";
 
 import Resources from "../resources/index";
-import {RequestMethod} from "./request-method";
-import {MockerInterface} from "../interfaces/mocks/mocker.interface";
-import {ResourceInterface} from "../interfaces/server/resource";
+import { RequestMethod } from "./request-method";
+import { MockerInterface } from "../interfaces/mocks/mocker.interface";
+import { ResourceInterface } from "../interfaces/server/resource";
 
 export class Server {
 	private serverInterface: ServerInterface;
@@ -27,6 +27,10 @@ export class Server {
 		for (let key in Resources) {
 			let resourceData: any = Resources[key];
 
+			if (this._isClass(resourceData)) {
+				resourceData = new resourceData();
+			}
+
 			let resource: RequestMethod = new RequestMethod(
 				resourceData,
 				this.client
@@ -35,6 +39,10 @@ export class Server {
 
 			this.matchingResources = this.matchingResources.concat(this._getMatchingResources(resourceData, key));
 		}
+	}
+
+	_isClass(resourceData:any):boolean {
+		return resourceData && resourceData.prototype && !!resourceData.prototype.constructor.name;
 	}
 
 	/**
@@ -47,7 +55,7 @@ export class Server {
 	_getMatchingResources(resourceData: ResourceInterface, key: string): Array<any> {
 		let paths = [];
 		for (let i in resourceData.methods) {
-			let {path, method, namespace, name} = resourceData.methods[i];
+			let { path, method, namespace, name } = resourceData.methods[i];
 			let methodBlock = {
 				name,
 				namespace,

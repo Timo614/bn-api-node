@@ -1,54 +1,55 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
+import ResourceClass from "../classes/abstracts/resource.class";
 
-export default {
-	path: "invitations",
+/**
+ * @endpoint invitations
+ */
+class InvitationsResource extends ResourceClass {
+	constructor() {
+		super("invitations");
+	}
 
-	methods: [
-		/**
-         * Accept an invitation
-         * @name accept
-         * @param params {security_token}
-         * @return
-         * @TODO change the url and the method when big-neon/bn-api#277 is merged
-         */
-		createRequestMethod({
-			name: "accept",
+	/**
+	 * Accept an invitation
+	 * 200 response on success
+	 * @params {security_token: string}
+	 * @required {security_token: string}
+	 */
+	accept(): void {
+		return createRequestMethod({
 			method: "POST",
 			path: "",
 			required: ["security_token"],
 			requiresAuth: false
-		}),
-		/**
-         * Decline an invitation
-         * @name decline
-         * @param params {security_token}
-         * @return
-         * @TODO change the url and the method when big-neon/bn-api#277 is merged
-         */
-		createRequestMethod({
-			name: "decline",
+		}) as any;
+	}
+
+	/**
+	 * Decline an invitation
+	 * @params {security_token: string}
+	 * @required {security_token: string}
+	 */
+	decline():void {
+		return createRequestMethod({
 			method: "DELETE",
-			path: "",
+			path: "?security_token={security_token}",
 			required: ["security_token"],
 			requiresAuth: false
-		}),
+		})as any;
+	}
 
-		/**
-         * View an invitation
-         * @name read
-         * @param params {security_token}
-         * @return Invitation
-         * @TODO change the url and the method when big-neon/bn-api#277 is merged
-         */
-		createRequestMethod({
-			name: "read",
-			method: "GET",
-			path: "",
-			required: ["security_token"],
-			requiresAuth: false
-		}),
-
-
-	]
-} as ResourceInterface;
+	// /**
+	//  * Read the invitation
+	//  * @params {security_token: string}
+	//  * @required {security_token: string}
+	//  */
+	// read(): any {
+	// 	return createRequestMethod({
+	// 		method: "GET",
+	// 		path: "",
+	// 		required: ["security_token"],
+	// 		requiresAuth: false
+	// 	}) as any;
+	// }
+}
+export default InvitationsResource;

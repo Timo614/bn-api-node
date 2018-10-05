@@ -1,77 +1,94 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
 import { ArtistInterface } from "../interfaces/resources/artist.interface";
+import ResourceClass from "../classes/abstracts/resource.class";
 
-export default {
-	path: "artists",
+/**
+ * @endpoint artists
+ */
+class ArtistsResource extends ResourceClass {
+	constructor() {
+		super("artists");
+	}
 
-	methods: [
-		/**
-         * Get a single artist
-         * @name read
-         * @param params {id}
-         */
-		createRequestMethod({
+	/**
+	 * Get a single artist
+	 * @auth false
+	 * @params {id:uuid}
+	 */
+	read(): ArtistInterface {
+		return createRequestMethod({
 			name: "read",
 			method: "GET",
 			path: "/{id}",
 			required: ["id"],
 			requiresAuth: false
-		}),
+		}) as any;
+	}
 
-		/**
-         * Edit an artist
-         * @name update
-         * @param params {id}
-         */
-		createRequestMethod({
+	/**
+	 * Update an artist
+	 * @auth true
+	 * @params {id, ...ArtistInterface}
+	 */
+	update(): ArtistInterface {
+		return createRequestMethod({
 			name: "update",
 			method: "PUT",
 			path: "/{id}",
 			required: ["id"],
 			requireOne: ["name", "bio"],
 			requiresAuth: true
-		}),
+		}) as any;
+	}
 
-		/**
-         * List artists
-         * @name index
-         * @param params {paginationParams}
-         * @return Array<ArtistInterface>
-         * @TODO Add pagination params
-         */
-		createRequestMethod({
+	/**
+	 * List of artists
+	 * @auth false
+	 * @params {skip?:integer, limit?:integer}
+	 */
+	index(): Array<ArtistInterface> {
+		return createRequestMethod({
 			name: "index",
 			method: "GET",
 			path: "",
 			required: [],
 			requiresAuth: true
-		}),
+		}) as any;
+	}
 
-		/**
-         * Find artists
-         * @name find
-         * @params {}
-         * @notimplemented
-         */
-		createRequestMethod({
-			name: "find",
-			method: "GET",
-			path: "",
-			required: [],
-			requiresAuth: true
-		}),
-		/**
-         * Create an artist
-         * @param name
-         * @param bio
-         */
-		createRequestMethod({
+	/**
+	 * Create an artist
+	 * @auth true
+	 * @params {...ArtistsInterface}
+	 * @requires {name: string, bio: string}
+	 */
+	create(): ArtistInterface {
+		return createRequestMethod({
 			name: "create",
 			method: "POST",
 			path: "",
 			required: ["name", "bio"],
 			requiresAuth: true
-		}),
-	]
-} as ResourceInterface;
+		}) as any;
+	}
+
+	/**
+	 * Toggle the privacy flag of an artists
+	 * @auth true
+	 * @params {id:uuid}
+	 * @requires {id:uuid}
+	 */
+	togglePrivacy(): ArtistInterface {
+		return createRequestMethod({
+			name: "togglePrivacy",
+			method: "PUT",
+			path: "/{id}/toggle_privacy",
+			required: ["id"],
+			requiresAuth: true
+		}) as any;
+	}
+
+
+}
+
+export default ArtistsResource;
