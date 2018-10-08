@@ -3,7 +3,6 @@ const assert = require("assert");
 const Server = require("../../dist/classes/server").Server;
 const global = require("../data/globals");
 
-
 describe("/invitations/", () => {
 	let server = global.getPublicServer();
 	describe("Super user invites other users to the organization", () => {
@@ -21,7 +20,6 @@ describe("/invitations/", () => {
 		it("Invites a new user bob@sagget.com", async () => {
 			// let response = await adminServer.organizations.invite.create({id: org.id, user_email: "bob@sagget.com"});
 			// assert.strictEqual(response.status, 500);
-
 		});
 
 		it("Invites an invalid email that doesn't exist asdf😰kkruigfvsa.asdnf3", () => {
@@ -34,7 +32,6 @@ describe("/invitations/", () => {
 		});
 		describe("Invitees check, accept and decline", () => {
 			it("Unauthorized user can view their invite", async () => {
-
 				// let response = await server.invitations.read({security_token: 'security_token'});
 			});
 
@@ -45,10 +42,6 @@ describe("/invitations/", () => {
 			it("Unauthorized user can decline their invite", async () => {
 				// let response = server.invitations.decline({security_token: 'security_token'});
 			});
-		})
-
-
+		});
 	});
-
-
 });
