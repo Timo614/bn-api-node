@@ -2,6 +2,7 @@ import { createRequestMethod } from "../interfaces/server/request-method.interfa
 import { ResourceInterface } from "../interfaces/server/resource";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { RegionInterface } from "../interfaces/resources/region.interface";
+import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint regions
@@ -60,9 +61,9 @@ class RegionsResource extends ResourceClass {
 	/**
 	 * List regions
 	 * @auth false
-	 * @return Array<RegionInterface>
+	 * @data Array<[[RegionInterface]]>
 	 */
-	index(): Array<RegionInterface> {
+	index(): IndexInterface {
 		return createRequestMethod({
 			method: "GET",
 			path: "",

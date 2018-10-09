@@ -1,6 +1,7 @@
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
 import ResourceClass from "../../classes/abstracts/resource.class";
 import { FeeScheduleInterface } from "../../interfaces/resources/fee-schedule.interface";
+import { IndexInterface } from "../../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint organizations.feeSchedules
@@ -29,8 +30,9 @@ class OrganizationFeeSchedulesResource extends ResourceClass {
 	/**
 	 * Get a list of fee schedules for the event
 	 * @params {organization_id:uuid}
+	 * @data Array<[[FeeScheduleInterface]]>
 	 */
-	index(): Array<FeeScheduleInterface> {
+	index(): IndexInterface {
 		return createRequestMethod({
 			name: "index",
 			method: "GET",

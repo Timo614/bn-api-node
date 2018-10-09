@@ -2,6 +2,7 @@ import { createRequestMethod } from "../../interfaces/server/request-method.inte
 import ResourceClass from "../../classes/abstracts/resource.class";
 import { OrganizationInterface } from "../../interfaces/resources/organization.interface";
 import { UserInterface } from "../../interfaces/resources/user.interface";
+import { IndexInterface } from "../../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint organizations.users
@@ -47,8 +48,9 @@ class OrganizationUsersResource extends ResourceClass {
 	 * List users in the organization
 	 * @params {organization_id:uuid}
 	 * @requires {organization_id:uuid}
+	 * @data Array<[[UserInterface]]>
 	 */
-	index(): { organization_owner: UserInterface, organization_members: Array<UserInterface> } {
+	index(): IndexInterface {
 		return createRequestMethod({
 			name: "index",
 			method: "GET",

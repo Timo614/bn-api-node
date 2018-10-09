@@ -5,6 +5,7 @@ import EventArtistsResource from "./namespaced/event-artists";
 import EventInterestsResource from "./namespaced/event-interests";
 import EventTicketTypesResource from "./namespaced/event-tickets-types";
 import EventTicketsResource from "./namespaced/event-tickets";
+import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint events
@@ -25,9 +26,10 @@ class EventsResource extends ResourceClass {
 	/**
 	 * List of events
 	 * @auth false
-	 * @params {skip: number, limit: number}
+	 * @params {...[[PagingInterface]], event_id?: string}
+	 * @data Array<[[EventInterface]]>
 	 */
-	index(): Array<EventInterface> {
+	index(): IndexInterface {
 		return createRequestMethod({
 			name: "index",
 			method: "GET",
@@ -115,7 +117,6 @@ class EventsResource extends ResourceClass {
 			requiresAuth: true
 		}) as any;
 	}
-
 
 
 }

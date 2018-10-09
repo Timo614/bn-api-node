@@ -1,6 +1,7 @@
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
 import ResourceClass from "../../classes/abstracts/resource.class";
 import { EventInterface } from "../../interfaces/resources/event.interface";
+import { IndexInterface } from "../../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint venues.events
@@ -15,8 +16,9 @@ class VenueEventsResource extends ResourceClass {
 	 * List events in the venue
 	 * @params {venue_id:uuid}
 	 * @requires {venue_id:uuid}
+	 * @data  Array<[[EventInterface]]>
 	 */
-	index(): Array<EventInterface> {
+	index(): IndexInterface {
 		return createRequestMethod({
 			method: "GET",
 			path: "/{venue_id}/events",

@@ -8,6 +8,7 @@ import OrganizationInvitationsResource from "./namespaced/organization-invitatio
 import OrganizationOwnersResource from "./namespaced/organization-owner";
 import OrganizationUsersResource from "./namespaced/organization-users";
 import OrganizationVenueResource from "./namespaced/organization-venues";
+import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint organizations
@@ -75,8 +76,9 @@ class OrganizationsResource extends ResourceClass {
 	/**
 	 * List organizations
 	 * @auth true
+	 * @data Array<[[OrganizationInterface]]>
 	 */
-	index(): Array<OrganizationInterface> {
+	index(): IndexInterface {
 		return createRequestMethod({
 			name: "index",
 			method: "GET",

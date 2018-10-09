@@ -3,6 +3,7 @@ import ResourceClass from "../classes/abstracts/resource.class";
 import { TicketInterface } from "../interfaces/resources/ticket.interface";
 import { UserInterface } from "../interfaces/resources/user.interface";
 import { EventInterface } from "../interfaces/resources/event.interface";
+import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint tickets
@@ -16,8 +17,9 @@ class TicketsResource extends ResourceClass {
 	 * Gets the users tickets
 	 * @auth true
 	 * @params {start_utc: Date, end_utc: Date}
+	 * @data Array<[[TicketInterface]]>
 	 */
-	index(): Array<TicketInterface> {
+	index(): IndexInterface {
 		return createRequestMethod({
 			method: "GET",
 			path: "",

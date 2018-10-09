@@ -1,6 +1,7 @@
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
 import ResourceClass from "../../classes/abstracts/resource.class";
 import { TicketInterface } from "../../interfaces/resources/ticket.interface";
+import { IndexInterface } from "../../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint events.tickets
@@ -17,8 +18,9 @@ class EventTicketsResource extends ResourceClass {
 	 * @auth true
 	 * @params {event_id:uuid}
 	 * @requires {event_id:uuid}
+	 * @data Array<[[TicketInterface]]>
 	 */
-	index(): Array<TicketInterface> {
+	index(): IndexInterface {
 		return createRequestMethod({
 			name: "index",
 			method: "GET",

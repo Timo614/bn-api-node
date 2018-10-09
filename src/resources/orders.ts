@@ -1,6 +1,7 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { OrderInterface } from "../interfaces/resources/order.interface";
+import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint orders
@@ -13,8 +14,9 @@ class OrdersResource extends ResourceClass {
 	/**
 	 * List orders for user
 	 * @auth true
+	 * @data Array<[[OrderInterface]]>
 	 */
-	index(): Array<OrderInterface> {
+	index(): IndexInterface {
 		return createRequestMethod({
 			method: "GET",
 			path: "",

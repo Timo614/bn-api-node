@@ -1,6 +1,7 @@
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
 import ResourceClass from "../../classes/abstracts/resource.class";
 import { ArtistInterface } from "../../interfaces/resources/artist.interface";
+import { IndexInterface } from "../../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint organizations.artists
@@ -15,8 +16,9 @@ class OrganizationArtistsResource extends ResourceClass {
 	 * @auth true
 	 * @params {organization_id:uuid}
 	 * @requires {organization_id:uuid}
+	 * @data Array<[[ArtistInterface]]>
 	 */
-	index(): Array<ArtistInterface> {
+	index(): IndexInterface {
 		return createRequestMethod({
 			name: "index",
 			method: "GET",

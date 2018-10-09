@@ -2,6 +2,7 @@ import { createRequestMethod } from "../interfaces/server/request-method.interfa
 import ResourceClass from "../classes/abstracts/resource.class";
 import VenueEventsResource from "./namespaced/venue-events";
 import { VenueInterface } from "../interfaces/resources/venue.interface";
+import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint venues
@@ -21,7 +22,7 @@ class VenuesResource extends ResourceClass {
 	 * @requires {id: uuid, organization_id: uuid}
 	 */
 	addToOrganization(): VenueInterface {
-		return 	createRequestMethod({
+		return createRequestMethod({
 			method: "POST",
 			path: "/{id}/organizations",
 			required: ["id", "organization_id"],
@@ -36,7 +37,7 @@ class VenuesResource extends ResourceClass {
 	 * @requires {id: uuid}
 	 */
 	togglePrivacy(): VenueInterface {
-		return 	createRequestMethod({
+		return createRequestMethod({
 			method: "PUT",
 			path: "/{id}/toggle_privacy",
 			required: ["id"],
@@ -94,8 +95,9 @@ class VenuesResource extends ResourceClass {
 	/**
 	 * List venues
 	 * @auth true
+	 * @data Array<[[VenueInterface]]>
 	 */
-	index(): Array<VenueInterface> {
+	index(): IndexInterface {
 		return createRequestMethod({
 			name: "index",
 			method: "GET",
@@ -106,4 +108,5 @@ class VenuesResource extends ResourceClass {
 	}
 
 }
+
 export default VenuesResource;

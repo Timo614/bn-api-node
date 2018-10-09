@@ -1,6 +1,7 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
 import { ArtistInterface } from "../interfaces/resources/artist.interface";
 import ResourceClass from "../classes/abstracts/resource.class";
+import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint artists
@@ -45,8 +46,9 @@ class ArtistsResource extends ResourceClass {
 	 * List of artists
 	 * @auth false
 	 * @params {skip?:integer, limit?:integer}
+	 * @data Array<[[ArtistInterface]]>
 	 */
-	index(): Array<ArtistInterface> {
+	index(): IndexInterface {
 		return createRequestMethod({
 			name: "index",
 			method: "GET",
