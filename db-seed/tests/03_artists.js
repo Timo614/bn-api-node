@@ -1,7 +1,7 @@
 const q = require("../queries");
 const assert = require("assert");
 const Server = require("../../dist/classes/server").Server;
-const global = require("../data/globals");
+const global = require("../helpers/globals");
 const fields = require("../../dist/interfaces/resources/artist.interface");
 const assertFieldsMatch = require("../queries").assertFieldsMatch;
 

@@ -10,10 +10,14 @@
     }
   },
   "rules": {
-    "quotes": ["warn", "double", {
-      "avoidEscape": true,
-      "allowTemplateLiterals": true
-    }],
+    "quotes": [
+      "warn",
+      "double",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
     "max-len": 0,
     "global-require": 0,
     "no-nested-ternary": 0,
@@ -24,7 +28,21 @@
     "no-console": "off",
     "lines-between-class-members": "warn",
     "object-curly-spacing": ["warn", "always"],
-    "no-undef": ["off"]
+    "no-undef": "error"
   },
-  "globals": {}
+  "globals": {
+    "console": false,
+    "process": false,
+    "setTimeout": false,
+    "require": false,
+    "URL": false,
+    "module": false,
+    "describe": false,
+    "it": false,
+    "_": false,
+    "alert": false,
+    "fetch": false,
+    "Promise": false,
+    "before": false
+  }
 }

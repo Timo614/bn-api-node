@@ -1,7 +1,8 @@
 const q = require("../queries");
 const assert = require("assert");
 const Server = require("../../dist/classes/server").Server;
-const global = require("../data/globals");
+const global = require("../helpers/globals");
+const ticketing = require("../helpers/ticketing");
 
 describe("/events/", function() {
 	const server = new Server({}, {});
@@ -42,13 +43,69 @@ describe("/events/", function() {
 
 			//TODO add artists to event
 
-			//TODO add ticketing to event
+			it(`SuperUser adds ticket pricing to event "${
+				event.name
+			}"`, async function() {
+				const testTicketTypes = [
+					{
+						name: "General Access",
+						startPrice: 1000,
+						pricingPeriods: 5,
+						capacity: 1000
+					},
+					{
+						name: "Balcony",
+						startPrice: 2000,
+						pricingPeriods: 2,
+						capacity: 50
+					},
+					{
+						name: "VIP",
+						startPrice: 10000,
+						pricingPeriods: 2,
+						capacity: 20
+					}
+				];
+
+				for (let index = 0; index < testTicketTypes.length; index++) {
+					const {
+						name,
+						startPrice,
+						pricingPeriods,
+						capacity
+					} = testTicketTypes[index];
+					const ticketTypeDetails = ticketing.generateTicketTypePricing({
+						name,
+						startPrice,
+						pricingPeriods,
+						capacity,
+						eventDateString: event.door_time
+					});
+					const result = await adminServer.events.ticketTypes.create({
+						event_id: id,
+						...ticketTypeDetails
+					});
+					assert.strictEqual(
+						result.status,
+						201,
+						`${name} ticket type was not added to event ${
+							event.name
+						}; ${ticketTypeDetails}`
+					);
+				}
+			});
 
 			it(`SuperUser publishes event "${event.name}"`, async function() {
 				const result = await adminServer.events.publish({ id });
 				assert.strictEqual(result.status, 200);
 			});
 		}
+
+		//TODO updating of event details tests
+
+		//TODO updating of event ticket pricing details
+
+		//TODO update artists tests
 	});
 
 	describe("Event lists", function() {
