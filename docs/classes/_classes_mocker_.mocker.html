@@ -69,6 +69,34 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Create mock data for the server instance</p>
+					</div>
+					<p>If there is a match for the key then the data provided will be returned
+					If there is no match then a query to the server will be triggered.</p>
+					<pre><code>import Bigneon from <span class="hljs-string">'bn-api-node'</span>;
+const mocker = <span class="hljs-keyword">new</span> Bigneon.Mocker({
+        <span class="hljs-comment">//The endpoint you are providing data for</span>
+    events.<span class="hljs-keyword">index</span>: {
+            <span class="hljs-comment">//The data you are expecting back</span>
+        data: {
+            data: [...EventInterface],
+            paging: {...PagingInterface}
+        },
+        reject: <span class="hljs-keyword">false</span> <span class="hljs-comment">//This will throw an error with the data provided</span>
+    },
+    venues.create: {
+        data: {...VenueInterface},
+        reject: <span class="hljs-keyword">false</span>
+    }
+});
+const <span class="hljs-keyword">server</span> = <span class="hljs-keyword">new</span> Bigneon.Server({prefix: <span class="hljs-string">"https://bigneon.test"</span>}, {}, mocker);
+<span class="hljs-keyword">server</span>.events.<span class="hljs-keyword">index</span>();<span class="hljs-comment">//Will return the {data: [], paging: {}} result defined above</span>
+</code></pre>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -127,7 +155,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_classes_abstracts_mocker_class_.mockerabstract.html">MockerAbstract</a>.<a href="_classes_abstracts_mocker_class_.mockerabstract.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in classes/mocker.ts:5</li>
+									<li>Defined in classes/mocker.ts:33</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -154,7 +182,7 @@
 					<div class="tsd-signature tsd-kind-icon">mock<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in classes/mocker.ts:5</li>
+							<li>Defined in classes/mocker.ts:33</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -181,7 +209,7 @@
 								<p>Implementation of <a href="../interfaces/_interfaces_mocks_mocker_interface_.mockerinterface.html">MockerInterface</a>.<a href="../interfaces/_interfaces_mocks_mocker_interface_.mockerinterface.html#hasmock">hasMock</a></p>
 								<p>Overrides <a href="_classes_abstracts_mocker_class_.mockerabstract.html">MockerAbstract</a>.<a href="_classes_abstracts_mocker_class_.mockerabstract.html#hasmock">hasMock</a></p>
 								<ul>
-									<li>Defined in classes/mocker.ts:25</li>
+									<li>Defined in classes/mocker.ts:53</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -206,7 +234,7 @@
 								<p>Implementation of <a href="../interfaces/_interfaces_mocks_mocker_interface_.mockerinterface.html">MockerInterface</a>.<a href="../interfaces/_interfaces_mocks_mocker_interface_.mockerinterface.html#mock">mock</a></p>
 								<p>Overrides <a href="_classes_abstracts_mocker_class_.mockerabstract.html">MockerAbstract</a>.<a href="_classes_abstracts_mocker_class_.mockerabstract.html#mock">mock</a></p>
 								<ul>
-									<li>Defined in classes/mocker.ts:12</li>
+									<li>Defined in classes/mocker.ts:40</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>

@@ -12,7 +12,7 @@ export class RequestMethod {
 
 	methods: Array<RequestMethodInterface> = [];
 
-	constructor(resource: ResourceClass, client: XhrClient) {
+	constructor(private parentEndpoint: string, resource: ResourceClass, client: XhrClient) {
 
 
 		let self: any = this;
@@ -189,7 +189,7 @@ export class RequestMethod {
 			let promise;
 
 			if (this.client.mocker) {
-				let mockerPath = method.method.toLowerCase() + path.replace(/\//g, ".");
+				let mockerPath =   `${this.parentEndpoint}.${method.namespace ? (method.namespace + ".") : ""}${method.name}`;
 				if (this.client.mocker.hasMock(mockerPath)) {
 					promise = this.client.mocker.mock(
 						mockerPath
