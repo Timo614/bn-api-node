@@ -9,9 +9,9 @@ export interface ServerInterface {
 	 */
 	host: string;
 	/**
-	 * @default 9000
+	 * @default 0
 	 */
-    port: number;
+    port?: number;
 	/**
 	 * A string that is appended to the url such as /v1 or /api
 	 * @default ""
@@ -48,7 +48,7 @@ export const createServer = (base: any = {}): ServerInterface => {
 		...{
 			protocol: "http",
 			host: "localhost",
-			port: 9000,
+			port: 0,
 			basePath: "",
 			apiVersion: "v1",
 			timeout: 3000,
@@ -57,6 +57,6 @@ export const createServer = (base: any = {}): ServerInterface => {
 		},
 		...base
 	};
-	instance.prefix = instance.prefix || `${instance.protocol}://${instance.host}:${instance.port}${instance.basePath}`;
+	instance.prefix = instance.prefix || `${instance.protocol}://${instance.host}${instance.port ? `:${instance.port}`: ""}${instance.basePath}`;
 	return instance as ServerInterface;
 };

@@ -6,9 +6,9 @@ import XhrClient from "./xhr-client";
 import ResourceClass from "./abstracts/resource.class";
 
 export class RequestMethod {
-	path: string;
+	private path: string;
 
-	client: XhrClient;
+	private client: XhrClient;
 
 	constructor(resource: ResourceClass, client: XhrClient) {
 
@@ -196,6 +196,9 @@ export class RequestMethod {
 
 			}
 
+			if (process.env.DEBUG) {
+				console.debug(`URL: ${path}`);
+			}
 			//If no promise has been set, because either we are in production or there was no mock data file do the request.
 			if (!promise) {
 				switch (method.method.toUpperCase()) {

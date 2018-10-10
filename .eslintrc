@@ -1,6 +1,8 @@
 {
   "parser": "typescript-eslint-parser",
-  "plugins": ["typescript"],
+  "plugins": [
+    "typescript"
+  ],
   "extends": "eslint:recommended",
   "parserOptions": {
     "ecmaVersion": 2017,
@@ -23,13 +25,33 @@
     "no-nested-ternary": 0,
     "camelcase": 0,
     "no-underscore-dangle": 0,
-    "indent": ["error", "tab", { "SwitchCase": 1 }],
+    "indent": [
+      "error",
+      "tab",
+      {
+        "SwitchCase": 1
+      }
+    ],
     "no-unused-vars": 0,
     "no-console": "off",
     "lines-between-class-members": "warn",
-    "object-curly-spacing": ["warn", "always"],
+    "object-curly-spacing": [
+      "warn",
+      "always"
+    ],
     "no-undef": "error"
   },
+  "overrides": [
+    {
+      "files": [
+        "**/*.ts"
+      ],
+      "parser": "typescript-eslint-parser",
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ],
   "globals": {
     "console": false,
     "process": false,
