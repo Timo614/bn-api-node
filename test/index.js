@@ -3,6 +3,7 @@ const tests = [
 	require("./01_server"),
 	require("./02_mockServer"),
 	require("./03_mockData"),
+	require("./04_endpoints"),
 ];
 const mockData = require("./mockData");
 const chai = require("chai");

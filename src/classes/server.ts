@@ -8,6 +8,7 @@ import Resources from "../resources/index";
 import { RequestMethod } from "./request-method";
 import { MockerInterface } from "../interfaces/mocks/mocker.interface";
 import { ResourceInterface } from "../interfaces/server/resource";
+import ResourceClass from "./abstracts/resource.class";
 
 export class Server {
 	private serverInterface: ServerInterface;
@@ -37,7 +38,7 @@ export class Server {
 			);
 			self[key] = resource;
 
-			this.matchingResources = this.matchingResources.concat(this._getMatchingResources(resourceData, key));
+			this.matchingResources = this.matchingResources.concat(this._getMatchingResources(resourceData.path, resource, key));
 		}
 	}
 
@@ -52,7 +53,7 @@ export class Server {
 	 * @param key
 	 * @private
 	 */
-	_getMatchingResources(resourceData: ResourceInterface, key: string): Array<any> {
+	_getMatchingResources(basePath: string, resourceData: RequestMethod, key: string): Array<any> {
 		let paths = [];
 		for (let i in resourceData.methods) {
 			let { path, method, namespace, name } = resourceData.methods[i];
@@ -62,7 +63,7 @@ export class Server {
 				path,
 				method,
 				key,
-				fullPath: `${resourceData.path}${path}`.replace(/\/\//g, "/").replace(/\{.*?\}/gi, "{id}"),
+				fullPath: `${basePath}${path}`.replace(/\/\//g, "/").replace(/\{.*?\}/gi, "{id}"),
 			};
 
 			paths.push(methodBlock)
@@ -77,7 +78,7 @@ export class Server {
 			url = url.substr(1);
 		}
 
-		let foundPaths = this.matchingResources.filter(item => item.method.toLowerCase() === method.toLowerCase() && item.fullPath === url);
+		let foundPaths = this.matchingResources.filter(item => (item.method !== "*" && item.method.toLowerCase() === method.toLowerCase()) && item.fullPath === url);
 		if (foundPaths.length) {
 
 			resultPath = foundPaths

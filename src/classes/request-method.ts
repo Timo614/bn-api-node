@@ -10,6 +10,8 @@ export class RequestMethod {
 
 	private client: XhrClient;
 
+	methods: Array<RequestMethodInterface> = [];
+
 	constructor(resource: ResourceClass, client: XhrClient) {
 
 
@@ -20,10 +22,10 @@ export class RequestMethod {
 		this.path = path;
 		this.client = client;
 
-		let methods:Array<RequestMethodInterface> = resource.methods.concat(this._buildMethodArray(resource));
+		this.methods = resource.methods.concat(this._buildMethodArray(resource));
 
-		for (let i in methods) {
-			let method: RequestMethodInterface = methods[i];
+		for (let i in this.methods) {
+			let method: RequestMethodInterface = this.methods[i];
 
 			let request: any = this._request(method);
 			//Attach the request to the each of the names
