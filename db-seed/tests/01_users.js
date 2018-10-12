@@ -1,44 +1,43 @@
 const q = require("../queries");
 const assert = require("assert");
-const Server = require("../../dist/classes/server").Server;
 const global = require("../helpers/globals");
 
 async function addUser(server, user) {
 	return await server.users.create(user);
 }
 
-describe("Users", function() {
-	const superUser = new Server({}, {});
-
+describe("Integration::Users", function() {
+	let adminServer;
 	/**
 	 * Tests the SuperUser Login and assigns the result to the globals object for use in subsequent tests
 	 */
-	describe("Superadmin user", function() {
-		it("logs in", async function() {
-			let result = await superUser.auth.create(global.userData.superadmin);
-			assert.strictEqual(result.status, 200);
-			global.adminServer = superUser;
+	describe("Login as Super Admin", function() {
+		before(async function() {
+			adminServer = await global.getAdminServer();
 		});
-	});
+		it("Logs in", async function() {
+			assert.notEqual(adminServer, false);
+		});
 
-	describe("Register users", function() {
-		const server = new Server({}, {});
-		const users = q.readCSV("./data/users.csv");
-		users.forEach(function(user) {
-			it(`registers ${user.first_name} ${user.last_name}`, async function() {
-				let result = await addUser(server, user);
-				assert.strictEqual(
-					result.status,
-					201,
-					`${user.last_name} was not added`
-				);
+		describe("Registers users", function() {
+			const users = q.readCSV("./data/users.csv");
+			users.forEach(function(user) {
+				it(`registers ${user.first_name} ${user.last_name}`, async function() {
+					let result = await addUser(adminServer, user);
+					assert.strictEqual(
+						result.status,
+						201,
+						`${user.last_name} was not added`
+					);
+				});
 			});
 		});
 	});
 
+
 	describe("Find specific users", function() {
 		it("Finds Org Owner1", async function() {
-			const result = await superUser.users.findByEmail({
+			const result = await adminServer.users.findByEmail({
 				email: "orgowner1@bigneon.com"
 			});
 			assert.strictEqual(result.status, 200);

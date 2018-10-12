@@ -28,16 +28,18 @@ async function seedDatabase() {
 	const testDir = `${__dirname}/tests`;
 
 	// Add each .js file to the mocha instance
-	const onlyRunTheseTests = program.test
-		? program.test.split(",").map(item => {
+	let onlyRunTheseTests = [];
+	//Specific tests were set
+	if (program.test) {
+		program.test.split(",").map(item => {
 			let parts = item.toLowerCase().split(".");
 			if (parts[parts.length - 1].toLowerCase() === "js") {
 				//Remove js file extensions
 				parts.pop();
 			}
 			return parts.join(".");
-		  })
-		: [];
+		})
+	}
 
 	fs.readdirSync(testDir)
 		.filter(file => {

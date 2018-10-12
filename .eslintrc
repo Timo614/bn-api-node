@@ -65,6 +65,7 @@
     "alert": false,
     "fetch": false,
     "Promise": false,
-    "before": false
+    "before": false,
+    "__dirname": false
   }
 }

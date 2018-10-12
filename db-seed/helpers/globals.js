@@ -44,7 +44,8 @@ const globals = {
 			try {
 				await globals.adminServer.auth.create(globals.userData.superadmin);
 			} catch (e) {
-				console.error(e);
+				console.error("Failed to login to adminServer");
+				return false;
 			}
 		}
 		return globals.adminServer;
@@ -60,7 +61,8 @@ const globals = {
 			...{
 				protocol: process.env.API_PROTOCOL || "http",
 				host: process.env.API_HOST || "localhost",
-				port: process.env.API_PORT || 9000
+				port: process.env.API_PORT || 9000,
+				basePath: process.env.BASE_PATH || "",
 			},
 			...params
 		}

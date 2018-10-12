@@ -1,20 +1,24 @@
 const q = require("../queries");
 const assert = require("assert");
-const Server = require("../../dist/classes/server").Server;
 const global = require("../helpers/globals");
 
-describe("/venues/", async function() {
-	const server = new Server({}, {});
-
+describe("Integration::Venues", async function() {
+	let publicServer, adminServer;
 	const venues = q.readCSV("./data/venues.csv");
-	it("an unauthenticated user cannot add an Venue", function() {
-		return q.shouldFail(server.venues.create(venues[0])).then(res => {
-			assert.strictEqual(res.status, 401);
+
+	describe("Public User", function() {
+		before(async function() {
+			publicServer = await global.getPublicServer();
+		});
+		it("an unauthenticated user cannot add an Venue", function() {
+			return q.shouldFail(publicServer.venues.create(venues[0])).then(res => {
+				assert.strictEqual(res.status, 401);
+			});
 		});
 	});
 
-	let adminServer;
-	describe("SuperUser registers venues", function() {
+
+	describe("SuperUser Actions", function() {
 		before(async function() {
 			adminServer = await global.getAdminServer();
 		});
@@ -29,7 +33,8 @@ describe("/venues/", async function() {
 				global.venues[result.data.name] = result.data;
 			});
 		});
-	});
+	})
+
 
 	//TODO place back when bn-api supports querying by name
 	// it("an unauthenticated user can search for a venue by name", async function() {

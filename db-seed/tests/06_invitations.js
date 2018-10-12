@@ -1,18 +1,20 @@
 const q = require("../queries");
 const assert = require("assert");
-const Server = require("../../dist/classes/server").Server;
 const global = require("../helpers/globals");
 
-describe("/invitations/", () => {
-	let server = global.getPublicServer();
-	describe("Super user invites other users to the organization", () => {
-		let adminServer, org;
-		it("Invites a user that exists alice@token.com ", async () => {
+describe("Integration::Invitations", () => {
+	let adminServer;
+	describe("Super user invites other users to the organization", function() {
+		let org;
+		before(async function() {
 			adminServer = await global.getAdminServer();
-			let orgs = await adminServer.organizations.index();
-			org = orgs.data[0];
+		});
 
-			// let response = await adminServer.organizations.invite.create({id: org.id, user_email: "alice@token.com"});
+		it("Invites a user that exists alice@token.com ", async () => {
+			// let orgs = await adminServer.organizations.index();
+			// org = orgs.data.data ? orgs.data.data[0] : orgs.data[0];
+			//
+			// let response = await adminServer.organizations.invite.create({organization_id: org.id, user_email: "alice@token.com"});
 			// assert.strictEqual(response.status, 200);
 			// console.log(response);
 		});

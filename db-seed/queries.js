@@ -1,14 +1,16 @@
-const Server = require("../dist/classes/server").Server;
-const server = new Server({}, {});
 const fs = require("fs");
 const csv = require("csv-parse/lib/sync");
 const assert = require("assert");
+const global = require("./helpers/globals");
+
+let publicServer;
 
 /**
  * Returns a promise for a boolean for the status of the API server
  */
-function checkStatus() {
-	return server.status
+async function checkStatus() {
+	publicServer = await global.getPublicServer();
+	return publicServer.status
 		.read()
 		.then(res => {
 			return res.status === 200;
@@ -124,7 +126,7 @@ function shouldFail(promise) {
 }
 
 module.exports = {
-	server: server,
+	server: publicServer,
 	checkStatus: checkStatus,
 	readCSV: readFile,
 	shouldFail: shouldFail,
