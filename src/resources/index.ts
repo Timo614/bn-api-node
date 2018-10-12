@@ -43,7 +43,7 @@ import PaymentMethods from "./payment-methods";
  * @endpoint regions [[RegionsResource]]
  * @endpoint status [[StatusResource]]
  * @endpoint tickets [[TicketsResource]]
- * @endpoint tickets.redeem [[TicketsRedeemResource]]
+ * @endpoint tickets.redeem [[TicketRedeemResource]]
  * @endpoint users [[UsersResource]]
  * @endpoint venues [[VenuesResource]]
  * @endpoint venues.events [[VenueEventsResource]]

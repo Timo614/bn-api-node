@@ -5,7 +5,7 @@ import { TicketRedeemableInterface } from "../../interfaces/resources/ticket-red
 /**
  * @endpoint tickets.redeem
  */
-class TicketsRedeemResource extends ResourceClass {
+class TicketRedeemResource extends ResourceClass {
 	constructor() {
 		super("tickets");
 	}
@@ -41,4 +41,4 @@ class TicketsRedeemResource extends ResourceClass {
 	}
 }
 
-export default TicketsRedeemResource;
+export default TicketRedeemResource;

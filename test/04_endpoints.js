@@ -23,8 +23,16 @@ module.exports = ((global) => {
 				removeIndexes.forEach(index => {
 					apiUrls.splice(index,1);
 				});
-				assert.strictEqual(apiUrls.length, 0, `${apiUrls} are present in routing.rs but not implemented in bn-api-node`);
-				assert.strictEqual(localUrls.length, 0, `${localUrls} are present in bn-api-node but not implemented in routing.rs`);
+
+				let message = "";
+				if (apiUrls.length) {
+					message += `\n${apiUrls.join(",")} missing from bn-api-node`;
+				}
+				if (localUrls.length) {
+					message += `\n${localUrls.join(",")} missing from routing.rs`;
+				}
+
+				assert.strictEqual(apiUrls.length + localUrls.length, 0, message);
 			}
 		});
 	})

@@ -12,6 +12,7 @@ import { createOrganizationUser } from "./organization-user.interface";
 import { createRegion } from "./region.interface";
 import { createTicket } from "./ticket.interface";
 import { createTicketRedeemable } from "./ticket-redeemable.interface";
+import { createTicketTransferAuthorization } from "./ticket-transfer-authorization.interface";
 import { createUser } from "./user.interface";
 import { createPaymentMethod } from "./payment-method.interface";
 export default {
@@ -30,5 +31,6 @@ export default {
 	createRegion,
 	createTicket,
 	createTicketRedeemable,
+	createTicketTransferAuthorization,
 	createUser,
 };
