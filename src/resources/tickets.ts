@@ -4,6 +4,7 @@ import { TicketInterface } from "../interfaces/resources/ticket.interface";
 import { UserInterface } from "../interfaces/resources/user.interface";
 import { EventInterface } from "../interfaces/resources/event.interface";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
+import TicketsRedeemResource from "./namespaced/tickets-redeem";
 
 /**
  * @endpoint tickets
@@ -11,6 +12,9 @@ import { IndexInterface } from "../interfaces/resources/structures/index.interfa
 class TicketsResource extends ResourceClass {
 	constructor() {
 		super("tickets");
+		this.namespaces = {
+			redeem: TicketsRedeemResource
+		}
 	}
 
 	/**

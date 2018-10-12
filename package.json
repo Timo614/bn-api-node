@@ -5,6 +5,7 @@
   "main": "./dist/bundle.client.js",
   "scripts": {
     "test": "npm run build-tsc && ./node_modules/.bin/mocha test/index.js",
+    "test-no-build": "./node_modules/.bin/mocha test/index.js",
     "build": "npm run build-tsc && ./node_modules/.bin/webpack --config ./build/webpack.config.js",
     "build-web": "./node_modules/.bin/webpack --config ./build/webpack.browser.js",
     "build-server": "./node_modules/.bin/webpack --config ./build/webpack.server.js",

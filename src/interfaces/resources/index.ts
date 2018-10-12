@@ -11,8 +11,9 @@ import { createOrganizationInvitation } from "./organization-invitation.interfac
 import { createOrganizationUser } from "./organization-user.interface";
 import { createRegion } from "./region.interface";
 import { createTicket } from "./ticket.interface";
+import { createTicketRedeemable } from "./ticket-redeemable.interface";
 import { createUser } from "./user.interface";
-
+import { createPaymentMethod } from "./payment-method.interface";
 export default {
 	createArtist,
 	createAuthToken,
@@ -25,7 +26,9 @@ export default {
 	createOrganizationVenue,
 	createOrganizationInvitation,
 	createOrganizationUser,
+	createPaymentMethod,
 	createRegion,
 	createTicket,
+	createTicketRedeemable,
 	createUser,
 };

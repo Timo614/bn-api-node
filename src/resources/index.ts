@@ -14,6 +14,7 @@ import Tickets from "./tickets";
 import { ResourceInterface } from "../interfaces/server/resource";
 import ResourceClass from "../classes/abstracts/resource.class";
 import PasswordReset from "./password-reset";
+import PaymentMethods from "./payment-methods";
 
 /**
  * List of available endpoints
@@ -23,6 +24,7 @@ import PasswordReset from "./password-reset";
  * @endpoint events [[EventsResource]]
  * @endpoint events.artists [[EventArtistsResource]]
  * @endpoint events.interests [[EventInterestsResource]]
+ * @endpoint events.guests [[EventGuestsResource]]
  * @endpoint events.ticketTypes [[EventTicketTypesResource]]
  * @endpoint events.tickets [[EventTicketsResource]]
  * @endpoint external [[ExternalResource]]
@@ -37,9 +39,11 @@ import PasswordReset from "./password-reset";
  * @endpoint organizations.users [[OrganizationUsersResource]]
  * @endpoint organizations.venues [[OrganizationVenueResource]]
  * @endpoint passwordReset [[PasswordResetResource]]
+ * @endpoint paymentMethods [[PaymentMethodsResource]]
  * @endpoint regions [[RegionsResource]]
  * @endpoint status [[StatusResource]]
  * @endpoint tickets [[TicketsResource]]
+ * @endpoint tickets.redeem [[TicketsRedeemResource]]
  * @endpoint users [[UsersResource]]
  * @endpoint venues [[VenuesResource]]
  * @endpoint venues.events [[VenueEventsResource]]
@@ -55,6 +59,7 @@ export const endpoints: { [endpoint: string]: ResourceInterface | ResourceClass 
 	invitations: Invitations,
 	status: Status,
 	passwordReset: PasswordReset,
+	paymentMethods: PaymentMethods,
 	users: Users,
 	venues: Venue,
 	orders: Orders,

@@ -6,6 +6,7 @@ import EventInterestsResource from "./namespaced/event-interests";
 import EventTicketTypesResource from "./namespaced/event-tickets-types";
 import EventTicketsResource from "./namespaced/event-tickets";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
+import EventGuestsResource from "./namespaced/event-guests";
 
 /**
  * @endpoint events
@@ -16,6 +17,7 @@ class EventsResource extends ResourceClass {
 		super("events");
 		this.namespaces = {
 			artists: EventArtistsResource,
+			guests: EventGuestsResource,
 			interests: EventInterestsResource,
 			ticketTypes: EventTicketTypesResource,
 			tickets: EventTicketsResource,

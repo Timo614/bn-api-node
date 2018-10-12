@@ -18,8 +18,10 @@ module.exports = ((global) => {
 						localUrls.splice(pos, 1);
 					}
 				});
+				//Sort the indexes to remove descending
+				removeIndexes.sort((a,b) => {return a > b ? -1 : a < b ? 1 : 0});
 				removeIndexes.forEach(index => {
-					apiUrls.splice(index);
+					apiUrls.splice(index,1);
 				});
 				assert.strictEqual(apiUrls.length, 0, `${apiUrls} are present in routing.rs but not implemented in bn-api-node`);
 				assert.strictEqual(localUrls.length, 0, `${localUrls} are present in bn-api-node but not implemented in routing.rs`);
