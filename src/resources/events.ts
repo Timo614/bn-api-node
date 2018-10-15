@@ -12,7 +12,6 @@ import EventGuestsResource from "./namespaced/event-guests";
  * @endpoint events
  */
 class EventsResource extends ResourceClass {
-
 	constructor() {
 		super("events");
 		this.namespaces = {
@@ -20,10 +19,9 @@ class EventsResource extends ResourceClass {
 			guests: EventGuestsResource,
 			interests: EventInterestsResource,
 			ticketTypes: EventTicketTypesResource,
-			tickets: EventTicketsResource,
+			tickets: EventTicketsResource
 		};
 	}
-
 
 	/**
 	 * List of events
@@ -45,14 +43,14 @@ class EventsResource extends ResourceClass {
 	 * Create an event
 	 * @auth true
 	 * @params {EventInterface}
-	 * @requires {name: string, organization_id: uuid, status: string}
+	 * @requires {name: string, organization_id: uuid}
 	 */
 	create(): EventInterface {
 		return createRequestMethod({
 			name: "create",
 			method: "POST",
 			path: "",
-			required: ["name", "organization_id", "status"],
+			required: ["name", "organization_id"],
 			requiresAuth: true
 		}) as any;
 	}
@@ -119,8 +117,6 @@ class EventsResource extends ResourceClass {
 			requiresAuth: true
 		}) as any;
 	}
-
-
 }
 
 export default EventsResource;

@@ -8,9 +8,15 @@ const ticketing = {
 		eventDateString,
 		capacity
 	}) {
-		const nowMoment = moment.utc();
+		const m = moment.utc();
+		const nowMoment =
+			m.minute() || m.second() || m.millisecond()
+				? m.add(1, "hour").startOf("hour")
+				: m.startOf("hour"); //Round up to the hour
+
 		const startEndDifference = moment
-			.utc(eventDateString, moment.HTML5_FMT.DATETIME_LOCAL_MS)
+			.utc(eventDateString)
+			.local()
 			.diff(nowMoment);
 
 		//Break down time between now and event start time into periods
@@ -18,20 +24,20 @@ const ticketing = {
 			startEndDifference / pricingPeriods
 		);
 
-		let ticket_price_start_date = moment.utc();
+		let ticket_price_start_date = nowMoment.clone();
 		let ticket_pricing = [];
 		for (let index = 0; index < pricingPeriods; index++) {
 			const price_in_cents = startPrice + index * 500; //Add an extra $5 for later batches
 
-			const start_date = ticket_price_start_date.format(
-				moment.HTML5_FMT.DATETIME_LOCAL_MS
-			);
+			const start_date = ticket_price_start_date
+				.utc()
+				.format(moment.HTML5_FMT.DATETIME_LOCAL_MS);
 
 			ticket_price_start_date.add(timeBetweenTicketPricing);
 
-			const end_date = ticket_price_start_date.format(
-				moment.HTML5_FMT.DATETIME_LOCAL_MS
-			);
+			const end_date = ticket_price_start_date
+				.utc()
+				.format(moment.HTML5_FMT.DATETIME_LOCAL_MS);
 
 			const ticket_price = {
 				name: `Batch ${index + 1}`,
@@ -45,7 +51,9 @@ const ticketing = {
 		return {
 			name,
 			capacity,
-			start_date: moment.utc().format(moment.HTML5_FMT.DATETIME_LOCAL_MS),
+			start_date: moment(nowMoment)
+				.utc()
+				.format(moment.HTML5_FMT.DATETIME_LOCAL_MS),
 			end_date: eventDateString,
 			ticket_pricing
 		};
