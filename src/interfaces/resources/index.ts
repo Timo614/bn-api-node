@@ -15,6 +15,7 @@ import { createTicketRedeemable } from "./ticket-redeemable.interface";
 import { createTicketTransferAuthorization } from "./ticket-transfer-authorization.interface";
 import { createUser } from "./user.interface";
 import { createPaymentMethod } from "./payment-method.interface";
+import { createVenue } from "./venue.interface";
 export default {
 	createArtist,
 	createAuthToken,
@@ -33,4 +34,5 @@ export default {
 	createTicketRedeemable,
 	createTicketTransferAuthorization,
 	createUser,
+	createVenue,
 };

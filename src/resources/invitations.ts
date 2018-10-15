@@ -18,7 +18,7 @@ class InvitationsResource extends ResourceClass {
 	accept(): void {
 		return createRequestMethod({
 			method: "POST",
-			path: "",
+			path: "?security_token={security_token}",
 			required: ["security_token"],
 			requiresAuth: false
 		}) as any;

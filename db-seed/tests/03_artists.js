@@ -1,8 +1,7 @@
 const q = require("../queries");
 const assert = require("assert");
-const Server = require("../../dist/classes/server").Server;
 const global = require("../helpers/globals");
-const fields = require("../../dist/interfaces/resources/artist.interface");
+const artistFields = require("../../dist/interfaces/resources/artist.interface");
 const assertFieldsMatch = require("../queries").assertFieldsMatch;
 
 function normalizeArtist(artist) {
@@ -56,12 +55,13 @@ describe("Integration::Artists", function() {
 		// 	assert.strictEqual(matches[0].facebook_username, "DaftPunk");
 		// });
 
-		describe("Retrieve and validate artist row", async function() {
-			let list = null;
-			let artist;
-			it("an unauthenticated user can retrieve the artist list", async function() {
-				const response = await publicServer.artists.index();
+		describe("Retrieve and validate artist row", function() {
+			let list = [], response, artist;
+			before(async () =>{
+				response = await publicServer.artists.index();
 				assert.strictEqual(response.status, 200, `Response status: ${response.status}`);
+			});
+			it("an unauthenticated user can retrieve the artist list", async function() {
 				list = response.data.data;
 				assert.strictEqual(list.length, artists.length, `Mismatched list length Server: ${list.length} Local: ${artists.length}`);
 				assert.strictEqual(list[0].name, "Billy Joel", `Was expecting "Billy Joel" but got ${list[0].name}`);
@@ -74,7 +74,7 @@ describe("Integration::Artists", function() {
 			});
 
 			it("an artist interface has matching fields", () => {
-				let artistInterface = fields.createArtist();
+				let artistInterface = artistFields.createArtist();
 				assertFieldsMatch(artist.data, artistInterface, "Artists: ");
 			});
 		});

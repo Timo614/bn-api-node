@@ -7,16 +7,17 @@ export interface VenueInterface {
     city?: string;
     state?: string;
     country?: string;
-    zip?: string;
     phone?: string;
     latitude?: number;
     longitude?: number;
-    maximum_capacity?: number;
+	postal_code: string;
+	maximum_capacity?: number;
+	is_private: boolean;
     readonly created_at: Date;
     readonly modified_at: Date;
 }
 
-export const createTicket = (base: any = {}): VenueInterface => {
+export const createVenue = (base: any = {}): VenueInterface => {
 
 	return {
 		...{
@@ -28,13 +29,14 @@ export const createTicket = (base: any = {}): VenueInterface => {
 			city: "",
 			state: "",
 			country: "",
-			zip: "",
 			phone: "",
 			latitude: 0,
 			longitude: 0,
+			postal_code: "",
 			maximum_capacity: 0,
 			created_at: "",
 			modified_at: "",
+			is_private: false,
 		},
 		...base
 	} as VenueInterface;

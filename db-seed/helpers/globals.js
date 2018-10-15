@@ -40,7 +40,7 @@ const globals = {
 
 	async getAdminServer(params) {
 		if (!globals.adminServer) {
-			globals.adminServer = new Server(this._serverParams(params));
+			globals.adminServer =  this.getServer(params);
 			try {
 				await globals.adminServer.auth.create(globals.userData.superadmin);
 			} catch (e) {
@@ -52,9 +52,12 @@ const globals = {
 	},
 	getPublicServer(params) {
 		if (!globals.publicServer) {
-			globals.publicServer = new Server(globals._serverParams(params));
+			globals.publicServer = this.getServer(params);
 		}
 		return globals.publicServer;
+	},
+	getServer(params) {
+		return new Server(globals._serverParams(params));
 	},
 	_serverParams(params) {
 		return {
