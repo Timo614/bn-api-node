@@ -11,8 +11,8 @@ const ticketing = {
 		const m = moment.utc();
 		const nowMoment =
 			m.minute() || m.second() || m.millisecond()
-				? m.add(1, "hour").startOf("hour")
-				: m.startOf("hour"); //Round up to the hour
+				? m.subtract(1, "hour").startOf("hour")
+				: m.startOf("hour").subtract(1, "hour"); //Round down to the hour
 
 		const startEndDifference = moment
 			.utc(eventDateString)
