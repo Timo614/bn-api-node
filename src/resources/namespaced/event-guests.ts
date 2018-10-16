@@ -23,7 +23,7 @@ class EventGuestsResource extends ResourceClass {
 			name: "index",
 			method: "GET",
 			path: "/{event_id}/guests",
-			required: ["event_id"],
+			required: ["event_id", "query"],
 			requiresAuth: true
 		}) as any;
 	}
