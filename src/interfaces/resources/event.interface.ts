@@ -22,7 +22,8 @@ export interface EventInterface {
 	artists?: Array<EventArtistInterface>;
 	ticket_types: Array<TicketTypeInterface>;
 	total_interest: number;
-	user_is_interested: boolean
+	user_is_interested: boolean;
+	top_line_info?: string;
 }
 
 export const createEvent = (base: any = {}): EventInterface => {
@@ -48,7 +49,8 @@ export const createEvent = (base: any = {}): EventInterface => {
 			artists: [],
 			ticket_types: [],
 			total_interest: 0,
-			user_is_interested: false
+			user_is_interested: false,
+			top_line_info: ""
 		},
 		...base
 	} as EventInterface;
