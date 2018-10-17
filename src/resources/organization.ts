@@ -37,7 +37,7 @@ class OrganizationsResource extends ResourceClass {
 		return createRequestMethod({
 			method: "GET",
 			path: "/{id}",
-			required: ["id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}
@@ -52,7 +52,7 @@ class OrganizationsResource extends ResourceClass {
 		return createRequestMethod({
 			method: "PATCH",
 			path: "/{id}",
-			required: ["id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}

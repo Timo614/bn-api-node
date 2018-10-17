@@ -21,7 +21,7 @@ class ArtistsResource extends ResourceClass {
 			name: "read",
 			method: "GET",
 			path: "/{id}",
-			required: ["id"],
+			required: [],
 			requiresAuth: false
 		}) as any;
 	}
@@ -36,7 +36,7 @@ class ArtistsResource extends ResourceClass {
 			name: "update",
 			method: "PUT",
 			path: "/{id}",
-			required: ["id"],
+			required: [],
 			requireOne: ["name", "bio"],
 			requiresAuth: true
 		}) as any;
@@ -85,7 +85,7 @@ class ArtistsResource extends ResourceClass {
 			name: "togglePrivacy",
 			method: "PUT",
 			path: "/{id}/toggle_privacy",
-			required: ["id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}

@@ -23,7 +23,7 @@ class RegionsResource extends ResourceClass {
 		return createRequestMethod({
 			method: "GET",
 			path: "/{id}",
-			required: ["id"],
+			required: [],
 			requiresAuth: false
 		}) as any;
 	}
@@ -37,7 +37,7 @@ class RegionsResource extends ResourceClass {
 		return createRequestMethod({
 			method: "PUT",
 			path: "/{id}",
-			required: ["id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 

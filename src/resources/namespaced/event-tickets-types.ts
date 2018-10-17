@@ -22,7 +22,7 @@ class EventTicketTypesResource extends ResourceClass {
 			name: "create",
 			method: "POST",
 			path: "/{event_id}/ticket_types",
-			required: ["event_id", "name"],
+			required: ["name"],
 			requiresAuth: true
 		}) as any;
 	}
@@ -38,7 +38,7 @@ class EventTicketTypesResource extends ResourceClass {
 			name: "update",
 			method: "PATCH",
 			path: "/{event_id}/ticket_types/{id}",
-			required: ["event_id", "id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}
@@ -55,7 +55,7 @@ class EventTicketTypesResource extends ResourceClass {
 			name: "index",
 			method: "GET",
 			path: "/{event_id}/ticket_types",
-			required: ["event_id"],
+			required: [],
 			requiresAuth: false
 		}) as any;
 	}

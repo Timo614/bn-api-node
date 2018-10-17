@@ -44,7 +44,7 @@ class TicketsResource extends ResourceClass {
 		return createRequestMethod({
 			method: "GET",
 			path: "/{id}",
-			required: ["id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}

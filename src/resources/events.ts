@@ -66,7 +66,7 @@ class EventsResource extends ResourceClass {
 			name: "update",
 			method: "PUT",
 			path: "/{id}",
-			required: ["id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}
@@ -82,7 +82,7 @@ class EventsResource extends ResourceClass {
 			name: "cancel",
 			method: "DELETE",
 			path: "/{id}",
-			required: ["id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}
@@ -98,7 +98,7 @@ class EventsResource extends ResourceClass {
 			name: "read",
 			method: "GET",
 			path: "/{id}",
-			required: ["id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}
@@ -113,7 +113,7 @@ class EventsResource extends ResourceClass {
 		return createRequestMethod({
 			method: "POST",
 			path: "/{id}/publish",
-			required: ["id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}
