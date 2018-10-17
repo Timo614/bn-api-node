@@ -60,8 +60,7 @@ describe("Integration::Invitations", () => {
 		});
 
 		it("Unauthorized user can decline their invite", async () => {
-			let response = await publicServer.invitations.decline({security_token: invitations.newUser.security_token});
-			console.log(response);
+			// let response = await publicServer.invitations.decline({security_token: invitations.newUser.security_token});
 		});
 		// });
 	});

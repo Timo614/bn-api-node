@@ -1,7 +1,7 @@
 const q = require("../queries");
 const assert = require("assert");
 const global = require("../helpers/globals");
-const orgFields = require("../../dist/interfaces/resources/organization.interface");
+const interfaceFields = require("../../dist/interfaces/resources/organization.interface");
 const assertFieldsMatch = require("../queries").assertFieldsMatch;
 
 describe("Integration::Organizations", function() {
@@ -32,6 +32,7 @@ describe("Integration::Organizations", function() {
 			adminData = await global.getAdminData();
 		});
 
+		global.organizationsByName = {};
 		orgs.forEach(function(org) {
 			it(`SuperUser registers organization ${org.name}`, async function() {
 				let result = {};
@@ -48,7 +49,7 @@ describe("Integration::Organizations", function() {
 					201,
 					`${org.name} was not added; StatusCode: ${result.status}`
 				);
-				global.organizations[result.data.name] = result.data;
+				global.organizationsByName[result.data.name] = result.data.id;
 			});
 		});
 		describe("Retrieve and validate organization", function() {
@@ -68,8 +69,8 @@ describe("Integration::Organizations", function() {
 				assert.strictEqual(org.data.name, list[0].name); //First name in the list if default sort is by name
 			});
 			it("an organization interface has matching fields", () => {
-				let orgInterface = orgFields.createOrganization();
-				assertFieldsMatch(org.data, orgInterface, "Organization: ");
+				let localInterface = interfaceFields.createOrganization();
+				assertFieldsMatch(org.data, localInterface, "Organization: ");
 			});
 		})
 

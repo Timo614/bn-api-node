@@ -23,7 +23,7 @@ class OrganizationInvitationsResource extends ResourceClass {
 			name: "invite",
 			method: "POST",
 			path: "/{organization_id}/invite",
-			required: ["organization_id"],
+			required: [],
 			requireOne: ["user_email", "user_id"],
 			requiresAuth: true
 		}) as any;

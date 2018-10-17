@@ -21,7 +21,7 @@ class EventArtistsResource extends ResourceClass {
 			name: "create",
 			method: "POST",
 			path: "/{event_id}/artists",
-			required: ["event_id", "artist_id", "rank", "set_time"],
+			required: ["artist_id", "rank", "set_time"],
 			requiresAuth: true
 		}) as any;
 	}
@@ -40,7 +40,7 @@ class EventArtistsResource extends ResourceClass {
 			name: "update",
 			method: "PUT",
 			path: "/{event_id}/artists",
-			required: ["event_id"],
+			required: ["artists"],
 			requiresAuth: true
 		}) as any;
 	}

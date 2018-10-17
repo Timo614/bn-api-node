@@ -1,38 +1,33 @@
 import { createTicketType, TicketTypeInterface } from "./ticket-type.interface";
 import { EventArtistInterface } from "./event-artist.interface";
 import { EventInterestInterface } from "./event-interest.interface";
+import { VenueInterface } from "./venue.interface";
+import { OrganizationInterface } from "./organization.interface";
 
 export interface EventInterface {
-    id?: string;
-    name: string;
-    organization_id: string;
-    venue_id: string;
-    event_start: Date;
-    event_end: Date;
-    door_time: Date;
-    publish_date: Date;
-    is_external: boolean;
-    promo_image_url?: string;
-    additional_info?: string;
-    age_limit?: number;
-    external_url?: string;
-    status?: string;
-    ticket_sell_date?: Date;
-    cancelled_at?: Date;
-    created_at?: Date;
-    updated_at?:Date;
-
-    tickets: Array<TicketTypeInterface>;
-    artists?: Array<EventArtistInterface>;
-    interests?: Array<EventInterestInterface>;
-
-    blockchain_id?: string;
-    blockchain_expiry_date: number;//Unix timestamp or block height
+	id?: string;
+	name: string;
+	organization_id: string;
+	venue_id: string;
+	created_at: string;
+	event_start: Date;
+	door_time: Date;
+	status?: string;
+	publish_date: Date;
+	promo_image_url?: string;
+	additional_info?: string;
+	age_limit?: number;
+	organization?: OrganizationInterface;
+	venue?: VenueInterface;
+	artists?: Array<EventArtistInterface>;
+	ticket_types: Array<TicketTypeInterface>;
+	total_interest: number;
+	user_is_interested: boolean
 }
 
 export const createEvent = (base: any = {}): EventInterface => {
-	if (base && base.tickets) {
-		base.tickets = base.tickets.map((ticket: any) => createTicketType(ticket));
+	if (base && base.ticket_types) {
+		base.ticket_types = base.ticket_types.map((ticketType: any) => createTicketType(ticketType));
 	}
 	return {
 		...{
@@ -41,21 +36,19 @@ export const createEvent = (base: any = {}): EventInterface => {
 			organization_id: "",
 			venue_id: "",
 			created_at: "",
-			ticket_sell_date: "",
 			event_start: "",
-			is_external: false,
-			external_url: "",
+			door_time: "",
+			status: "",
+			publish_date: "",
 			promo_image_url: "",
 			additional_info: "",
 			age_limit: 0,
-			door_time: "",
-			publish_date: "",
-			tickets: [],
+			organization: {},
+			venue: {},
 			artists: [],
-			interests: [],
-			cancelled_at: "",
-			blockchain_id: "",
-			blockchain_expiry_date: 0,
+			ticket_types: [],
+			total_interest: 0,
+			user_is_interested: false
 		},
 		...base
 	} as EventInterface;

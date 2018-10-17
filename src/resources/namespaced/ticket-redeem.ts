@@ -20,7 +20,7 @@ class TicketRedeemResource extends ResourceClass {
 		return createRequestMethod({
 			method: "GET",
 			path: "/{ticket_id}/redeem",
-			required: ["ticket_id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}
@@ -35,7 +35,7 @@ class TicketRedeemResource extends ResourceClass {
 		return createRequestMethod({
 			method: "POST",
 			path: "/{ticket_id}/redeem",
-			required: ["ticket_id", "redeem_key"],
+			required: ["redeem_key"],
 			requiresAuth: true
 		}) as any;
 	}

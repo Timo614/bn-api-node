@@ -1,7 +1,6 @@
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
 import ResourceClass from "../../classes/abstracts/resource.class";
 import { OrganizationInterface } from "../../interfaces/resources/organization.interface";
-import { UserInterface } from "../../interfaces/resources/user.interface";
 import { IndexInterface } from "../../interfaces/resources/structures/index.interface";
 
 /**
@@ -22,7 +21,7 @@ class OrganizationUsersResource extends ResourceClass {
 		return createRequestMethod({
 			method: "POST",
 			path: "/{organization_id}/users",
-			required: ["organization_id", "user_id"],
+			required: ["user_id"],
 			requiresAuth: true
 		}) as any;
 	}
@@ -38,7 +37,7 @@ class OrganizationUsersResource extends ResourceClass {
 			name: "remove",
 			method: "DELETE",
 			path: "/{organization_id}/users",
-			required: ["organization_id", "user_id"],
+			required: ["user_id"],
 			requiresAuth: true
 		}) as any;
 	}
@@ -55,7 +54,7 @@ class OrganizationUsersResource extends ResourceClass {
 			name: "index",
 			method: "GET",
 			path: "/{organization_id}/users",
-			required: ["organization_id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}

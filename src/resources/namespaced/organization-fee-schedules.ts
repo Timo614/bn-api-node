@@ -12,16 +12,17 @@ class OrganizationFeeSchedulesResource extends ResourceClass {
 	}
 
 	/**
-	 * Create a ticket type
+	 * Create a fee schedule for an organization
 	 * @auth true
-	 * @params {organization_id: uuid, TicketTypeInterface}
+	 * @params {organization_id: uuid, ...[[FeeScheduleInterface]]}
+	 * @required {organization_id: uuid, name: string, ranges: Array<[[FeeScheduleRangeInterface]]>>}
 	 */
 	create(): FeeScheduleInterface {
 		return createRequestMethod({
 			name: "create",
 			method: "POST",
 			path: "/{organization_id}/fee_schedule",
-			required: ["organization_id", "name", "ranges"],
+			required: ["name", "ranges"],
 			requiresAuth: true
 		}) as any;
 	}
@@ -37,7 +38,7 @@ class OrganizationFeeSchedulesResource extends ResourceClass {
 			name: "index",
 			method: "GET",
 			path: "/{organization_id}/fee_schedule",
-			required: ["organization_id"],
+			required: [],
 			requiresAuth: false
 		}) as any;
 

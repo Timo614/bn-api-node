@@ -20,11 +20,68 @@ const globals = {
 
 
 	admin: null,
-	organizations: {},
-	venues: {},
-	events: {},
+
+	organizationsByName: false,
+	venuesByName: false,
+	eventsByName: false,
+	artistsByName: false,
 
 
+	async getOrganizations() {
+		if (this.organizationsByName) {
+			return this.organizationsByName;
+		}
+		this.organizationsByName = {};
+		let adminServer = await this.getAdminServer();
+		let result = await adminServer.organizations.index();
+		result.data.data.forEach(item => {
+			this.organizationsByName[item.name] = item.id;
+		});
+		return this.organizationsByName;
+	},
+	
+	
+	async getVenues() {
+		if (this.venuesByName) {
+			return this.venuesByName;
+		}
+		this.venuesByName = {};
+		let adminServer = await this.getAdminServer();
+		let result = await adminServer.venues.index();
+		result.data.data.forEach(item => {
+			this.venuesByName[item.name] = item.id;
+		});
+		return this.venuesByName;
+	},
+
+	async getEvents() {
+		if (this.eventsByName) {
+			return this.eventsByName;
+		}
+		this.eventsByName = {};
+		let adminServer = await this.getAdminServer();
+		let result = await adminServer.events.index();
+		result.data.data.forEach(item => {
+			this.eventsByName[item.name] = item.id;
+		});
+		return this.eventsByName;
+	},
+
+	async getArtists() {
+		if (this.artistsByName) {
+			return this.artistsByName;
+		}
+		this.artistsByName = {};
+		let adminServer = await this.getAdminServer();
+		let result = await adminServer.artists.index();
+		result.data.data.forEach(item => {
+			this.artistsByName[item.name] = item.id;
+		});
+		return this.artistsByName;
+	},
+	
+	
+	
 	async getAdminData(params) {
 		if (!this.userData.adminData) {
 			let adminServer = await globals.getAdminServer(params);

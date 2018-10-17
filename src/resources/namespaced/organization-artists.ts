@@ -23,7 +23,7 @@ class OrganizationArtistsResource extends ResourceClass {
 			name: "index",
 			method: "GET",
 			path: "/{organization_id}/artists",
-			required: ["organization_id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}
@@ -39,7 +39,7 @@ class OrganizationArtistsResource extends ResourceClass {
 			name: "create",
 			method: "POST",
 			path: "/{organization_id}/artists",
-			required: ["organization_id", "name", "bio"],
+			required: ["name", "bio"],
 			requiresAuth: true
 		}) as any;
 	}

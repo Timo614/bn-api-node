@@ -21,7 +21,7 @@ class OrganizationVenueResource extends ResourceClass {
 		return createRequestMethod({
 			method: "POST",
 			path: "/{organization_id}/venues",
-			required: ["organization_id", "name"],
+			required: ["name"],
 			requiresAuth: true
 		}) as any;
 	}
@@ -53,7 +53,7 @@ class OrganizationVenueResource extends ResourceClass {
 		return createRequestMethod({
 			method: "GET",
 			path: "/{organization_id}/venues",
-			required: ["organization_id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}

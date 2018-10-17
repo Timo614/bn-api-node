@@ -1,6 +1,5 @@
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
 import ResourceClass from "../../classes/abstracts/resource.class";
-import { EventInterface } from "../../interfaces/resources/event.interface";
 import { IndexInterface } from "../../interfaces/resources/structures/index.interface";
 
 /**
@@ -22,7 +21,7 @@ class OrganizationEventsResource extends ResourceClass {
 		return createRequestMethod({
 			method: "GET",
 			path: "/{organization_id}/events",
-			required: ["organization_id"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}

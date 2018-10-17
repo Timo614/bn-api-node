@@ -20,7 +20,7 @@ class OrganizationOwnersResource extends ResourceClass {
 		return createRequestMethod({
 			method: "PUT",
 			path: "/{organization_id}/owner",
-			required: ["organization_id", "owner_user_id"],
+			required: ["owner_user_id"],
 			requiresAuth: true
 		}) as any;
 	}

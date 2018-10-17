@@ -13,6 +13,7 @@ describe("Integration::Venues", async function() {
 		before(async function() {
 			adminServer = await global.getAdminServer();
 		});
+		global.venuesByName = {};
 		venues.forEach(function(venue) {
 			it(`SuperUser registers ${venue.name}`, async function() {
 				let result = await adminServer.venues.create(venue);
@@ -21,12 +22,12 @@ describe("Integration::Venues", async function() {
 					201,
 					`${venue.name} was not added; ${result.data}`
 				);
-				global.venues[result.data.name] = result.data;
+				global.venuesByName[result.data.name] = result.data.id;
 			});
 		});
 
 		it("updates a venue", async () => {
-			let updateId = global.venues["Gets Updated"].id;
+			let updateId = global.venuesByName["Gets Updated"];
 			let original = await adminServer.venues.read({id: updateId});
 			original = original.data;
 			let originalName = original.name;

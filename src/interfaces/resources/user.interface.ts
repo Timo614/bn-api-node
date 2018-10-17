@@ -1,20 +1,13 @@
-import { UserRole } from "../enums/user-roles.enum";
-
 export interface UserInterface {
-    id?: string;
-    first_name: string;
-    last_name: string;
-    email: string;
-    phone?: string;
-    password?: string;
-    hashed_pw?: string;
-    password_modified_at: string;
-    created_at: string;
-    last_used: string;
-    active: boolean;
-    role: Array<UserRole>;
-    password_reset_token?: string;
-    password_reset_requested_at?: string;
+	id?: string;
+	first_name: string;
+	last_name: string;
+	email: string;
+	phone?: string;
+	profile_pic_url?: string;
+	thumb_profile_pic_url?: string;
+	cover_photo_url?: string;
+	is_org_owner?: boolean;
 }
 
 export const createUser = (base: any = {}): UserInterface => {
@@ -25,15 +18,10 @@ export const createUser = (base: any = {}): UserInterface => {
 			last_name: "",
 			email: "",
 			phone: "",
-			password: "",
-			hashed_pw: "",
-			password_modified_at: "",
-			created_at: "",
-			last_used: "",
-			active: true,
-			role: [],
-			password_reset_token: "",
-			password_reset_requested_at: ""
+			profile_pic_url: "",
+			thumb_profile_pic_url: "",
+			cover_photo_url: "",
+			is_org_owner: false
 		},
 		...base
 

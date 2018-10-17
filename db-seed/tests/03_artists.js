@@ -18,7 +18,7 @@ describe("Integration::Artists", function() {
 		before(async function() {
 			adminServer = await global.getAdminServer();
 		});
-
+		global.artistsByName = {};
 		artists.forEach(function(artist) {
 			it(`SuperUser registers ${artist.name}`, async function() {
 				const art = normalizeArtist(artist);
@@ -28,6 +28,7 @@ describe("Integration::Artists", function() {
 					201,
 					`${artist.name} was not added; ${result.data}`
 				);
+				global.artistsByName[result.data.name] = result.data.id;
 			});
 		});
 

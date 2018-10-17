@@ -1,7 +1,8 @@
 const q = require("../queries");
 const assert = require("assert");
 const global = require("../helpers/globals");
-
+const interfaceFields = require("../../dist/interfaces/resources/user.interface");
+const assertFieldsMatch = require("../queries").assertFieldsMatch;
 async function addUser(server, user) {
 	return await server.users.create(user);
 }
@@ -36,8 +37,9 @@ describe("Integration::Users", function() {
 
 
 	describe("Find specific users", function() {
+		let result;
 		it("Finds Org Owner1", async function() {
-			const result = await adminServer.users.findByEmail({
+			result = await adminServer.users.findByEmail({
 				email: "orgowner1@bigneon.com"
 			});
 			assert.strictEqual(result.status, 200);
@@ -46,6 +48,12 @@ describe("Integration::Users", function() {
 			assert.strictEqual(orgOwner.last_name, "Owner");
 			assert.strictEqual(orgOwner.phone, "515-123-1000");
 			global.orgOwner1 = orgOwner;
+		});
+
+		it("Compares Interface with Response", async() => {
+			// let result = await adminServer.users.current();
+			let localInterface = interfaceFields.createUser();
+			assertFieldsMatch(result.data, localInterface, "User: ");
 		});
 	});
 });
