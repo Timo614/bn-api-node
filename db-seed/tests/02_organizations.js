@@ -1,6 +1,8 @@
 const q = require("../queries");
 const assert = require("assert");
 const global = require("../helpers/globals");
+const orgFields = require("../../dist/interfaces/resources/organization.interface");
+const assertFieldsMatch = require("../queries").assertFieldsMatch;
 
 describe("Integration::Organizations", function() {
 	let publicServer, adminServer, adminData;
@@ -21,6 +23,7 @@ describe("Integration::Organizations", function() {
 				);
 			});
 		});
+
 	});
 
 	describe("SuperUser Actions", function() {
@@ -48,5 +51,29 @@ describe("Integration::Organizations", function() {
 				global.organizations[result.data.name] = result.data;
 			});
 		});
+		describe("Retrieve and validate organization", function() {
+			let list = [], response, org;
+			before(async () =>{
+				response = await adminServer.organizations.index();
+				assert.strictEqual(response.status, 200, `Response status: ${response.status}`);
+			});
+
+			it("and authenticated user can retrieve a list of organizations", async () => {
+				list = response.data.data;
+				assert.strictEqual(list.length, orgs.length, `Mismatched list length Server: ${list.length} Local: ${orgs.length}`);
+			});
+			it("an authenticated user can retrieve an organization", async function() {
+				org = await adminServer.organizations.read({ id: list[0].id });
+				assert.strictEqual(org.status, 200);
+				assert.strictEqual(org.data.name, list[0].name); //First name in the list if default sort is by name
+			});
+			it("an organization interface has matching fields", () => {
+				let orgInterface = orgFields.createOrganization();
+				assertFieldsMatch(org.data, orgInterface, "Organization: ");
+			});
+		})
+
 	});
+
+
 });

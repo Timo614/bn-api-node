@@ -70,7 +70,7 @@ describe("Integration::Artists", function() {
 			it("an unauthenticated user can retrieve an artist", async function() {
 				artist = await publicServer.artists.read({ id: list[0].id });
 				assert.strictEqual(artist.status, 200);
-				assert.strictEqual(artist.data.name, "Billy Joel"); //First name in the list if default sort is by name
+				assert.strictEqual(artist.data.name, list[0].name); //First name in the list if default sort is by name
 			});
 
 			it("an artist interface has matching fields", () => {
