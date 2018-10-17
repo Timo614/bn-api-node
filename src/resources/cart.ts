@@ -56,6 +56,19 @@ class CartResource extends ResourceClass {
 	}
 
 	/**
+	 * Gets a specific cart id
+	 * @auth true
+	 */
+	view(): OrderInterface {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{id}",
+			required: ["id"],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
 	 * Checkout the cart
 	 * @params {amount: number, method: CheckoutMethodInterface}
 	 * @requires {method: CheckoutMethodInterface}
