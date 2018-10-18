@@ -4,16 +4,21 @@ const global = require("../helpers/globals");
 const interfaceFields = require("../../dist/interfaces/resources/organization.interface");
 const assertFieldsMatch = require("../queries").assertFieldsMatch;
 
-describe("Integration::Organizations", function() {
+describe("Integration::Organizations", function () {
 	let publicServer, adminServer, adminData;
-	const orgs = q.readCSV("./data/organizations.csv");
 
-	describe("Public User", function() {
-		before(async function() {
+	const orgs = q.readCSV("./data/organizations.csv").map(row => {
+		//Convert string to number for event_fee_in_cents
+		row.event_fee_in_cents = Number(row.event_fee_in_cents);
+		return row;
+	});
+
+	describe("Public User", function () {
+		before(async function () {
 			publicServer = await global.getPublicServer();
 		});
 
-		it("an unauthenticated user cannot add an Organization", function() {
+		it("an unauthenticated user cannot add an Organization", function () {
 			let org = { owner_user_id: "", ...orgs[0] };
 			return q.shouldFail(publicServer.organizations.create(org)).then(res => {
 				assert.strictEqual(
@@ -26,21 +31,20 @@ describe("Integration::Organizations", function() {
 
 	});
 
-	describe("SuperUser Actions", function() {
-		before(async function() {
+	describe("SuperUser Actions", function () {
+		before(async function () {
 			adminServer = await global.getAdminServer();
 			adminData = await global.getAdminData();
 		});
 
 		global.organizationsByName = {};
-		orgs.forEach(function(org) {
-			it(`SuperUser registers organization ${org.name}`, async function() {
+		orgs.forEach(function (org) {
+			it(`SuperUser registers organization ${org.name}`, async function () {
 				let result = {};
 				try {
 					result = await adminServer.organizations.create({
 						owner_user_id: adminData.user.id,
 						...org,
-						event_fee_in_cents: Number(org.event_fee_in_cents)
 					});
 				} catch (e) {
 					result = e.response;
@@ -53,9 +57,9 @@ describe("Integration::Organizations", function() {
 				global.organizationsByName[result.data.name] = result.data.id;
 			});
 		});
-		describe("Retrieve and validate organization", function() {
+		describe("Retrieve and validate organization", function () {
 			let list = [], response, org;
-			before(async () =>{
+			before(async () => {
 				response = await adminServer.organizations.index();
 				assert.strictEqual(response.status, 200, `Response status: ${response.status}`);
 			});
@@ -64,7 +68,7 @@ describe("Integration::Organizations", function() {
 				list = response.data.data;
 				assert.strictEqual(list.length, orgs.length, `Mismatched list length Server: ${list.length} Local: ${orgs.length}`);
 			});
-			it("an authenticated user can retrieve an organization", async function() {
+			it("an authenticated user can retrieve an organization", async function () {
 				org = await adminServer.organizations.read({ id: list[0].id });
 				assert.strictEqual(org.status, 200);
 				assert.strictEqual(org.data.name, list[0].name); //First name in the list if default sort is by name
