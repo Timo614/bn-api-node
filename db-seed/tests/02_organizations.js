@@ -39,7 +39,8 @@ describe("Integration::Organizations", function() {
 				try {
 					result = await adminServer.organizations.create({
 						owner_user_id: adminData.user.id,
-						...org
+						...org,
+						event_fee_in_cents: Number(org.event_fee_in_cents)
 					});
 				} catch (e) {
 					result = e.response;
