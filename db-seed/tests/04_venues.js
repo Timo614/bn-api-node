@@ -55,8 +55,14 @@ describe("Integration::Venues", async function() {
 			});
 			it("retrieve the venue list", async function() {
 				list = response.data.data;
+
+				const localVenue = venues.find(item => {
+					return list[0].name === item.name;
+				});
+
+
 				assert.strictEqual(list.length, venues.length, `Mismatched list length Server: ${list.length} Local: ${venues.length}`);
-				assert.strictEqual(list[0].name, "Loftus Versveld Clubhouse", `Was expecting "Loftus Versveld Clubhouse" but got ${list[0].name}`);
+				assert.strictEqual(list[0].name, localVenue.name, `Was expecting "${localVenue.name}" but got ${list[0].name}`);
 			});
 
 			it("retrieve a venue", async function() {
