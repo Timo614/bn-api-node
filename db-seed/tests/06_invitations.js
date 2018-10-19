@@ -39,7 +39,7 @@ describe("Integration::Invitations", () => {
 				organization_id: org.id,
 				user_email: "asdf😰kkruigfvsa.asdnf3"
 			})).then(res => {
-				assert.strictEqual(res.status, 500);
+				assert.strictEqual(res.status, 422);
 			})
 		});
 		// describe("Invitees check, accept and decline", () => {
