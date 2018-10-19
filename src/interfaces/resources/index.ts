@@ -5,6 +5,7 @@ import { createEvent } from "./event.interface";
 import { createEventArtist } from "./event-artist.interface";
 import { createEventHistory } from "./event-histories.interface";
 import { createEventInterest } from "./event-interest.interface";
+import { createHold } from "./hold.interface";
 import { createOrder } from "./order.interface";
 import { createOrganization } from "./organization.interface";
 import { createOrganizationVenue } from "./organization-event.interface";
@@ -17,6 +18,7 @@ import { createTicketTransferAuthorization } from "./ticket-transfer-authorizati
 import { createUser } from "./user.interface";
 import { createPaymentMethod } from "./payment-method.interface";
 import { createVenue } from "./venue.interface";
+
 export default {
 	createArtist,
 	createAuthToken,
@@ -25,6 +27,7 @@ export default {
 	createEventArtist,
 	createEventHistory,
 	createEventInterest,
+	createHold,
 	createOrder,
 	createOrganization,
 	createOrganizationVenue,

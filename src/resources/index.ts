@@ -3,6 +3,7 @@ import Auth from "./auth";
 import Cart from "./cart";
 import Event from "./events";
 import External from "./external";
+import Holds from "./holds";
 import Invitations from "./invitations";
 import Organization from "./organization";
 import Regions from "./regions";
@@ -25,9 +26,11 @@ import PaymentMethods from "./payment-methods";
  * @endpoint events.artists [[EventArtistsResource]]
  * @endpoint events.interests [[EventInterestsResource]]
  * @endpoint events.guests [[EventGuestsResource]]
+ * @endpoint events.holds [[EventHoldsResource]]
  * @endpoint events.ticketTypes [[EventTicketTypesResource]]
  * @endpoint events.tickets [[EventTicketsResource]]
  * @endpoint external [[ExternalResource]]
+ * @endpoint holds [[HoldsResource]]
  * @endpoint invitations [[InvitationsResource]]
  * @endpoint orders [[OrdersResource]]
  * @endpoint organizations [[OrganizationsResource]]
@@ -54,6 +57,7 @@ export const endpoints: { [endpoint: string]: ResourceInterface | ResourceClass 
 	cart: Cart,
 	events: Event,
 	external: External,
+	holds: Holds,
 	organizations: Organization,
 	regions: Regions,
 	invitations: Invitations,

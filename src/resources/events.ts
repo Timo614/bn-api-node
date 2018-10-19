@@ -7,6 +7,7 @@ import EventTicketTypesResource from "./namespaced/event-tickets-types";
 import EventTicketsResource from "./namespaced/event-tickets";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 import EventGuestsResource from "./namespaced/event-guests";
+import EventHoldsResource from "./namespaced/event-holds";
 
 /**
  * @endpoint events
@@ -17,9 +18,10 @@ class EventsResource extends ResourceClass {
 		this.namespaces = {
 			artists: EventArtistsResource,
 			guests: EventGuestsResource,
+			holds: EventHoldsResource,
 			interests: EventInterestsResource,
 			ticketTypes: EventTicketTypesResource,
-			tickets: EventTicketsResource
+			tickets: EventTicketsResource,
 		};
 	}
 

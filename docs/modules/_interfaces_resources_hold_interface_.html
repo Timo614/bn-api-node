@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;resources/index&quot; | bn-api-node</title>
+	<title>&quot;interfaces/resources/hold.interface&quot; | bn-api-node</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_resources_index_.html">&quot;resources/index&quot;</a>
+					<a href="_interfaces_resources_hold_interface_.html">&quot;interfaces/resources/hold.interface&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;resources/index&quot;</h1>
+			<h1>External module &quot;interfaces/resources/hold.interface&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -71,133 +71,44 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Variables</h3>
+							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_resources_index_.html#endpoints" class="tsd-kind-icon">endpoints</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_interfaces_resources_hold_interface_.holdinterface.html" class="tsd-kind-icon">Hold<wbr>Interface</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_interfaces_resources_hold_interface_.html#createhold" class="tsd-kind-icon">create<wbr>Hold</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
-					<a name="endpoints" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> endpoints</h3>
-					<div class="tsd-signature tsd-kind-icon">endpoints<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{artists: Artist,auth: Auth,cart: Cart,events: Event,external: External,holds: Holds,organizations: Organization,regions: Regions,invitations: Invitations,status: Status,passwordReset: PasswordReset,paymentMethods: PaymentMethods,users: Users,venues: Venue,orders: Orders,tickets: Tickets} as any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in resources/index.ts:54</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>List of available endpoints</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>endpoint</dt>
-							<dd><p>artists <a href="../classes/_resources_artists_.artistsresource.html">ArtistsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>auth <a href="../classes/_resources_auth_.authresource.html">AuthResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>cart <a href="../classes/_resources_cart_.cartresource.html">CartResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>events <a href="../classes/_resources_events_.eventsresource.html">EventsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>events.artists <a href="../classes/_resources_namespaced_event_artists_.eventartistsresource.html">EventArtistsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>events.interests <a href="../classes/_resources_namespaced_event_interests_.eventinterestsresource.html">EventInterestsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>events.guests <a href="../classes/_resources_namespaced_event_guests_.eventguestsresource.html">EventGuestsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>events.holds <a href="../classes/_resources_namespaced_event_holds_.eventholdsresource.html">EventHoldsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>events.ticketTypes <a href="../classes/_resources_namespaced_event_tickets_types_.eventtickettypesresource.html">EventTicketTypesResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>events.tickets <a href="../classes/_resources_namespaced_event_tickets_.eventticketsresource.html">EventTicketsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>external <a href="../classes/_resources_external_.externalresource.html">ExternalResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>holds <a href="../classes/_resources_holds_.holdsresource.html">HoldsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>invitations <a href="../classes/_resources_invitations_.invitationsresource.html">InvitationsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>orders <a href="../classes/_resources_orders_.ordersresource.html">OrdersResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>organizations <a href="../classes/_resources_organization_.organizationsresource.html">OrganizationsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>organizations.artists <a href="../classes/_resources_namespaced_organization_artists_.organizationartistsresource.html">OrganizationArtistsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>organizations.events <a href="../classes/_resources_namespaced_organization_events_.organizationeventsresource.html">OrganizationEventsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>organizations.feeSchedules <a href="../classes/_resources_namespaced_organization_fee_schedules_.organizationfeeschedulesresource.html">OrganizationFeeSchedulesResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>organizations.invite <a href="../classes/_resources_namespaced_organization_invitations_.organizationinvitationsresource.html">OrganizationInvitationsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>organizations.owner <a href="../classes/_resources_namespaced_organization_owner_.organizationownersresource.html">OrganizationOwnersResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>organizations.users <a href="../classes/_resources_namespaced_organization_users_.organizationusersresource.html">OrganizationUsersResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>organizations.venues <a href="../classes/_resources_namespaced_organization_venues_.organizationvenueresource.html">OrganizationVenueResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>passwordReset <a href="../classes/_resources_password_reset_.passwordresetresource.html">PasswordResetResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>paymentMethods <a href="../classes/_resources_payment_methods_.paymentmethodsresource.html">PaymentMethodsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>regions <a href="../classes/_resources_regions_.regionsresource.html">RegionsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>status <a href="../classes/_resources_status_.statusresource.html">StatusResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>tickets <a href="../classes/_resources_tickets_.ticketsresource.html">TicketsResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>tickets.redeem <a href="../classes/_resources_namespaced_ticket_redeem_.ticketredeemresource.html">TicketRedeemResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>users <a href="../classes/_resources_users_.usersresource.html">UsersResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>venues <a href="../classes/_resources_venues_.venuesresource.html">VenuesResource</a></p>
-							</dd>
-							<dt>endpoint</dt>
-							<dd><p>venues.events <a href="../classes/_resources_namespaced_venue_events_.venueeventsresource.html">VenueEventsResource</a></p>
-							</dd>
-						</dl>
-					</div>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-index-signature">
-								<h5><span class="tsd-signature-symbol">[</span>endpoint: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="../interfaces/_interfaces_server_resource_.resourceinterface.html" class="tsd-signature-type">ResourceInterface</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_classes_abstracts_resource_class_.resourceclass.html" class="tsd-signature-type">ResourceClass</a></h5>
-							</li>
-						</ul>
-					</div>
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="createhold" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> create<wbr>Hold</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Hold<span class="tsd-signature-symbol">(</span>base<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_hold_interface_.holdinterface.html" class="tsd-signature-type">HoldInterface</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in interfaces/resources/hold.interface.ts:12</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> base: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_hold_interface_.holdinterface.html" class="tsd-signature-type">HoldInterface</a></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -208,14 +119,17 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_resources_index_.html">"resources/index"</a>
+						<a href="_interfaces_resources_hold_interface_.html">"interfaces/resources/hold.interface"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-						<a href="_resources_index_.html#endpoints" class="tsd-kind-icon">endpoints</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/_interfaces_resources_hold_interface_.holdinterface.html" class="tsd-kind-icon">Hold<wbr>Interface</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_interfaces_resources_hold_interface_.html#createhold" class="tsd-kind-icon">create<wbr>Hold</a>
 					</li>
 				</ul>
 			</nav>
