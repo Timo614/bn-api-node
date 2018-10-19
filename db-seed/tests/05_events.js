@@ -7,7 +7,10 @@ const assertFieldsMatch = require("../queries").assertFieldsMatch;
 
 describe("Integration::Events", function() {
 	let publicServer, adminServer;
-	const events = q.readCSV("./data/events.csv");
+	const events = q.readCSV("./data/events.csv").map(event => {
+		event.age_limit = Number(event.age_limit);
+		return event;
+	});
 
 	describe("Public User", function() {
 		before(async function() {

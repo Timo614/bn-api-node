@@ -1,4 +1,4 @@
-name, organization_id, venue_id, event_start, door_time,status,promo_image_url
-Fancy Pants Party, Da Klub, Da Klub,2018-11-13T12:00:00.000,2018-12-30T12:00:00.000,Published,https://res.cloudinary.com/bigneon-dev/image/upload/v1537952849/bigneon/euw1rhumwq4jvfoia51f.jpg
-It's my party, Da Klub, Loftus Versveld Clubhouse,2018-11-13T12:00:00.000,2018-11-13T12:00:00.000,Published,https://res.cloudinary.com/bigneon-dev/image/upload/v1537953516/bigneon/ksxxzgt72s6o6dphlmf4.jpg
-Update This Event, Da Klub, Da Klub,2018-11-13T12:00:00.000,2018-11-13T12:00:00.000,Published,https://res.cloudinary.com/bigneon-dev/image/upload/v1537953516/bigneon/ksxxzgt72s6o6dphlmf4.jpg
+name, organization_id, venue_id, event_start, door_time,status,promo_image_url,age_limit
+Fancy Pants Party, Da Klub, Da Klub,2018-11-13T12:00:00.000,2018-12-30T12:00:00.000,Published,https://res.cloudinary.com/bigneon-dev/image/upload/v1537952849/bigneon/euw1rhumwq4jvfoia51f.jpg,
+It's my party, Da Klub, Loftus Versveld Clubhouse,2018-11-13T12:00:00.000,2018-11-13T12:00:00.000,Published,https://res.cloudinary.com/bigneon-dev/image/upload/v1537953516/bigneon/ksxxzgt72s6o6dphlmf4.jpg,21
+Update This Event, Da Klub, Da Klub,2018-11-13T12:00:00.000,2018-11-13T12:00:00.000,Published,https://res.cloudinary.com/bigneon-dev/image/upload/v1537953516/bigneon/ksxxzgt72s6o6dphlmf4.jpg,18
