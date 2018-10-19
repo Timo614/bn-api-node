@@ -1,5 +1,6 @@
 import { createArtist } from "./artist.interface";
 import { createAuthToken } from "./auth-token.interface";
+import { createCartItem } from "./cart-item.interface";
 import { createEvent } from "./event.interface";
 import { createEventArtist } from "./event-artist.interface";
 import { createEventHistory } from "./event-histories.interface";
@@ -19,6 +20,7 @@ import { createVenue } from "./venue.interface";
 export default {
 	createArtist,
 	createAuthToken,
+	createCartItem,
 	createEvent,
 	createEventArtist,
 	createEventHistory,

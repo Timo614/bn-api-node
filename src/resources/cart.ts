@@ -13,14 +13,15 @@ class CartResource extends ResourceClass {
 	/**
 	 * Add a ticket to the users cart
 	 * @auth false
-	 * @params {ticket_type_id:uuid, quantity:integer}
+	 * @params {items: Array<[[CartItemInterface]]>}
+	 * @required {items: Array<[[CartItemInterface]]>}
 	 */
 	add(): OrderInterface {
 		return createRequestMethod({
 			name: "add",
 			method: "POST",
 			path: "",
-			required: ["ticket_type_id", "quantity"],
+			required: ["items"],
 			requiresAuth: false
 		}) as any;
 	}
