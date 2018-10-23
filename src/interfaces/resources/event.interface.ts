@@ -5,11 +5,10 @@ import { VenueInterface } from "./venue.interface";
 import { OrganizationInterface } from "./organization.interface";
 
 export interface EventInterface {
-	id?: string;
+	readonly id?: string;
 	name: string;
 	organization_id: string;
 	venue_id: string;
-	created_at: string;
 	event_start: Date;
 	door_time: Date;
 	status?: string;
@@ -24,6 +23,9 @@ export interface EventInterface {
 	total_interest: number;
 	user_is_interested: boolean;
 	top_line_info?: string;
+	fee_in_cents?: number;
+	readonly created_at: string;
+	readonly updated_at: string;
 }
 
 export const createEvent = (base: any = {}): EventInterface => {
@@ -36,7 +38,6 @@ export const createEvent = (base: any = {}): EventInterface => {
 			name: "",
 			organization_id: "",
 			venue_id: "",
-			created_at: "",
 			event_start: "",
 			door_time: "",
 			status: "",
@@ -50,7 +51,10 @@ export const createEvent = (base: any = {}): EventInterface => {
 			ticket_types: [],
 			total_interest: 0,
 			user_is_interested: false,
-			top_line_info: ""
+			top_line_info: "",
+			fee_in_cents: 0,
+			created_at: "",
+			updated_at: ""
 		},
 		...base
 	} as EventInterface;
