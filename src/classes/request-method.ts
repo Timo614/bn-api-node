@@ -4,15 +4,15 @@ import { RequestMethodInterface } from "../interfaces/server/request-method.inte
 import { getAllMethodNames } from "../helpers/utils";
 import XhrClient from "./xhr-client";
 import ResourceClass from "./abstracts/resource.class";
+import Server from "./server";
 
 export class RequestMethod {
 	private path: string;
 
-	private client: XhrClient;
 
 	methods: Array<RequestMethodInterface> = [];
 
-	constructor(private parentEndpoint: string, resource: ResourceClass, client: XhrClient) {
+	constructor(private parentEndpoint: string, resource: ResourceClass, private client: XhrClient, private server: Server) {
 
 
 		let self: any = this;
@@ -20,7 +20,6 @@ export class RequestMethod {
 
 
 		this.path = path;
-		this.client = client;
 
 		this.methods = resource.methods.concat(this._buildMethodArray(resource));
 
@@ -46,7 +45,7 @@ export class RequestMethod {
 		}
 	}
 
-	_buildMethodArray(resource: ResourceClass ):Array<RequestMethodInterface> {
+	_buildMethodArray(resource: ResourceClass): Array<RequestMethodInterface> {
 		let methods: Array<RequestMethodInterface> = [];
 		let availableMethods = getAllMethodNames(resource);
 
@@ -162,12 +161,20 @@ export class RequestMethod {
 		return true;
 	}
 
-	_request(method: RequestMethodInterface): any {
+	/**
+	 * This creates the request function that will be called by the server
+	 *
+	 * @param method
+	 * @returns A function that when called requests the data from the server or a mocker
+	 */
+	_request(method: RequestMethodInterface): (data: Object, headers: Object, returnDataOnly: boolean, overrideMethod: RequestMethodInterface) => Promise<any> {
 		return (
 			data: any = {},
 			headers: any = {},
-			returnDataOnly: boolean = false
+			returnDataOnly: boolean = false,
+			overrideMethod: any = {}
 		) => {
+			method = { ...method, ...overrideMethod };
 			let path = `${this.path}${method.path}`.replace(/\/\//g, "/");
 			// If the path has any {identifier} parameter, replace it with the data[identifier] key
 
@@ -189,7 +196,7 @@ export class RequestMethod {
 			let promise;
 
 			if (this.client.mocker) {
-				let mockerPath =   `${this.parentEndpoint}.${method.namespace ? (method.namespace + ".") : ""}${method.name}`;
+				let mockerPath = `${this.parentEndpoint}.${method.namespace ? (method.namespace + ".") : ""}${method.name}`;
 				if (this.client.mocker.hasMock(mockerPath)) {
 					promise = this.client.mocker.mock(
 						mockerPath
@@ -230,7 +237,7 @@ export class RequestMethod {
 				if (method.afterRequest) {
 					promise = promise.then(
 						(data: any = {}): Promise<any> => {
-							return method.afterRequest(this.client, data);
+							return method.afterRequest(this.server, this.client, data);
 						}
 					);
 				}

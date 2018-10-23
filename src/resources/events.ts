@@ -8,6 +8,7 @@ import EventTicketsResource from "./namespaced/event-tickets";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 import EventGuestsResource from "./namespaced/event-guests";
 import EventHoldsResource from "./namespaced/event-holds";
+import Server from "../classes/server";
 
 /**
  * @endpoint events
@@ -102,6 +103,33 @@ class EventsResource extends ResourceClass {
 			path: "/{id}",
 			required: [],
 			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Read an event, then query the artists
+	 * @auth false
+	 * @params {id:uuid}
+	 * @required {id: uuid}
+	 */
+	readFull(): EventInterface {
+		return createRequestMethod({
+			name: "read",
+			method: "GET",
+			path: "/{id}",
+			required: [],
+			requiresAuth: false,
+			clientOnly: true,
+			afterRequest: async (server: Server, client: any, response: any) => {
+				for (let i in response.data.artists) {
+					let tmpArtist = response.data.artists[i];
+					// @ts-ignore
+					let artist = await server.artists.read({ id: tmpArtist.artist_id });
+					response.data.artists[i] = artist.data;
+				}
+
+				return response;
+			}
 		}) as any;
 	}
 

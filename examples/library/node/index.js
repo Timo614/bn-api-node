@@ -1,6 +1,18 @@
 const Server = require("../../../dist/classes/server").default;
-let server = new Server();
-console.log(server.events.artists);
+let server = new Server({
+	port: "9000"
+});
+// server.events.index({}, {}, false, {
+// 	afterRequest: async(server, client, response) => {
+// 		response.data.cacaw = true;
+// 		return response;
+// 	}
+// }).then(result => {
+// 	console.log('res', result.data.cacaw);
+// });
+server.events.readFull({id: "0ef5f69b-72f5-46ac-b30b-8c0320aeb792"}).then(result => {
+	console.log('res', result.data);
+});
 // server.auth.authenticate({ email: "superuser@test.com", password: "password" }).then(a => {
 // 	console.log(a);
 // }).catch(e => {

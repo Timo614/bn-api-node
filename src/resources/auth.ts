@@ -24,7 +24,7 @@ class AuthResource extends ResourceClass {
 			path: "/token",
 			required: ["email", "password"],
 			requiresAuth: false,
-			afterRequest(client: any = {}, data: any = {}): Promise<any> {
+			afterRequest(server: any = {},client: any = {}, data: any = {}): Promise<any> {
 				client.setToken(data.data.access_token);
 				return Promise.resolve(data);
 			}

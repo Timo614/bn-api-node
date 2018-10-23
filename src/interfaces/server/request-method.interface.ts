@@ -1,4 +1,5 @@
 import XhrClient from "../../classes/xhr-client";
+import Server from "../../classes/server";
 
 export interface RequestMethodInterface {
     namespace?: string;
@@ -11,7 +12,7 @@ export interface RequestMethodInterface {
     requiresAuth: boolean;
 
     beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any ): void;
-    afterRequest(client: XhrClient, response: any ): Promise<any>;
+    afterRequest(server: Server, client: XhrClient, response: any ): Promise<any>;
 
 }
 

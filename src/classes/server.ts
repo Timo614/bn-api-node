@@ -35,7 +35,8 @@ export class Server {
 			let resource: RequestMethod = new RequestMethod(
 				key,
 				resourceData,
-				this.client
+				this.client,
+				this
 			);
 			self[key] = resource;
 
