@@ -10,7 +10,7 @@ let server = new Server({
 // }).then(result => {
 // 	console.log('res', result.data.cacaw);
 // });
-server.events.readFull({id: "0ef5f69b-72f5-46ac-b30b-8c0320aeb792"}).then(result => {
+server.events.readFull({id: "0a1a986e-da63-4513-8a68-2edd2a5fe1ee"}).then(result => {
 	console.log('res', result.data);
 });
 // server.auth.authenticate({ email: "superuser@test.com", password: "password" }).then(a => {

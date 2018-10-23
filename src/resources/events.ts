@@ -120,15 +120,22 @@ class EventsResource extends ResourceClass {
 			required: [],
 			requiresAuth: false,
 			clientOnly: true,//This is to avoid failing the tests for no backend route
-			afterRequest: async (server: Server, client: any, response: any) => {
+			afterRequest(server: Server, client: any, response: any):Promise<any> {
+				let promises = [];
 				for (let i in response.data.artists) {
 					let tmpArtist = response.data.artists[i];
 					// @ts-ignore
-					let artist = await server.artists.read({ id: tmpArtist.artist_id });
-					response.data.artists[i] = artist.data;
+					promises.push(server.artists.read({ id: tmpArtist.artist_id }));
+
 				}
 
-				return response;
+				return Promise.all(promises). then(results => {
+					response.data.artists = [];
+					results.forEach(result => {
+						response.data.artists.push(result.data);
+					});
+					return Promise.resolve(response);
+				})
 			}
 		}) as any;
 	}

@@ -5,7 +5,16 @@
     <title>Title</title>
     <script src="../../../dist/bundle.client.js"></script>
     <script>
-        var server = new Bigneon.publicServer();
+		console.log(Bigneon);
+		var server = new Bigneon.default.Server({port: 9000});
+		server.events.index().then(res => {
+			res.data.data.forEach(event => {
+				console.log("Event Name:", event.name);
+				server.events.readFull({id: event.id}).then(eventDetails => {
+					console.log("Full", eventDetails.data);
+                });
+            });
+        })
     </script>
 </head>
 <body>
