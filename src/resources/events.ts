@@ -119,7 +119,7 @@ class EventsResource extends ResourceClass {
 			path: "/{id}",
 			required: [],
 			requiresAuth: false,
-			clientOnly: true,
+			clientOnly: true,//This is to avoid failing the tests for no backend route
 			afterRequest: async (server: Server, client: any, response: any) => {
 				for (let i in response.data.artists) {
 					let tmpArtist = response.data.artists[i];
@@ -150,15 +150,3 @@ class EventsResource extends ResourceClass {
 }
 
 export default EventsResource;
-
-// export default {
-// 	path: "events",
-//
-// 	methods: [
-//
-//
-// 	]
-// 		.concat(EventArtist.methods)
-// 		.concat(EventInterest.methods)
-// 		.concat(EventTicket.methods)
-// } as ResourceInterface;
