@@ -34,7 +34,6 @@ class EventsResource extends ResourceClass {
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
-			name: "index",
 			method: "GET",
 			path: "",
 			required: [],
@@ -50,7 +49,6 @@ class EventsResource extends ResourceClass {
 	 */
 	create(): EventInterface {
 		return createRequestMethod({
-			name: "create",
 			method: "POST",
 			path: "",
 			required: ["name", "organization_id"],
@@ -66,7 +64,6 @@ class EventsResource extends ResourceClass {
 	 */
 	update(): EventInterface {
 		return createRequestMethod({
-			name: "update",
 			method: "PUT",
 			path: "/{id}",
 			required: [],
@@ -98,7 +95,6 @@ class EventsResource extends ResourceClass {
 	 */
 	read(): EventInterface {
 		return createRequestMethod({
-			name: "read",
 			method: "GET",
 			path: "/{id}",
 			required: [],
@@ -114,7 +110,6 @@ class EventsResource extends ResourceClass {
 	 */
 	readFull(): EventInterface {
 		return createRequestMethod({
-			name: "read",
 			method: "GET",
 			path: "/{id}",
 			required: [],
