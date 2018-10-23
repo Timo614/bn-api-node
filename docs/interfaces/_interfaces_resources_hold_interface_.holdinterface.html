@@ -85,10 +85,13 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_hold_interface_.holdinterface.html#created_at" class="tsd-kind-icon">created_<wbr>at</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_hold_interface_.holdinterface.html#discount_in_cents" class="tsd-kind-icon">discount_<wbr>in_<wbr>cents</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_hold_interface_.holdinterface.html#end_at" class="tsd-kind-icon">end_<wbr>at</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_hold_interface_.holdinterface.html#event_id" class="tsd-kind-icon">event_<wbr>id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_hold_interface_.holdinterface.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_hold_interface_.holdinterface.html#items" class="tsd-kind-icon">items</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_hold_interface_.holdinterface.html#max_per_order" class="tsd-kind-icon">max_<wbr>per_<wbr>order</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_hold_interface_.holdinterface.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_hold_interface_.holdinterface.html#redemption_code" class="tsd-kind-icon">redemption_<wbr>code</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_hold_interface_.holdinterface.html#updated_at" class="tsd-kind-icon">updated_<wbr>at</a></li>
 							</ul>
 						</section>
@@ -103,7 +106,27 @@
 					<div class="tsd-signature tsd-kind-icon">created_<wbr>at<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
+							<li>Defined in interfaces/resources/hold.interface.ts:11</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="discount_in_cents" class="tsd-anchor"></a>
+					<h3>discount_<wbr>in_<wbr>cents</h3>
+					<div class="tsd-signature tsd-kind-icon">discount_<wbr>in_<wbr>cents<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
 							<li>Defined in interfaces/resources/hold.interface.ts:8</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="end_at" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> end_<wbr>at</h3>
+					<div class="tsd-signature tsd-kind-icon">end_<wbr>at<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in interfaces/resources/hold.interface.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -128,12 +151,12 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="items" class="tsd-anchor"></a>
-					<h3>items</h3>
-					<div class="tsd-signature tsd-kind-icon">items<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_interfaces_resources_cart_item_interface_.cartiteminterface.html" class="tsd-signature-type">CartItemInterface</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="max_per_order" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> max_<wbr>per_<wbr>order</h3>
+					<div class="tsd-signature tsd-kind-icon">max_<wbr>per_<wbr>order<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in interfaces/resources/hold.interface.ts:7</li>
+							<li>Defined in interfaces/resources/hold.interface.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -148,12 +171,22 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="redemption_code" class="tsd-anchor"></a>
+					<h3>redemption_<wbr>code</h3>
+					<div class="tsd-signature tsd-kind-icon">redemption_<wbr>code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in interfaces/resources/hold.interface.ts:7</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="updated_at" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> updated_<wbr>at</h3>
 					<div class="tsd-signature tsd-kind-icon">updated_<wbr>at<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in interfaces/resources/hold.interface.ts:9</li>
+							<li>Defined in interfaces/resources/hold.interface.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -181,16 +214,25 @@
 								<a href="_interfaces_resources_hold_interface_.holdinterface.html#created_at" class="tsd-kind-icon">created_<wbr>at</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_resources_hold_interface_.holdinterface.html#discount_in_cents" class="tsd-kind-icon">discount_<wbr>in_<wbr>cents</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_resources_hold_interface_.holdinterface.html#end_at" class="tsd-kind-icon">end_<wbr>at</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_interfaces_resources_hold_interface_.holdinterface.html#event_id" class="tsd-kind-icon">event_<wbr>id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_interfaces_resources_hold_interface_.holdinterface.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_interfaces_resources_hold_interface_.holdinterface.html#items" class="tsd-kind-icon">items</a>
+								<a href="_interfaces_resources_hold_interface_.holdinterface.html#max_per_order" class="tsd-kind-icon">max_<wbr>per_<wbr>order</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_interfaces_resources_hold_interface_.holdinterface.html#name" class="tsd-kind-icon">name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_resources_hold_interface_.holdinterface.html#redemption_code" class="tsd-kind-icon">redemption_<wbr>code</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_interfaces_resources_hold_interface_.holdinterface.html#updated_at" class="tsd-kind-icon">updated_<wbr>at</a>

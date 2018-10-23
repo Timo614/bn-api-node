@@ -1,7 +1,7 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
+import HoldTicketsResource from "./namespaced/hold-tickets";
 
 /**
  * @endpoint holds
@@ -10,20 +10,23 @@ import { IndexInterface } from "../interfaces/resources/structures/index.interfa
 class HoldsResource extends ResourceClass {
 	constructor() {
 		super("holds");
+		this.namespaces = {
+			tickets: HoldTicketsResource,
+		}
 	}
 
 	/**
-	 * Add or remove tickets to a hold
+	 * Update the hold details
 	 * @auth true
-	 * @params {hold_id:uuid, items: Array<[[CartItemInterface]]>}
-	 * @requires {hold_id:uuid,  items: Array<[[CartItemInterface]]>}
+	 * @params {hold_id:uuid, ...[[HoldInterface]]}
+	 * @requires {hold_id:uuid}
 	 * @return {status: 200}
 	 */
 	update(): void {
 		return createRequestMethod({
-			method: "PUT",
-			path: "/{hold_id}/tickets",
-			required: ["items"],
+			method: "PATCH",
+			path: "/{hold_id}",
+			requireOne: ["name", "discount_in_cents", "redemption_code", "end_at", "max_per_order"],
 			requiresAuth: true
 		}) as any;
 	}

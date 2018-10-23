@@ -31,6 +31,7 @@ import PaymentMethods from "./payment-methods";
  * @endpoint events.tickets [[EventTicketsResource]]
  * @endpoint external [[ExternalResource]]
  * @endpoint holds [[HoldsResource]]
+ * @endpoint holds.tickets [[HoldTicketsResource]]
  * @endpoint invitations [[InvitationsResource]]
  * @endpoint orders [[OrdersResource]]
  * @endpoint organizations [[OrganizationsResource]]

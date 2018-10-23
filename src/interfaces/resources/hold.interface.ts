@@ -4,7 +4,10 @@ export interface HoldInterface {
 	readonly id?: string;
 	event_id?: string;
 	name: string;
-	items: Array<CartItemInterface>
+	redemption_code: string;
+	discount_in_cents: number;
+	end_at?: Date;
+	max_per_order?: number;
 	readonly created_at?: Date;
 	readonly updated_at?: Date;
 }
@@ -15,7 +18,10 @@ export const createHold = (base: any = {}): HoldInterface => {
 			id: "",
 			event_id: "",
 			name: "",
-			items: [],
+			redemption_code: "",
+			discount_in_cents: 0,
+			end_at: "",
+			max_per_order: 0,
 			created_at: "",
 			updated_at: ""
 		},

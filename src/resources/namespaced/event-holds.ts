@@ -31,13 +31,13 @@ class EventHoldsResource extends ResourceClass {
 	 * Create a hold for an event
 	 * @auth true
 	 * @params {event_id:uuid, ...[[HoldInterface]]}
-	 * @requires {event_id:uuid, name: string}
+	 * @requires {event_id:uuid, name: string, redemption_code: string, discount_in_cents: number}
 	 */
 	create(): HoldInterface {
 		return createRequestMethod({
 			method: "POST",
 			path: "/{event_id}/holds",
-			required: ["name"],
+			required: ["name", "redemption_code", "discount_in_cents"],
 			requiresAuth: true
 		}) as any;
 	}
