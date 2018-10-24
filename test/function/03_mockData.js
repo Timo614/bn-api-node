@@ -9,7 +9,6 @@ describe("Function::Mock Data", () => {
 	describe("Mock Events", () => {
 		let events = [];
 		it("The mocker should be able to request events", async () => {
-
 			events = await global.mockServer.events.index();
 			assert.notEqual(events.data.length, 0, "There should be more than 0 events")
 		});

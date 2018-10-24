@@ -196,12 +196,18 @@ export class RequestMethod {
 			let promise;
 
 			if (this.client.mocker) {
-				let mockerPath = `${this.parentEndpoint}.${method.namespace ? (method.namespace + ".") : ""}${method.name}`;
-				if (this.client.mocker.hasMock(mockerPath)) {
-					promise = this.client.mocker.mock(
-						mockerPath
-					);
+
+				for (let i in method.names) {
+					let methodName = method.names[i];
+					let mockerPath = `${this.parentEndpoint}.${method.namespace ? (method.namespace + ".") : ""}${methodName}`;
+
+					if (this.client.mocker.hasMock(mockerPath)) {
+						promise = this.client.mocker.mock(
+							mockerPath
+						);
+					}
 				}
+
 
 			}
 
