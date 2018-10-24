@@ -10,14 +10,14 @@ export interface TicketTypeInterface {
     quantity: number;
     limit: number;//Per person
 	increment: number;//How many can be bought at a time (4 per table)
-    price_points: Array<TicketPricingInterface>;
+    ticket_pricing: Array<TicketPricingInterface>;
     readonly created_at?: Date;
     readonly updated_at?: Date;
 }
 
 export const createTicketType = (base: any = {}): TicketTypeInterface => {
-	if (base && base.price_points) {
-		base.price_points = base.price_points.map((ticketPricing: any) => createTicketPricing(ticketPricing));
+	if (base && base.ticket_pricing) {
+		base.ticket_pricing = base.ticket_pricing.map((ticketPricing: any) => createTicketPricing(ticketPricing));
 	}
 	return {
 		...{
@@ -30,7 +30,7 @@ export const createTicketType = (base: any = {}): TicketTypeInterface => {
 			quantity: 0,
 			limit: 0,//Per person
 			increment: 1,//In batches of 1
-			price_points: [],
+			ticket_pricing: [],
 			created_at: "",
 			updated_at: "",
 		},
