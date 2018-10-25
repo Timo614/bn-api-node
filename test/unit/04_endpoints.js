@@ -51,7 +51,7 @@ function compare(a, b) {
 }
 
 
-describe("Function::Compare bn-api endpoints to bn-api-node endpoints", () => {
+describe("Unit::Compare bn-api endpoints to bn-api-node endpoints", () => {
 	let remoteUrlsAndMethods = {}, localUrlsAndMethods= {};
 	let branch = process.env.TEST_ROUTING_BRANCH || "master";
 	before(async () => {

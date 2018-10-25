@@ -4,7 +4,7 @@ const assert = require("assert");
 const global = require("../global.setup");
 
 
-describe("Function::Mock Server", () => {
+describe("Unit::Mock Server", () => {
 	let server, mocker;
 	it("It should create a mock server", () => {
 		mocker = new Mocker(global.mockData);

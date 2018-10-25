@@ -6,7 +6,7 @@ describe("Integration::Invitations", () => {
 	let adminServer, publicServer;
 	describe("Super user invites other users to the organization", function () {
 		let org, invitations = {
-			oldUser: false,
+			existingUser: false,
 			newUser: false
 		};
 		before(async function () {
@@ -21,7 +21,7 @@ describe("Integration::Invitations", () => {
 				organization_id: org.id,
 				user_email: "alice@token.com"
 			});
-			invitations.oldUser = response.data;
+			invitations.existingUser = response.data;
 			assert.strictEqual(response.status, 201);
 		});
 
@@ -43,11 +43,12 @@ describe("Integration::Invitations", () => {
 			})
 		});
 		// describe("Invitees check, accept and decline", () => {
-		//@TODO Implement when endpoint is available
-		// it("Unauthorized user can view their invite", async () => {
-		// 	let response = await publicServer.invitations.read({security_token: invitations.newUser.security_token});
-		// 	console.log(response);
-		// });
+		it("Unauthorized user can view their invite", async () => {
+			let response = await publicServer.invitations.read({security_token: invitations.newUser.security_token});
+			assert.strictEqual(response.status, 200);
+			assert.strictEqual(response.data.organization_name, org.name);
+			assert.strictEqual(response.data.inviter_name, "System Administrator");
+		});
 
 		it("Authorized user can accept their invite", async () => {
 			let aliceServer = await global.getServer();
@@ -55,7 +56,7 @@ describe("Integration::Invitations", () => {
 				email: "alice@token.com",
 				password: "alicepw"
 			});
-			let response = await aliceServer.invitations.accept({ security_token: invitations.oldUser.security_token });
+			let response = await aliceServer.invitations.accept({ security_token: invitations.existingUser.security_token });
 			assert.strictEqual(response.status, 200);
 		});
 

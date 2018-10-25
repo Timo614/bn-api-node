@@ -1,7 +1,7 @@
 const assert = require("assert");
 const global = require("../global.setup");
 
-describe("Function::Mock Data", () => {
+describe("Unit::Mock Data", () => {
 	it("The mocker should have a events.index route", () => {
 		assert.strictEqual(global.mockServer.client.mocker.hasMock("events.index"), true, "There should be a {\"events.index\": []} key in the mockData");
 	});

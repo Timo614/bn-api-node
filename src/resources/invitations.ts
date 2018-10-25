@@ -38,18 +38,18 @@ class InvitationsResource extends ResourceClass {
 		})as any;
 	}
 
-	// /**
-	//  * Read the invitation
-	//  * @params {security_token: string}
-	//  * @required {security_token: string}
-	//  */
-	// read(): any {
-	// 	return createRequestMethod({
-	// 		method: "GET",
-	// 		path: "",
-	// 		required: ["security_token"],
-	// 		requiresAuth: false
-	// 	}) as any;
-	// }
+	/**
+	 * Read the invitation
+	 * @params {security_token: string}
+	 * @required {security_token: string}
+	 */
+	read(): {organization_name: string, inviter_name: string, expires_at: Date } {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{security_token}",
+			required: [],
+			requiresAuth: false
+		}) as any;
+	}
 }
 export default InvitationsResource;

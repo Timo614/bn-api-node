@@ -4,7 +4,7 @@ const global = require("../global.setup");
 
 
 
-describe("Function::Server", () => {
+describe("Unit::Server", () => {
 	let authToken = global.authToken || "test_token";
 	let server;
 	it("It should create a server", () => {
