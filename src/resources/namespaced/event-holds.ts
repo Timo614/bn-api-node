@@ -18,14 +18,14 @@ class EventHoldsResource extends ResourceClass {
 	 * @requires {event_id:uuid}
 	 * @data Array<[[HoldInterface]]>
 	 */
-	// index(): IndexInterface {
-	// 	return createRequestMethod({
-	// 		method: "GET",
-	// 		path: "/{event_id}/holds",
-	// 		required: [],
-	// 		requiresAuth: true
-	// 	}) as any;
-	// }
+	index(): IndexInterface {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{event_id}/holds",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
 
 	/**
 	 * Create a hold for an event

@@ -95,43 +95,11 @@ class EventsResource extends ResourceClass {
 	 */
 	read(): EventInterface {
 		return createRequestMethod({
+			name: "readFull",
 			method: "GET",
 			path: "/{id}",
 			required: [],
 			requiresAuth: true
-		}) as any;
-	}
-
-	/**
-	 * Read an event, then query the artists
-	 * @auth false
-	 * @params {id:uuid}
-	 * @required {id: uuid}
-	 */
-	readFull(): EventInterface {
-		return createRequestMethod({
-			method: "GET",
-			path: "/{id}",
-			required: [],
-			requiresAuth: false,
-			clientOnly: true,//This is to avoid failing the tests for no backend route
-			afterRequest(server: Server, client: any, response: any):Promise<any> {
-				let promises = [];
-				for (let i in response.data.artists) {
-					let tmpArtist = response.data.artists[i];
-					// @ts-ignore
-					promises.push(server.artists.read({ id: tmpArtist.artist_id }));
-
-				}
-
-				return Promise.all(promises). then(results => {
-					response.data.artists = [];
-					results.forEach(result => {
-						response.data.artists.push(result.data);
-					});
-					return Promise.resolve(response);
-				})
-			}
 		}) as any;
 	}
 
