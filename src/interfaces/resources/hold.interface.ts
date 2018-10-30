@@ -6,6 +6,8 @@ export interface HoldInterface {
 	name: string;
 	redemption_code: string;
 	discount_in_cents: number;
+	ticket_type_id: string;
+	quantity: number;
 	end_at?: Date;
 	max_per_order?: number;
 	readonly created_at?: Date;
@@ -18,6 +20,8 @@ export const createHold = (base: any = {}): HoldInterface => {
 			id: "",
 			event_id: "",
 			name: "",
+			ticket_type_id: "",
+			quantity: 0,
 			redemption_code: "",
 			discount_in_cents: 0,
 			end_at: "",
