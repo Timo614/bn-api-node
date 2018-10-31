@@ -3,6 +3,7 @@ import ResourceClass from "../classes/abstracts/resource.class";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 import HoldTicketsResource from "./namespaced/hold-tickets";
 import { HoldInterface } from "../interfaces/resources/hold.interface";
+import HoldCompsResource from "./namespaced/hold-comps";
 
 /**
  * @endpoint holds
@@ -12,6 +13,7 @@ class HoldsResource extends ResourceClass {
 	constructor() {
 		super("holds");
 		this.namespaces = {
+			comps: HoldCompsResource,
 			tickets: HoldTicketsResource,
 		}
 	}
