@@ -66,7 +66,21 @@ class HoldsResource extends ResourceClass {
 	// 	}) as any;
 	// }
 
-
+	/**
+	 * Splits a hold into two
+	 * @auth true
+	 * @params {id:uuid,...[[HoldInterface]]}
+	 * @requires {hold_id:uuid, name: string, redemption_code: string, discount_in_cents: number, hold_type: string, quantity: number}
+	 * @return [[HoldInterface]]
+	 */
+	split(): HoldInterface {
+		return createRequestMethod({
+			method: "POST",
+			path: "/{id}/split",
+			required: ["name", "redemption_code", "discount_in_cents", "quantity", "hold_type"],
+			requiresAuth: true
+		}) as any;
+	}
 
 }
 export default HoldsResource;
