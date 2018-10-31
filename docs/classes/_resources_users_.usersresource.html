@@ -119,6 +119,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_users_.usersresource.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_users_.usersresource.html#createandlogin" class="tsd-kind-icon">create<wbr>And<wbr>Login</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_users_.usersresource.html#current" class="tsd-kind-icon">current</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_users_.usersresource.html#findbyemail" class="tsd-kind-icon">find<wbr>ByEmail</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_users_.usersresource.html#listorganizations" class="tsd-kind-icon">list<wbr>Organizations</a></li>
@@ -142,7 +143,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in resources/users.ts:10</li>
+									<li>Defined in resources/users.ts:11</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_resources_users_.usersresource.html" class="tsd-signature-type">UsersResource</a></h4>
@@ -209,7 +210,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/users.ts:48</li>
+									<li>Defined in resources/users.ts:49</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -233,6 +234,39 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createandlogin" class="tsd-anchor"></a>
+					<h3>create<wbr>And<wbr>Login</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>And<wbr>Login<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_auth_token_interface_.authtokeninterface.html" class="tsd-signature-type">AuthTokenInterface</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in resources/users.ts:65</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Register a user and generates a login token</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>auth</dt>
+									<dd><p>false</p>
+									</dd>
+									<dt>params</dt>
+									<dd><p>{...<a href="../interfaces/_interfaces_resources_user_interface_.userinterface.html">UserInterface</a>}</p>
+									</dd>
+									<dt>required</dt>
+									<dd><p>{...<a href="../interfaces/_interfaces_resources_user_interface_.userinterface.html">UserInterface</a>}</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_auth_token_interface_.authtokeninterface.html" class="tsd-signature-type">AuthTokenInterface</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="current" class="tsd-anchor"></a>
 					<h3>current</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -242,7 +276,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/users.ts:19</li>
+									<li>Defined in resources/users.ts:20</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -269,7 +303,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/users.ts:65</li>
+									<li>Defined in resources/users.ts:79</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -302,7 +336,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/users.ts:95</li>
+									<li>Defined in resources/users.ts:109</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -335,7 +369,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/users.ts:80</li>
+									<li>Defined in resources/users.ts:94</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -368,7 +402,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/users.ts:32</li>
+									<li>Defined in resources/users.ts:33</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -419,6 +453,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_resources_users_.usersresource.html#create" class="tsd-kind-icon">create</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_resources_users_.usersresource.html#createandlogin" class="tsd-kind-icon">create<wbr>And<wbr>Login</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_resources_users_.usersresource.html#current" class="tsd-kind-icon">current</a>

@@ -3,6 +3,7 @@ import { ResourceInterface } from "../interfaces/server/resource";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { UserInterface } from "../interfaces/resources/user.interface";
 import { OrganizationInterface } from "../interfaces/resources/organization.interface";
+import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface";
 
 /**
  * @endpoint users
@@ -55,6 +56,20 @@ class UsersResource extends ResourceClass {
 		}) as any;
 	}
 
+	/**
+	 * Register a user and generates a login token
+	 * @auth false
+	 * @params {...[[UserInterface]]}
+	 * @required {...[[UserInterface]]}
+	 */
+	createAndLogin(): AuthTokenInterface {
+		return createRequestMethod({
+			method: "POST",
+			path: "",
+			required: ["first_name", "last_name", "email", "phone", "password"],
+			requiresAuth: false
+		}) as any;
+	}
 
 	/**
 	 * Find a user by email address
