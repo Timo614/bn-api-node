@@ -118,6 +118,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_holds_.holdsresource.html#read" class="tsd-kind-icon">read</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_holds_.holdsresource.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
@@ -137,7 +138,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in resources/holds.ts:10</li>
+									<li>Defined in resources/holds.ts:11</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_resources_holds_.holdsresource.html" class="tsd-signature-type">HoldsResource</a></h4>
@@ -195,16 +196,16 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="update" class="tsd-anchor"></a>
-					<h3>update</h3>
+					<a name="read" class="tsd-anchor"></a>
+					<h3>read</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">read<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_hold_interface_.holdinterface.html" class="tsd-signature-type">HoldInterface</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/holds.ts:25</li>
+									<li>Defined in resources/holds.ts:42</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -216,10 +217,44 @@
 									<dd><p>true</p>
 									</dd>
 									<dt>params</dt>
-									<dd><p>{hold_id:uuid, ...<a href="../interfaces/_interfaces_resources_hold_interface_.holdinterface.html">HoldInterface</a>}</p>
+									<dd><p>{id:uuid}</p>
 									</dd>
 									<dt>requires</dt>
-									<dd><p>{hold_id:uuid}</p>
+									<dd><p>{id:uuid}</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_hold_interface_.holdinterface.html" class="tsd-signature-type">HoldInterface</a></h4>
+							<p><a href="../interfaces/_interfaces_resources_hold_interface_.holdinterface.html">HoldInterface</a></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="update" class="tsd-anchor"></a>
+					<h3>update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in resources/holds.ts:26</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Update the hold details</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>auth</dt>
+									<dd><p>true</p>
+									</dd>
+									<dt>params</dt>
+									<dd><p>{id:uuid, ...<a href="../interfaces/_interfaces_resources_hold_interface_.holdinterface.html">HoldInterface</a>}</p>
+									</dd>
+									<dt>requires</dt>
+									<dd><p>{id:uuid}</p>
 									</dd>
 								</dl>
 							</div>
@@ -258,6 +293,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_resources_holds_.holdsresource.html#path" class="tsd-kind-icon">path</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_resources_holds_.holdsresource.html#read" class="tsd-kind-icon">read</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_resources_holds_.holdsresource.html#update" class="tsd-kind-icon">update</a>

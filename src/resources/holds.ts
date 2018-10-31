@@ -2,6 +2,7 @@ import { createRequestMethod } from "../interfaces/server/request-method.interfa
 import ResourceClass from "../classes/abstracts/resource.class";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 import HoldTicketsResource from "./namespaced/hold-tickets";
+import { HoldInterface } from "../interfaces/resources/hold.interface";
 
 /**
  * @endpoint holds
@@ -18,18 +19,34 @@ class HoldsResource extends ResourceClass {
 	/**
 	 * Update the hold details
 	 * @auth true
-	 * @params {hold_id:uuid, ...[[HoldInterface]]}
-	 * @requires {hold_id:uuid}
+	 * @params {id:uuid, ...[[HoldInterface]]}
+	 * @requires {id:uuid}
 	 * @return {status: 200}
 	 */
 	update(): void {
 		return createRequestMethod({
 			method: "PATCH",
-			path: "/{hold_id}",
+			path: "/{id}",
 			requireOne: ["name", "discount_in_cents", "redemption_code", "end_at", "max_per_order"],
 			requiresAuth: true
 		}) as any;
 	}
+
+	/**
+     * Update the hold details
+     * @auth true
+     * @params {id:uuid}
+     * @requires {id:uuid}
+     * @return [[HoldInterface]]
+     */
+	read(): HoldInterface {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{id}",
+			requiresAuth: true
+		}) as any;
+	}
+
 
 	/**
 	 * Get a list of tickets in a hold
