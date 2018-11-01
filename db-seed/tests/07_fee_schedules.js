@@ -28,7 +28,7 @@ describe("Integration::FeeSchedule", () => {
 					},
 					{
 						min_price: 1000,
-						fee_in_cents: 100000
+						fee_in_cents: 10000
 					},
 				]
 			});

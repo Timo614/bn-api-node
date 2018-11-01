@@ -148,7 +148,7 @@ describe("Integration::Events", function() {
 				event_start: "2020-12-12T12:00:00",
 				door_time: "2020-12-12T12:00:00",
 				status: "Published",
-				promo_image_url: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png"
+				promo_image_url: "https://res.cloudinary.com/bigneon-dev/image/upload/v1540996739/bigneon/pssets0z4vxrjasvhvmj.jpg"
 			};
 			const response = await adminServer.events.update(updatedEvent);
 			const serverEvent = (await adminServer.events.read({id: global.eventsByName["Update This Event"]})).data;
