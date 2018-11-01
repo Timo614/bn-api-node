@@ -24,6 +24,8 @@ export interface EventInterface {
 	user_is_interested: boolean;
 	top_line_info?: string;
 	fee_in_cents?: number;
+	min_ticket_price?: number;
+	max_ticket_price?: number;
 	readonly created_at: string;
 	readonly updated_at: string;
 }
@@ -53,6 +55,8 @@ export const createEvent = (base: any = {}): EventInterface => {
 			user_is_interested: false,
 			top_line_info: "",
 			fee_in_cents: 0,
+			min_ticket_price: 0,
+			max_ticket_price: 0,
 			created_at: "",
 			updated_at: ""
 		},
