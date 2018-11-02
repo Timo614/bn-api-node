@@ -1,5 +1,4 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { UserInterface } from "../interfaces/resources/user.interface";
 import { OrganizationInterface } from "../interfaces/resources/organization.interface";
@@ -35,7 +34,7 @@ class UsersResource extends ResourceClass {
 			name: "update",
 			method: "PUT",
 			path: "/me",
-			requireOne: ["first_name", "last_name", "email", "phone"],
+			requireOne: ["first_name", "last_name", "email", "phone", "password"],
 			requiresAuth: true
 		}) as any;
 	}
@@ -51,7 +50,7 @@ class UsersResource extends ResourceClass {
 			name: "register",
 			method: "POST",
 			path: "/register",
-			required: ["first_name", "last_name", "email", "phone", "password"],
+			required: ["email", "password"],
 			requiresAuth: false
 		}) as any;
 	}
@@ -60,13 +59,13 @@ class UsersResource extends ResourceClass {
 	 * Register a user and generates a login token
 	 * @auth false
 	 * @params {...[[UserInterface]]}
-	 * @required {...[[UserInterface]]}
+	 * @required {email: string, password: string}
 	 */
 	createAndLogin(): AuthTokenInterface {
 		return createRequestMethod({
 			method: "POST",
 			path: "",
-			required: ["first_name", "last_name", "email", "phone", "password"],
+			required: ["email", "password"],
 			requiresAuth: false
 		}) as any;
 	}
