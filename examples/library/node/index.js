@@ -17,7 +17,7 @@ let server = new Server({
 // }).then(result => {
 // 	console.log('res', result.data.cacaw);
 // });
-server.events.index({}, {"User-Agent": "Oshit"}).then(result => {
+server.events.index({}, {}).then(result => {
 	console.log('res', result.data);
 });
 // server.auth.authenticate({ email: "superuser@test.com", password: "password" }).then(a => {
