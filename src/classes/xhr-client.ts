@@ -2,13 +2,15 @@ import { ServerInterface } from "../interfaces/server/server.interface";
 import { MockerInterface } from "../interfaces/mocks/mocker.interface";
 
 import axios from "axios";
+import { mergeDeep } from "../helpers/utils";
+const { version } = require("../../package.json");
 
 export default class XhrClient {
 	server: ServerInterface;
 
 	prefix: any;
 
-	headers: any = {};
+	params: any = {};
 
 	token: string;
 
@@ -16,30 +18,46 @@ export default class XhrClient {
 
 	agent: any;
 
+	/**
+	 *
+	 * @param server
+	 * @param clientParams Axios parameters
+	 * @param mocker
+	 */
 	constructor(
 		server: ServerInterface,
-		headers: any = {},
+		clientParams: any = {},
 		mocker?: MockerInterface
 	) {
 		this.server = server;
-		this.headers = {
-			...{ "Content-Type": "application/json" },
-			...headers
-		};
+		this.params = mergeDeep(
+			{
+				baseURL: this.server.prefix,
+				timeout: this.server.timeout,
+				headers: {
+					"Content-Type": "application/json",
+					"User-Agent": `bn-api-node@${version}`
+				},
+
+			},
+			clientParams
+		);
 		this.mocker = mocker;
 	}
 
 	private _getAgent(headers: any = {}) {
-		let agent = axios.create({
-			baseURL: this.server.prefix,
-			timeout: this.server.timeout,
+		headers = {
+			...this.params.headers,
+			...headers
+		};
+		let params = {
+			...this.params,
 			headers: {
-				...this.headers,
 				...headers
 			}
-		});
+		};
 
-		return agent;
+		return axios.create(params);
 	}
 
 	public setToken(token: string): void {
