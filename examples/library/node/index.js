@@ -1,6 +1,13 @@
 const Server = require("../../../dist/classes/server").default;
 let server = new Server({
-	port: "9000"
+	prefix: "http://requestbin.fullcontact.com/1nlxxfw1"
+}, {
+	auth: {
+		username: "cacw",
+		password: "password"
+	},
+	headers: {
+	}
 });
 // server.events.index({}, {}, false, {
 // 	afterRequest: async(server, client, response) => {
@@ -10,7 +17,7 @@ let server = new Server({
 // }).then(result => {
 // 	console.log('res', result.data.cacaw);
 // });
-server.events.readFull({id: "0a1a986e-da63-4513-8a68-2edd2a5fe1ee"}).then(result => {
+server.events.index({}, {"User-Agent": "Oshit"}).then(result => {
 	console.log('res', result.data);
 });
 // server.auth.authenticate({ email: "superuser@test.com", password: "password" }).then(a => {

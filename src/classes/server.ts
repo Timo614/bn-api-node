@@ -20,10 +20,10 @@ export class Server {
 	 */
 	matchingResources: Array<any> = [];
 
-	constructor(options: any, headers: any = {}, mocker?: MockerInterface) {
+	constructor(options: any, clientParams: any = {}, mocker?: MockerInterface) {
 		let self: any = this;
 		this.serverInterface = createServer(options);
-		this.client = new XhrClient(this.serverInterface, headers, mocker);
+		this.client = new XhrClient(this.serverInterface, clientParams, mocker);
 
 		for (let key in Resources) {
 			let resourceData: any = Resources[key];
