@@ -36,7 +36,7 @@ export default class XhrClient {
 				timeout: this.server.timeout,
 				headers: {
 					"Content-Type": "application/json",
-					"User-Agent": `bn-api-node@${version}`
+					"X-API-Client-Version": `bn-api-node@${version}`
 				},
 
 			},
