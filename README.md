@@ -46,19 +46,19 @@ For endpoints [https://big-neon.github.io/bn-api-node/modules/\_resources\_index
 
 `npm run build`
 
-`npm run build-web`
+`npm run build:web`
 
-`npm run build-server`
+`npm run build:server`
 
-`npm run build-tsc`
+`npm run build:tsc`
 
 `npm run db-seed`
 
 `npm run docs`
 
-`npm run eslint-validate`
+`npm run eslint:validate`
 
-`npm run eslint-fix`
+`npm run eslint:fix`
 
 
 # Development
