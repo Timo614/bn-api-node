@@ -15,7 +15,7 @@ class EventTicketTypesResource extends ResourceClass {
 	 * Create a ticket type
 	 * @auth true
 	 * @params {event_id:uuid, ...[[TicketTypeInterface]]}
-	 * @requires {event_id:uuid, name: string}
+	 * @required {event_id:uuid, name: string}
 	 */
 	create(): TicketTypeInterface {
 		return createRequestMethod({
@@ -31,7 +31,7 @@ class EventTicketTypesResource extends ResourceClass {
 	 * Update a ticket type
 	 * @auth true
 	 * @params {event_id:uuid, id: uuid, ...[[TicketTypeInterface]]}
-	 * @requires {event_id:uuid, id:uuid, ...[[TicketTypeInterface]]}
+	 * @required {event_id:uuid, id:uuid, ...[[TicketTypeInterface]]}
 	 */
 	update(): TicketTypeInterface {
 		return createRequestMethod({
@@ -47,7 +47,7 @@ class EventTicketTypesResource extends ResourceClass {
 	 * Get a list of ticket types for the event
 	 * @auth false
 	 * @params {event_id:uuid}
-	 * @requires {event_id:uuid}
+	 * @required {event_id:uuid}
 	 * @data Array<[[TicketTypeInterface]]>
 	 */
 	index(): IndexInterface {

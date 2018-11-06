@@ -17,7 +17,7 @@ class RegionsResource extends ResourceClass {
 	 * Get a single region
 	 * @auth false
 	 * @params {id}
-	 * @requires {id}
+	 * @required {id}
 	 */
 	read(): RegionInterface {
 		return createRequestMethod({

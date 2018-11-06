@@ -15,7 +15,7 @@ class AuthResource extends ResourceClass {
 	 * @alias create
 	 * @auth false
 	 * @params {email:string, password: string}
-	 * @requires {email:string, password: string}
+	 * @required {email:string, password: string}
 	 */
 	authenticate(): AuthTokenInterface {
 		return createRequestMethod({
@@ -35,7 +35,7 @@ class AuthResource extends ResourceClass {
 	 * Refresh a user's token
 	 * @auth true
 	 * @params {refresh_token:string}
-	 * @requires {refresh_token:string}
+	 * @required {refresh_token:string}
 	 */
 	refresh(): AuthTokenInterface {
 		return createRequestMethod({

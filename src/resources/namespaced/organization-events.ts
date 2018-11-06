@@ -14,7 +14,7 @@ class OrganizationEventsResource extends ResourceClass {
 	 * List the events that are a part of this organization
 	 * @auth true
 	 * @params {organization_id:uuid}
-	 * @requires {organization_id:uuid}
+	 * @required {organization_id:uuid}
 	 * @data Array<[[EventInterface]]>
 	 */
 	index(): IndexInterface {

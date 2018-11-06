@@ -15,7 +15,7 @@ class OrganizationArtistsResource extends ResourceClass {
 	 * List the artists that are a part of this organization
 	 * @auth true
 	 * @params {organization_id:uuid}
-	 * @requires {organization_id:uuid}
+	 * @required {organization_id:uuid}
 	 * @data Array<[[ArtistInterface]]>
 	 */
 	index(): IndexInterface {
@@ -31,7 +31,7 @@ class OrganizationArtistsResource extends ResourceClass {
 	/**
 	 * Add an artist to this organization
 	 * @params {ArtistInterface}
-	 * @requires {organization_id:uuid, name: string, bio: string}
+	 * @required {organization_id:uuid, name: string, bio: string}
 	 */
 	create(): ArtistInterface {
 		return createRequestMethod({

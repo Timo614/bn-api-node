@@ -19,7 +19,7 @@ class VenuesResource extends ResourceClass {
 	 * Add a venue to an organization
 	 * @auth true
 	 * @params {id: uuid, organization_id: uuid}
-	 * @requires {id: uuid, organization_id: uuid}
+	 * @required {id: uuid, organization_id: uuid}
 	 */
 	addToOrganization(): VenueInterface {
 		return createRequestMethod({
@@ -34,7 +34,7 @@ class VenuesResource extends ResourceClass {
 	 * Toggle venue privacy
 	 * @auth true
 	 * @params {id: uuid}
-	 * @requires {id: uuid}
+	 * @required {id: uuid}
 	 */
 	togglePrivacy(): VenueInterface {
 		return createRequestMethod({
@@ -50,7 +50,7 @@ class VenuesResource extends ResourceClass {
 	 * Get an venue
 	 * @auth true
 	 * @params {id}
-	 * @requires {id}
+	 * @required {id}
 	 */
 	read(): VenueInterface {
 		return createRequestMethod({
@@ -65,7 +65,7 @@ class VenuesResource extends ResourceClass {
 	 * Update a single venue
 	 * @auth true
 	 * @params {id: uuid, ...VenueInterface}
-	 * @requires {id: uuid}
+	 * @required {id: uuid}
 	 */
 	update(): VenueInterface {
 		return createRequestMethod({

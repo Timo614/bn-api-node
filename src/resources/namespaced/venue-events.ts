@@ -14,7 +14,7 @@ class VenueEventsResource extends ResourceClass {
 	/**
 	 * List events in the venue
 	 * @params {venue_id:uuid}
-	 * @requires {venue_id:uuid}
+	 * @required {venue_id:uuid}
 	 * @data  Array<[[EventInterface]]>
 	 */
 	index(): IndexInterface {

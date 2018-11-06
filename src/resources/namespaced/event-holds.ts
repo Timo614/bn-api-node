@@ -15,7 +15,7 @@ class EventHoldsResource extends ResourceClass {
 	 * Get a list of holds for the events
 	 * @auth true
 	 * @params {event_id:uuid}
-	 * @requires {event_id:uuid}
+	 * @required {event_id:uuid}
 	 * @data Array<[[HoldInterface]]>
 	 */
 	index(): IndexInterface {
@@ -31,7 +31,7 @@ class EventHoldsResource extends ResourceClass {
 	 * Create a hold for an event
 	 * @auth true
 	 * @params {event_id:uuid, ...[[HoldInterface]]}
-	 * @requires {event_id:uuid, name: string, redemption_code: string, discount_in_cents: number}
+	 * @required {event_id:uuid, name: string, redemption_code: string, discount_in_cents: number}
 	 */
 	create(): HoldInterface {
 		return createRequestMethod({

@@ -15,7 +15,7 @@ class OrganizationUsersResource extends ResourceClass {
 	/**
 	 * Add a user to the organization
 	 * @params {organization_id:uuid, user_id: uuid }
-	 * @requires {organization_id:uuid, user_id: uuid }
+	 * @required {organization_id:uuid, user_id: uuid }
 	 */
 	create(): void {
 		return createRequestMethod({
@@ -30,7 +30,7 @@ class OrganizationUsersResource extends ResourceClass {
 	/**
 	 * Delete a user from the organization
 	 * @params {organization_id:uuid, user_id: uuid }
-	 * @requires {organization_id:uuid, user_id: uuid }
+	 * @required {organization_id:uuid, user_id: uuid }
 	 */
 	del(): OrganizationInterface {
 		return createRequestMethod({
@@ -46,7 +46,7 @@ class OrganizationUsersResource extends ResourceClass {
 	/**
 	 * List users in the organization
 	 * @params {organization_id:uuid}
-	 * @requires {organization_id:uuid}
+	 * @required {organization_id:uuid}
 	 * @data Array<[[UserInterface]]>
 	 */
 	index(): IndexInterface {

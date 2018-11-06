@@ -31,7 +31,7 @@ class OrganizationsResource extends ResourceClass {
 	 * Get an organization
 	 * @auth true
 	 * @params {id}
-	 * @requires {id}
+	 * @required {id}
 	 */
 	read(): OrganizationInterface {
 		return createRequestMethod({
@@ -46,7 +46,7 @@ class OrganizationsResource extends ResourceClass {
 	 * Update a single organization
 	 * @auth true
 	 * @params {id: uuid, ...OrganizationInterface}
-	 * @requires {id: uuid}
+	 * @required {id: uuid}
 	 */
 	update(): OrganizationInterface {
 		return createRequestMethod({

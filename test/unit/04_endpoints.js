@@ -82,7 +82,7 @@ describe("Unit::Compare bn-api endpoints to bn-api-node endpoints", () => {
 		let message = "";
 
 		if (missingFromLocal.length) {
-			message += `\n${missingFromLocal.join(",")} missing from bn-api-node`;
+			message += `\nbn-api-node is missing the following endpoints:\n${missingFromLocal.join("\n")}`;
 		}
 
 		assert.strictEqual(missingFromLocal.length, 0, message);

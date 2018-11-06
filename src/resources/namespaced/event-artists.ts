@@ -14,7 +14,7 @@ class EventArtistsResource extends ResourceClass {
 	 * Add an artist to an event
 	 * @auth true
 	 * @params {EventArtistInterface}
-	 * @requires {event_id:uuid}
+	 * @required {event_id:uuid}
 	 */
 	create(): EventArtistInterface {
 		return createRequestMethod({
@@ -32,7 +32,7 @@ class EventArtistsResource extends ResourceClass {
 	 * @auth true
 	 * @name artists.update
 	 * @params [{EventArtistInterface}]
-	 * @requires {event_id:uuid}
+	 * @required {event_id:uuid}
 	 */
 	update(): Array<EventArtistInterface> {
 

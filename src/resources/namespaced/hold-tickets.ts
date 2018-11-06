@@ -15,7 +15,7 @@ class HoldTicketsResource extends ResourceClass {
 	 * Update the ticket allocation for this hold
 	 * @auth true
 	 * @params {hold_id:uuid, items: Array<[[CartItemInterface]]>}
-	 * @requires {hold_id:uuid, items: Array<[[CartItemInterface]]>}
+	 * @required {hold_id:uuid, items: Array<[[CartItemInterface]]>}
 	 * @returns status 200
 	 */
 	update(): void {

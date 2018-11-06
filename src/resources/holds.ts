@@ -22,7 +22,7 @@ class HoldsResource extends ResourceClass {
 	 * Update the hold details
 	 * @auth true
 	 * @params {id:uuid, ...[[HoldInterface]]}
-	 * @requires {id:uuid}
+	 * @required {id:uuid}
 	 * @return {status: 200}
 	 */
 	update(): void {
@@ -38,7 +38,7 @@ class HoldsResource extends ResourceClass {
      * Update the hold details
      * @auth true
      * @params {id:uuid}
-     * @requires {id:uuid}
+     * @required {id:uuid}
      * @return [[HoldInterface]]
      */
 	read(): HoldInterface {
@@ -49,12 +49,25 @@ class HoldsResource extends ResourceClass {
 		}) as any;
 	}
 
-
+	/**
+	 * Delete the hold
+	 * @auth true
+	 * @params {id:uuid}
+	 * @required {id:uuid}
+	 * @return {status: 200}
+	 */
+	delete(): void {
+		return createRequestMethod({
+			method: "DELETE",
+			path: "/{id}",
+			requiresAuth: true
+		}) as any;
+	}
 	/**
 	 * Get a list of tickets in a hold
 	 * @auth true
 	 * @params {hold_id:uuid}
-	 * @requires {hold_id:uuid}
+	 * @required {hold_id:uuid}
 	 * @data Array<[[CartItemInterface]]>
 	 */
 	// index(): IndexInterface {
@@ -66,11 +79,12 @@ class HoldsResource extends ResourceClass {
 	// 	}) as any;
 	// }
 
+
 	/**
 	 * Splits a hold into two
 	 * @auth true
 	 * @params {id:uuid,...[[HoldInterface]]}
-	 * @requires {hold_id:uuid, name: string, redemption_code: string, discount_in_cents: number, hold_type: string, quantity: number}
+	 * @required {hold_id:uuid, name: string, redemption_code: string, discount_in_cents: number, hold_type: string, quantity: number}
 	 * @return [[HoldInterface]]
 	 */
 	split(): HoldInterface {

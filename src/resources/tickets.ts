@@ -38,7 +38,7 @@ class TicketsResource extends ResourceClass {
 	 * Gets a single ticket
 	 * @auth true
 	 * @params {id: uuid}
-	 * @requires {id:uuid}
+	 * @required {id:uuid}
 	 */
 	read(): {ticket: TicketInterface, user: UserInterface, event: EventInterface} {
 		return createRequestMethod({

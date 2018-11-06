@@ -56,7 +56,7 @@ class CartResource extends ResourceClass {
 	/**
 	 * Checkout the cart
 	 * @params {amount: number, method: CheckoutMethodInterface}
-	 * @requires {method: CheckoutMethodInterface}
+	 * @required {method: CheckoutMethodInterface}
 	 * @TODO Create a response type
 	 * @TODO Create a request type
 	 */

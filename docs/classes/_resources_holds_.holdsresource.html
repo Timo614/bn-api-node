@@ -118,6 +118,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_holds_.holdsresource.html#delete" class="tsd-kind-icon">delete</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_holds_.holdsresource.html#read" class="tsd-kind-icon">read</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_holds_.holdsresource.html#split" class="tsd-kind-icon">split</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_holds_.holdsresource.html#update" class="tsd-kind-icon">update</a></li>
@@ -197,6 +198,39 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="delete" class="tsd-anchor"></a>
+					<h3>delete</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in resources/holds.ts:59</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete the hold</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>auth</dt>
+									<dd><p>true</p>
+									</dd>
+									<dt>params</dt>
+									<dd><p>{id:uuid}</p>
+									</dd>
+									<dt>required</dt>
+									<dd><p>{id:uuid}</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="read" class="tsd-anchor"></a>
 					<h3>read</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -220,7 +254,7 @@
 									<dt>params</dt>
 									<dd><p>{id:uuid}</p>
 									</dd>
-									<dt>requires</dt>
+									<dt>required</dt>
 									<dd><p>{id:uuid}</p>
 									</dd>
 								</dl>
@@ -240,7 +274,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/holds.ts:76</li>
+									<li>Defined in resources/holds.ts:90</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -254,7 +288,7 @@
 									<dt>params</dt>
 									<dd><p>{id:uuid,...<a href="../interfaces/_interfaces_resources_hold_interface_.holdinterface.html">HoldInterface</a>}</p>
 									</dd>
-									<dt>requires</dt>
+									<dt>required</dt>
 									<dd><p>{hold_id:uuid, name: string, redemption_code: string, discount_in_cents: number, hold_type: string, quantity: number}</p>
 									</dd>
 								</dl>
@@ -288,7 +322,7 @@
 									<dt>params</dt>
 									<dd><p>{id:uuid, ...<a href="../interfaces/_interfaces_resources_hold_interface_.holdinterface.html">HoldInterface</a>}</p>
 									</dd>
-									<dt>requires</dt>
+									<dt>required</dt>
 									<dd><p>{id:uuid}</p>
 									</dd>
 								</dl>
@@ -328,6 +362,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_resources_holds_.holdsresource.html#path" class="tsd-kind-icon">path</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_resources_holds_.holdsresource.html#delete" class="tsd-kind-icon">delete</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_resources_holds_.holdsresource.html#read" class="tsd-kind-icon">read</a>

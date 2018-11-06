@@ -15,7 +15,7 @@ class OrganizationVenueResource extends ResourceClass {
 	/**
 	 * Add a venue to the organization
 	 * @params {organization_id:uuid, ...VenueInterface}
-	 * @requires {organization_id:uuid, ...VenueInterface}
+	 * @required {organization_id:uuid, ...VenueInterface}
 	 */
 	create(): VenueInterface {
 		return createRequestMethod({
@@ -30,7 +30,7 @@ class OrganizationVenueResource extends ResourceClass {
 	// /**
 	//  * Delete a venue from the organization
 	//  * @params {organization_id:uuid, user_id: uuid }
-	//  * @requires {organization_id:uuid, user_id: uuid }
+	//  * @required {organization_id:uuid, user_id: uuid }
 	//  */
 	// del(): OrganizationInterface {
 	// 	return createRequestMethod({
@@ -46,7 +46,7 @@ class OrganizationVenueResource extends ResourceClass {
 	/**
 	 * List venues in the organization
 	 * @params {organization_id:uuid}
-	 * @requires {organization_id:uuid}
+	 * @required {organization_id:uuid}
 	 * @data Array<[[VenueInterface]]>
 	 */
 	index(): IndexInterface {

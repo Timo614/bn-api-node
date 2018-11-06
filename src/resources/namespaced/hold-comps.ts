@@ -15,7 +15,7 @@ class HoldCompsResource extends ResourceClass {
 	 * Get a list of comps from a hold
 	 * @auth true
 	 * @params {hold_id:uuid}
-	 * @requires {hold_id:uuid}
+	 * @required {hold_id:uuid}
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -30,7 +30,7 @@ class HoldCompsResource extends ResourceClass {
 	 * Create a comp for a hold
 	 * @auth true
 	 * @params {hold_id:uuid, ...[[CompInterface]]}
-	 * @requires {hold_id:uuid, name: string, quantity: number}
+	 * @required {hold_id:uuid, name: string, quantity: number}
 	 */
 	create(): CompInterface {
 		return createRequestMethod({
@@ -45,7 +45,7 @@ class HoldCompsResource extends ResourceClass {
 	 * Read a comp for a hold
 	 * @auth true
 	 * @params {hold_id:uuid, id:uuid}
-	 * @requires {hold_id:uuid, id:uuid}
+	 * @required {hold_id:uuid, id:uuid}
 	 */
 	read(): CompInterface {
 		return createRequestMethod({
@@ -60,7 +60,7 @@ class HoldCompsResource extends ResourceClass {
 	 * Update a comp for a hold
 	 * @auth true
 	 * @params {hold_id:uuid, id:uuid, ...[[CompInterface]]}
-	 * @requires {hold_id:uuid, id:uuid}
+	 * @required {hold_id:uuid, id:uuid}
 	 * @requireOne {...[[CompInterface]]}
 	 */
 	update(): CompInterface {
@@ -76,7 +76,7 @@ class HoldCompsResource extends ResourceClass {
 	 * Delete a comp from a hold
 	 * @auth true
 	 * @params {hold_id:uuid, id:uuid}
-	 * @requires {hold_id:uuid, id:uuid}
+	 * @required {hold_id:uuid, id:uuid}
 	 * @returns {status: 200}
 	 */
 	del(): void {

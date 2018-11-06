@@ -14,7 +14,7 @@ class TicketTransferResource extends ResourceClass {
 	 * Transfer ticket(s) to another user. Used for generating a QR.
 	 * @auth true
 	 * @params {ticket_ids: Array<id:uuid>, validity_period_in_seconds: number}
-	 * @requires {ticket_ids: Array<id:uuid>, validity_period_in_seconds: number}
+	 * @required {ticket_ids: Array<id:uuid>, validity_period_in_seconds: number}
 	 */
 	transfer(): TicketTransferAuthorizationInterface {
 		return createRequestMethod({
@@ -29,7 +29,7 @@ class TicketTransferResource extends ResourceClass {
 	 * Send ticket(s) to another user via email.
 	 * @auth true
 	 * @params {ticket_ids: Array<id:uuid>, validity_period_in_seconds: number, email: string}
-	 * @requires {ticket_ids: Array<id:uuid>, validity_period_in_seconds: number}
+	 * @required {ticket_ids: Array<id:uuid>, validity_period_in_seconds: number}
 	 */
 	send(): TicketTransferAuthorizationInterface {
 		return createRequestMethod({
@@ -44,7 +44,7 @@ class TicketTransferResource extends ResourceClass {
 	 * Receive a ticket from another user
 	 * @auth true
 	 * @params {transfer_key: uuid, sender_user_id:uuid, num_tickets: number, signature: string}
-	 * @requires {transfer_key: uuid, sender_user_id:uuid, num_tickets: number, signature: string}
+	 * @required {transfer_key: uuid, sender_user_id:uuid, num_tickets: number, signature: string}
 	 */
 	receive(): TicketTransferAuthorizationInterface {
 		return createRequestMethod({

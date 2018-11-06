@@ -8,7 +8,7 @@ import EventTicketsResource from "./namespaced/event-tickets";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 import EventGuestsResource from "./namespaced/event-guests";
 import EventHoldsResource from "./namespaced/event-holds";
-import Server from "../classes/server";
+import EventCodesResource from "./namespaced/event-codes";
 
 /**
  * @endpoint events
@@ -18,6 +18,7 @@ class EventsResource extends ResourceClass {
 		super("events");
 		this.namespaces = {
 			artists: EventArtistsResource,
+			codes: EventCodesResource,
 			guests: EventGuestsResource,
 			holds: EventHoldsResource,
 			interests: EventInterestsResource,
@@ -45,7 +46,7 @@ class EventsResource extends ResourceClass {
 	 * Create an event
 	 * @auth true
 	 * @params {EventInterface}
-	 * @requires {name: string, organization_id: uuid}
+	 * @required {name: string, organization_id: uuid}
 	 */
 	create(): EventInterface {
 		return createRequestMethod({
@@ -60,7 +61,7 @@ class EventsResource extends ResourceClass {
 	 * Update an Event
 	 * @auth true
 	 * @params {...EventInterface}
-	 * @requires {id: uuid}
+	 * @required {id: uuid}
 	 */
 	update(): EventInterface {
 		return createRequestMethod({
@@ -75,7 +76,7 @@ class EventsResource extends ResourceClass {
 	 * Cancel an event
 	 * @auth true
 	 * @params {id:uuid}
-	 * @requires {id:uuid}
+	 * @required {id:uuid}
 	 */
 	del(): EventInterface {
 		return createRequestMethod({

@@ -62,7 +62,7 @@ class ArtistsResource extends ResourceClass {
 	 * Create an artist
 	 * @auth true
 	 * @params {...ArtistsInterface}
-	 * @requires {name: string, bio: string}
+	 * @required {name: string, bio: string}
 	 */
 	create(): ArtistInterface {
 		return createRequestMethod({
@@ -78,7 +78,7 @@ class ArtistsResource extends ResourceClass {
 	 * Toggle the privacy flag of an artists
 	 * @auth true
 	 * @params {id:uuid}
-	 * @requires {id:uuid}
+	 * @required {id:uuid}
 	 */
 	togglePrivacy(): ArtistInterface {
 		return createRequestMethod({

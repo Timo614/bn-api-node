@@ -29,7 +29,7 @@ class OrdersResource extends ResourceClass {
 	 * Read an order
 	 * @auth true
 	 * @params {id:uuid}
-	 * @requires {id:uuid}
+	 * @required {id:uuid}
 	 */
 	read(): OrderInterface {
 		return createRequestMethod({

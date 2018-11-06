@@ -14,7 +14,7 @@ class OrganizationOwnersResource extends ResourceClass {
 	 * Change the owner of this organization
 	 * @auth true
 	 * @params {organization_id:uuid, owner_user_id: uuid}
-	 * @requires {organization_id:uuid, owner_user_id: uuid}
+	 * @required {organization_id:uuid, owner_user_id: uuid}
 	 */
 	update(): OrganizationInterface {
 		return createRequestMethod({

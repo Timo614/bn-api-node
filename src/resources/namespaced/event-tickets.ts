@@ -17,7 +17,7 @@ class EventTicketsResource extends ResourceClass {
 	 * Get a list of tickets for the event for the user
 	 * @auth true
 	 * @params {event_id:uuid}
-	 * @requires {event_id:uuid}
+	 * @required {event_id:uuid}
 	 * @data Array<[[TicketInterface]]>
 	 */
 	index(): IndexInterface {

@@ -15,7 +15,7 @@ class OrganizationInvitationsResource extends ResourceClass {
 	 * @auth true
 	 * @alias invite
 	 * @params {organization_id:uuid, user_email: string, user_id: uuid}
-	 * @requires {organization_id:uuid, user_email: string, user_id: uuid}
+	 * @required {organization_id:uuid, user_email: string, user_id: uuid}
 	 * @requireOne [user_email: string, user_id: uuid]
 	 */
 	create(): OrganizationInvitationInterface {

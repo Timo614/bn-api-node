@@ -14,7 +14,7 @@ class EventGuestsResource extends ResourceClass {
 	 * Get a list of redeemable tickets for the event
 	 * @auth true
 	 * @params {event_id:uuid}
-	 * @requires {event_id:uuid}
+	 * @required {event_id:uuid}
 	 * @data Array<[[TicketRedeemableInterface]]>
 	 */
 	index(): IndexInterface {

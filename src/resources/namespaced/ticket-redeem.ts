@@ -14,7 +14,7 @@ class TicketRedeemResource extends ResourceClass {
 	 * View the redeemable ticket details
 	 * @auth true
 	 * @params {ticket_id:uuid}
-	 * @requires {ticket_id:uuid}
+	 * @required {ticket_id:uuid}
 	 */
 	read(): TicketRedeemableInterface {
 		return createRequestMethod({
@@ -29,7 +29,7 @@ class TicketRedeemResource extends ResourceClass {
 	 * Redeem a ticket
 	 * @auth true
 	 * @params {ticket_id:uuid, redeem_key: string}
-	 * @requires {ticket_id:uuid, redeem_key: string}
+	 * @required {ticket_id:uuid, redeem_key: string}
 	 */
 	redeem(): {success: boolean, message?: string} {
 		return createRequestMethod({
