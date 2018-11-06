@@ -118,11 +118,10 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_cart_.cartresource.html#add" class="tsd-kind-icon">add</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_cart_.cartresource.html#checkout" class="tsd-kind-icon">checkout</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_cart_.cartresource.html#del" class="tsd-kind-icon">del</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_cart_.cartresource.html#read" class="tsd-kind-icon">read</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_cart_.cartresource.html#view" class="tsd-kind-icon">view</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_cart_.cartresource.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
 					</div>
@@ -199,39 +198,6 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="add" class="tsd-anchor"></a>
-					<h3>add</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_order_interface_.orderinterface.html" class="tsd-signature-type">OrderInterface</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in resources/cart.ts:19</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Add a ticket to the users cart</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>auth</dt>
-									<dd><p>false</p>
-									</dd>
-									<dt>params</dt>
-									<dd><p>{items: Array&lt;<a href="../interfaces/_interfaces_resources_cart_item_interface_.cartiteminterface.html">CartItemInterface</a>&gt;}</p>
-									</dd>
-									<dt>required</dt>
-									<dd><p>{items: Array&lt;<a href="../interfaces/_interfaces_resources_cart_item_interface_.cartiteminterface.html">CartItemInterface</a>&gt;}</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_order_interface_.orderinterface.html" class="tsd-signature-type">OrderInterface</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="checkout" class="tsd-anchor"></a>
 					<h3>checkout</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -241,7 +207,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/cart.ts:79</li>
+									<li>Defined in resources/cart.ts:63</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -271,29 +237,26 @@
 					<a name="del" class="tsd-anchor"></a>
 					<h3>del</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">del<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_order_interface_.orderinterface.html" class="tsd-signature-type">OrderInterface</a></li>
+						<li class="tsd-signature tsd-kind-icon">del<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/cart.ts:34</li>
+									<li>Defined in resources/cart.ts:48</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Delete ticket/s from a users cart</p>
+									<p>Delete the user&#39;s current cart</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>auth</dt>
-									<dd><p>false</p>
-									</dd>
-									<dt>params</dt>
-									<dd><p>{ticket_pricing_id: uuid, quantity: integer}</p>
+									<dd><p>true</p>
 									</dd>
 								</dl>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_order_interface_.orderinterface.html" class="tsd-signature-type">OrderInterface</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -307,7 +270,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/cart.ts:49</li>
+									<li>Defined in resources/cart.ts:33</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -328,25 +291,31 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="view" class="tsd-anchor"></a>
-					<h3>view</h3>
+					<a name="update" class="tsd-anchor"></a>
+					<h3>update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">view<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_order_interface_.orderinterface.html" class="tsd-signature-type">OrderInterface</a></li>
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_order_interface_.orderinterface.html" class="tsd-signature-type">OrderInterface</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/cart.ts:63</li>
+									<li>Defined in resources/cart.ts:19</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a specific cart id</p>
+									<p>Add a ticket to the users cart</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>auth</dt>
-									<dd><p>true</p>
+									<dd><p>false</p>
+									</dd>
+									<dt>params</dt>
+									<dd><p>{items: Array&lt;<a href="../interfaces/_interfaces_resources_cart_item_interface_.cartiteminterface.html">CartItemInterface</a>&gt;}</p>
+									</dd>
+									<dt>required</dt>
+									<dd><p>{items: Array&lt;<a href="../interfaces/_interfaces_resources_cart_item_interface_.cartiteminterface.html">CartItemInterface</a>&gt;}</p>
 									</dd>
 								</dl>
 							</div>
@@ -387,9 +356,6 @@
 								<a href="_resources_cart_.cartresource.html#path" class="tsd-kind-icon">path</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_resources_cart_.cartresource.html#add" class="tsd-kind-icon">add</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_resources_cart_.cartresource.html#checkout" class="tsd-kind-icon">checkout</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -399,7 +365,7 @@
 								<a href="_resources_cart_.cartresource.html#read" class="tsd-kind-icon">read</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_resources_cart_.cartresource.html#view" class="tsd-kind-icon">view</a>
+								<a href="_resources_cart_.cartresource.html#update" class="tsd-kind-icon">update</a>
 							</li>
 						</ul>
 					</li>

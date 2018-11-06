@@ -41,14 +41,14 @@ class CartResource extends ResourceClass {
 	}
 
 	/**
-	 * Gets a specific cart id
+	 * Delete the user's current cart
 	 * @auth true
+	 *
 	 */
-	view(): OrderInterface {
+	del(): void {
 		return createRequestMethod({
-			method: "GET",
-			path: "/{id}",
-			required: [],
+			method: "DELETE",
+			path: "",
 			requiresAuth: true
 		}) as any;
 	}
