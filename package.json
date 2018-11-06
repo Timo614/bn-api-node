@@ -4,7 +4,7 @@
   "description": "Bigneon Javascript Middleware",
   "main": "./dist/bundle.client.js",
   "scripts": {
-    "test": "npm run build-tsc && ./node_modules/.bin/mocha test/**/*.js",
+    "test": "npm run build:tsc && ./node_modules/.bin/mocha test/**/*.js",
     "test:no-build": "./node_modules/.bin/mocha test/index.js",
     "build": "npm run build:tsc && ./node_modules/.bin/webpack --config ./build/webpack.config.js",
     "build:web": "./node_modules/.bin/webpack --config ./build/webpack.browser.js",

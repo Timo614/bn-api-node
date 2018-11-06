@@ -16,28 +16,12 @@ class CartResource extends ResourceClass {
 	 * @params {items: Array<[[CartItemInterface]]>}
 	 * @required {items: Array<[[CartItemInterface]]>}
 	 */
-	add(): OrderInterface {
+	update(): OrderInterface {
 		return createRequestMethod({
-			name: "add",
 			method: "POST",
 			path: "",
 			required: ["items"],
 			requiresAuth: false
-		}) as any;
-	}
-
-	/**
-	 * Delete ticket/s from a users cart
-	 * @auth false
-	 * @params {ticket_pricing_id: uuid, quantity: integer}
-	 */
-	del(): OrderInterface {
-		return createRequestMethod({
-			name: "del",
-			method: "DELETE",
-			path: "",
-			required: ["ticket_pricing_id", "quantity"],
-			requiresAuth: true
 		}) as any;
 	}
 
