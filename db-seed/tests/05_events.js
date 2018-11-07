@@ -96,13 +96,13 @@ describe("Integration::Events", function() {
 						name: "Balcony",
 						startPrice: 2000,
 						pricingPeriods: 2,
-						capacity: 50
+						capacity: 150
 					},
 					{
 						name: "VIP",
 						startPrice: 10000,
 						pricingPeriods: 2,
-						capacity: 20
+						capacity: 200
 					}
 				];
 
