@@ -16,6 +16,7 @@ class HoldCompsResource extends ResourceClass {
 	 * @auth true
 	 * @params {hold_id:uuid}
 	 * @required {hold_id:uuid}
+	 * @data Array<[[CompInterface]]>
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
