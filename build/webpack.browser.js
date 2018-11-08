@@ -20,6 +20,7 @@ const clientConfig = {
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': '"production"'
 		}),
+		// new BundleAnalyzerPlugin()
 	],
 	module: {
 		rules: [
