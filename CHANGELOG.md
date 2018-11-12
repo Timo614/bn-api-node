@@ -1,4 +1,12 @@
-#### 0.3.3 (2018-11-06)
+#### 0.3.3 (2018-11-12)
+
+##### Documentation Changes
+
+*  Updated docs ([51a68c5d](https://github.com/big-neon/bn-api-node/commit/51a68c5de257fac828194ca09d582ce21fc04a2e))
+
+##### Tests
+
+* **ticketType:**  Add limit per person to test ([6410b8a9](https://github.com/big-neon/bn-api-node/commit/6410b8a9a11d03c1263f7b95128d942ebca740c9))
 
 ##### New Features
 

@@ -90,19 +90,22 @@ describe("Integration::Events", function() {
 						name: "General Access",
 						startPrice: 1000,
 						pricingPeriods: 5,
-						capacity: 1000
+						capacity: 1000,
+						limit_per_person: 0
 					},
 					{
 						name: "Balcony",
 						startPrice: 2000,
 						pricingPeriods: 2,
-						capacity: 150
+						capacity: 150,
+						limit_per_person: 4
 					},
 					{
 						name: "VIP",
 						startPrice: 10000,
 						pricingPeriods: 2,
-						capacity: 200
+						capacity: 200,
+						limit_per_person: 1
 					}
 				];
 
@@ -111,14 +114,16 @@ describe("Integration::Events", function() {
 						name,
 						startPrice,
 						pricingPeriods,
-						capacity
+						capacity,
+						limit_per_person
 					} = testTicketTypes[index];
 					const ticketTypeDetails = ticketing.generateTicketTypePricing({
 						name,
 						startPrice,
 						pricingPeriods,
 						capacity,
-						eventDateString: event.door_time
+						eventDateString: event.door_time,
+						limit_per_person
 					});
 					const result = await adminServer.events.ticketTypes.create({
 						event_id: id,
