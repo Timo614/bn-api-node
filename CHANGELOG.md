@@ -1,7 +1,8 @@
-#### 0.3.3 (2018-11-12)
+#### 0.3.3 (2018-11-13)
 
 ##### Documentation Changes
 
+*  Updated docs ([51a68c5d](https://github.com/big-neon/bn-api-node/commit/51a68c5de257fac828194ca09d582ce21fc04a2e))
 *  Updated docs ([51a68c5d](https://github.com/big-neon/bn-api-node/commit/51a68c5de257fac828194ca09d582ce21fc04a2e))
 
 ##### Tests
@@ -10,7 +11,7 @@
 
 ##### New Features
 
-* **endpoints:**  Added cart.del to remove all items from a cart ([026fe6bb](https://github.com/big-neon/bn-api-node/commit/026fe6bb15e2a7f1db6931e1ecc62e4d4628ce41))
+* **endpoints:**  Removed invalid endpoints ([76cfa429](https://github.com/big-neon/bn-api-node/commit/76cfa429093d23ab5f195d46b1be6c6041bbb696))
 
 #### 0.3.2 (2018-11-06)
 

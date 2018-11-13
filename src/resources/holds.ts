@@ -1,7 +1,6 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
-import HoldTicketsResource from "./namespaced/hold-tickets";
 import { HoldInterface } from "../interfaces/resources/hold.interface";
 import HoldCompsResource from "./namespaced/hold-comps";
 
@@ -14,7 +13,6 @@ class HoldsResource extends ResourceClass {
 		super("holds");
 		this.namespaces = {
 			comps: HoldCompsResource,
-			tickets: HoldTicketsResource,
 		}
 	}
 
@@ -29,7 +27,7 @@ class HoldsResource extends ResourceClass {
 		return createRequestMethod({
 			method: "PATCH",
 			path: "/{id}",
-			requireOne: ["name", "discount_in_cents", "redemption_code", "end_at", "max_per_order"],
+			requireOne: ["name", "discount_in_cents", "redemption_code", "end_at", "max_per_order", "hold_type", "quantity"],
 			requiresAuth: true
 		}) as any;
 	}

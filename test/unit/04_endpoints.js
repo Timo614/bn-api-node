@@ -54,26 +54,30 @@ function compare(a, b) {
 describe("Unit::Compare bn-api endpoints to bn-api-node endpoints", () => {
 	let remoteUrlsAndMethods = {}, localUrlsAndMethods= {};
 	let branch = process.env.TEST_ROUTING_BRANCH || "master";
-	before(async () => {
-		let result = await axios.get(`https://raw.githubusercontent.com/big-neon/bn-api/${branch}/api/src/routing.rs`);
+	before(function(done) {
+		this.timeout(30000);
 
-		const content = result.data;
-		//Get the remote urls and their endpoints
-		remoteUrlsAndMethods = processRoutingFile(content);
+		axios.get(`https://raw.githubusercontent.com/big-neon/bn-api/${branch}/api/src/routing.rs`).then(result => {
+			const content = result.data;
+			//Get the remote urls and their endpoints
+			remoteUrlsAndMethods = processRoutingFile(content);
 
-		//Create a matching object of local endpoints and methods
-		global.publicServer.matchingResources.map(item => {
-			item.fullPath = `/${item.fullPath}`.replace(/\?.*$/, "");
-			return item;
-		}).forEach(endpoint => {
-			if (!localUrlsAndMethods.hasOwnProperty(endpoint.fullPath)) {
-				localUrlsAndMethods[endpoint.fullPath] = {};
-			}
-			if (endpoint.clientOnly) {
-				return;
-			}
-			localUrlsAndMethods[endpoint.fullPath][endpoint.method] = true;
+			//Create a matching object of local endpoints and methods
+			global.publicServer.matchingResources.map(item => {
+				item.fullPath = `/${item.fullPath}`.replace(/\?.*$/, "");
+				return item;
+			}).forEach(endpoint => {
+				if (!localUrlsAndMethods.hasOwnProperty(endpoint.fullPath)) {
+					localUrlsAndMethods[endpoint.fullPath] = {};
+				}
+				if (endpoint.clientOnly) {
+					return;
+				}
+				localUrlsAndMethods[endpoint.fullPath][endpoint.method] = true;
+			});
+			done();
 		});
+
 	});
 	it(`The bn-api-node endpoints must match bn-api routing.rs endpoints branch: ${branch}`, async () => {
 

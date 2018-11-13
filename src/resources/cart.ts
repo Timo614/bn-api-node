@@ -43,15 +43,16 @@ class CartResource extends ResourceClass {
 	/**
 	 * Delete the user's current cart
 	 * @auth true
-	 *
+	 * @notimplemented
 	 */
-	del(): void {
-		return createRequestMethod({
-			method: "DELETE",
-			path: "",
-			requiresAuth: true
-		}) as any;
-	}
+	// del(): void {
+	// 	return createRequestMethod({
+	// 		method: "POST",
+	// 		path: "",
+	// 		requiresAuth: true,
+	//
+	// 	}) as any;
+	// }
 
 	/**
 	 * Checkout the cart
