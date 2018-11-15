@@ -1,6 +1,5 @@
 import { createTicketType, TicketTypeInterface } from "./ticket-type.interface";
 import { EventArtistInterface } from "./event-artist.interface";
-import { EventInterestInterface } from "./event-interest.interface";
 import { VenueInterface } from "./venue.interface";
 import { OrganizationInterface } from "./organization.interface";
 
@@ -26,6 +25,7 @@ export interface EventInterface {
 	fee_in_cents?: number;
 	min_ticket_price?: number;
 	max_ticket_price?: number;
+	video_url?: string;
 	readonly created_at: string;
 	readonly updated_at: string;
 }
@@ -57,6 +57,7 @@ export const createEvent = (base: any = {}): EventInterface => {
 			fee_in_cents: 0,
 			min_ticket_price: 0,
 			max_ticket_price: 0,
+			video_url: "",
 			created_at: "",
 			updated_at: ""
 		},
