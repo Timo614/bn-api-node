@@ -13,6 +13,10 @@
 
 * **endpoints:**  Removed invalid endpoints ([76cfa429](https://github.com/big-neon/bn-api-node/commit/76cfa429093d23ab5f195d46b1be6c6041bbb696))
 
+##### New Fields
+
+* **events.video_url:** Added events.video_url as an optional field
+
 #### 0.3.2 (2018-11-06)
 
 ##### New Features
