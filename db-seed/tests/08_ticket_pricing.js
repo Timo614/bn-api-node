@@ -28,7 +28,7 @@ describe("Integration::TicketPricing", () => {
 					status: "Published",
 					start_date: ticketType.start_date,
 					end_date: ticketType.end_date,
-					price_in_cents: 999999
+					price_in_cents: 99900
 				}]
 			});
 			assert.strictEqual(updatedTicketTypes.status, 200);
