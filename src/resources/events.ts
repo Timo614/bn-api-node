@@ -88,6 +88,22 @@ class EventsResource extends ResourceClass {
 		}) as any;
 	}
 
+
+	/**
+	 * Dashboard for an event
+	 * @auth false
+	 * @params {id:uuid}
+	 * @required {id: uuid}
+	 */
+	dashboard(): EventInterface {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{id}/dashboard",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
+
 	/**
 	 * Read an event
 	 * @auth false

@@ -2,7 +2,9 @@
 
 ##### New Features
 
-* **endpoints:**  Added artists.search endpoint ([b2bbb405](https://github.com/big-neon/bn-api-node/commit/b2bbb4052be7f28fb040feb44dbebd786f886032))
+* **endpoints:**  
+  * Added artists.search endpoint ([b2bbb405](https://github.com/big-neon/bn-api-node/commit/b2bbb4052be7f28fb040feb44dbebd786f886032))
+  * Added events.dashboard dashboard endpoint and return types ([2f17ccfa](https://github.com/big-neon/bn-api-node/commit/2f17ccfaade0c56fd3e10ec379ae27dbeac1adc0))
 
 ##### Tests
 
