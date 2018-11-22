@@ -13,12 +13,12 @@ import { createOrganization } from "./organization.interface";
 import { createOrganizationVenue } from "./organization-event.interface";
 import { createOrganizationInvitation } from "./organization-invitation.interface";
 import { createOrganizationUser } from "./organization-user.interface";
+import { createPaymentMethod } from "./payment-method.interface";
 import { createRegion } from "./region.interface";
 import { createTicket } from "./ticket.interface";
 import { createTicketRedeemable } from "./ticket-redeemable.interface";
 import { createTicketTransferAuthorization } from "./ticket-transfer-authorization.interface";
 import { createUser } from "./user.interface";
-import { createPaymentMethod } from "./payment-method.interface";
 import { createVenue } from "./venue.interface";
 
 export default {

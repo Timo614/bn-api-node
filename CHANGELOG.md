@@ -1,3 +1,13 @@
+#### 0.3.4 (2018-11-22)
+
+##### New Features
+
+* **endpoints:**  Added artists.search endpoint ([b2bbb405](https://github.com/big-neon/bn-api-node/commit/b2bbb4052be7f28fb040feb44dbebd786f886032))
+
+##### Tests
+
+* **events:**  Use number of days for the start and door time ([#227](https://github.com/big-neon/bn-api-node/pull/227)) ([7b7d2aa6](https://github.com/big-neon/bn-api-node/commit/7b7d2aa6d81d9ec77887c8bcbcaed133ff0e875a))
+
 #### 0.3.3 (2018-11-13)
 
 ##### Documentation Changes

@@ -82,6 +82,7 @@ export class RequestMethod {
 
 	/**
 	 * Checks for {key} in the path and replaces it with the value in the data object
+	 * Add an optional | for a default value {key|1} would add a 1 as the default value
 	 * @param path
 	 * @param data
 	 * @param method
@@ -96,20 +97,27 @@ export class RequestMethod {
 			.concat(method.requireOne || [])
 			.concat(method.required || []);
 
-		let regex = /{([a-zA-Z0-9_-]+)}/g;
+		let regex = /{([a-zA-Z0-9_-]+)(\|{1}(.*?))?}/g;
 		let newPath = path;
 		let matches;
 		do {
 			matches = regex.exec(newPath);
 			if (matches) {
 				let dataKey = matches[1];
+				//Check if there is a default value
+				let dataValue = matches[3] || null;
+
 				if (data.hasOwnProperty(dataKey)) {
-					let dataValue = data[dataKey];
-					newPath = newPath.replace(matches[0], dataValue);
+					//Always use the defined data over the default
+					dataValue = data[dataKey];
 					//Remove the data key if it is not required
 					if (listOfRequiredFields.indexOf(dataKey) === -1) {
 						delete data[dataKey];
 					}
+				}
+
+				if (dataValue !== null) {
+					newPath = newPath.replace(matches[0], dataValue);
 				} else {
 					throw `${path} is expecting ${dataKey} but it has not been provided in the data object`;
 				}
@@ -192,6 +200,10 @@ export class RequestMethod {
 			let axiosInstance = method.requiresAuth
 				? this.client.getAuthAgent(headers)
 				: this.client.getPublicAgent(headers);
+
+			if (method.minTimeout && method.minTimeout > axiosInstance.defaults.timeout) {
+				axiosInstance.defaults.timeout = method.minTimeout;
+			}
 
 			let promise;
 

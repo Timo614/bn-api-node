@@ -42,6 +42,23 @@ class ArtistsResource extends ResourceClass {
 		}) as any;
 	}
 
+
+	/**
+	 * List of artists
+	 * @auth true
+	 * @params {q: string, spotify: number[0/1] (default: 1)}
+	 * @data Array<[[ArtistInterface]]>
+	 */
+	search(): IndexInterface {
+		return createRequestMethod({
+			method: "GET",
+			path: "/search?q={q}&spotify={spotify|1}",
+			required: [],
+			requiresAuth: true,
+			minTimeout: 10000,
+		}) as any;
+	}
+
 	/**
 	 * List of artists
 	 * @auth false
@@ -50,7 +67,6 @@ class ArtistsResource extends ResourceClass {
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
-			name: "index",
 			method: "GET",
 			path: "",
 			required: [],
@@ -62,14 +78,14 @@ class ArtistsResource extends ResourceClass {
 	 * Create an artist
 	 * @auth true
 	 * @params {...ArtistsInterface}
-	 * @required {name: string, bio: string}
+	 * @requireOne {name: string, bio: string, spotify_id: string}
 	 */
 	create(): ArtistInterface {
 		return createRequestMethod({
 			name: "create",
 			method: "POST",
 			path: "",
-			required: ["name", "bio"],
+			requireOne: ["name", "bio", "spotify_id"],
 			requiresAuth: true
 		}) as any;
 	}

@@ -1,11 +1,9 @@
 const Server = require("../../../dist/classes/server").default;
 let server = new Server({
-	prefix: "http://requestbin.fullcontact.com/1nlxxfw1"
+	prefix: "http://localhost:9000",
+	timeout: 30000,
 }, {
-	auth: {
-		username: "cacw",
-		password: "password"
-	},
+
 	headers: {
 	}
 });
@@ -17,7 +15,7 @@ let server = new Server({
 // }).then(result => {
 // 	console.log('res', result.data.cacaw);
 // });
-server.events.index({}, {}).then(result => {
+server.artists.search({q: "Powerwolf", spotify: 1}, {}, false, {minTimeout: 100000}).then(result => {
 	console.log('res', result.data);
 });
 // server.auth.authenticate({ email: "superuser@test.com", password: "password" }).then(a => {

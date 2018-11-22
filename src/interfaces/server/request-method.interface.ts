@@ -10,6 +10,7 @@ export interface RequestMethodInterface {
     required?: Array<string>;//All of these fields must be present
     requireOne?: Array<string>;//At least one of these fields must be present
     requiresAuth: boolean;
+	minTimeout?: number;
 
     beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any ): void;
     afterRequest(server: Server, client: XhrClient, response: any ): Promise<any>;
@@ -27,6 +28,7 @@ export const createRequestMethod = (base: any = {}): RequestMethodInterface => {
 			required: [],
 			requireOne: [],
 			requiresAuth: true,
+			minTimeout: undefined,
 		},
 		...base
 	} as RequestMethodInterface;
