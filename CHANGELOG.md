@@ -1,3 +1,9 @@
+#### 0.3.5 (2018-11-23)
+
+##### Tests
+
+*  Added thumb_image_url to artist seed ([6cfb8862](https://github.com/big-neon/bn-api-node/commit/6cfb88621fa06d5906746c04e2a2872279ffb096))
+
 #### 0.3.4 (2018-11-22)
 
 ##### New Features
