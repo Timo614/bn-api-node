@@ -25,20 +25,7 @@ class TicketRedeemResource extends ResourceClass {
 		}) as any;
 	}
 
-	/**
-	 * Redeem a ticket
-	 * @auth true
-	 * @params {ticket_id:uuid, redeem_key: string}
-	 * @required {ticket_id:uuid, redeem_key: string}
-	 */
-	redeem(): {success: boolean, message?: string} {
-		return createRequestMethod({
-			method: "POST",
-			path: "/{ticket_id}/redeem",
-			required: ["redeem_key"],
-			requiresAuth: true
-		}) as any;
-	}
+
 }
 
 export default TicketRedeemResource;

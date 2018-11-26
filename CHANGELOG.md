@@ -1,4 +1,8 @@
-#### 0.3.5 (2018-11-23)
+#### 0.3.5 (2018-11-26)
+
+##### New Features
+
+* **endpoints:**  Moved the ticket redeem to events `events.tickets.redeem` ([dee01de9](https://github.com/big-neon/bn-api-node/commit/dee01de92db97dc415eaa0b3940880523c06ba26))
 
 ##### Tests
 
