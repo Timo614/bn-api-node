@@ -11,7 +11,7 @@ class CartResource extends ResourceClass {
 	}
 
 	/**
-	 * Add a ticket to the users cart
+	 * Adds tickets to the users cart.
 	 * @auth false
 	 * @params {items: Array<[[CartItemInterface]]>}
 	 * @required {items: Array<[[CartItemInterface]]>}
@@ -19,6 +19,21 @@ class CartResource extends ResourceClass {
 	update(): OrderInterface {
 		return createRequestMethod({
 			method: "POST",
+			path: "",
+			required: ["items"],
+			requiresAuth: false
+		}) as any;
+	}
+
+	/**
+	 * Replaces the items of the user's cart
+	 * @auth false
+	 * @params {items: Array<[[CartItemInterface]]>}
+	 * @required {items: Array<[[CartItemInterface]]>}
+	 */
+	replace(): OrderInterface {
+		return createRequestMethod({
+			method: "PUT",
 			path: "",
 			required: ["items"],
 			requiresAuth: false
