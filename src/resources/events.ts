@@ -43,6 +43,23 @@ class EventsResource extends ResourceClass {
 	}
 
 	/**
+	 * Returns a list of events that the current user has access to scan at the door
+	 * @auth true
+	 * @params {...[[PagingInterface]]}
+	 * @data Array<[[EventInterface]]>
+	 */
+	checkins(): IndexInterface {
+		return createRequestMethod({
+			method: "GET",
+			path: "/checkins",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
+
+
+
+	/**
 	 * Create an event
 	 * @auth true
 	 * @params {EventInterface}

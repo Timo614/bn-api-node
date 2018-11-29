@@ -119,6 +119,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_namespaced_organization_fans_.organizationfansresource.html#index" class="tsd-kind-icon">index</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_namespaced_organization_fans_.organizationfansresource.html#read" class="tsd-kind-icon">read</a></li>
 							</ul>
 						</section>
 					</div>
@@ -204,7 +205,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/namespaced/organization-fans.ts:25</li>
+									<li>Defined in resources/namespaced/organization-fans.ts:38</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -213,7 +214,7 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>params</dt>
-									<dd><p>{..<a href="../interfaces/_interfaces_resources_structures_paging_interface_.paginginterface.html">PagingInterface</a>, organization_id:uuid, sort?: string [FirstName, LastName, Email, Phone, Orders, FirstOrder, LastOrder, Revenue] }</p>
+									<dd><p>{...<a href="../interfaces/_interfaces_resources_structures_paging_interface_.paginginterface.html">PagingInterface</a>, organization_id:uuid, sort?: string [FirstName, LastName, Email, Phone, Orders, FirstOrder, LastOrder, Revenue] }</p>
 									</dd>
 									<dt>required</dt>
 									<dd><p>{organization_id:uuid}</p>
@@ -224,6 +225,39 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_structures_index_interface_.indexinterface.html" class="tsd-signature-type">IndexInterface</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="read" class="tsd-anchor"></a>
+					<h3>read</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">read<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in resources/namespaced/organization-fans.ts:21</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Read a fans profile from the organizations point of view.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>params</dt>
+									<dd><p>{organization_id: uuid, user_id: uuid}</p>
+									</dd>
+									<dt>required</dt>
+									<dd><p>{organization_id: uuid, user_id: uuid}</p>
+									</dd>
+									<dt>todo</dt>
+									<dd><p>Create the Fan</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -261,6 +295,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_resources_namespaced_organization_fans_.organizationfansresource.html#index" class="tsd-kind-icon">index</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_resources_namespaced_organization_fans_.organizationfansresource.html#read" class="tsd-kind-icon">read</a>
 							</li>
 						</ul>
 					</li>
