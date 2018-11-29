@@ -105,7 +105,7 @@ export class RequestMethod {
 			if (matches) {
 				let dataKey = matches[1];
 				//Check if there is a default value
-				let dataValue = matches[3] || null;
+				let dataValue = typeof matches[3] === "undefined" ? null : matches[3];
 
 				if (data.hasOwnProperty(dataKey)) {
 					//Always use the defined data over the default
