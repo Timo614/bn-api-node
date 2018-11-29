@@ -9,6 +9,7 @@ import OrganizationOwnersResource from "./namespaced/organization-owner";
 import OrganizationUsersResource from "./namespaced/organization-users";
 import OrganizationVenueResource from "./namespaced/organization-venues";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
+import OrganizationFansResource from "./namespaced/organization-fans";
 
 /**
  * @endpoint organizations
@@ -19,6 +20,7 @@ class OrganizationsResource extends ResourceClass {
 		this.namespaces = {
 			artists: OrganizationArtistsResource,
 			events: OrganizationEventsResource,
+			fans: OrganizationFansResource,
 			feeSchedules: OrganizationFeeSchedulesResource,
 			invite: OrganizationInvitationsResource,
 			owner: OrganizationOwnersResource,
