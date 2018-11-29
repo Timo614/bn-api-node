@@ -120,6 +120,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_cart_.cartresource.html#checkout" class="tsd-kind-icon">checkout</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_cart_.cartresource.html#read" class="tsd-kind-icon">read</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_cart_.cartresource.html#replace" class="tsd-kind-icon">replace</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_cart_.cartresource.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
@@ -206,7 +207,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/cart.ts:64</li>
+									<li>Defined in resources/cart.ts:79</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -242,7 +243,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in resources/cart.ts:33</li>
+									<li>Defined in resources/cart.ts:48</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -255,6 +256,39 @@
 									</dd>
 									<dt>alias</dt>
 									<dd><p>index</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_order_interface_.orderinterface.html" class="tsd-signature-type">OrderInterface</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="replace" class="tsd-anchor"></a>
+					<h3>replace</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">replace<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_order_interface_.orderinterface.html" class="tsd-signature-type">OrderInterface</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in resources/cart.ts:34</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Replaces the items of the user&#39;s cart</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>auth</dt>
+									<dd><p>false</p>
+									</dd>
+									<dt>params</dt>
+									<dd><p>{items: Array&lt;<a href="../interfaces/_interfaces_resources_cart_item_interface_.cartiteminterface.html">CartItemInterface</a>&gt;}</p>
+									</dd>
+									<dt>required</dt>
+									<dd><p>{items: Array&lt;<a href="../interfaces/_interfaces_resources_cart_item_interface_.cartiteminterface.html">CartItemInterface</a>&gt;}</p>
 									</dd>
 								</dl>
 							</div>
@@ -277,7 +311,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Add a ticket to the users cart</p>
+									<p>Adds tickets to the users cart.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>auth</dt>
@@ -332,6 +366,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_resources_cart_.cartresource.html#read" class="tsd-kind-icon">read</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_resources_cart_.cartresource.html#replace" class="tsd-kind-icon">replace</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_resources_cart_.cartresource.html#update" class="tsd-kind-icon">update</a>

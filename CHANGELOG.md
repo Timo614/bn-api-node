@@ -1,3 +1,9 @@
+#### 0.3.6 (2018-11-29)
+
+##### Documentation Changes
+
+*  updated docs ([60d3c916](https://github.com/big-neon/bn-api-node/commit/60d3c916b71a48818a6e4ad847688e47556896f1))
+
 #### 0.3.5 (2018-11-26)
 
 ##### New Features
