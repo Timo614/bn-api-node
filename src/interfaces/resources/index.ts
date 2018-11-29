@@ -10,6 +10,7 @@ import { createEventInterest } from "./event-interest.interface";
 import { createHold } from "./hold.interface";
 import { createOrder } from "./order.interface";
 import { createOrganization } from "./organization.interface";
+import { createOrganizationFan } from "./organization-fan.interface";
 import { createOrganizationVenue } from "./organization-event.interface";
 import { createOrganizationInvitation } from "./organization-invitation.interface";
 import { createOrganizationUser } from "./organization-user.interface";
@@ -35,6 +36,7 @@ export default {
 	createOrder,
 	createOrganization,
 	createOrganizationVenue,
+	createOrganizationFan,
 	createOrganizationInvitation,
 	createOrganizationUser,
 	createPaymentMethod,

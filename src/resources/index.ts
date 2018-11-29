@@ -40,6 +40,7 @@ import PaymentMethods from "./payment-methods";
  * @endpoint organizations [[OrganizationsResource]]
  * @endpoint organizations.artists [[OrganizationArtistsResource]]
  * @endpoint organizations.events [[OrganizationEventsResource]]
+ * @endpoint organizations.fans [[OrganizationFansResource]]
  * @endpoint organizations.feeSchedules [[OrganizationFeeSchedulesResource]]
  * @endpoint organizations.invite [[OrganizationInvitationsResource]]
  * @endpoint organizations.owner [[OrganizationOwnersResource]]
