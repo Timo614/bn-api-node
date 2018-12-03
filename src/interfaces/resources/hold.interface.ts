@@ -2,17 +2,19 @@ import { CartItemInterface } from "./cart-item.interface";
 
 export interface HoldInterface {
 	readonly id?: string;
-	event_id?: string;
 	name: string;
+	parent_hold_id: string;
+	event_id?: string;
 	redemption_code: string;
 	discount_in_cents: number;
+	email: string;
+	phone: string;
+	available: number;
 	ticket_type_id: string;
     hold_type: string;
 	quantity: number;
 	end_at?: Date;
 	max_per_order?: number;
-	readonly created_at?: Date;
-	readonly updated_at?: Date;
 }
 
 export const createHold = (base: any = {}): HoldInterface => {
@@ -20,7 +22,11 @@ export const createHold = (base: any = {}): HoldInterface => {
 		...{
 			id: "",
 			event_id: "",
+			parent_hold_id: "",
 			name: "",
+			email: "",
+			phone: "",
+			available: 0,
 			ticket_type_id: "",
 			quantity: 0,
 			redemption_code: "",
@@ -28,8 +34,6 @@ export const createHold = (base: any = {}): HoldInterface => {
 			discount_in_cents: 0,
 			end_at: "",
 			max_per_order: 0,
-			created_at: "",
-			updated_at: ""
 		},
 		...base
 	} as HoldInterface

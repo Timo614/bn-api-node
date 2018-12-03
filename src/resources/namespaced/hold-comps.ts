@@ -42,53 +42,6 @@ class HoldCompsResource extends ResourceClass {
 		}) as any;
 	}
 
-	/**
-	 * Read a comp for a hold
-	 * @auth true
-	 * @params {hold_id:uuid, id:uuid}
-	 * @required {hold_id:uuid, id:uuid}
-	 */
-	read(): CompInterface {
-		return createRequestMethod({
-			method: "GET",
-			path: "/{hold_id}/comps/{id}",
-			required: [],
-			requiresAuth: true
-		}) as any;
-	}
-
-	/**
-	 * Update a comp for a hold
-	 * @auth true
-	 * @params {hold_id:uuid, id:uuid, ...[[CompInterface]]}
-	 * @required {hold_id:uuid, id:uuid}
-	 * @requireOne {...[[CompInterface]]}
-	 */
-	update(): CompInterface {
-		return createRequestMethod({
-			method: "PUT",
-			path: "/{hold_id}/comps/{id}",
-			requireOne: ["name", "email", "phone", "quantity"],
-			requiresAuth: true
-		}) as any;
-	}
-
-	/**
-	 * Delete a comp from a hold
-	 * @auth true
-	 * @params {hold_id:uuid, id:uuid}
-	 * @required {hold_id:uuid, id:uuid}
-	 * @returns {status: 200}
-	 */
-	del(): void {
-		return createRequestMethod({
-			method: "DELETE",
-			path: "/{hold_id}/comps/{id}",
-			required: [],
-			requiresAuth: true
-		}) as any;
-	}
-
 }
 
 export default HoldCompsResource;

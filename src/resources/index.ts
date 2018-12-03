@@ -2,6 +2,7 @@ import Artist from "./artists";
 import Auth from "./auth";
 import Cart from "./cart";
 import Code from "./codes";
+import Comps from "./comps";
 import Event from "./events";
 import External from "./external";
 import Holds from "./holds";
@@ -24,6 +25,7 @@ import PaymentMethods from "./payment-methods";
  * @endpoint auth [[AuthResource]]
  * @endpoint cart [[CartResource]]
  * @endpoint codes [[CodesResource]]
+ * @endpoint comps [[CompsResource]]
  * @endpoint events [[EventsResource]]
  * @endpoint events.artists [[EventArtistsResource]]
  * @endpoint events.codes [[EventCodesResource]]
@@ -61,6 +63,7 @@ export const endpoints: { [endpoint: string]: ResourceInterface | ResourceClass 
 	auth: Auth,
 	cart: Cart,
 	codes: Code,
+	comps: Comps,
 	events: Event,
 	external: External,
 	holds: Holds,
