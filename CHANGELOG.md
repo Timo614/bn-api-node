@@ -1,3 +1,11 @@
+#### 0.3.8 (2018-12-03)
+
+##### New Features
+
+* **endpoints:**
+  *  Added organizations.fans.[read, history, index] ([0c4f35f7](https://github.com/big-neon/bn-api-node/commit/0c4f35f7b0307127d4ac3f3681495f6198d65173))
+  *  Added /events/checkins endpoint ([#238](https://github.com/big-neon/bn-api-node/pull/238)) ([58017291](https://github.com/big-neon/bn-api-node/commit/5801729119523fab9404045ade99b2f30edcdbe4))
+
 #### 0.3.6 (2018-11-29)
 
 ##### Documentation Changes

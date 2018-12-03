@@ -3,6 +3,7 @@ import { createRequestMethod } from "../../interfaces/server/request-method.inte
 import ResourceClass from "../../classes/abstracts/resource.class";
 import { OrganizationInterface } from "../../interfaces/resources/organization.interface";
 import { IndexInterface } from "../../interfaces/resources/structures/index.interface";
+import { FanInterface } from "../../interfaces/resources/fan.interface";
 
 /**
  * @endpoint organizations.fans
@@ -16,9 +17,8 @@ class OrganizationFansResource extends ResourceClass {
 	 * Read a fans profile from the organizations point of view.
 	 * @params {organization_id: uuid, user_id: uuid}
 	 * @required {organization_id: uuid, user_id: uuid}
-	 * @TODO Create the Fan
 	 */
-	read(): any {
+	read(): FanInterface {
 		return createRequestMethod({
 			method: "GET",
 			path: "/{organization_id}/fans/{user_id}",
@@ -38,8 +38,22 @@ class OrganizationFansResource extends ResourceClass {
 	index(): IndexInterface {
 		return createRequestMethod({
 			method: "GET",
-			// path: "/{organization_id}/fans?query={q|}&page={page|0}&limit={limit|25}&sort={sort}&dir={dir|}",
 			path: "/{organization_id}/fans",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * List a specific fans history for an organization
+	 * @params {...[[PagingInterface]], organization_id:uuid, user_id:uuid}
+	 * @required {organization_id:uuid, user_id: uuid}
+	 * @data Array<[[FanHistoryItemInterface]]>
+	 */
+	history(): IndexInterface {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{organization_id}/fans/{user_id}/history",
 			required: [],
 			requiresAuth: true
 		}) as any;

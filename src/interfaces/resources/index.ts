@@ -7,6 +7,8 @@ import { createEvent } from "./event.interface";
 import { createEventArtist } from "./event-artist.interface";
 import { createEventHistory } from "./event-histories.interface";
 import { createEventInterest } from "./event-interest.interface";
+import { createFan } from "./fan.interface";
+import { createFanHistoryItem } from "./fan-history-item.interface";
 import { createHold } from "./hold.interface";
 import { createOrder } from "./order.interface";
 import { createOrganization } from "./organization.interface";
@@ -32,6 +34,8 @@ export default {
 	createEventArtist,
 	createEventHistory,
 	createEventInterest,
+	createFan,
+	createFanHistoryItem,
 	createHold,
 	createOrder,
 	createOrganization,

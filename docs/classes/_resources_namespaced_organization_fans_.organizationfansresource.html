@@ -118,6 +118,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_namespaced_organization_fans_.organizationfansresource.html#history" class="tsd-kind-icon">history</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_namespaced_organization_fans_.organizationfansresource.html#index" class="tsd-kind-icon">index</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_namespaced_organization_fans_.organizationfansresource.html#read" class="tsd-kind-icon">read</a></li>
 							</ul>
@@ -138,7 +139,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in resources/namespaced/organization-fans.ts:10</li>
+									<li>Defined in resources/namespaced/organization-fans.ts:11</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_resources_namespaced_organization_fans_.organizationfansresource.html" class="tsd-signature-type">OrganizationFansResource</a></h4>
@@ -196,6 +197,39 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="history" class="tsd-anchor"></a>
+					<h3>history</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">history<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_structures_index_interface_.indexinterface.html" class="tsd-signature-type">IndexInterface</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in resources/namespaced/organization-fans.ts:53</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>List a specific fans history for an organization</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>params</dt>
+									<dd><p>{...<a href="../interfaces/_interfaces_resources_structures_paging_interface_.paginginterface.html">PagingInterface</a>, organization_id:uuid, user_id:uuid}</p>
+									</dd>
+									<dt>required</dt>
+									<dd><p>{organization_id:uuid, user_id: uuid}</p>
+									</dd>
+									<dt>data</dt>
+									<dd><p>Array&lt;<a href="../interfaces/_interfaces_resources_fan_history_item_interface_.fanhistoryiteminterface.html">FanHistoryItemInterface</a>&gt;</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_structures_index_interface_.indexinterface.html" class="tsd-signature-type">IndexInterface</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="index" class="tsd-anchor"></a>
 					<h3>index</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -232,7 +266,7 @@
 					<a name="read" class="tsd-anchor"></a>
 					<h3>read</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">read<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">read<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_fan_interface_.faninterface.html" class="tsd-signature-type">FanInterface</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -252,12 +286,9 @@
 									<dt>required</dt>
 									<dd><p>{organization_id: uuid, user_id: uuid}</p>
 									</dd>
-									<dt>todo</dt>
-									<dd><p>Create the Fan</p>
-									</dd>
 								</dl>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_fan_interface_.faninterface.html" class="tsd-signature-type">FanInterface</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -292,6 +323,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_resources_namespaced_organization_fans_.organizationfansresource.html#path" class="tsd-kind-icon">path</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_resources_namespaced_organization_fans_.organizationfansresource.html#history" class="tsd-kind-icon">history</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_resources_namespaced_organization_fans_.organizationfansresource.html#index" class="tsd-kind-icon">index</a>
