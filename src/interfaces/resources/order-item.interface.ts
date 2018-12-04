@@ -1,15 +1,13 @@
 export interface OrderItemInterface {
-    readonly id?: string;
-    order_id?: string;
-    item_type: string;
-    cost: number;
-    ticket_instance_id: string;
-    price_point_id?: string;
-    fee_schedule_range_id?: string;
-    parent_id?: string;
-    readonly created_at?: string;
-    readonly updated_at?: string;
-
+	readonly id?: string;
+	order_id?: string;
+	ticket_type_id?: string;
+	ticket_pricing_id?: string;
+	quantity: number;
+	unit_price_in_cents: number;
+	item_type: string;
+	description: string;
+	redemption_code?: string;
 
 }
 
@@ -18,14 +16,13 @@ export const createOrderItem = (base: any = {}): OrderItemInterface => {
 		...{
 			id: "",
 			order_id: "",
+			ticket_type_id: "",
+			ticket_pricing_id: "",
+			quantity: 0,
+			unit_price_in_cents: 0,
 			item_type: "",
-			cost: 0,
-			ticket_instance_id: "",
-			price_point_id: "",
-			fee_schedule_range_id: "",
-			parent_id: "",
-			created_at: "",
-			updated_at: "",
+			description: "",
+			redemption_code: "",
 		},
 		...base
 	} as OrderItemInterface;

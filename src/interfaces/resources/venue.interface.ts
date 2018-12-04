@@ -13,6 +13,7 @@ export interface VenueInterface {
 	postal_code: string;
 	maximum_capacity?: number;
 	is_private: boolean;
+	promo_image_url?: string;
     readonly created_at: Date;
     readonly modified_at: Date;
 }

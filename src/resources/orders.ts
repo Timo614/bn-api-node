@@ -2,6 +2,7 @@ import { createRequestMethod } from "../interfaces/server/request-method.interfa
 import ResourceClass from "../classes/abstracts/resource.class";
 import { OrderInterface } from "../interfaces/resources/order.interface";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
+import OrderTicketsResource from "./namespaced/order-tickets";
 
 /**
  * @endpoint orders
@@ -9,6 +10,9 @@ import { IndexInterface } from "../interfaces/resources/structures/index.interfa
 class OrdersResource extends ResourceClass {
 	constructor() {
 		super("orders");
+		this.namespaces = {
+			tickets: OrderTicketsResource,
+		}
 	}
 
 	/**
@@ -34,6 +38,21 @@ class OrdersResource extends ResourceClass {
 	read(): OrderInterface {
 		return createRequestMethod({
 			method: "GET",
+			path: "/{id}",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Update an order
+	 * @auth true
+	 * @params {id:uuid, note: string}
+	 * @required {id:uuid}
+	 */
+	update(): OrderInterface {
+		return createRequestMethod({
+			method: "PATCH",
 			path: "/{id}",
 			required: [],
 			requiresAuth: true
