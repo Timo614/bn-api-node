@@ -10,6 +10,9 @@ export interface OrganizationInterface {
 	postal_code?: string;
 	event_fee_in_cents?: number;
 	phone?: string;
+	sendgrid_api_key?: string;
+	google_ga_key?: string;
+	facebook_pixel_key?: string;
 }
 
 export const createOrganization = (base: any = {}): OrganizationInterface => {
@@ -26,6 +29,9 @@ export const createOrganization = (base: any = {}): OrganizationInterface => {
 			postal_code: "",
 			phone: "",
 			event_fee_in_cents: 0,
+			sendgrid_api_key: "",
+			google_ga_key: "",
+			facebook_pixel_key:"",
 		},
 		...base
 	} as OrganizationInterface

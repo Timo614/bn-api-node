@@ -26,6 +26,8 @@ export interface EventInterface {
 	min_ticket_price?: number;
 	max_ticket_price?: number;
 	video_url?: string;
+	is_external: boolean;
+	external_url?: string;
 	readonly created_at: string;
 	readonly updated_at: string;
 }
@@ -58,6 +60,8 @@ export const createEvent = (base: any = {}): EventInterface => {
 			min_ticket_price: 0,
 			max_ticket_price: 0,
 			video_url: "",
+			is_external: false,
+			external_url: "",
 			created_at: "",
 			updated_at: ""
 		},
