@@ -3,6 +3,31 @@ import { EventArtistInterface } from "./event-artist.interface";
 import { VenueInterface } from "./venue.interface";
 import { OrganizationInterface } from "./organization.interface";
 
+
+export enum OverrideStatus {
+	PURCHASE_TICKETS = "PurchaseTickets",
+	SOLD_OUT = "SoldOut",
+	ON_SALE_SOON = "OnSaleSoon",
+	TICKETS_AT_THE_DOOR = "TicketsAtTheDoor",
+	FREE = "Free",
+	RESCHEDULED = "Rescheduled",
+	CANCELLED = "Cancelled",
+	OFF_SALE = "OffSale",
+	ENDED = "Ended",
+}
+
+export const OVERRIDE_STATUS_STRING = {
+	[OverrideStatus.PURCHASE_TICKETS]: "Purchase Tickets",
+	[OverrideStatus.SOLD_OUT]: "Sold Out",
+	[OverrideStatus.ON_SALE_SOON]: "On Sale Soon",
+	[OverrideStatus.TICKETS_AT_THE_DOOR]: "Tickets At The Door",
+	[OverrideStatus.FREE]: "Free",
+	[OverrideStatus.RESCHEDULED]: "Rescheduled",
+	[OverrideStatus.CANCELLED]: "Cancelled",
+	[OverrideStatus.OFF_SALE]: "Off-Sale",
+	[OverrideStatus.ENDED]: "Ended"
+};
+
 export interface EventInterface {
 	readonly id?: string;
 	name: string;
@@ -28,6 +53,7 @@ export interface EventInterface {
 	video_url?: string;
 	is_external: boolean;
 	external_url?: string;
+	override_status?: OverrideStatus;
 	readonly created_at: string;
 	readonly updated_at: string;
 }
@@ -62,6 +88,7 @@ export const createEvent = (base: any = {}): EventInterface => {
 			video_url: "",
 			is_external: false,
 			external_url: "",
+			override_status: undefined,
 			created_at: "",
 			updated_at: ""
 		},

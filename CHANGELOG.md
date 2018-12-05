@@ -1,3 +1,9 @@
+#### 0.3.9 (2018-12-05)
+
+##### New Features
+
+* **enum:**  Added the OverrideStatus enum ([480e01e1](https://github.com/big-neon/bn-api-node/commit/480e01e1b2b6ccef9231bc609f0250018847d498))
+
 #### 0.3.8 (2018-12-04)
 
 ##### Documentation Changes
