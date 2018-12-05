@@ -31,6 +31,7 @@ export const createVenue = (base: any = {}): VenueInterface => {
 			state: "",
 			country: "",
 			phone: "",
+			promo_image_url: "",
 			// latitude: 0,
 			// longitude: 0,
 			postal_code: "",

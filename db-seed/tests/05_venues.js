@@ -6,16 +6,20 @@ const venueFields = require("../../dist/interfaces/resources/venue.interface");
 
 
 describe("Integration::Venues", async function() {
-	let publicServer, adminServer;
+	let publicServer, adminServer, regionsByName = {};
 	const venues = q.readCSV("./data/venues.csv");
 
 	describe("SuperUser Actions", function() {
 		before(async function() {
 			adminServer = await global.getAdminServer();
+			regionsByName = await global.getRegions();
 		});
 		global.venuesByName = {};
-		venues.forEach(function(venue) {
+		for (let i in venues) {
+			let venue = venues[i];
 			it(`SuperUser registers ${venue.name}`, async function() {
+
+				venue.region_id = regionsByName[venue.region_id];
 				let result = await adminServer.venues.create(venue);
 				assert.strictEqual(
 					result.status,
@@ -24,15 +28,16 @@ describe("Integration::Venues", async function() {
 				);
 				global.venuesByName[result.data.name] = result.data.id;
 			});
-		});
+		}
 
 		it("updates a venue", async () => {
-			let updateId = global.venuesByName["Gets Updated"];
+			let updateId = global.venuesByName["Lavo Nightclu"];
 			let original = await adminServer.venues.read({id: updateId});
 			original = original.data;
 			let originalName = original.name;
-			original.name = "Fancy Venue";
+			original.name = "Lavo Nightclub";
 			let updated = await adminServer.venues.update({ ...original});
+			global.venuesByName[original.name] = updateId;
 			assert.strictEqual(original.name, updated.data.name, `Failed to update venue name from ${originalName} to ${original.name}, got ${updated.name}`);
 		});
 	});

@@ -17,9 +17,9 @@ describe("Integration::FeeSchedule", () => {
 			orgsByName = await global.getOrganizations();
 		});
 
-		it("SuperUser creates fee schedule for Organization: Da Klub", async () => {
+		it("SuperUser creates fee schedule for Organization: The Midway", async () => {
 			let result = await adminServer.organizations.feeSchedules.create({
-				organization_id: orgsByName["Da Klub"],
+				organization_id: orgsByName["The Midway"],
 				name: "Fee Schedule 1",
 				ranges: [
 					{
@@ -27,8 +27,8 @@ describe("Integration::FeeSchedule", () => {
 						fee_in_cents: 100
 					},
 					{
-						min_price: 1000,
-						fee_in_cents: 10000
+						min_price: 10,
+						fee_in_cents: 150
 					},
 				]
 			});

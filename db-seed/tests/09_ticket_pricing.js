@@ -16,8 +16,8 @@ describe("Integration::TicketPricing", () => {
 			eventsByName = await global.getEvents();
 		});
 
-		it("SuperUser updates ticket pricing for event Fancy Pants Party", async () => {
-			let event = await adminServer.events.read({ id: eventsByName["Fancy Pants Party"] });
+		it("SuperUser updates ticket pricing for event Boxing Day Brawl", async () => {
+			let event = await adminServer.events.read({ id: eventsByName["Boxing Day Brawl"] });
 			let ticketType = event.data.ticket_types.pop();
 
 			let updatedTicketTypes = await adminServer.events.ticketTypes.update({

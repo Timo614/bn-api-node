@@ -144,6 +144,7 @@ describe("Integration::Events", function () {
 			});
 
 			it(`SuperUser publishes event "${event.name}"`, async function () {
+
 				const result = await adminServer.events.publish({ id });
 				assert.strictEqual(result.status, 200);
 			});
@@ -152,15 +153,15 @@ describe("Integration::Events", function () {
 		it("A superuser can update an event", async function () {
 
 			let updatedEvent = {
-				id: global.eventsByName["Update This Event"],
-				name: "My Updated Event",
+				id: global.eventsByName["Priority Party"],
+				name: "Priority Parties",
 				event_start: "2020-12-12T12:00:00",
 				door_time: "2020-12-12T12:00:00",
 				status: "Published",
-				promo_image_url: "https://res.cloudinary.com/bigneon-dev/image/upload/v1540996739/bigneon/pssets0z4vxrjasvhvmj.jpg"
+				promo_image_url: "https://res.cloudinary.com/bigneon-dev/image/upload/v1540996739/bigneon/pssets0z4vxrjasvhvmj.jpg",
 			};
 			const response = await adminServer.events.update(updatedEvent);
-			const serverEvent = (await adminServer.events.read({ id: global.eventsByName["Update This Event"] })).data;
+			const serverEvent = (await adminServer.events.read({ id: global.eventsByName["Priority Party"] })).data;
 			assert.strictEqual(response.status, 200);
 
 			for (let i in updatedEvent) {
@@ -201,27 +202,27 @@ describe("Integration::Events", function () {
 			assert.strictEqual(matches[0].name, events[0].name);
 		});
 
-		it(`an unauthenticated user can search for an event by Artist: Billy Joel}`, async function () {
+		it(`an unauthenticated user can search for an event by Artist: Billy Joel`, async function () {
 			const response = await publicServer.events.index({ query: "Billy Joel" });
 			assert.strictEqual(response.status, 200, "Invalid Status");
 			const matches = response.data.data;
 			assert.strictEqual(matches.length, 1, "There should only be 1 match");
-			assert.strictEqual(matches[0].name, "Fancy Pants Party");
+			assert.strictEqual(matches[0].name, "Christmas Bash");
 		});
 
-		it(`an unauthenticated user can search for an event by Venue: Loftus Versveld Clubhouse}`, async function () {
-			const response = await publicServer.events.index({ query: "Loftus Versveld Clubhouse" });
+		it(`an unauthenticated user can search for an event by Venue: Bimbos`, async function () {
+			const response = await publicServer.events.index({ query: "Bimbos" });
 			assert.strictEqual(response.status, 200, "Invalid Status");
 			const matches = response.data.data;
 			assert.strictEqual(matches.length, 1, "There should only be 1 match");
-			assert.strictEqual(matches[0].name, "It's my party");
+			assert.strictEqual(matches[0].name, "Boxing Day Brawl");
 		});
 
 
 		it("an unauthenticated user cannot update an event", function () {
 			return q
 				.shouldFail(
-					publicServer.events.update({ id: list[0].id, name: "My First Event" })
+					publicServer.events.update({ id: list[0].id, name: "Christmas Bash" })
 				)
 				.then(res => {
 					assert.strictEqual(

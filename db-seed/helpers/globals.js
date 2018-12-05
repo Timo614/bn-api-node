@@ -25,6 +25,7 @@ const globals = {
 	venuesByName: false,
 	eventsByName: false,
 	artistsByName: false,
+	regionsByName: false,
 
 
 	async getOrganizations() {
@@ -41,6 +42,19 @@ const globals = {
 	},
 	
 	
+	async getRegions() {
+		if (this.regionsByName) {
+			return this.regionsByName;
+		}
+		this.regionsByName = {};
+		let adminServer = await this.getAdminServer();
+		let result = await adminServer.regions.index();
+		result.data.data.forEach(item => {
+			this.regionsByName[item.name] = item.id;
+		});
+		return this.regionsByName;
+	},
+
 	async getVenues() {
 		if (this.venuesByName) {
 			return this.venuesByName;

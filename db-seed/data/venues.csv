@@ -1,4 +1,4 @@
-name,phone,address,city,state,country,postal_code
-Loftus Versveld Clubhouse,5372639874,10 Smith Street,Johannesburg,Gauteng,South Africa, 1234
-Da Klub,7657898564,33 Smuts Street,Bloemfontein,Free State,South Africa,9398
-Gets Updated,7657898564,33 Smuts Street,Bloemfontein,Free State,South Africa,9398
+name,phone,address,city,state,country,postal_code,region_id
+Public Works,5551231234,1 Main Road,San Francisco,California,United States, 12345,San Francisco
+Bimbos,5551231234,1 Main Road,San Francisco,California,United States, 12345,San Francisco
+Lavo Nightclu,5551231234,1 Big Road,New York,New York,United States, 12345,New York
