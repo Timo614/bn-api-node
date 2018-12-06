@@ -47,7 +47,7 @@ class VenuesResource extends ResourceClass {
 
 
 	/**
-	 * Get an venue
+	 * Get a venue
 	 * @auth true
 	 * @params {id}
 	 * @required {id}
@@ -77,16 +77,23 @@ class VenuesResource extends ResourceClass {
 	}
 
 	/**
-	 * Create an venue
+	 * Create a venue
 	 * @auth true
 	 * @params {...VenueInterface}
-	 * @required {owner_user_id: uuid, name: string}
+	 * @required {owner_user_id: uuid, name: string, address: string, city: string, state: string, country: string, postal_code: string}
 	 */
 	create(): VenueInterface {
 		return createRequestMethod({
 			method: "POST",
 			path: "",
-			required: ["name"],
+			required: [
+				"name",
+				"address",
+				"city",
+				"state",
+				"country",
+				"postal_code"
+			],
 			requiresAuth: true
 		}) as any;
 	}

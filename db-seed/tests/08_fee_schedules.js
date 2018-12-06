@@ -28,12 +28,12 @@ describe("Integration::FeeSchedule", () => {
 						client_fee_in_cents: 25
 					},
 					{
-						min_price: 10,
+						min_price: 100,
 						company_fee_in_cents: 100,
 						client_fee_in_cents: 50
 					},
 					{
-						min_price: 20,
+						min_price: 200,
 						company_fee_in_cents: 150,
 						client_fee_in_cents: 75
 					},
