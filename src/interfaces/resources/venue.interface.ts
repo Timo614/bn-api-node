@@ -10,7 +10,7 @@ export interface VenueInterface {
     phone?: string;
     latitude?: number;
     longitude?: number;
-    google_places_id?: string;
+    google_place_id?: string;
 	postal_code: string;
 	maximum_capacity?: number;
 	is_private: boolean;
@@ -37,7 +37,7 @@ export const createVenue = (base: any = {}): VenueInterface => {
 			latitude: 0,
 			longitude: 0,
 			postal_code: "",
-			google_places_id: "",
+			google_place_id: "",
 			// maximum_capacity: 0,
 			created_at: "",
 			// modified_at: "",
