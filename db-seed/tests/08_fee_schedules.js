@@ -23,17 +23,17 @@ describe("Integration::FeeSchedule", () => {
 				name: "Fee Schedule 1",
 				ranges: [
 					{
-						min_price: 0,
+						min_price_in_cents: 0,
 						company_fee_in_cents: 75,
 						client_fee_in_cents: 25
 					},
 					{
-						min_price: 100,
+                        min_price_in_cents: 100,
 						company_fee_in_cents: 100,
 						client_fee_in_cents: 50
 					},
 					{
-						min_price: 200,
+                        min_price_in_cents: 200,
 						company_fee_in_cents: 150,
 						client_fee_in_cents: 75
 					},
