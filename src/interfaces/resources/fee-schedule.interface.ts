@@ -9,7 +9,7 @@ export interface FeeScheduleInterface {
 }
 
 export interface FeeScheduleRangeInterface {
-	min_price: number;
+    min_price_in_cents: number;
 	client_fee_in_cents: number;
 	company_fee_in_cents: number;
 	fee_in_cents: number;
@@ -35,7 +35,7 @@ export const createFeeSchedule = (base: any = {}): FeeScheduleInterface => {
 export const createFeeScheduleRange = (base: any = {}): FeeScheduleRangeInterface => {
 	return {
 		...{
-			min_price: 0,
+			min_price_in_cents: 0,
 			fee_in_cents: 0,
 			client_fee_in_cents: 0,
 			company_fee_in_cents: 0,
