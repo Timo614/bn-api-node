@@ -1,3 +1,14 @@
+#### 0.3.13 (2018-12-12)
+
+##### Documentation Changes
+
+*  Created the docs for the new endpoints ([863b3b0b](https://github.com/big-neon/bn-api-node/commit/863b3b0b5b0bdfe1ce385b4f211202acbcc6e7e9))
+
+##### New Features
+
+* **deviceTokens:**  Added CRUD for device tokens ([cb1f3142](https://github.com/big-neon/bn-api-node/commit/cb1f31422ce0b09510e3cbb0b56db7e45b958065))
+* **endpoints:**  Added delete cart ([72e1aee1](https://github.com/big-neon/bn-api-node/commit/72e1aee1647874f4ef16b3741698183680c507ca))
+
 #### 0.3.9 (2018-12-05)
 
 ##### New Features
