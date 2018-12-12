@@ -3,6 +3,7 @@ import { createAuthToken } from "./auth-token.interface";
 import { createCartItem } from "./cart-item.interface";
 import { createComp } from "./comp.interface";
 import { createCode } from "./code.interface";
+import { createDeviceToken } from "./device-token.interface";
 import { createEvent } from "./event.interface";
 import { createEventArtist } from "./event-artist.interface";
 import { createEventHistory } from "./event-histories.interface";
@@ -30,6 +31,7 @@ export default {
 	createCartItem,
 	createCode,
 	createComp,
+	createDeviceToken,
 	createEvent,
 	createEventArtist,
 	createEventHistory,

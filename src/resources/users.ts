@@ -3,6 +3,7 @@ import ResourceClass from "../classes/abstracts/resource.class";
 import { UserInterface } from "../interfaces/resources/user.interface";
 import { OrganizationInterface } from "../interfaces/resources/organization.interface";
 import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface";
+import UserDeviceTokensResource from "./namespaced/user-device-tokens";
 
 /**
  * @endpoint users
@@ -10,7 +11,12 @@ import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface
 class UsersResource extends ResourceClass {
 	constructor() {
 		super("users");
+		this.namespaces = {
+			deviceTokens: UserDeviceTokensResource,
+		};
+
 	}
+
 
 	/**
 	 * Get your current user
