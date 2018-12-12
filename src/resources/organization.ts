@@ -5,7 +5,6 @@ import OrganizationArtistsResource from "./namespaced/organization-artists";
 import OrganizationEventsResource from "./namespaced/organization-events";
 import OrganizationFeeSchedulesResource from "./namespaced/organization-fee-schedules";
 import OrganizationInvitationsResource from "./namespaced/organization-invitations";
-import OrganizationOwnersResource from "./namespaced/organization-owner";
 import OrganizationUsersResource from "./namespaced/organization-users";
 import OrganizationVenueResource from "./namespaced/organization-venues";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
@@ -23,7 +22,6 @@ class OrganizationsResource extends ResourceClass {
 			fans: OrganizationFansResource,
 			feeSchedules: OrganizationFeeSchedulesResource,
 			invite: OrganizationInvitationsResource,
-			owner: OrganizationOwnersResource,
 			users: OrganizationUsersResource,
 			venues: OrganizationVenueResource,
 		};
@@ -63,13 +61,13 @@ class OrganizationsResource extends ResourceClass {
 	 * Create an organization
 	 * @auth true
 	 * @params {...OrganizationInterface}
-	 * @required {owner_user_id: uuid, name: string}
+	 * @required {name: string}
 	 */
 	create(): OrganizationInterface {
 		return createRequestMethod({
 			method: "POST",
 			path: "",
-			required: ["owner_user_id", "name"],
+			required: ["name"],
 			requiresAuth: true
 		}) as any;
 	}

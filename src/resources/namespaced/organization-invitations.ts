@@ -14,9 +14,9 @@ class OrganizationInvitationsResource extends ResourceClass {
 	 * List the events that are a part of this organization
 	 * @auth true
 	 * @alias invite
-	 * @params {organization_id:uuid, user_email: string, user_id: uuid}
-	 * @required {organization_id:uuid, user_email: string, user_id: uuid}
-	 * @requireOne [user_email: string, user_id: uuid]
+	 * @params {organization_id:uuid, user_email: string, role: string}
+	 * @required {organization_id:uuid, user_email: string, role: string}
+	 * @requireOne [user_email: string, role: string]
 	 */
 	create(): OrganizationInvitationInterface {
 		return createRequestMethod({
@@ -24,7 +24,7 @@ class OrganizationInvitationsResource extends ResourceClass {
 			method: "POST",
 			path: "/{organization_id}/invite",
 			required: [],
-			requireOne: ["user_email", "user_id"],
+			requireOne: ["user_email", "role"],
 			requiresAuth: true
 		}) as any;
 	}
