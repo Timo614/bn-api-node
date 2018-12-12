@@ -13,15 +13,15 @@ class OrganizationUsersResource extends ResourceClass {
 
 
 	/**
-	 * Add a user to the organization
+	 * Adds a role to user to the organization, if the user does not exist, it will be created
 	 * @params {organization_id:uuid, user_id: uuid }
-	 * @required {organization_id:uuid, user_id: uuid }
+	 * @required {organization_id:uuid, user_id: uuid, role: string }
 	 */
-	create(): void {
+	add(): void {
 		return createRequestMethod({
 			method: "POST",
 			path: "/{organization_id}/users",
-			required: ["user_id"],
+			required: ["user_id", "role"],
 			requiresAuth: true
 		}) as any;
 	}
