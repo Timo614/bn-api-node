@@ -1,7 +1,3 @@
 export enum UserRole {
-  Admin,
-  Guest,
-  OrgMember,
-  OrgOwner,
-  User
+	Admin, OrgMember, OrgOwner, OrgAdmin, OrgBoxOffice, DoorPerson, User
 }

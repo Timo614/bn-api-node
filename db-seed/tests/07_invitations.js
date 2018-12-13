@@ -19,7 +19,8 @@ describe("Integration::Invitations", () => {
 			org = orgs.data.data ? orgs.data.data[0] : orgs.data[0];
 			let response = await adminServer.organizations.invite.create({
 				organization_id: org.id,
-				user_email: "alice@token.com"
+				user_email: "alice@token.com",
+				role: "OrgMember"
 			});
 			invitations.existingUser = response.data;
 			assert.strictEqual(response.status, 201);
@@ -28,7 +29,8 @@ describe("Integration::Invitations", () => {
 		it("Invites a new user bob@sagget.com", async () => {
 			let response = await adminServer.organizations.invite.create({
 				organization_id: org.id,
-				user_email: "bob@sagget.com"
+				user_email: "bob@sagget.com",
+				role: "OrgMember"
 			});
 			invitations.newUser = response.data;
 			assert.strictEqual(response.status, 201);
@@ -37,7 +39,8 @@ describe("Integration::Invitations", () => {
 		it("Invites an invalid email that doesn't exist asdf😰kkruigfvsa.asdnf3", () => {
 			return q.shouldFail(adminServer.organizations.invite.create({
 				organization_id: org.id,
-				user_email: "asdf😰kkruigfvsa.asdnf3"
+				user_email: "asdf😰kkruigfvsa.asdnf3",
+				role: "OrgMember"
 			})).then(res => {
 				assert.strictEqual(res.status, 422);
 			})
