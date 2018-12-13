@@ -13,15 +13,29 @@ class OrganizationUsersResource extends ResourceClass {
 
 
 	/**
-	 * Add a user to the organization
+     * Update the owner of the organization
+     * @params {organization_id:uuid, owner_user_id: uuid }
+     * @required {organization_id:uuid, owner_user_id: uuid }
+     */
+	owner(): void {
+		return createRequestMethod({
+			method: "PUT",
+			path: "/{organization_id}/owner",
+			required: ["owner_user_id"],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Adds a role to user to the organization, if the user does not exist, it will be created
 	 * @params {organization_id:uuid, user_id: uuid }
-	 * @required {organization_id:uuid, user_id: uuid }
+	 * @required {organization_id:uuid, user_id: uuid, role: string }
 	 */
-	create(): void {
+	add(): void {
 		return createRequestMethod({
 			method: "POST",
 			path: "/{organization_id}/users",
-			required: ["user_id"],
+			required: ["user_id", "role"],
 			requiresAuth: true
 		}) as any;
 	}
