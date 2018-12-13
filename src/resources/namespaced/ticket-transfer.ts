@@ -26,16 +26,16 @@ class TicketTransferResource extends ResourceClass {
 	}
 
 	/**
-	 * Send ticket(s) to another user via email.
+	 * Send ticket(s) to another user via email/number.
 	 * @auth true
-	 * @params {ticket_ids: Array<id:uuid>, validity_period_in_seconds: number, email: string}
+	 * @params {ticket_ids: Array<id:uuid>, validity_period_in_seconds: number, email_or_phone: string}
 	 * @required {ticket_ids: Array<id:uuid>, validity_period_in_seconds: number}
 	 */
 	send(): TicketTransferAuthorizationInterface {
 		return createRequestMethod({
 			method: "POST",
 			path: "/send",
-			required: ["ticket_ids", "validity_period_in_seconds", "email"],
+			required: ["ticket_ids", "validity_period_in_seconds", "email_or_phone"],
 			requiresAuth: true
 		}) as any;
 	}
