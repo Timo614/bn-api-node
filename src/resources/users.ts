@@ -77,21 +77,6 @@ class UsersResource extends ResourceClass {
 	}
 
 	/**
-	 * Find a user by email address
-	 * @auth true
-	 * @params {email:string}
-	 * @required {email:string}
-	 */
-	findByEmail(): UserInterface {
-		return createRequestMethod({
-			method: "GET",
-			path: "",
-			required: ["email"],
-			requiresAuth: true
-		}) as any;
-	}
-
-	/**
 	 * Read a user
 	 * @auth true
 	 * @params {id:uuid}
