@@ -50,8 +50,8 @@ class OrganizationUsersResource extends ResourceClass {
 		return createRequestMethod({
 			name: "remove",
 			method: "DELETE",
-			path: "/{organization_id}/users",
-			required: ["user_id"],
+			path: "/{organization_id}/users/{user_id}",
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}
