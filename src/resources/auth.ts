@@ -1,6 +1,7 @@
-import { createRequestMethod } from "../interfaces/server/request-method.interface";
+import { createRequestMethod, RequestMethodInterface } from "../interfaces/server/request-method.interface";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface";
+import XhrClient from "../classes/xhr-client";
 
 /**
  * @endpoint auth
@@ -24,6 +25,13 @@ class AuthResource extends ResourceClass {
 			path: "/token",
 			required: ["email", "password"],
 			requiresAuth: false,
+			beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any ) {
+				for(let key in data) {
+					if (key !== "password") {
+						data[key] = data[key].trim();
+					}
+				}
+			},
 			afterRequest(server: any = {},client: any = {}, data: any = {}): Promise<any> {
 				client.setToken(data.data.access_token);
 				return Promise.resolve(data);

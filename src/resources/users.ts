@@ -1,9 +1,10 @@
-import { createRequestMethod } from "../interfaces/server/request-method.interface";
+import { createRequestMethod, RequestMethodInterface } from "../interfaces/server/request-method.interface";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { UserInterface } from "../interfaces/resources/user.interface";
 import { OrganizationInterface } from "../interfaces/resources/organization.interface";
 import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface";
 import UserDeviceTokensResource from "./namespaced/user-device-tokens";
+import XhrClient from "../classes/xhr-client";
 
 /**
  * @endpoint users
@@ -57,7 +58,14 @@ class UsersResource extends ResourceClass {
 			method: "POST",
 			path: "/register",
 			required: ["email", "password"],
-			requiresAuth: false
+			requiresAuth: false,
+			beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any ) {
+				for(let key in data) {
+					if (key !== "password") {
+						data[key] = data[key].trim();
+					}
+				}
+			},
 		}) as any;
 	}
 
@@ -72,7 +80,14 @@ class UsersResource extends ResourceClass {
 			method: "POST",
 			path: "",
 			required: ["email", "password"],
-			requiresAuth: false
+			requiresAuth: false,
+			beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any ) {
+				for(let key in data) {
+					if (key !== "password") {
+						data[key] = data[key].trim();
+					}
+				}
+			},
 		}) as any;
 	}
 

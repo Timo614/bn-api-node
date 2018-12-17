@@ -18,7 +18,7 @@ let server = new Server({
 // server.artists.search({q: "Powerwolf", spotify: 1}, {}, false, {minTimeout: 100000}).then(result => {
 // 	console.log('res', result.data);
 // });
-server.auth.authenticate({ email: "superuser@test.com", password: "password" }).then(a => {
+server.users.create({ first_name: "     FIRST NAME     ", last_name: "     LAST NAME      ", email: "  superuser@testb.com      ", password: "   password    " }).then(a => {
 	// server.events.guests.index({
 	// 	event_id: "20d44514-c2bc-4536-8749-e7ec586b3cb8",
 	// 	query: ""
@@ -27,15 +27,15 @@ server.auth.authenticate({ email: "superuser@test.com", password: "password" }).
 	// }).catch(e => {
 	// 	console.log("Err", e);
 	// })
-	server.events.tickets.redeem({
-		event_id: "20d44514-c2bc-4536-8749-e7ec586b3cb8",
-		ticket_id: "e9e377be-0f1f-4e2e-8638-5b3d71b1d2b5",
-		redeem_key: "HW54Q9SG2"
-	}).then(res => {
-		console.log("Read", res);
-	}).catch(e => {
-		console.log("Error" ,e);
-	})
+	// server.events.tickets.redeem({
+	// 	event_id: "20d44514-c2bc-4536-8749-e7ec586b3cb8",
+	// 	ticket_id: "e9e377be-0f1f-4e2e-8638-5b3d71b1d2b5",
+	// 	redeem_key: "HW54Q9SG2"
+	// }).then(res => {
+	// 	console.log("Read", res);
+	// }).catch(e => {
+	// 	console.log("Error" ,e);
+	// })
 }).catch(e => {
 	console.log("err", e);
 });

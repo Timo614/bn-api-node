@@ -1,3 +1,9 @@
+#### 0.3.17 (2018-12-17)
+
+##### New Features
+
+*  Trimming user create, createAndLogin and auth fields ([4cf320fd](https://github.com/big-neon/bn-api-node/commit/4cf320fdee105313ca646dcdd1176d851e2e7989))
+
 #### 0.3.13 (2018-12-12)
 
 ##### Documentation Changes
