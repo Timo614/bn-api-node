@@ -12,18 +12,18 @@ class OrganizationInvitationsResource extends ResourceClass {
 	}
 
 	/**
-	 * Create and invitiation to this organization
+	 * Create and invitation to this organization
 	 * @auth true
 	 * @alias invite
-	 * @params {organization_id:uuid, user_email: string, role: [[UserRole]]}
-	 * @required {organization_id:uuid, user_email: string, role: [[UserRole]]}
+	 * @params {organization_id:uuid, user_email: string, roles: Array<[[UserRole]]>}
+	 * @required {organization_id:uuid, user_email: string, roles: Array<[[UserRole]]>}
 	 */
 	create(): OrganizationInvitationInterface {
 		return createRequestMethod({
 			name: "invite",
 			method: "POST",
 			path: "/{organization_id}/invites",
-			required: ["user_email", "role"],
+			required: ["user_email", "roles"],
 			requireOne: [],
 			requiresAuth: true
 		}) as any;

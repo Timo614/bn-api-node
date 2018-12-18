@@ -20,7 +20,7 @@ describe("Integration::Invitations", () => {
 			let response = await adminServer.organizations.invite.create({
 				organization_id: org.id,
 				user_email: "alice@token.com",
-				role: "OrgMember"
+				roles: ["OrgMember"]
 			});
 			invitations.existingUser = response.data;
 			assert.strictEqual(response.status, 201);
@@ -30,7 +30,7 @@ describe("Integration::Invitations", () => {
 			let response = await adminServer.organizations.invite.create({
 				organization_id: org.id,
 				user_email: "bob@sagget.com",
-				role: "OrgMember"
+				roles: ["OrgMember", "DoorPerson"]
 			});
 			invitations.newUser = response.data;
 			assert.strictEqual(response.status, 201);
@@ -40,7 +40,7 @@ describe("Integration::Invitations", () => {
 			return q.shouldFail(adminServer.organizations.invite.create({
 				organization_id: org.id,
 				user_email: "asdf😰kkruigfvsa.asdnf3",
-				role: "OrgMember"
+				roles: ["OrgMember"]
 			})).then(res => {
 				assert.strictEqual(res.status, 422);
 			})

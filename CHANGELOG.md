@@ -1,3 +1,9 @@
+#### 0.3.19 (2018-12-18)
+
+##### Other Changes
+
+*  roles are now arrays for invitations ([03b04e8e](https://github.com/big-neon/bn-api-node/commit/03b04e8ece2c5ca9c68c86f55668aa64dbddd937))
+
 #### 0.3.18 (2018-12-18)
 
 ##### New Features
