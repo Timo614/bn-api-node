@@ -11,12 +11,12 @@ describe("Integration::TicketPricing", () => {
 
 	describe("SuperUser Actions", () => {
 		let eventsByName = {};
-		before(async () => {
+		before(async function () {
 			adminServer = await global.getAdminServer();
 			eventsByName = await global.getEvents();
 		});
 
-		it("SuperUser updates ticket pricing for event Boxing Day Brawl", async () => {
+		it("SuperUser updates ticket pricing for event Boxing Day Brawl", async function () {
 			let event = await adminServer.events.read({ id: eventsByName["Boxing Day Brawl"] });
 			let ticketType = event.data.ticket_types.pop();
 

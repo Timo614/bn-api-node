@@ -119,6 +119,8 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_namespaced_organization_invitations_.organizationinvitationsresource.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_namespaced_organization_invitations_.organizationinvitationsresource.html#del" class="tsd-kind-icon">del</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_namespaced_organization_invitations_.organizationinvitationsresource.html#index" class="tsd-kind-icon">index</a></li>
 							</ul>
 						</section>
 					</div>
@@ -137,7 +139,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/2fb49d4/src/resources/namespaced/organization-invitations.ts#L8">resources/namespaced/organization-invitations.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/9314fc7/src/resources/namespaced/organization-invitations.ts#L9">resources/namespaced/organization-invitations.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_resources_namespaced_organization_invitations_.organizationinvitationsresource.html" class="tsd-signature-type">OrganizationInvitationsResource</a></h4>
@@ -155,7 +157,7 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#methods">methods</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#methods">methods</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/2fb49d4/src/classes/abstracts/resource.class.ts#L9">classes/abstracts/resource.class.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/9314fc7/src/classes/abstracts/resource.class.ts#L9">classes/abstracts/resource.class.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +169,7 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#namespaces">namespaces</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#namespaces">namespaces</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/2fb49d4/src/classes/abstracts/resource.class.ts#L7">classes/abstracts/resource.class.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/9314fc7/src/classes/abstracts/resource.class.ts#L7">classes/abstracts/resource.class.ts:7</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -187,7 +189,7 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#path">path</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#path">path</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/2fb49d4/src/classes/abstracts/resource.class.ts#L5">classes/abstracts/resource.class.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/9314fc7/src/classes/abstracts/resource.class.ts#L5">classes/abstracts/resource.class.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -204,12 +206,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/2fb49d4/src/resources/namespaced/organization-invitations.ts#L20">resources/namespaced/organization-invitations.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/9314fc7/src/resources/namespaced/organization-invitations.ts#L21">resources/namespaced/organization-invitations.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>List the events that are a part of this organization</p>
+									<p>Create and invitiation to this organization</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>auth</dt>
@@ -227,6 +229,76 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_organization_invitation_interface_.organizationinvitationinterface.html" class="tsd-signature-type">OrganizationInvitationInterface</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="del" class="tsd-anchor"></a>
+					<h3>del</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">del<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/9314fc7/src/resources/namespaced/organization-invitations.ts#L56">resources/namespaced/organization-invitations.ts:56</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete a pending invitation to this organization</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>auth</dt>
+									<dd><p>true</p>
+									</dd>
+									<dt>params</dt>
+									<dd><p>{organization_id:uuid, invite_id: uuid}</p>
+									</dd>
+									<dt>required</dt>
+									<dd><p>{organization_id:uuid, invite_id: uuid}</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>status: 200</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="index" class="tsd-anchor"></a>
+					<h3>index</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">index<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_structures_index_interface_.indexinterface.html" class="tsd-signature-type">IndexInterface</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/9314fc7/src/resources/namespaced/organization-invitations.ts#L39">resources/namespaced/organization-invitations.ts:39</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Index pending invitation to this organization</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>auth</dt>
+									<dd><p>true</p>
+									</dd>
+									<dt>params</dt>
+									<dd><p>{organization_id:uuid}</p>
+									</dd>
+									<dt>required</dt>
+									<dd><p>{organization_id:uuid}</p>
+									</dd>
+									<dt>data</dt>
+									<dd><p>Array&lt;<a href="../interfaces/_interfaces_resources_organization_invitation_interface_.organizationinvitationinterface.html">OrganizationInvitationInterface</a>&gt;</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_structures_index_interface_.indexinterface.html" class="tsd-signature-type">IndexInterface</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -264,6 +336,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_resources_namespaced_organization_invitations_.organizationinvitationsresource.html#create" class="tsd-kind-icon">create</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_resources_namespaced_organization_invitations_.organizationinvitationsresource.html#del" class="tsd-kind-icon">del</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_resources_namespaced_organization_invitations_.organizationinvitationsresource.html#index" class="tsd-kind-icon">index</a>
 							</li>
 						</ul>
 					</li>

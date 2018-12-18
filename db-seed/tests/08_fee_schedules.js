@@ -12,12 +12,12 @@ describe("Integration::FeeSchedule", () => {
 
 	describe("SuperUser Actions", () => {
 		let orgsByName = {};
-		before(async () => {
+		before(async function () {
 			adminServer = await global.getAdminServer();
 			orgsByName = await global.getOrganizations();
 		});
 
-		it("SuperUser creates fee schedule for Organization: The Midway", async () => {
+		it("SuperUser creates fee schedule for Organization: The Midway", async function () {
 			let result = await adminServer.organizations.feeSchedules.create({
 				organization_id: orgsByName["The Midway"],
 				name: "Fee Schedule 1",

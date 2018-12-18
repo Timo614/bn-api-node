@@ -59,7 +59,7 @@ describe("Integration::Events", function () {
 				);
 			});
 
-			it(`SuperUser adds Daft Punk artists to event ${event.name}`, async () => {
+			it(`SuperUser adds Daft Punk artists to event ${event.name}`, async function () {
 				let artistId = artistsByName["Daft Punk"];
 				let result = await adminServer.events.artists.create({
 					event_id: id,
@@ -73,7 +73,7 @@ describe("Integration::Events", function () {
 
 			if (i == 0) {
 				//Only add Billy Joel to the first event
-				it(`SuperUser Adds Billy Joel to event ${event.name}`, async () => {
+				it(`SuperUser Adds Billy Joel to event ${event.name}`, async function () {
 					let dpArtistId = artistsByName["Daft Punk"];
 					let bjArtistId = artistsByName["Billy Joel"];
 
@@ -234,7 +234,7 @@ describe("Integration::Events", function () {
 		});
 
 
-		it("Compares Interface with Response", async () => {
+		it("Compares Interface with Response", async function () {
 			let result = await adminServer.events.read({ id: list[0].id });
 			let event = result.data;
 			let localInterface = interfaceFields.createEvent();

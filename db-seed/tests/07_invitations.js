@@ -14,7 +14,7 @@ describe("Integration::Invitations", () => {
 			publicServer = await global.getPublicServer();
 		});
 
-		it("Invites a user that exists alice@token.com ", async () => {
+		it("Invites a user that exists alice@token.com ", async function () {
 			let orgs = await adminServer.organizations.index();
 			org = orgs.data.data ? orgs.data.data[0] : orgs.data[0];
 			let response = await adminServer.organizations.invite.create({
@@ -26,7 +26,7 @@ describe("Integration::Invitations", () => {
 			assert.strictEqual(response.status, 201);
 		});
 
-		it("Invites a new user bob@sagget.com", async () => {
+		it("Invites a new user bob@sagget.com", async function () {
 			let response = await adminServer.organizations.invite.create({
 				organization_id: org.id,
 				user_email: "bob@sagget.com",
@@ -46,14 +46,14 @@ describe("Integration::Invitations", () => {
 			})
 		});
 		// describe("Invitees check, accept and decline", () => {
-		it("Unauthorized user can view their invite", async () => {
+		it("Unauthorized user can view their invite", async function () {
 			let response = await publicServer.invitations.read({security_token: invitations.newUser.security_token});
 			assert.strictEqual(response.status, 200);
 			assert.strictEqual(response.data.organization_name, org.name);
 			assert.strictEqual(response.data.inviter_name, "System Administrator");
 		});
 
-		it("Authorized user can accept their invite", async () => {
+		it("Authorized user can accept their invite", async function () {
 			let aliceServer = await global.getServer();
 			await aliceServer.auth.create({
 				email: "alice@token.com",
@@ -63,7 +63,7 @@ describe("Integration::Invitations", () => {
 			assert.strictEqual(response.status, 200);
 		});
 
-		it("Unauthorized user can decline their invite", async () => {
+		it("Unauthorized user can decline their invite", async function () {
 			// let response = await publicServer.invitations.decline({security_token: invitations.newUser.security_token});
 		});
 		// });

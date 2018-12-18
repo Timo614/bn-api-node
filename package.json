@@ -11,14 +11,12 @@
     "build:server": "webpack --config ./build/webpack.server.js",
     "build:tsc": "tsc",
     "build:docs": "typedoc --out docs && touch docs/.nojekyll",
+    "build:changelog": "changelog -p",
     "db-seed": "npm run build:tsc && cd db-seed && node db-seed",
     "eslint:validate": "node_modules/eslint/bin/eslint.js  -c .eslintrc --ext .ts --ext .js ./src/",
     "eslint:fix": "node_modules/eslint/bin/eslint.js --fix -c .eslintrc --ext .ts --ext .js ./src/**/*",
     "prepublish": "npm run build",
-    "prepare": "[ \"$NODE_ENV\" != \"production\" ] && git config core.hooksPath .githooks",
-    "release:major": "node_modules/.bin/changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
-    "release:minor": "node_modules/.bin/changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
-    "release:patch": "node_modules/.bin/changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
+    "prepare": "[ \"$NODE_ENV\" != \"production\" ] && git config core.hooksPath .githooks"
   },
   "repository": {
     "type": "git",

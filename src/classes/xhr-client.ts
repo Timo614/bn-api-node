@@ -73,9 +73,13 @@ export default class XhrClient {
 	}
 
 	public getAuthAgent(headers: any = {}) {
+		let auth: any = {};
+		if (this.token) {
+			auth["Authorization"] = `Bearer ${this.token}`;
+		}
 		headers = {
 			...headers,
-			Authorization: `Bearer ${this.token}`
+			...auth,
 		};
 		return this._getAgent(headers);
 	}

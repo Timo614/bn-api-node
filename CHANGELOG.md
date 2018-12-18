@@ -1,3 +1,9 @@
+#### 0.3.18 (2018-12-18)
+
+##### New Features
+
+* **endpoints:**  Added organization invite endpoints ([9314fc7f](https://github.com/big-neon/bn-api-node/commit/9314fc7fee2914602877b0725be33b1cf41665e0))
+
 #### 0.3.17 (2018-12-17)
 
 ##### New Features

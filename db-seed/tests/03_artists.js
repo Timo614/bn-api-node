@@ -31,6 +31,33 @@ describe("Integration::Artists", function() {
 				global.artistsByName[result.data.name] = result.data.id;
 			});
 		});
+		describe("Retrieve and validate artist row", function() {
+			let list = [], response, artist;
+			before(async function() {
+				try {
+					response = await adminServer.artists.index();
+				}catch(e) {
+					console.log(e);
+				}
+				assert.strictEqual(response.status, 200, `Response status: ${response.status}`);
+			});
+			it("an authenticated user can retrieve the artist list", async function() {
+				list = response.data.data;
+				assert.strictEqual(list.length, artists.length, `Mismatched list length Server: ${list.length} Local: ${artists.length}`);
+				assert.strictEqual(list[0].name, "Billy Joel", `Was expecting "Billy Joel" but got ${list[0].name}`);
+			});
+
+			it("an authenticated user can retrieve an artist", async function() {
+				artist = await adminServer.artists.read({ id: list[0].id });
+				assert.strictEqual(artist.status, 200);
+				assert.strictEqual(artist.data.name, list[0].name); //First name in the list if default sort is by name
+			});
+
+			it("an artist interface has matching fields", () => {
+				let artistInterface = artistFields.createArtist();
+				assertFieldsMatch(artist.data, artistInterface, "Artists: ");
+			});
+		});
 
 	});
 
@@ -56,29 +83,35 @@ describe("Integration::Artists", function() {
 		// 	assert.strictEqual(matches[0].facebook_username, "DaftPunk");
 		// });
 
-		describe("Retrieve and validate artist row", function() {
-			let list = [], response, artist;
-			before(async () =>{
-				response = await publicServer.artists.index();
-				assert.strictEqual(response.status, 200, `Response status: ${response.status}`);
-			});
-			it("an unauthenticated user can retrieve the artist list", async function() {
-				list = response.data.data;
-				assert.strictEqual(list.length, artists.length, `Mismatched list length Server: ${list.length} Local: ${artists.length}`);
-				assert.strictEqual(list[0].name, "Billy Joel", `Was expecting "Billy Joel" but got ${list[0].name}`);
-			});
-
-			it("an unauthenticated user can retrieve an artist", async function() {
-				artist = await publicServer.artists.read({ id: list[0].id });
-				assert.strictEqual(artist.status, 200);
-				assert.strictEqual(artist.data.name, list[0].name); //First name in the list if default sort is by name
-			});
-
-			it("an artist interface has matching fields", () => {
-				let artistInterface = artistFields.createArtist();
-				assertFieldsMatch(artist.data, artistInterface, "Artists: ");
-			});
-		});
+		// describe("Retrieve and validate artist row", function() {
+		// 	let list = [], response, artist;
+		// 	before(async function() {
+		// 		try {
+		// 			response = await publicServer.artists.index();
+		// 			console.log(response);
+		//
+		// 		}catch(e) {
+		// 			console.log(e);
+		// 		}
+		// 		assert.strictEqual(response.status, 200, `Response status: ${response.status}`);
+		// 	});
+		// 	it("an unauthenticated user can retrieve the artist list", async function() {
+		// 		list = response.data.data;
+		// 		assert.strictEqual(list.length, artists.length, `Mismatched list length Server: ${list.length} Local: ${artists.length}`);
+		// 		assert.strictEqual(list[0].name, "Billy Joel", `Was expecting "Billy Joel" but got ${list[0].name}`);
+		// 	});
+		//
+		// 	it("an unauthenticated user can retrieve an artist", async function() {
+		// 		artist = await publicServer.artists.read({ id: list[0].id });
+		// 		assert.strictEqual(artist.status, 200);
+		// 		assert.strictEqual(artist.data.name, list[0].name); //First name in the list if default sort is by name
+		// 	});
+		//
+		// 	it("an artist interface has matching fields", () => {
+		// 		let artistInterface = artistFields.createArtist();
+		// 		assertFieldsMatch(artist.data, artistInterface, "Artists: ");
+		// 	});
+		// });
 	});
 
 

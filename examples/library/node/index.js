@@ -45,7 +45,7 @@ const Bigneon = require("../../../dist/bundle.node.js").default;
 let bigneon = new Bigneon.Server();
 console.log(bigneon.matchUrl("post", "/events/bd029204-9be0-40dd-ab38-439a17d51ba2/tickets"));
 return;
-(async () => {
+(async function () {
 
 
 })();

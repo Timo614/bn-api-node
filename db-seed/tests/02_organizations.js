@@ -59,12 +59,12 @@ describe("Integration::Organizations", function () {
 		});
 		describe("Retrieve and validate organization", function () {
 			let list = [], response, org;
-			before(async () => {
+			before(async function() {
 				response = await adminServer.organizations.index();
 				assert.strictEqual(response.status, 200, `Response status: ${response.status}`);
 			});
 
-			it("and authenticated user can retrieve a list of organizations", async () => {
+			it("an authenticated user can retrieve a list of organizations", async function () {
 				list = response.data.data;
 				assert.strictEqual(list.length, orgs.length, `Mismatched list length Server: ${list.length} Local: ${orgs.length}`);
 			});

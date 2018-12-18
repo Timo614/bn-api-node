@@ -30,7 +30,7 @@ describe("Integration::Venues", async function() {
 			});
 		}
 
-		it("updates a venue", async () => {
+		it("updates a venue", async function () {
 			let updateId = global.venuesByName["Lavo Nightclu"];
 			let original = await adminServer.venues.read({id: updateId});
 			original = original.data;
@@ -54,7 +54,7 @@ describe("Integration::Venues", async function() {
 
 		describe("Retrieve and validate venue row", function() {
 			let list = [], response, venue;
-			before(async () =>{
+			before(async function() {
 				response = await publicServer.venues.index();
 				assert.strictEqual(response.status, 200, `Response status: ${response.status}`);
 			});

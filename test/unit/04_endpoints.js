@@ -79,7 +79,7 @@ describe("Unit::Compare bn-api endpoints to bn-api-node endpoints", () => {
 		});
 
 	});
-	it(`The bn-api-node endpoints must match bn-api routing.rs endpoints branch: ${branch}`, async () => {
+	it(`The bn-api-node endpoints must match bn-api routing.rs endpoints branch: ${branch}`, async function () {
 
 		const missingFromLocal = compare(remoteUrlsAndMethods, localUrlsAndMethods);
 
@@ -92,7 +92,7 @@ describe("Unit::Compare bn-api endpoints to bn-api-node endpoints", () => {
 		assert.strictEqual(missingFromLocal.length, 0, message);
 	});
 
-	it(`The bn-api endpoints should match bn-api-node endpoints branch: ${branch}`, async () => {
+	it(`The bn-api endpoints should match bn-api-node endpoints branch: ${branch}`, async function () {
 		//Don't assert, sometimes the local library has endpoints that are not required on the server
 		const missingFromRemote = compare(localUrlsAndMethods, remoteUrlsAndMethods);
 

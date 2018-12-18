@@ -24,7 +24,7 @@ describe("Integration::Regions", async function() {
 			});
 		});
 
-		it("updates a region", async () => {
+		it("updates a region", async function () {
 			let updateId = global.regionsByName["New Orlean"];
 			let original = await adminServer.regions.read({id: updateId});
 			original = original.data;

@@ -8,7 +8,7 @@ describe("Unit::Mock Data", () => {
 
 	describe("Mock Events", () => {
 		let events = [];
-		it("The mocker should be able to request events", async () => {
+		it("The mocker should be able to request events", async function () {
 			events = await global.mockServer.events.index();
 			assert.notEqual(events.data.length, 0, "There should be more than 0 events")
 		});
@@ -17,7 +17,7 @@ describe("Unit::Mock Data", () => {
 			assert.strictEqual(events.data[0].name, "Event 1", "The first event is named Event 1");
 		});
 
-		it("Creates an event interest", async () => {
+		it("Creates an event interest", async function () {
 			const interest = await global.mockServer.events.interests.create({ event_id: "event_id_1" });
 			assert.strictEqual(interest.id, "event_interest_id_1", "Expecting event_interest_id_1");
 		})
