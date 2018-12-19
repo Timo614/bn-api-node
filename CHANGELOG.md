@@ -1,3 +1,9 @@
+#### 0.3.20 (2018-12-19)
+
+##### Other Changes
+
+*  Add missing org and artist fields ([d7af3f1d](https://github.com/big-neon/bn-api-node/commit/d7af3f1dc45fbca07041ae37841de4a0b45eca29))
+
 #### 0.3.19 (2018-12-18)
 
 ##### Other Changes
