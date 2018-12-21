@@ -246,10 +246,6 @@ export class RequestMethod {
 				}
 			}
 
-
-
-
-
 			if (promise) {
 				if (this.client.serverInterface.returnDataOnly || returnDataOnly) {
 					promise = promise.then((response:any) => {

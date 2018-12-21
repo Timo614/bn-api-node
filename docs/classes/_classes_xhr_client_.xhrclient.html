@@ -91,10 +91,14 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#agent" class="tsd-kind-icon">agent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#attemptreauth" class="tsd-kind-icon">attempt<wbr>ReAuth</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#authtokenexpires" class="tsd-kind-icon">auth<wbr>Token<wbr>Expires</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#authtokens" class="tsd-kind-icon">auth<wbr>Tokens</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#mocker" class="tsd-kind-icon">mocker</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#params" class="tsd-kind-icon">params</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#prefix" class="tsd-kind-icon">prefix</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#server" class="tsd-kind-icon">server</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#serverinterface" class="tsd-kind-icon">server<wbr>Interface</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#token" class="tsd-kind-icon">token</a></li>
 							</ul>
 						</section>
@@ -104,7 +108,9 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_classes_xhr_client_.xhrclient.html#_getagent" class="tsd-kind-icon">_get<wbr>Agent</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#getauthagent" class="tsd-kind-icon">get<wbr>Auth<wbr>Agent</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#getpublicagent" class="tsd-kind-icon">get<wbr>Public<wbr>Agent</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#isauthed" class="tsd-kind-icon">is<wbr>Authed</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#settoken" class="tsd-kind-icon">set<wbr>Token</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_classes_xhr_client_.xhrclient.html#settokens" class="tsd-kind-icon">set<wbr>Tokens</a></li>
 							</ul>
 						</section>
 					</div>
@@ -116,13 +122,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Xhr<wbr>Client<span class="tsd-signature-symbol">(</span>server<span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_server_server_interface_.serverinterface.html" class="tsd-signature-type">ServerInterface</a>, clientParams<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, mocker<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_interfaces_mocks_mocker_interface_.mockerinterface.html" class="tsd-signature-type">MockerInterface</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_classes_xhr_client_.xhrclient.html" class="tsd-signature-type">XhrClient</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Xhr<wbr>Client<span class="tsd-signature-symbol">(</span>server<span class="tsd-signature-symbol">: </span><a href="_classes_server_.server.html" class="tsd-signature-type">Server</a>, clientParams<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, mocker<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_interfaces_mocks_mocker_interface_.mockerinterface.html" class="tsd-signature-type">MockerInterface</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_classes_xhr_client_.xhrclient.html" class="tsd-signature-type">XhrClient</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/257c1a1/src/classes/xhr-client.ts#L19">classes/xhr-client.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L33">classes/xhr-client.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -130,7 +136,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>server: <a href="../interfaces/_interfaces_server_server_interface_.serverinterface.html" class="tsd-signature-type">ServerInterface</a></h5>
+									<h5>server: <a href="_classes_server_.server.html" class="tsd-signature-type">Server</a></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> clientParams: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
@@ -161,7 +167,37 @@
 					<div class="tsd-signature tsd-kind-icon">agent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/257c1a1/src/classes/xhr-client.ts#L19">classes/xhr-client.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L33">classes/xhr-client.ts:33</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="attemptreauth" class="tsd-anchor"></a>
+					<h3>attempt<wbr>ReAuth</h3>
+					<div class="tsd-signature tsd-kind-icon">attempt<wbr>ReAuth<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L29">classes/xhr-client.ts:29</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="authtokenexpires" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> auth<wbr>Token<wbr>Expires</h3>
+					<div class="tsd-signature tsd-kind-icon">auth<wbr>Token<wbr>Expires<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L27">classes/xhr-client.ts:27</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="authtokens" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> auth<wbr>Tokens</h3>
+					<div class="tsd-signature tsd-kind-icon">auth<wbr>Tokens<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_resources_auth_token_interface_.authtokeninterface.html" class="tsd-signature-type">AuthTokenInterface</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L25">classes/xhr-client.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -171,7 +207,7 @@
 					<div class="tsd-signature tsd-kind-icon">mocker<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_mocks_mocker_interface_.mockerinterface.html" class="tsd-signature-type">MockerInterface</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/257c1a1/src/classes/xhr-client.ts#L17">classes/xhr-client.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L31">classes/xhr-client.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -181,7 +217,7 @@
 					<div class="tsd-signature tsd-kind-icon">params<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/257c1a1/src/classes/xhr-client.ts#L13">classes/xhr-client.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L18">classes/xhr-client.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -191,17 +227,27 @@
 					<div class="tsd-signature tsd-kind-icon">prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/257c1a1/src/classes/xhr-client.ts#L11">classes/xhr-client.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L16">classes/xhr-client.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="server" class="tsd-anchor"></a>
 					<h3>server</h3>
-					<div class="tsd-signature tsd-kind-icon">server<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_server_server_interface_.serverinterface.html" class="tsd-signature-type">ServerInterface</a></div>
+					<div class="tsd-signature tsd-kind-icon">server<span class="tsd-signature-symbol">:</span> <a href="_classes_server_.server.html" class="tsd-signature-type">Server</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/257c1a1/src/classes/xhr-client.ts#L9">classes/xhr-client.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L14">classes/xhr-client.ts:14</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="serverinterface" class="tsd-anchor"></a>
+					<h3>server<wbr>Interface</h3>
+					<div class="tsd-signature tsd-kind-icon">server<wbr>Interface<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_server_server_interface_.serverinterface.html" class="tsd-signature-type">ServerInterface</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L12">classes/xhr-client.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -211,9 +257,15 @@
 					<div class="tsd-signature tsd-kind-icon">token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/257c1a1/src/classes/xhr-client.ts#L15">classes/xhr-client.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L23">classes/xhr-client.ts:23</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>deprecated</dt>
+							<dd></dd>
+						</dl>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -228,7 +280,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/257c1a1/src/classes/xhr-client.ts#L48">classes/xhr-client.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L63">classes/xhr-client.ts:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -245,13 +297,13 @@
 					<a name="getauthagent" class="tsd-anchor"></a>
 					<h3>get<wbr>Auth<wbr>Agent</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Auth<wbr>Agent<span class="tsd-signature-symbol">(</span>headers<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AxiosInstance</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Auth<wbr>Agent<span class="tsd-signature-symbol">(</span>headers<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/257c1a1/src/classes/xhr-client.ts#L75">classes/xhr-client.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L112">classes/xhr-client.ts:112</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -260,7 +312,7 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> headers: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">AxiosInstance</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -268,13 +320,13 @@
 					<a name="getpublicagent" class="tsd-anchor"></a>
 					<h3>get<wbr>Public<wbr>Agent</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Public<wbr>Agent<span class="tsd-signature-symbol">(</span>headers<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AxiosInstance</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Public<wbr>Agent<span class="tsd-signature-symbol">(</span>headers<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/257c1a1/src/classes/xhr-client.ts#L67">classes/xhr-client.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L103">classes/xhr-client.ts:103</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -283,7 +335,24 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> headers: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">AxiosInstance</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isauthed" class="tsd-anchor"></a>
+					<h3>is<wbr>Authed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Authed<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L97">classes/xhr-client.ts:97</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -297,13 +366,44 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/257c1a1/src/classes/xhr-client.ts#L63">classes/xhr-client.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L82">classes/xhr-client.ts:82</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>deprecated</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>token: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="settokens" class="tsd-anchor"></a>
+					<h3>set<wbr>Tokens</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Tokens<span class="tsd-signature-symbol">(</span>tokens<span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_auth_token_interface_.authtokeninterface.html" class="tsd-signature-type">AuthTokenInterface</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/49b873a/src/classes/xhr-client.ts#L89">classes/xhr-client.ts:89</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
+									<h5>tokens: <a href="../interfaces/_interfaces_resources_auth_token_interface_.authtokeninterface.html" class="tsd-signature-type">AuthTokenInterface</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -337,6 +437,15 @@
 								<a href="_classes_xhr_client_.xhrclient.html#agent" class="tsd-kind-icon">agent</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_classes_xhr_client_.xhrclient.html#attemptreauth" class="tsd-kind-icon">attempt<wbr>ReAuth</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_classes_xhr_client_.xhrclient.html#authtokenexpires" class="tsd-kind-icon">auth<wbr>Token<wbr>Expires</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_classes_xhr_client_.xhrclient.html#authtokens" class="tsd-kind-icon">auth<wbr>Tokens</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_classes_xhr_client_.xhrclient.html#mocker" class="tsd-kind-icon">mocker</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -347,6 +456,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_classes_xhr_client_.xhrclient.html#server" class="tsd-kind-icon">server</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_classes_xhr_client_.xhrclient.html#serverinterface" class="tsd-kind-icon">server<wbr>Interface</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_classes_xhr_client_.xhrclient.html#token" class="tsd-kind-icon">token</a>
@@ -361,12 +473,21 @@
 								<a href="_classes_xhr_client_.xhrclient.html#getpublicagent" class="tsd-kind-icon">get<wbr>Public<wbr>Agent</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_classes_xhr_client_.xhrclient.html#isauthed" class="tsd-kind-icon">is<wbr>Authed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_classes_xhr_client_.xhrclient.html#settoken" class="tsd-kind-icon">set<wbr>Token</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_classes_xhr_client_.xhrclient.html#settokens" class="tsd-kind-icon">set<wbr>Tokens</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="../modules/_classes_xhr_client_.html#jwtdecode" class="tsd-kind-icon">jwt<wbr>Decode</a>
+					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="../modules/_classes_xhr_client_.html#version" class="tsd-kind-icon">version</a>
 					</li>
