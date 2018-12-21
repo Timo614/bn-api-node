@@ -114,7 +114,7 @@ export default class XhrClient {
 		let auth: any = {};
 		if (this.isAuthed()) {
 			auth["Authorization"] = `Bearer ${this.authTokens.access_token}`;
-		} else if (this.attemptReAuth && this.authTokens.refresh_token){
+		} else if (this.attemptReAuth && this.authTokens && this.authTokens.refresh_token){
 			this.attemptReAuth = false;
 			let server: any = this.server;
 			await server.auth.refresh({ refresh_token: this.authTokens.refresh_token });
