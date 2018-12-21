@@ -5,7 +5,7 @@ const clientConfig = {
 	target: "web",
 	mode: "production",
 	devtool: "eval",
-	entry: "./src/index.ts",
+	entry: ["babel-polyfill","./src/index.ts"],
 	output: {
 		filename: "bundle.client.js",
 		libraryTarget: "umd",
