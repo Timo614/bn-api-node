@@ -12,7 +12,7 @@ class OrganizationInvitationsResource extends ResourceClass {
 	}
 
 	/**
-	 * Create and invitation to this organization
+	 * Create an invitation to this organization
 	 * @auth true
 	 * @alias invite
 	 * @params {organization_id:uuid, user_email: string, roles: Array<[[UserRole]]>}

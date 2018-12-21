@@ -33,7 +33,7 @@ class AuthResource extends ResourceClass {
 				}
 			},
 			afterRequest(server: any = {},client: any = {}, data: any = {}): Promise<any> {
-				client.setToken(data.data.access_token);
+				client.setTokens(data.data);
 				return Promise.resolve(data);
 			}
 		}) as any;
@@ -41,7 +41,7 @@ class AuthResource extends ResourceClass {
 
 	/**
 	 * Refresh a user's token
-	 * @auth true
+	 * @auth false
 	 * @params {refresh_token:string}
 	 * @required {refresh_token:string}
 	 */
@@ -52,6 +52,10 @@ class AuthResource extends ResourceClass {
 			path: "/token/refresh",
 			required: ["refresh_token"],
 			requiresAuth: false,
+			afterRequest(server: any = {},client: any = {}, data: any = {}): Promise<any> {
+				client.setTokens(data.data);
+				return Promise.resolve(data);
+			}
 		}) as any;
 	}
 }

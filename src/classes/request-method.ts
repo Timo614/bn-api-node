@@ -176,7 +176,7 @@ export class RequestMethod {
 	 * @returns A function that when called requests the data from the server or a mocker
 	 */
 	_request(method: RequestMethodInterface): (data: Object, headers: Object, returnDataOnly: boolean, overrideMethod: RequestMethodInterface) => Promise<any> {
-		return (
+		return async (
 			data: any = {},
 			headers: any = {},
 			returnDataOnly: boolean = false,
@@ -197,18 +197,14 @@ export class RequestMethod {
 				method.beforeRequest(this.client, method, data, headers);
 			}
 
-			let axiosInstance = method.requiresAuth
-				? this.client.getAuthAgent(headers)
-				: this.client.getPublicAgent(headers);
 
-			if (method.minTimeout && method.minTimeout > axiosInstance.defaults.timeout) {
-				axiosInstance.defaults.timeout = method.minTimeout;
-			}
 
 			let promise;
+			if (process.env.DEBUG) {
+				console.debug(`URL: ${path}`);
+			}
 
 			if (this.client.mocker) {
-
 				for (let i in method.names) {
 					let methodName = method.names[i];
 					let mockerPath = `${this.parentEndpoint}.${method.namespace ? (method.namespace + ".") : ""}${methodName}`;
@@ -219,36 +215,44 @@ export class RequestMethod {
 						);
 					}
 				}
+			} else {
+				let axiosInstance = method.requiresAuth
+					? await this.client.getAuthAgent(headers)
+					: await this.client.getPublicAgent(headers);
 
 
-			}
-
-			if (process.env.DEBUG) {
-				console.debug(`URL: ${path}`);
-			}
-			//If no promise has been set, because either we are in production or there was no mock data file do the request.
-			if (!promise) {
-				switch (method.method.toUpperCase()) {
-					case "POST":
-						promise = axiosInstance.post(path, data);
-						break;
-					case "PUT":
-						promise = axiosInstance.put(path, data);
-						break;
-					case "PATCH":
-						promise = axiosInstance.patch(path, data);
-						break;
-					case "DELETE":
-						promise = axiosInstance.delete(path, { data });
-						break;
-					case "GET":
-						promise = axiosInstance.get(path, { params: data });
-						break;
+				if (method.minTimeout && method.minTimeout > axiosInstance.defaults.timeout) {
+					axiosInstance.defaults.timeout = method.minTimeout;
+				}
+				//If no promise has been set, because either we are in production or there was no mock data file do the request.
+				if (!promise) {
+					switch (method.method.toUpperCase()) {
+						case "POST":
+							promise = axiosInstance.post(path, data);
+							break;
+						case "PUT":
+							promise = axiosInstance.put(path, data);
+							break;
+						case "PATCH":
+							promise = axiosInstance.patch(path, data);
+							break;
+						case "DELETE":
+							promise = axiosInstance.delete(path, { data });
+							break;
+						case "GET":
+							promise = axiosInstance.get(path, { params: data });
+							break;
+					}
 				}
 			}
+
+
+
+
+
 			if (promise) {
-				if (this.client.server.returnDataOnly || returnDataOnly) {
-					promise = promise.then(response => {
+				if (this.client.serverInterface.returnDataOnly || returnDataOnly) {
+					promise = promise.then((response:any) => {
 						return Promise.resolve(response.data);
 					});
 				}

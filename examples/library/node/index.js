@@ -4,41 +4,56 @@ let server = new Server({
 	timeout: 30000,
 }, {
 
-	headers: {
-	}
+	headers: {}
 });
-// server.events.index({}, {}, false, {
-// 	afterRequest: async(server, client, response) => {
+server.client.setTokens({
+	access_token:
+		"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NGI3ZWZiNC02NDJkLTRjMTMtYTY2My0wYWQwODZiZGY0YTkiLCJpc3MiOiJ0ZW1wIiwiZXhwIjoxNTQ1Mzg3OTkxfQ.ptQG9TKGWhyp6OmgS7fc10qeT60RF49wHS4jihha3lc",
+	refresh_token:
+		"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NGI3ZWZiNC02NDJkLTRjMTMtYTY2My0wYWQwODZiZGY0YTkiLCJpc3MiOiJ0ZW1wIiwiaXNzdWVkIjoxNTQ1Mzg3MDkxfQ.yUDIqysHH3IKJvTo3uRRcIbpeOWIu6kso8g9CVlNuKc"
+});
+server.users.current().then(res => {
+	console.log(res.data);
+}).catch(e => {
+	console.log(e);
+});
+
+
+// serverInterface.auth.authenticate({ email: "superuser@test.com", password: "password" }).then(res => {
+// 	// console.log(res);
+// });
+// serverInterface.events.index({}, {}, false, {
+// 	afterRequest: async(serverInterface, client, response) => {
 // 		response.data.cacaw = true;
 // 		return response;
 // 	}
 // }).then(result => {
 // 	console.log('res', result.data.cacaw);
 // });
-// server.artists.search({q: "Powerwolf", spotify: 1}, {}, false, {minTimeout: 100000}).then(result => {
+// serverInterface.artists.search({q: "Powerwolf", spotify: 1}, {}, false, {minTimeout: 100000}).then(result => {
 // 	console.log('res', result.data);
 // });
-server.users.create({ first_name: "     FIRST NAME     ", last_name: "     LAST NAME      ", email: "  superuser@testb.com      ", password: "   password    " }).then(a => {
-	// server.events.guests.index({
-	// 	event_id: "20d44514-c2bc-4536-8749-e7ec586b3cb8",
-	// 	query: ""
-	// }).then(res => {
-	// 	console.log(res.data);
-	// }).catch(e => {
-	// 	console.log("Err", e);
-	// })
-	// server.events.tickets.redeem({
-	// 	event_id: "20d44514-c2bc-4536-8749-e7ec586b3cb8",
-	// 	ticket_id: "e9e377be-0f1f-4e2e-8638-5b3d71b1d2b5",
-	// 	redeem_key: "HW54Q9SG2"
-	// }).then(res => {
-	// 	console.log("Read", res);
-	// }).catch(e => {
-	// 	console.log("Error" ,e);
-	// })
-}).catch(e => {
-	console.log("err", e);
-});
+// serverInterface.users.create({ first_name: "     FIRST NAME     ", last_name: "     LAST NAME      ", email: "  superuser@testb.com      ", password: "   password    " }).then(a => {
+// 	// serverInterface.events.guests.index({
+// 	// 	event_id: "20d44514-c2bc-4536-8749-e7ec586b3cb8",
+// 	// 	query: ""
+// 	// }).then(res => {
+// 	// 	console.log(res.data);
+// 	// }).catch(e => {
+// 	// 	console.log("Err", e);
+// 	// })
+// 	// serverInterface.events.tickets.redeem({
+// 	// 	event_id: "20d44514-c2bc-4536-8749-e7ec586b3cb8",
+// 	// 	ticket_id: "e9e377be-0f1f-4e2e-8638-5b3d71b1d2b5",
+// 	// 	redeem_key: "HW54Q9SG2"
+// 	// }).then(res => {
+// 	// 	console.log("Read", res);
+// 	// }).catch(e => {
+// 	// 	console.log("Error" ,e);
+// 	// })
+// }).catch(e => {
+// 	console.log("err", e);
+// });
 return;
 const Bigneon = require("../../../dist/bundle.node.js").default;
 // console.log(Bigneon.resourceInterfaces.createArtist());
@@ -51,7 +66,7 @@ return;
 })();
 // return;
 //
-// const s = require('../../../dist/classes/server').Server;
+// const s = require('../../../dist/classes/serverInterface').Server;
 //
 // const Mocker = require('../../../dist/classes/mocker').Mocker;
 // console.log(Mocker);

@@ -5,7 +5,7 @@ const global = require("../global.setup");
 
 
 describe("Unit::Server", () => {
-	let authToken = global.authToken || "test_token";
+	let authToken = global.authToken || "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NGI3ZWZiNC02NDJkLTRjMTMtYTY2My0wYWQwODZiZGY0YTkiLCJpc3MiOiJ0ZW1wIiwiZXhwIjoxNTQ1Mzg3OTkxfQ.ptQG9TKGWhyp6OmgS7fc10qeT60RF49wHS4jihha3lc";
 	let server;
 	it("It should create a server", () => {
 		global.publicServer = server = new Server();
@@ -21,8 +21,8 @@ describe("Unit::Server", () => {
 		assert.strictEqual(server.client.token, authToken, "There must be a valid token");
 	});
 
-	it("It should get an authorized client agent", () => {
-		let client = server.client.getAuthAgent();
+	it("It should get an authorized client agent", async () => {
+		let client = await server.client.getAuthAgent();
 		assert.strictEqual(client.defaults.headers.Authorization, `Bearer ${authToken}`, "There must be a valid token in the Authorization header");
 	});
 

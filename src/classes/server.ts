@@ -11,7 +11,7 @@ import { ResourceInterface } from "../interfaces/server/resource";
 import ResourceClass from "./abstracts/resource.class";
 
 export class Server {
-	private serverInterface: ServerInterface;
+	serverInterface: ServerInterface;
 
 	private client: any;
 
@@ -23,7 +23,7 @@ export class Server {
 	constructor(options: any, clientParams: any = {}, mocker?: MockerInterface) {
 		let self: any = this;
 		this.serverInterface = createServer(options);
-		this.client = new XhrClient(this.serverInterface, clientParams, mocker);
+		this.client = new XhrClient(this, clientParams, mocker);
 
 		for (let key in Resources) {
 			let resourceData: any = Resources[key];

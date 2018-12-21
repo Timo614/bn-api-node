@@ -1,3 +1,9 @@
+#### 0.3.20 (2018-12-21)
+
+##### New Features
+
+* **endpoints:**  Added user invitations endpoint ([65a12876](https://github.com/big-neon/bn-api-node/commit/65a128767e488d82e392d2efa7e6f26b46a7fea3))
+
 #### 0.3.20 (2018-12-19)
 
 ##### Other Changes

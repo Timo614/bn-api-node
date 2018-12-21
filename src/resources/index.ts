@@ -56,6 +56,8 @@ import PaymentMethods from "./payment-methods";
  * @endpoint tickets [[TicketsResource]]
  * @endpoint tickets.redeem [[TicketRedeemResource]]
  * @endpoint users [[UsersResource]]
+ * @endpoint users.deviceTokens [[UserDeviceTokensResource]]
+ * @endpoint users.invites [[UserInvitationsResource]]
  * @endpoint venues [[VenuesResource]]
  * @endpoint venues.events [[VenueEventsResource]]
  */

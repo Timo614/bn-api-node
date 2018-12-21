@@ -5,6 +5,7 @@ import { OrganizationInterface } from "../interfaces/resources/organization.inte
 import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface";
 import UserDeviceTokensResource from "./namespaced/user-device-tokens";
 import XhrClient from "../classes/xhr-client";
+import UserInvitationsResource from "./namespaced/user-invitations";
 
 /**
  * @endpoint users
@@ -14,6 +15,7 @@ class UsersResource extends ResourceClass {
 		super("users");
 		this.namespaces = {
 			deviceTokens: UserDeviceTokensResource,
+			invites: UserInvitationsResource,
 		};
 
 	}
