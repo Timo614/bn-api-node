@@ -5,6 +5,7 @@ import axios from "axios";
 import { mergeDeep } from "../helpers/utils";
 import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface";
 import Server from "./server";
+
 const { version } = require("../../package.json");
 const jwtDecode = require("jwt-decode");
 
@@ -92,6 +93,10 @@ export default class XhrClient {
 		this.token = tokens.access_token;
 		let accessToken = jwtDecode(tokens.access_token) || {};
 		this.authTokenExpires = accessToken.exp * 1000;
+		if (process.env.DEBUG) {
+			let time = (new Date()).getTime();
+			console.debug("Token expires in", Math.trunc(((this.authTokenExpires - time) / 1000) / 60), "minutes");
+		}
 	}
 
 	public isAuthed() {
@@ -114,7 +119,7 @@ export default class XhrClient {
 		let auth: any = {};
 		if (this.isAuthed()) {
 			auth["Authorization"] = `Bearer ${this.authTokens.access_token}`;
-		} else if (this.attemptReAuth && this.authTokens && this.authTokens.refresh_token){
+		} else if (this.attemptReAuth && this.authTokens && this.authTokens.refresh_token) {
 			this.attemptReAuth = false;
 			let server: any = this.server;
 			if (process.env.DEBUG) {

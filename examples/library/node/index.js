@@ -1,20 +1,23 @@
 const Server = require("../../../dist/classes/server").default;
 let server = new Server({
-	prefix: "http://localhost:9000",
+	prefix: "https://beta.bigneon.com/api",
 	timeout: 30000,
 }, {
 
 	headers: {}
 });
-server.client.setTokens({
-	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlNzc0OTcyOS04MzA1LTRmNjUtYjRjNi1mYzE0MTNkYTI4MDgiLCJpc3MiOiJ0ZW1wIiwiZXhwIjoxNTQ1NjM1NDMzfQ._ZO3fsTOHcnaTy4feIc1aEbaqnSuxl86w-0CCeFE9AM",
-	"refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlNzc0OTcyOS04MzA1LTRmNjUtYjRjNi1mYzE0MTNkYTI4MDgiLCJpc3MiOiJ0ZW1wIiwiaXNzdWVkIjoxNTQ1NjM0NTMzfQ.zYJRSnXxI-zj3HEQJo32uJIpO0rSrmG3_3m9MjFZAoU"
-});
-server.users.current().then(res => {
-	console.log(res.data);
-}).catch(e => {
-	console.log(e);
-});
+server.auth.create({email: "superuser@test.com", password: "password"});
+
+//
+// server.client.setTokens({
+// 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlNzc0OTcyOS04MzA1LTRmNjUtYjRjNi1mYzE0MTNkYTI4MDgiLCJpc3MiOiJ0ZW1wIiwiZXhwIjoxNTQ1NjM1NDMzfQ._ZO3fsTOHcnaTy4feIc1aEbaqnSuxl86w-0CCeFE9AM",
+// 	"refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlNzc0OTcyOS04MzA1LTRmNjUtYjRjNi1mYzE0MTNkYTI4MDgiLCJpc3MiOiJ0ZW1wIiwiaXNzdWVkIjoxNTQ1NjM0NTMzfQ.zYJRSnXxI-zj3HEQJo32uJIpO0rSrmG3_3m9MjFZAoU"
+// });
+// server.users.current().then(res => {
+// 	console.log(res.data);
+// }).catch(e => {
+// 	console.log(e);
+// });
 
 
 // serverInterface.auth.authenticate({ email: "superuser@test.com", password: "password" }).then(res => {
