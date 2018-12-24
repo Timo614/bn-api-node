@@ -25,7 +25,7 @@ export default class XhrClient {
 
 	authTokenExpires?: number;
 
-	attemptReAuth: boolean = true;
+	attemptReAuth: boolean = false;
 
 	mocker: MockerInterface;
 
@@ -86,11 +86,11 @@ export default class XhrClient {
 	}
 
 	public setTokens(tokens: AuthTokenInterface) {
-		this.attemptReAuth = true;
 		this.authTokens = tokens;
 		this.token = tokens.access_token;
 		let accessToken = decodeJWT(tokens.access_token) || {};
 		this.authTokenExpires = accessToken.exp * 1000;
+		this.attemptReAuth = true;
 		if (process.env.DEBUG) {
 			let time = (new Date()).getTime();
 			console.debug("Token expires in", Math.trunc(((this.authTokenExpires - time) / 1000) / 60), "minutes");
@@ -113,7 +113,6 @@ export default class XhrClient {
 	}
 
 	public async getAuthAgent(headers: any = {}): Promise<any> {
-
 		let auth: any = {};
 		if (this.isAuthed()) {
 			auth["Authorization"] = `Bearer ${this.authTokens.access_token}`;
@@ -124,7 +123,6 @@ export default class XhrClient {
 				console.debug("Token has expired, attempting refresh");
 			}
 			await server.auth.refresh({ refresh_token: this.authTokens.refresh_token });
-
 			return await this.getAuthAgent(headers);
 		}
 		headers = {
