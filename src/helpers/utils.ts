@@ -52,3 +52,15 @@ export const mergeDeep = (target:any, ...sources:any[]):any  => {
 
 	return mergeDeep(target, ...sources);
 };
+
+export const decodeJWT = (token:string) => {
+	const base64Url = token.split(".")[1];
+	const base64 = base64Url.replace("-", "+").replace("_", "/");
+	let json = "";
+	if (typeof window !== "undefined" && window.atob) {
+		json = window.atob(base64)
+	} else {
+		json = Buffer.from(base64, "base64").toString("ascii");
+	}
+	return JSON.parse(json);
+};

@@ -1,13 +1,11 @@
 import { ServerInterface } from "../interfaces/server/server.interface";
 import { MockerInterface } from "../interfaces/mocks/mocker.interface";
-
 import axios from "axios";
-import { mergeDeep } from "../helpers/utils";
+import { mergeDeep, decodeJWT } from "../helpers/utils";
 import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface";
 import Server from "./server";
 
-const { version } = require("../../package.json");
-const jwtDecode = require("jwt-decode");
+const version = require("../../package.json").version;
 
 export default class XhrClient {
 	serverInterface: ServerInterface;
@@ -91,7 +89,7 @@ export default class XhrClient {
 		this.attemptReAuth = true;
 		this.authTokens = tokens;
 		this.token = tokens.access_token;
-		let accessToken = jwtDecode(tokens.access_token) || {};
+		let accessToken = decodeJWT(tokens.access_token) || {};
 		this.authTokenExpires = accessToken.exp * 1000;
 		if (process.env.DEBUG) {
 			let time = (new Date()).getTime();
