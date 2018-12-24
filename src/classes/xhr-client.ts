@@ -117,7 +117,11 @@ export default class XhrClient {
 		} else if (this.attemptReAuth && this.authTokens && this.authTokens.refresh_token){
 			this.attemptReAuth = false;
 			let server: any = this.server;
+			if (process.env.DEBUG) {
+				console.debug("Token has expired, attempting refresh");
+			}
 			await server.auth.refresh({ refresh_token: this.authTokens.refresh_token });
+
 			return await this.getAuthAgent(headers);
 		}
 		headers = {

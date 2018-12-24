@@ -7,10 +7,8 @@ let server = new Server({
 	headers: {}
 });
 server.client.setTokens({
-	access_token:
-		"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NGI3ZWZiNC02NDJkLTRjMTMtYTY2My0wYWQwODZiZGY0YTkiLCJpc3MiOiJ0ZW1wIiwiZXhwIjoxNTQ1Mzg3OTkxfQ.ptQG9TKGWhyp6OmgS7fc10qeT60RF49wHS4jihha3lc",
-	refresh_token:
-		"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NGI3ZWZiNC02NDJkLTRjMTMtYTY2My0wYWQwODZiZGY0YTkiLCJpc3MiOiJ0ZW1wIiwiaXNzdWVkIjoxNTQ1Mzg3MDkxfQ.yUDIqysHH3IKJvTo3uRRcIbpeOWIu6kso8g9CVlNuKc"
+	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlNzc0OTcyOS04MzA1LTRmNjUtYjRjNi1mYzE0MTNkYTI4MDgiLCJpc3MiOiJ0ZW1wIiwiZXhwIjoxNTQ1NjM1NDMzfQ._ZO3fsTOHcnaTy4feIc1aEbaqnSuxl86w-0CCeFE9AM",
+	"refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlNzc0OTcyOS04MzA1LTRmNjUtYjRjNi1mYzE0MTNkYTI4MDgiLCJpc3MiOiJ0ZW1wIiwiaXNzdWVkIjoxNTQ1NjM0NTMzfQ.zYJRSnXxI-zj3HEQJo32uJIpO0rSrmG3_3m9MjFZAoU"
 });
 server.users.current().then(res => {
 	console.log(res.data);
