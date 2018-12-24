@@ -1,5 +1,13 @@
-#### 0.3.20 (2018-12-21)
+#### 0.3.20 (2018-12-24)
 
+##### Documentation Changes
+
+*  Updated docs ([05466463](https://github.com/big-neon/bn-api-node/commit/054664638c403e4c87cbd994bac31ebef844377d))
+
+##### New Features
+
+* **endpoints:**  Moved userInvites to the root level ([e03336dd](https://github.com/big-neon/bn-api-node/commit/e03336dd4b1d83b94b75e8b3ecbcecb9b0aceb8a))
+* **enhancements:** Removed jwt-decode and used builtin methods
 ##### Documentation Changes
 
 *  Updated docs ([05466463](https://github.com/big-neon/bn-api-node/commit/054664638c403e4c87cbd994bac31ebef844377d))
