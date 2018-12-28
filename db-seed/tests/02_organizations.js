@@ -10,6 +10,8 @@ describe("Integration::Organizations", function () {
 	const orgs = q.readCSV("./data/organizations.csv").map(row => {
 		//Convert string to number for event_fee_in_cents
 		row.event_fee_in_cents = Number(row.event_fee_in_cents);
+		row.company_event_fee_in_cents = Number(row.company_event_fee_in_cents);
+		row.client_event_fee_in_cents = Number(row.client_event_fee_in_cents);
 		return row;
 	});
 
