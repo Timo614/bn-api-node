@@ -1,3 +1,9 @@
+#### 0.3.21 (2018-12-28)
+
+##### Other Changes
+
+*  Fixed unauthed attempt issue ([cb017e5f](https://github.com/big-neon/bn-api-node/commit/cb017e5f78143f7d9b3ebf5fd0e9b4487d290fad))
+
 #### 0.3.20 (2018-12-24)
 
 ##### Documentation Changes

@@ -122,8 +122,14 @@ export default class XhrClient {
 			if (process.env.DEBUG) {
 				console.debug("Token has expired, attempting refresh");
 			}
-			await server.auth.refresh({ refresh_token: this.authTokens.refresh_token });
-			return await this.getAuthAgent(headers);
+			try {
+				await server.auth.refresh({ refresh_token: this.authTokens.refresh_token });
+				return await this.getAuthAgent(headers);
+			}catch(e) {
+				return await this.getPublicAgent(headers);
+			}
+
+
 		}
 		headers = {
 			...headers,
