@@ -6,7 +6,9 @@ let server = new Server({
 
 	headers: {}
 });
-server.auth.create({email: "superuser@test.com", password: "password"});
+server.auth.create({email: "superuser@test.com", password: "password"}).then(() => {
+
+});
 
 //
 // server.client.setTokens({

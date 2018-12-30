@@ -9,6 +9,7 @@ import Holds from "./holds";
 import Invitations from "./invitations";
 import Organization from "./organization";
 import Regions from "./regions";
+import Reports from "./reports";
 import Status from "./status";
 import UserInvites from "./user-invitations";
 import Users from "./users";
@@ -53,6 +54,7 @@ import PaymentMethods from "./payment-methods";
  * @endpoint passwordReset [[PasswordResetResource]]
  * @endpoint paymentMethods [[PaymentMethodsResource]]
  * @endpoint regions [[RegionsResource]]
+ * @endpoint reports [[ReportsResource]]
  * @endpoint status [[StatusResource]]
  * @endpoint tickets [[TicketsResource]]
  * @endpoint tickets.redeem [[TicketRedeemResource]]
@@ -78,6 +80,7 @@ export const endpoints: { [endpoint: string]: ResourceInterface | ResourceClass 
 	status: Status,
 	passwordReset: PasswordReset,
 	paymentMethods: PaymentMethods,
+	reports: Reports,
 	userInvites: UserInvites,
 	users: Users,
 	venues: Venue,

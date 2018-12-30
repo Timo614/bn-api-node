@@ -1,3 +1,9 @@
+#### 0.3.22 (2018-12-30)
+
+##### New Features
+
+* **endpoints:**  Added report endpoints and interfaces ([57fa01b8](https://github.com/big-neon/bn-api-node/commit/57fa01b80529819cf14a4cf5586e74cabb6863fc))
+
 #### 0.3.21 (2018-12-28)
 
 ##### Other Changes
