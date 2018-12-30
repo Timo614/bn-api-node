@@ -1,3 +1,13 @@
+#### 0.3.23 (2018-12-30)
+
+##### New Features
+
+* **endpoints:**  Added eventSummary endpoint and interfaces ([316edc23](https://github.com/big-neon/bn-api-node/commit/316edc230725f04644be39e4290959fb16f6d0ea))
+
+##### Other Changes
+
+*  Updated report url ([3200c9ce](https://github.com/big-neon/bn-api-node/commit/3200c9ced6c261c7d3bbf0c3c740cd27a7595785))
+
 #### 0.3.22 (2018-12-30)
 
 ##### New Features
