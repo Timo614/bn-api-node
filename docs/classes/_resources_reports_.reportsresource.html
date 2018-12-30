@@ -118,6 +118,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_reports_.reportsresource.html#eventsummary" class="tsd-kind-icon">event<wbr>Summary</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_reports_.reportsresource.html#transactiondetails" class="tsd-kind-icon">transaction<wbr>Details</a></li>
 							</ul>
 						</section>
@@ -137,7 +138,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/5fd5ea3/src/resources/reports.ts#L9">resources/reports.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/52877c2/src/resources/reports.ts#L13">resources/reports.ts:13</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_resources_reports_.reportsresource.html" class="tsd-signature-type">ReportsResource</a></h4>
@@ -155,7 +156,7 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#methods">methods</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#methods">methods</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/5fd5ea3/src/classes/abstracts/resource.class.ts#L9">classes/abstracts/resource.class.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/52877c2/src/classes/abstracts/resource.class.ts#L9">classes/abstracts/resource.class.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +168,7 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#namespaces">namespaces</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#namespaces">namespaces</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/5fd5ea3/src/classes/abstracts/resource.class.ts#L7">classes/abstracts/resource.class.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/52877c2/src/classes/abstracts/resource.class.ts#L7">classes/abstracts/resource.class.ts:7</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -187,13 +188,57 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#path">path</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#path">path</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/5fd5ea3/src/classes/abstracts/resource.class.ts#L5">classes/abstracts/resource.class.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/52877c2/src/classes/abstracts/resource.class.ts#L5">classes/abstracts/resource.class.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="eventsummary" class="tsd-anchor"></a>
+					<h3>event<wbr>Summary</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">event<wbr>Summary<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/52877c2/src/resources/reports.ts#L39">resources/reports.ts:39</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get event summary report</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>auth</dt>
+									<dd><p>true</p>
+									</dd>
+									<dt>params</dt>
+									<dd><p>{organization_id:uuid, event_id: uuid, start_utc?: Date, end_utc?: Date}</p>
+									</dd>
+									<dt>required</dt>
+									<dd><p>{organization_id:uuid, event_id: uuid,}</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter">
+									<h5>other_<wbr>fees<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_interfaces_resources_reports_report_event_summary_interface_.eventsummaryotherfeesinterface.html" class="tsd-signature-type">EventSummaryOtherFeesInterface</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>sales<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_interfaces_resources_reports_report_event_summary_interface_.eventsummarysalesrowinterface.html" class="tsd-signature-type">EventSummarySalesRowInterface</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>ticket_<wbr>fees<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_interfaces_resources_reports_report_event_summary_interface_.eventsummaryfeesrowinterface.html" class="tsd-signature-type">EventSummaryFeesRowInterface</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="transactiondetails" class="tsd-anchor"></a>
 					<h3>transaction<wbr>Details</h3>
@@ -204,7 +249,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/5fd5ea3/src/resources/reports.ts#L20">resources/reports.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/52877c2/src/resources/reports.ts#L24">resources/reports.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -258,6 +303,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_resources_reports_.reportsresource.html#path" class="tsd-kind-icon">path</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_resources_reports_.reportsresource.html#eventsummary" class="tsd-kind-icon">event<wbr>Summary</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_resources_reports_.reportsresource.html#transactiondetails" class="tsd-kind-icon">transaction<wbr>Details</a>
