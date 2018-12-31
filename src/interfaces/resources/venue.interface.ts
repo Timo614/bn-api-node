@@ -15,7 +15,7 @@ export interface VenueInterface {
 	maximum_capacity?: number;
 	is_private: boolean;
 	promo_image_url?: string;
-
+	timezone?: string;
     readonly created_at: Date;
     readonly modified_at: Date;
 }
@@ -42,6 +42,7 @@ export const createVenue = (base: any = {}): VenueInterface => {
 			created_at: "",
 			// modified_at: "",
 			is_private: false,
+			timezone: "",
 		},
 		...base
 	} as VenueInterface;

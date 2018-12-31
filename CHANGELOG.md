@@ -1,3 +1,10 @@
+#### 0.3.24 (2018-12-31)
+
+##### Other Changes
+
+*  Added required price_in_cents field to ticket_types ([28b15ffa](https://github.com/big-neon/bn-api-node/commit/28b15ffa45c171cb030c001a2680e27c4c329a06))
+*  Added timezone field to venue interface ([e8ff2764](https://github.com/big-neon/bn-api-node/commit/e8ff2764e5fe46b04b63a3cfb86f192b785d8e8f))
+
 #### 0.3.23 (2018-12-30)
 
 ##### New Features

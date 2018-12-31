@@ -10,6 +10,7 @@ export interface TicketTypeInterface {
     quantity: number;
     limit_per_person: number;//Per person
 	increment: number;//How many can be bought at a time (4 per table)
+	price_in_cents: number,
     ticket_pricing: Array<TicketPricingInterface>;
     readonly created_at?: Date;
     readonly updated_at?: Date;
@@ -30,6 +31,7 @@ export const createTicketType = (base: any = {}): TicketTypeInterface => {
 			quantity: 0,
 			limit_per_person: 0,//Per person
 			increment: 1,//In batches of 1
+			price_in_cents: 0,
 			ticket_pricing: [],
 			created_at: "",
 			updated_at: "",
