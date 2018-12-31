@@ -86,12 +86,14 @@ export class RequestMethod {
 	 * @param path
 	 * @param data
 	 * @param method
+	 * @param ignoreValidation
 	 * @private
 	 */
 	_replacePathVariables(
 		path: string,
 		data: any = {},
-		method: RequestMethodInterface
+		method: RequestMethodInterface,
+		ignoreValidation: boolean = false
 	): string {
 		let listOfRequiredFields = []
 			.concat(method.requireOne || [])
@@ -119,7 +121,10 @@ export class RequestMethod {
 				if (dataValue !== null) {
 					newPath = newPath.replace(matches[0], dataValue);
 				} else {
-					throw `${path} is expecting ${dataKey} but it has not been provided in the data object`;
+					if (!ignoreValidation) {
+						throw `${path} is expecting ${dataKey} but it has not been provided in the data object`;
+					}
+
 				}
 			}
 		} while (matches);
@@ -131,14 +136,19 @@ export class RequestMethod {
 	 * @param method
 	 * @param data
 	 * @param path
+	 * @param ignoreValidation
 	 * @private
 	 * @throws
 	 */
 	_requiredFieldsPresent(
 		method: RequestMethodInterface,
 		data: any = {},
-		path = ""
+		path = "",
+		ignoreValidation: boolean = false
 	) {
+		if (ignoreValidation) {
+			return true;
+		}
 		let missingRequiredFields = [];
 		method.required = method.required || [];
 
@@ -180,15 +190,16 @@ export class RequestMethod {
 			data: any = {},
 			headers: any = {},
 			returnDataOnly: boolean = false,
-			overrideMethod: any = {}
+			overrideMethod: any = {},
+			ignoreValidation: boolean = false
 		) => {
 			method = { ...method, ...overrideMethod };
 			let path = `${this.path}${method.path}`.replace(/\/\//g, "/");
 			// If the path has any {identifier} parameter, replace it with the data[identifier] key
 
 			try {
-				this._requiredFieldsPresent(method, data || {}, path);
-				path = this._replacePathVariables(path, data, method);
+				this._requiredFieldsPresent(method, data || {}, path, ignoreValidation);
+				path = this._replacePathVariables(path, data, method, ignoreValidation);
 			} catch (e) {
 				return Promise.reject(e);
 			}

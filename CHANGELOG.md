@@ -1,7 +1,12 @@
 #### 0.3.24 (2018-12-31)
 
+##### New Features
+
+*  Added ignoreValidation to requests to bypass the middleware validation ([982e6702](https://github.com/big-neon/bn-api-node/commit/982e67020f7e347161387173372cf86cfae602ab))
+
 ##### Other Changes
 
+*  Added all required fields to ticket types ([982e6702](https://github.com/big-neon/bn-api-node/commit/982e67020f7e347161387173372cf86cfae602ab)) 
 *  Added required price_in_cents field to ticket_types ([28b15ffa](https://github.com/big-neon/bn-api-node/commit/28b15ffa45c171cb030c001a2680e27c4c329a06))
 *  Added timezone field to venue interface ([e8ff2764](https://github.com/big-neon/bn-api-node/commit/e8ff2764e5fe46b04b63a3cfb86f192b785d8e8f))
 

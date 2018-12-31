@@ -7,9 +7,16 @@ let server = new Server({
 	headers: {}
 });
 server.auth.create({email: "superuser@test.com", password: "password"}).then(() => {
-	server.reports.transactionDetails({organization_id: "c92e4dda-90fc-47c2-a484-5b751f1df085", start_utc:"2017-01-01T00:00:00"}).then(r => {
-		console.log(r.data);
+	server.events.index().then(r => {
+		let id = r.data.data[0].id;
+
+		server.events.ticketTypes.create({name: "TicketType", capacity: 10, event_id: id}, null, null, null, true).then(r => {
+			console.log("asdfas")
+		}).catch(e => {
+			console.error(e);
+		})
 	})
+
 });
 
 //
