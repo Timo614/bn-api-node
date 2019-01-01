@@ -5,6 +5,10 @@ import {
 	EventSummaryFeesRowInterface, EventSummaryOtherFeesInterface,
 	EventSummarySalesRowInterface
 } from "../interfaces/resources/reports/report-event-summary.interface";
+import {
+	TicketCountRowInterface,
+	TicketCountSalesRowInterface
+} from "../interfaces/resources/reports/report-ticket-count.interface";
 
 /**
  * @endpoint reports
@@ -41,6 +45,21 @@ class ReportsResource extends ResourceClass {
 			method: "GET",
 			path: "/{organization_id}?report=event_summary",
 			required: ["event_id"],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Get ticket count report
+	 * @auth true
+	 * @params {organization_id:uuid, event_id?: uuid}
+	 * @required {organization_id:uuid}
+	 */
+	ticketCount(): { organization_id: {event_id: {ticket_type_id: {sales: TicketCountSalesRowInterface, totals: TicketCountRowInterface}}} } {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{organization_id}?report=ticket_count",
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}

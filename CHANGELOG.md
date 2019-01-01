@@ -1,7 +1,8 @@
-#### 0.3.24 (2018-12-31)
+#### 0.3.24 (2019-01-01)
 
 ##### New Features
 
+* **endpoints:**  Added Ticket Count report ([a22b1121](https://github.com/big-neon/bn-api-node/commit/a22b1121d8b972d594a60f562806560bb0168564))
 *  Added ignoreValidation to requests to bypass the middleware validation ([982e6702](https://github.com/big-neon/bn-api-node/commit/982e67020f7e347161387173372cf86cfae602ab))
 
 ##### Other Changes
