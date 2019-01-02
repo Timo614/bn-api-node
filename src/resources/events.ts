@@ -151,6 +151,22 @@ class EventsResource extends ResourceClass {
 			requiresAuth: true
 		}) as any;
 	}
+
+	/**
+	 * Un-publish an event
+	 * @auth true
+	 * @params {id:uuid}
+	 * @required {id: uuid}
+	 * @returns {status: 200}
+	 */
+	unpublish(): void {
+		return createRequestMethod({
+			method: "POST",
+			path: "/{id}/unpublish",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
 }
 
 export default EventsResource;

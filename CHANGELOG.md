@@ -1,3 +1,9 @@
+#### 0.3.25 (2019-01-02)
+
+##### New Features
+
+* **endpoints:**  Added `events.unpublish` endpoint ([332c345e](https://github.com/big-neon/bn-api-node/commit/332c345e871838ac42bb99ae10bc04548e665130))
+
 #### 0.3.24 (2019-01-01)
 
 ##### New Features
