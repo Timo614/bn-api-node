@@ -57,6 +57,7 @@ const ticketing = {
 				.format(moment.HTML5_FMT.DATETIME_LOCAL_MS),
 			end_date: eventDateString,
 			limit_per_person,
+			price_in_cents: ticket_pricing[0].price_in_cents,
 			ticket_pricing
 		};
 	}
