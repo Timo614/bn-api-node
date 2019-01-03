@@ -59,6 +59,23 @@ class EventTicketTypesResource extends ResourceClass {
 			requiresAuth: false
 		}) as any;
 	}
+
+	/**
+	 * Cancel a ticket type
+	 * @auth false
+	 * @params {event_id:uuid, ticket_type_id: uuid}
+	 * @required {event_id:uuid, ticket_type_id: uuid}
+	 * @data Array<[[TicketTypeInterface]]>
+	 */
+	cancel(): IndexInterface {
+		return createRequestMethod({
+			name: "del",
+			method: "DELETE",
+			path: "/{event_id}/ticket_types/{ticket_type_id}",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
 }
 
 export default EventTicketTypesResource;

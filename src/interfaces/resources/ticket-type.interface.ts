@@ -14,6 +14,7 @@ export interface TicketTypeInterface {
     ticket_pricing: Array<TicketPricingInterface>;
     readonly created_at?: Date;
     readonly updated_at?: Date;
+    readonly cancelled_at?: Date;
 }
 
 export const createTicketType = (base: any = {}): TicketTypeInterface => {
@@ -35,6 +36,7 @@ export const createTicketType = (base: any = {}): TicketTypeInterface => {
 			ticket_pricing: [],
 			created_at: "",
 			updated_at: "",
+			cancelled_at: null,
 		},
 		...base
 	} as TicketTypeInterface;

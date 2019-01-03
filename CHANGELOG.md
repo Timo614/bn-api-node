@@ -1,3 +1,9 @@
+#### 0.3.26 (2019-01-03)
+
+##### New Features
+
+* **endpoints:**  Added cancel ticketTypes endpoint ([9cfc3b0d](https://github.com/big-neon/bn-api-node/commit/9cfc3b0d85a3be0ee08d8bb2b7efb807a6542599))
+
 #### 0.3.25 (2019-01-02)
 
 ##### New Features
