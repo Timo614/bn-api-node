@@ -100,6 +100,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_classes_server_.server.html#_getmatchingresources" class="tsd-kind-icon">_get<wbr>Matching<wbr>Resources</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_classes_server_.server.html#_isclass" class="tsd-kind-icon">_is<wbr>Class</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_classes_server_.server.html#createcanceltoken" class="tsd-kind-icon">create<wbr>Cancel<wbr>Token</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_classes_server_.server.html#matchurl" class="tsd-kind-icon">match<wbr>Url</a></li>
 							</ul>
 						</section>
@@ -118,7 +119,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/18ef697/src/classes/server.ts#L21">classes/server.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/bc1e897/src/classes/server.ts#L21">classes/server.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -146,7 +147,7 @@
 					<div class="tsd-signature tsd-kind-icon">client<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/18ef697/src/classes/server.ts#L16">classes/server.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/bc1e897/src/classes/server.ts#L16">classes/server.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -156,7 +157,7 @@
 					<div class="tsd-signature tsd-kind-icon">matching<wbr>Resources<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/18ef697/src/classes/server.ts#L21">classes/server.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/bc1e897/src/classes/server.ts#L21">classes/server.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -171,7 +172,7 @@
 					<div class="tsd-signature tsd-kind-icon">server<wbr>Interface<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_server_server_interface_.serverinterface.html" class="tsd-signature-type">ServerInterface</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/18ef697/src/classes/server.ts#L14">classes/server.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/bc1e897/src/classes/server.ts#L14">classes/server.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -188,7 +189,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/18ef697/src/classes/server.ts#L58">classes/server.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/bc1e897/src/classes/server.ts#L70">classes/server.ts:70</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -223,7 +224,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/18ef697/src/classes/server.ts#L47">classes/server.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/bc1e897/src/classes/server.ts#L59">classes/server.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -237,6 +238,31 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createcanceltoken" class="tsd-anchor"></a>
+					<h3>create<wbr>Cancel<wbr>Token</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Cancel<wbr>Token<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/bc1e897/src/classes/server.ts#L55">classes/server.ts:55</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a [[CancelTokenSource]] to abort requests</p>
+									<pre><code><span class="hljs-keyword">let</span> cancelToken = server.createCancelToken();
+server.events.index(<span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, {cancelToken}).then(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> {}).catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {});
+cancelToken.cancel(<span class="hljs-string">"Error Message"</span>);</code></pre>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="matchurl" class="tsd-anchor"></a>
 					<h3>match<wbr>Url</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -246,7 +272,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/18ef697/src/classes/server.ts#L76">classes/server.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/bc1e897/src/classes/server.ts#L88">classes/server.ts:88</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -302,6 +328,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_classes_server_.server.html#_isclass" class="tsd-kind-icon">_is<wbr>Class</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_classes_server_.server.html#createcanceltoken" class="tsd-kind-icon">create<wbr>Cancel<wbr>Token</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_classes_server_.server.html#matchurl" class="tsd-kind-icon">match<wbr>Url</a>
