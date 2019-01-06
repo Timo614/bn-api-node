@@ -44,6 +44,18 @@ export class Server {
 		}
 	}
 
+	/**
+	 * Returns a [[CancelTokenSource]] to abort requests
+	 * ```
+	 * let cancelToken = server.createCancelToken();
+	 * server.events.index(null, null, null, {cancelToken}).then(r => {}).catch(e => {});
+	 * cancelToken.cancel("Error Message");
+	 * ```
+	 */
+	public createCancelToken() {
+		return this.client.createCancelToken();
+	}
+
 	_isClass(resourceData:any):boolean {
 		return resourceData && resourceData.prototype && !!resourceData.prototype.constructor.name;
 	}

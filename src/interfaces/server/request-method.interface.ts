@@ -1,5 +1,6 @@
 import XhrClient from "../../classes/xhr-client";
 import Server from "../../classes/server";
+import { CancelTokenSource } from "axios";
 
 export interface RequestMethodInterface {
     namespace?: string;
@@ -11,6 +12,7 @@ export interface RequestMethodInterface {
     requireOne?: Array<string>;//At least one of these fields must be present
     requiresAuth: boolean;
 	minTimeout?: number;
+	cancelToken?: CancelTokenSource;
 
     beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any ): void;
     afterRequest(server: Server, client: XhrClient, response: any ): Promise<any>;
@@ -29,6 +31,7 @@ export const createRequestMethod = (base: any = {}): RequestMethodInterface => {
 			requireOne: [],
 			requiresAuth: true,
 			minTimeout: undefined,
+			cancelToken: null
 		},
 		...base
 	} as RequestMethodInterface;

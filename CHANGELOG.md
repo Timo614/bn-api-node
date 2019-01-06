@@ -1,7 +1,8 @@
-#### 0.3.26 (2019-01-03)
+#### 0.3.26 (2019-01-05)
 
 ##### New Features
 
+*  Added cancelToken to queries ([b669287d](https://github.com/big-neon/bn-api-node/commit/b669287dfd7450062888c1b9d286b45a1b375458))
 * **endpoints:**  Added cancel ticketTypes endpoint ([9cfc3b0d](https://github.com/big-neon/bn-api-node/commit/9cfc3b0d85a3be0ee08d8bb2b7efb807a6542599))
 
 #### 0.3.25 (2019-01-02)

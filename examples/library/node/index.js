@@ -6,12 +6,23 @@ let server = new Server({
 
 	headers: {}
 });
-server.auth.create({email: "superuser@test.com", password: "password"}).then(() => {
-	server.reports.ticketCount({"organization_id": "be117b38-588a-4662-aa9e-35a00d4d9331", event_id: "2a3eb1ba-212f-4dbc-985b-265ecb4573ec"}).then(r => {
+let cancelToken = server.createCancelToken();
+server.auth.create({ email: "superuser@test.com", password: "password" }).then(() => {
+	server.reports.ticketCount(
+		{
+			"organization_id": "be117b38-588a-4662-aa9e-35a00d4d9331",
+			event_id: "2a3eb1ba-212f-4dbc-985b-265ecb4573ec"
+		},
+		null,
+		null,
+		{ cancelToken }
+	).then(r => {
 		console.log(JSON.stringify(r.data));
 	}).catch(e => {
+		console.log("Error");
 		console.error(e);
-	})
+	});
+	cancelToken.cancel("ABORTING!!!!")
 	// server.events.index().then(r => {
 	// 	let id = r.data.data[0].id;
 	//

@@ -236,22 +236,24 @@ export class RequestMethod {
 					axiosInstance.defaults.timeout = method.minTimeout;
 				}
 				//If no promise has been set, because either we are in production or there was no mock data file do the request.
+				let cancelToken = method.cancelToken ? method.cancelToken.token : null;
+
 				if (!promise) {
 					switch (method.method.toUpperCase()) {
 						case "POST":
-							promise = axiosInstance.post(path, data);
+							promise = axiosInstance.post(path, data, { cancelToken });
 							break;
 						case "PUT":
-							promise = axiosInstance.put(path, data);
+							promise = axiosInstance.put(path, data, { cancelToken });
 							break;
 						case "PATCH":
-							promise = axiosInstance.patch(path, data);
+							promise = axiosInstance.patch(path, data, { cancelToken });
 							break;
 						case "DELETE":
-							promise = axiosInstance.delete(path, { data });
+							promise = axiosInstance.delete(path, { cancelToken, data });
 							break;
 						case "GET":
-							promise = axiosInstance.get(path, { params: data });
+							promise = axiosInstance.get(path, { cancelToken, params: data });
 							break;
 					}
 				}

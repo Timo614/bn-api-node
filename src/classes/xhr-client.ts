@@ -75,6 +75,13 @@ export default class XhrClient {
 	}
 
 	/**
+	 * @returns CancelTokenSource
+	 */
+	public createCancelToken() {
+		return axios.CancelToken.source();
+	}
+
+	/**
 	 * @deprecated
 	 * @param token
 	 */
