@@ -1,7 +1,6 @@
 
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
 import ResourceClass from "../../classes/abstracts/resource.class";
-import { OrganizationInterface } from "../../interfaces/resources/organization.interface";
 import { IndexInterface } from "../../interfaces/resources/structures/index.interface";
 import { FanInterface } from "../../interfaces/resources/fan.interface";
 

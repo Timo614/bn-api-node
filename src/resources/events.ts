@@ -9,6 +9,7 @@ import { IndexInterface } from "../interfaces/resources/structures/index.interfa
 import EventGuestsResource from "./namespaced/event-guests";
 import EventHoldsResource from "./namespaced/event-holds";
 import EventCodesResource from "./namespaced/event-codes";
+import EventFansResource from "./namespaced/event-fans";
 
 /**
  * @endpoint events
@@ -19,6 +20,7 @@ class EventsResource extends ResourceClass {
 		this.namespaces = {
 			artists: EventArtistsResource,
 			codes: EventCodesResource,
+			fans: EventFansResource,
 			guests: EventGuestsResource,
 			holds: EventHoldsResource,
 			interests: EventInterestsResource,

@@ -1,5 +1,9 @@
 #### 0.3.27 (2019-01-07)
 
+##### New Features
+
+* **endpoints:**  Added events.fans endpoint ([5d8a715c](https://github.com/big-neon/bn-api-node/commit/5d8a715cf6bab08c631f520323305d598eb7b611))
+
 ##### Other Changes
 
 *  Added fields to events ([0e84f4b5](https://github.com/big-neon/bn-api-node/commit/0e84f4b5e672605c72ed2144fb2f2718302e3373))

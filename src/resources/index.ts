@@ -32,6 +32,7 @@ import PaymentMethods from "./payment-methods";
  * @endpoint events.artists [[EventArtistsResource]]
  * @endpoint events.codes [[EventCodesResource]]
  * @endpoint events.interests [[EventInterestsResource]]
+ * @endpoint events.fans [[EventFansResource]]
  * @endpoint events.guests [[EventGuestsResource]]
  * @endpoint events.holds [[EventHoldsResource]]
  * @endpoint events.ticketTypes [[EventTicketTypesResource]]
