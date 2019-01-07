@@ -1,3 +1,9 @@
+#### 0.3.27 (2019-01-07)
+
+##### Other Changes
+
+*  Added fields to events ([0e84f4b5](https://github.com/big-neon/bn-api-node/commit/0e84f4b5e672605c72ed2144fb2f2718302e3373))
+
 #### 0.3.26 (2019-01-05)
 
 ##### New Features

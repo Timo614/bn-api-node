@@ -14,6 +14,7 @@ export interface EventInterface {
 	venue_id: string;
 	event_start: Date;
 	door_time: Date;
+	event_end?: Date;
 	status?: string;
 	publish_date: Date;
 	promo_image_url?: string;
@@ -33,6 +34,8 @@ export interface EventInterface {
 	is_external: boolean;
 	external_url?: string;
 	override_status?: OverrideStatus;
+	limited_tickets_remaining?: number;
+	readonly localized_times: EventLocalizedTimeInterface,
 	readonly created_at: string;
 	readonly updated_at: string;
 }
@@ -40,6 +43,9 @@ export interface EventInterface {
 export const createEvent = (base: any = {}): EventInterface => {
 	if (base && base.ticket_types) {
 		base.ticket_types = base.ticket_types.map((ticketType: any) => createTicketType(ticketType));
+	}
+	if (base && base.localized_times) {
+		base.localized_times = createEventLocalizedTimeInterface(base.localized_times);
 	}
 	return {
 		...{
@@ -49,6 +55,7 @@ export const createEvent = (base: any = {}): EventInterface => {
 			venue_id: "",
 			event_start: "",
 			door_time: "",
+			event_end: "",
 			status: "",
 			publish_date: "",
 			promo_image_url: "",
@@ -68,9 +75,28 @@ export const createEvent = (base: any = {}): EventInterface => {
 			is_external: false,
 			external_url: "",
 			override_status: undefined,
+			limited_tickets_remaining: null,
+			localized_times: createEventLocalizedTimeInterface(),
 			created_at: "",
 			updated_at: ""
 		},
 		...base
 	} as EventInterface;
+};
+
+export interface EventLocalizedTimeInterface {
+	readonly event_start?: Date;
+	readonly event_end?: Date;
+	readonly door_time?: Date;
+}
+
+export const createEventLocalizedTimeInterface = (base: any = {}): EventLocalizedTimeInterface => {
+	return {
+		...{
+			event_start: null,
+			event_end: null,
+			door_time: null,
+		},
+		...base
+	} as EventLocalizedTimeInterface;
 };
