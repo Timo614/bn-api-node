@@ -20,6 +20,7 @@ import { ResourceInterface } from "../interfaces/server/resource";
 import ResourceClass from "../classes/abstracts/resource.class";
 import PasswordReset from "./password-reset";
 import PaymentMethods from "./payment-methods";
+import RedemptionCodes from "./redemption-codes";
 
 /**
  * List of available endpoints
@@ -54,6 +55,7 @@ import PaymentMethods from "./payment-methods";
  * @endpoint organizations.venues [[OrganizationVenueResource]]
  * @endpoint passwordReset [[PasswordResetResource]]
  * @endpoint paymentMethods [[PaymentMethodsResource]]
+ * @endpoint redemptionCodes [[RedemptionCodeResource]]
  * @endpoint regions [[RegionsResource]]
  * @endpoint reports [[ReportsResource]]
  * @endpoint status [[StatusResource]]
@@ -66,7 +68,9 @@ import PaymentMethods from "./payment-methods";
  * @endpoint venues [[VenuesResource]]
  * @endpoint venues.events [[VenueEventsResource]]
  */
-export const endpoints: { [endpoint: string]: ResourceInterface | ResourceClass } = {
+export const endpoints: {
+[endpoint: string]: ResourceInterface | ResourceClass;
+} = {
 	artists: Artist,
 	auth: Auth,
 	cart: Cart,
@@ -81,6 +85,7 @@ export const endpoints: { [endpoint: string]: ResourceInterface | ResourceClass 
 	status: Status,
 	passwordReset: PasswordReset,
 	paymentMethods: PaymentMethods,
+	redemptionCodes: RedemptionCodes,
 	reports: Reports,
 	userInvites: UserInvites,
 	users: Users,
