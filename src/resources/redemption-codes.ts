@@ -10,7 +10,7 @@ import HoldCompsResource from "./namespaced/hold-comps";
 
 class RedemptionCodesResource extends ResourceClass {
 	constructor() {
-		super("redemption-codes");
+		super("redemption_codes");
 		this.namespaces = {};
 	}
 
