@@ -3,6 +3,8 @@ import ResourceClass from "../classes/abstracts/resource.class";
 import { OrderInterface } from "../interfaces/resources/order.interface";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 import OrderTicketsResource from "./namespaced/order-tickets";
+import { RefundResponseInterface } from "../interfaces/resources/refund-response.interface";
+import { OrderDetailsInterface } from "../interfaces/resources/order-details.interface";
 
 /**
  * @endpoint orders
@@ -58,6 +60,38 @@ class OrdersResource extends ResourceClass {
 			requiresAuth: true
 		}) as any;
 	}
+
+	/**
+	 * Get details for an order
+	 * @auth true
+	 * @params {id:uuid}
+	 * @required {id:uuid}
+	 */
+	details(): OrderDetailsInterface {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{id}/details",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Create a refund
+	 * @auth true
+	 * @params {id:uuid}
+	 * @required {id:uuid}
+	 */
+	refund(): RefundResponseInterface {
+		return createRequestMethod({
+			method: "PATCH",
+			path: "/{id}/refund",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
+
+
 }
 
 export default OrdersResource;

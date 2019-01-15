@@ -12,13 +12,16 @@ import { createFan } from "./fan.interface";
 import { createFanHistoryItem } from "./fan-history-item.interface";
 import { createHold } from "./hold.interface";
 import { createOrder } from "./order.interface";
+import { createOrderDetails } from "./order-details.interface";
 import { createOrganization } from "./organization.interface";
 import { createOrganizationFan } from "./organization-fan.interface";
 import { createOrganizationVenue } from "./organization-event.interface";
 import { createOrganizationInvitation } from "./organization-invitation.interface";
 import { createOrganizationUser } from "./organization-user.interface";
 import { createPaymentMethod } from "./payment-method.interface";
+import { createRefundResponse } from "./refund-response.interface";
 import { createRegion } from "./region.interface";
+import { createStage } from "./stages.interface";
 import { createTicket } from "./ticket.interface";
 import { createTicketRedeemable } from "./ticket-redeemable.interface";
 import { createTicketTransferAuthorization } from "./ticket-transfer-authorization.interface";
@@ -40,13 +43,16 @@ export default {
 	createFanHistoryItem,
 	createHold,
 	createOrder,
+	createOrderDetails,
 	createOrganization,
 	createOrganizationVenue,
 	createOrganizationFan,
 	createOrganizationInvitation,
 	createOrganizationUser,
 	createPaymentMethod,
+	createRefundResponse,
 	createRegion,
+	createStage,
 	createTicket,
 	createTicketRedeemable,
 	createTicketTransferAuthorization,

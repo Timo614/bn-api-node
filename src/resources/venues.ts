@@ -3,6 +3,7 @@ import ResourceClass from "../classes/abstracts/resource.class";
 import VenueEventsResource from "./namespaced/venue-events";
 import { VenueInterface } from "../interfaces/resources/venue.interface";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
+import VenueStagesResource from "./namespaced/venue-stages";
 
 /**
  * @endpoint venues
@@ -12,6 +13,7 @@ class VenuesResource extends ResourceClass {
 		super("venues");
 		this.namespaces = {
 			events: VenueEventsResource,
+			stages: VenueStagesResource
 		}
 	}
 

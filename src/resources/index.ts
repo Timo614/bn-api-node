@@ -10,6 +10,7 @@ import Invitations from "./invitations";
 import Organization from "./organization";
 import Regions from "./regions";
 import Reports from "./reports";
+import Stages from "./stages";
 import Status from "./status";
 import UserInvites from "./user-invitations";
 import Users from "./users";
@@ -58,6 +59,7 @@ import RedemptionCodes from "./redemption-codes";
  * @endpoint redemptionCodes [[RedemptionCodeResource]]
  * @endpoint regions [[RegionsResource]]
  * @endpoint reports [[ReportsResource]]
+ * @endpoint stages [[StagesResource]]
  * @endpoint status [[StatusResource]]
  * @endpoint tickets [[TicketsResource]]
  * @endpoint tickets.redeem [[TicketRedeemResource]]
@@ -67,6 +69,7 @@ import RedemptionCodes from "./redemption-codes";
  * @endpoint users.invites [[UserInvitationsResource]]
  * @endpoint venues [[VenuesResource]]
  * @endpoint venues.events [[VenueEventsResource]]
+ * @endpoint venues.stages [[VenueStagesResource]]
  */
 export const endpoints: {
 [endpoint: string]: ResourceInterface | ResourceClass;
@@ -79,18 +82,19 @@ export const endpoints: {
 	events: Event,
 	external: External,
 	holds: Holds,
-	organizations: Organization,
-	regions: Regions,
 	invitations: Invitations,
-	status: Status,
+	orders: Orders,
+	organizations: Organization,
 	passwordReset: PasswordReset,
 	paymentMethods: PaymentMethods,
 	redemptionCodes: RedemptionCodes,
+	regions: Regions,
 	reports: Reports,
+	stages: Stages,
+	status: Status,
+	tickets: Tickets,
 	userInvites: UserInvites,
 	users: Users,
-	venues: Venue,
-	orders: Orders,
-	tickets: Tickets
+	venues: Venue
 } as any;
 export default endpoints;

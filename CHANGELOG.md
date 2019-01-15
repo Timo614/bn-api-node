@@ -1,8 +1,11 @@
-#### 0.3.27 (2019-01-07)
+#### 0.3.27 (2019-01-15)
 
 ##### New Features
 
-* **endpoints:**  Added events.fans endpoint ([5d8a715c](https://github.com/big-neon/bn-api-node/commit/5d8a715cf6bab08c631f520323305d598eb7b611))
+* **endpoints:**
+  *  Added `stages` and `events.stages` crud endpoints ([85d7e0bb](https://github.com/big-neon/bn-api-node/commit/85d7e0bbafe6825d54455728b338953b26f9bf80))
+  *  Added `orders.details` and `orders.refund` endpoints ([cb5d6658](https://github.com/big-neon/bn-api-node/commit/cb5d6658423ed12c99bf305759769aa32b3677c9))
+  *  Added `events.fans` endpoint ([5d8a715c](https://github.com/big-neon/bn-api-node/commit/5d8a715cf6bab08c631f520323305d598eb7b611))
 
 ##### Other Changes
 
