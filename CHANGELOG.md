@@ -1,3 +1,13 @@
+#### 1.0.1 (2019-01-15)
+
+##### Other Changes
+
+*  Added missing fields for event-artists and events ([e6b5495e](https://github.com/big-neon/bn-api-node/commit/e6b5495e2ab7255bf885688cb3bc2e75492f3ddd))
+
+##### Tests
+
+*  Fixed event-artist tests ([66368713](https://github.com/big-neon/bn-api-node/commit/66368713ff8915037ae83399d026fe49a54190b8))
+
 ## 1.0.0 (2019-01-15)
 
 ### Bumping to stable

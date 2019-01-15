@@ -65,7 +65,8 @@ describe("Integration::Events", function () {
 					event_id: id,
 					artist_id: artistId,
 					rank: 0,
-					set_time: "2018-12-12T12:00:00.000"
+					set_time: "2018-12-12T12:00:00.000",
+					importance: 0,
 				});
 				assert.strictEqual(result.status, 201);
 				assert.strictEqual(result.data.artist_id, artistId, "Artist ID's must match");
@@ -78,8 +79,8 @@ describe("Integration::Events", function () {
 					let bjArtistId = artistsByName["Billy Joel"];
 
 					let artists = [
-						{ artist_id: dpArtistId, rank: 0, set_time: "2018-12-12T12:00:00.000" },
-						{ artist_id: bjArtistId, rank: 1, set_time: "2018-12-12T14:00:00.000" },
+						{ artist_id: dpArtistId, rank: 0, set_time: "2018-12-12T12:00:00.000", importance: 0 },
+						{ artist_id: bjArtistId, rank: 1, set_time: "2018-12-12T14:00:00.000", importance: 1 },
 					];
 
 					let result = await adminServer.events.artists.update({ event_id: id, rank: 0, artists });

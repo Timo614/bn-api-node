@@ -15,6 +15,7 @@ export interface EventInterface {
 	event_start: Date;
 	door_time: Date;
 	event_end?: Date;
+	cancelled_at?: Date;
 	status?: string;
 	publish_date: Date;
 	promo_image_url?: string;
@@ -35,6 +36,7 @@ export interface EventInterface {
 	external_url?: string;
 	override_status?: OverrideStatus;
 	limited_tickets_remaining?: number;
+	readonly tracking_keys: {google_ga_key?: string, facebook_pixel_key?: string},
 	readonly localized_times: EventLocalizedTimeInterface,
 	readonly created_at: string;
 	readonly updated_at: string;
@@ -56,6 +58,7 @@ export const createEvent = (base: any = {}): EventInterface => {
 			event_start: "",
 			door_time: "",
 			event_end: "",
+			cancelled_at: null,
 			status: "",
 			publish_date: "",
 			promo_image_url: "",
@@ -76,6 +79,7 @@ export const createEvent = (base: any = {}): EventInterface => {
 			external_url: "",
 			override_status: undefined,
 			limited_tickets_remaining: null,
+			tracking_keys: {},
 			localized_times: createEventLocalizedTimeInterface(),
 			created_at: "",
 			updated_at: ""
@@ -84,6 +88,9 @@ export const createEvent = (base: any = {}): EventInterface => {
 	} as EventInterface;
 };
 
+/**
+ * RFC2822 formatted strings
+ */
 export interface EventLocalizedTimeInterface {
 	readonly event_start?: Date;
 	readonly event_end?: Date;
