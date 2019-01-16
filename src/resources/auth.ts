@@ -27,7 +27,7 @@ class AuthResource extends ResourceClass {
 			requiresAuth: false,
 			beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any ) {
 				for(let key in data) {
-					if (key !== "password") {
+					if (key !== "password" && typeof data[key] === "string") {
 						data[key] = data[key].trim();
 					}
 				}
