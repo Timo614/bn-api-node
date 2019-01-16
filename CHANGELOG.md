@@ -1,3 +1,9 @@
+#### 1.0.2 (2019-01-16)
+
+##### Bug Fixes
+
+* Fixed the auth and user create pre-processor undefined trim bug.
+
 #### 1.0.1 (2019-01-15)
 
 ##### Other Changes
