@@ -50,7 +50,7 @@ class UsersResource extends ResourceClass {
 	 * Register a user
 	 * @auth false
 	 * @alias register
-	 * @params {...UserInterface}
+	 * @params {...[[UserInterface]], captcha_response:string}
 	 */
 	create(): void {
 		return createRequestMethod({
@@ -72,7 +72,7 @@ class UsersResource extends ResourceClass {
 	/**
 	 * Register a user and generates a login token
 	 * @auth false
-	 * @params {...[[UserInterface]]}
+	 * @params {...[[UserInterface]], captcha_response:string}
 	 * @required {email: string, password: string}
 	 */
 	createAndLogin(): AuthTokenInterface {

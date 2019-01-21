@@ -15,7 +15,7 @@ class AuthResource extends ResourceClass {
 	 * Authenticate a user
 	 * @alias create
 	 * @auth false
-	 * @params {email:string, password: string}
+	 * @params {email:string, password: string, captcha_response?: string}
 	 * @required {email:string, password: string}
 	 */
 	authenticate(): AuthTokenInterface {

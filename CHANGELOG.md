@@ -1,3 +1,8 @@
+#### 1.0.3 (2019-01-21)
+
+##### Docs
+
+* Added captcha_response to auth token and register
 #### 1.0.2 (2019-01-16)
 
 ##### Bug Fixes
