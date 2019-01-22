@@ -1,3 +1,9 @@
+#### 1.0.3 (2019-01-22)
+
+##### New Features
+
+* **interfaces:**  Added `RefundItemInterface` ([d1834c57](https://github.com/big-neon/bn-api-node/commit/d1834c57fd17c334eadc58aa556e864bbc4d9641))
+
 #### 1.0.3 (2019-01-21)
 
 ##### Docs

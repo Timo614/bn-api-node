@@ -79,14 +79,14 @@ class OrdersResource extends ResourceClass {
 	/**
 	 * Create a refund
 	 * @auth true
-	 * @params {id:uuid}
-	 * @required {id:uuid}
+	 * @params {id:uuid, items: Array<[[RefundItemInterface]]>}
+	 * @required {id:uuid, items: Array<[[RefundItemInterface]]>}
 	 */
 	refund(): RefundResponseInterface {
 		return createRequestMethod({
 			method: "PATCH",
 			path: "/{id}/refund",
-			required: [],
+			required: ["items"],
 			requiresAuth: true
 		}) as any;
 	}
