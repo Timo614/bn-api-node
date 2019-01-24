@@ -1,18 +1,19 @@
 import { OrderItemInterface } from "./order-item.interface";
 
 export interface OrderInterface {
-    readonly id?: string;
-    user_id: string;
-    date: Date,
-    items: Array<OrderItemInterface>;
-    readonly status?: string;
-    readonly order_type?: string;
-    readonly expires_at?: string;
-    readonly created_at?: string;
-    readonly updated_at?: string;
+	readonly id?: string;
+	user_id: string;
+	date: Date;
+	items: Array<OrderItemInterface>;
+	readonly status?: string;
+	readonly order_type?: string;
+	readonly expires_at?: string;
+	readonly created_at?: string;
+	readonly updated_at?: string;
 	total_in_cents: number;
 	seconds_until_expiry: number;
-	note?: string
+	note?: string;
+	checkout_url?: string;
 }
 
 export const createOrder = (base: any = {}): OrderInterface => {
@@ -29,7 +30,8 @@ export const createOrder = (base: any = {}): OrderInterface => {
 			updated_at: "",
 			total_in_cents: 0,
 			seconds_until_expiry: 0,
-			note: ""
+			note: "",
+			checkout_url: ""
 		},
 		...base
 	} as OrderInterface;
