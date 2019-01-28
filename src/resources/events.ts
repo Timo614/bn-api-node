@@ -67,13 +67,13 @@ class EventsResource extends ResourceClass {
 	 * Create an event
 	 * @auth true
 	 * @params {EventInterface}
-	 * @required {name: string, organization_id: uuid}
+	 * @required {name: string, organization_id: uuid, event_type: [[EventTypes]]}
 	 */
 	create(): EventInterface {
 		return createRequestMethod({
 			method: "POST",
 			path: "",
-			required: ["name", "organization_id"],
+			required: ["name", "organization_id", "event_type"],
 			requiresAuth: true,
 			beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any) {
 				data.event_type = data.event_type || EventTypes.MUSIC;
