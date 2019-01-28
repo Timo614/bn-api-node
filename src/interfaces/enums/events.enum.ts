@@ -21,3 +21,13 @@ export const OVERRIDE_STATUS_STRING = {
 	[OverrideStatus.OFF_SALE]: "Off-Sale",
 	[OverrideStatus.ENDED]: "Ended"
 };
+
+export enum EventTypes {
+	MUSIC = "Music",
+	CONFERENCE = "Conference"
+}
+
+export const EVENT_TYPES_STRING = {
+	[EventTypes.MUSIC]: "Music",
+	[EventTypes.CONFERENCE]: "Conference"
+};

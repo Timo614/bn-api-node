@@ -2,7 +2,7 @@ import { createTicketType, TicketTypeInterface } from "./ticket-type.interface";
 import { EventArtistInterface } from "./event-artist.interface";
 import { VenueInterface } from "./venue.interface";
 import { OrganizationInterface } from "./organization.interface";
-import { OverrideStatus } from "../enums/events.enum";
+import { EventTypes, OverrideStatus } from "../enums/events.enum";
 
 
 
@@ -36,6 +36,7 @@ export interface EventInterface {
 	external_url?: string;
 	override_status?: OverrideStatus;
 	limited_tickets_remaining?: number;
+	event_type: EventTypes,
 	readonly tracking_keys: {google_ga_key?: string, facebook_pixel_key?: string},
 	readonly localized_times: EventLocalizedTimeInterface,
 	readonly created_at: string;
@@ -79,6 +80,7 @@ export const createEvent = (base: any = {}): EventInterface => {
 			external_url: "",
 			override_status: undefined,
 			limited_tickets_remaining: null,
+			event_type: EventTypes.MUSIC,
 			tracking_keys: {},
 			localized_times: createEventLocalizedTimeInterface(),
 			created_at: "",

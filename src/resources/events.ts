@@ -1,4 +1,4 @@
-import { createRequestMethod } from "../interfaces/server/request-method.interface";
+import { createRequestMethod, RequestMethodInterface } from "../interfaces/server/request-method.interface";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { EventInterface } from "../interfaces/resources/event.interface";
 import EventArtistsResource from "./namespaced/event-artists";
@@ -10,6 +10,8 @@ import EventGuestsResource from "./namespaced/event-guests";
 import EventHoldsResource from "./namespaced/event-holds";
 import EventCodesResource from "./namespaced/event-codes";
 import EventFansResource from "./namespaced/event-fans";
+import XhrClient from "../classes/xhr-client";
+import { EventTypes } from "../interfaces/enums/events.enum";
 
 /**
  * @endpoint events
@@ -72,7 +74,10 @@ class EventsResource extends ResourceClass {
 			method: "POST",
 			path: "",
 			required: ["name", "organization_id"],
-			requiresAuth: true
+			requiresAuth: true,
+			beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any) {
+				data.event_type = data.event_type || EventTypes.MUSIC;
+			}
 		}) as any;
 	}
 
