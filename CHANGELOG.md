@@ -1,3 +1,9 @@
+#### 1.0.4 (2019-01-28)
+
+##### New Features
+
+* **field:**  Added event_type to events ([6ec6f9b3](https://github.com/big-neon/bn-api-node/commit/6ec6f9b38910ec307d5f661331e2a221bbde67f8))
+
 #### 1.0.3 (2019-01-22)
 
 ##### New Features
