@@ -5,6 +5,7 @@ import { TicketRedeemableInterface } from "../../interfaces/resources/ticket-red
 
 /**
  * @endpoint events.tickets
+ * @url /events/{event_id}/tickets
  */
 class EventTicketsResource extends ResourceClass {
 	constructor() {
@@ -17,6 +18,7 @@ class EventTicketsResource extends ResourceClass {
 	 * @params {event_id:uuid}
 	 * @required {event_id:uuid}
 	 * @data Array<[[TicketInterface]]>
+	 * @url /events/{event_id}/tickets
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -33,6 +35,7 @@ class EventTicketsResource extends ResourceClass {
 	 * @auth true
 	 * @params {ticket_id:uuid, event_id: uuid, redeem_key: string}
 	 * @required {ticket_id:uuid, event_id: uuid, redeem_key: string}
+	 * @url /events/{event_id}/redeem/{ticket_id}
 	 */
 	redeem(): TicketRedeemableInterface {
 		return createRequestMethod({

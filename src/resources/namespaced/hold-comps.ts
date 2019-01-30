@@ -5,6 +5,7 @@ import { CompInterface } from "../../interfaces/resources/comp.interface";
 
 /**
  * @endpoint holds.comps
+ * @url /holds/{hold_id}/comps
  */
 class HoldCompsResource extends ResourceClass {
 	constructor() {
@@ -17,6 +18,7 @@ class HoldCompsResource extends ResourceClass {
 	 * @params {hold_id:uuid}
 	 * @required {hold_id:uuid}
 	 * @data Array<[[CompInterface]]>
+	 * @url /holds/{hold_id}/comps
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -32,6 +34,7 @@ class HoldCompsResource extends ResourceClass {
 	 * @auth true
 	 * @params {hold_id:uuid, ...[[CompInterface]]}
 	 * @required {hold_id:uuid, name: string, quantity: number}
+	 * @url /holds/{hold_id}/comps
 	 */
 	create(): CompInterface {
 		return createRequestMethod({

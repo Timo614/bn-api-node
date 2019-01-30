@@ -4,6 +4,7 @@ import { EventArtistInterface } from "../../interfaces/resources/event-artist.in
 
 /**
  * @endpoint events.artists
+ * @url /events/{event_id}/artists
  */
 class EventArtistsResource extends ResourceClass {
 	constructor() {
@@ -15,6 +16,7 @@ class EventArtistsResource extends ResourceClass {
 	 * @auth true
 	 * @params {EventArtistInterface}
 	 * @required {event_id:uuid}
+	 * @url /events/{event_id}/artists
 	 */
 	create(): EventArtistInterface {
 		return createRequestMethod({
@@ -33,6 +35,7 @@ class EventArtistsResource extends ResourceClass {
 	 * @name artists.update
 	 * @params [{EventArtistInterface}]
 	 * @required {event_id:uuid}
+	 * @url /events/{event_id}/artists
 	 */
 	update(): Array<EventArtistInterface> {
 

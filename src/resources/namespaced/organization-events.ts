@@ -4,6 +4,7 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
 
 /**
  * @endpoint organizations.events
+ * @url /organizations/{organization_id}/events
  */
 class OrganizationEventsResource extends ResourceClass {
 	constructor() {
@@ -16,6 +17,7 @@ class OrganizationEventsResource extends ResourceClass {
 	 * @params {organization_id:uuid}
 	 * @required {organization_id:uuid}
 	 * @data Array<[[EventInterface]]>
+	 * @url /organizations/{organization_id}/events
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({

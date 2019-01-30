@@ -4,6 +4,7 @@ import { TicketTransferAuthorizationInterface } from "../../interfaces/resources
 
 /**
  * @endpoint tickets.transfer
+ * @url /tickets/
  */
 class TicketTransferResource extends ResourceClass {
 	constructor() {
@@ -15,6 +16,7 @@ class TicketTransferResource extends ResourceClass {
 	 * @auth true
 	 * @params {ticket_ids: Array<id:uuid>, validity_period_in_seconds: number}
 	 * @required {ticket_ids: Array<id:uuid>, validity_period_in_seconds: number}
+	 * @url /tickets/transfer
 	 */
 	transfer(): TicketTransferAuthorizationInterface {
 		return createRequestMethod({
@@ -30,6 +32,7 @@ class TicketTransferResource extends ResourceClass {
 	 * @auth true
 	 * @params {ticket_ids: Array<id:uuid>, validity_period_in_seconds: number, email_or_phone: string}
 	 * @required {ticket_ids: Array<id:uuid>, validity_period_in_seconds: number}
+	 * @url /tickets/send
 	 */
 	send(): TicketTransferAuthorizationInterface {
 		return createRequestMethod({
@@ -45,6 +48,7 @@ class TicketTransferResource extends ResourceClass {
 	 * @auth true
 	 * @params {transfer_key: uuid, sender_user_id:uuid, num_tickets: number, signature: string}
 	 * @required {transfer_key: uuid, sender_user_id:uuid, num_tickets: number, signature: string}
+	 * @url /tickets/receive
 	 */
 	receive(): TicketTransferAuthorizationInterface {
 		return createRequestMethod({

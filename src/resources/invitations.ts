@@ -3,6 +3,7 @@ import ResourceClass from "../classes/abstracts/resource.class";
 
 /**
  * @endpoint invitations
+ * @url /invitations
  */
 class InvitationsResource extends ResourceClass {
 	constructor() {
@@ -14,6 +15,7 @@ class InvitationsResource extends ResourceClass {
 	 * 200 response on success
 	 * @params {security_token: string}
 	 * @required {security_token: string}
+	 * @url /invitations?security_token={security_token}
 	 */
 	accept(): void {
 		return createRequestMethod({
@@ -28,6 +30,7 @@ class InvitationsResource extends ResourceClass {
 	 * Decline an invitation
 	 * @params {security_token: string}
 	 * @required {security_token: string}
+	 * @url /invitations?security_token={security_token}
 	 */
 	decline():void {
 		return createRequestMethod({
@@ -42,6 +45,7 @@ class InvitationsResource extends ResourceClass {
 	 * Read the invitation
 	 * @params {security_token: string}
 	 * @required {security_token: string}
+	 * @url /invitations/{security_token}
 	 */
 	read(): {organization_name: string, inviter_name: string, expires_at: Date } {
 		return createRequestMethod({

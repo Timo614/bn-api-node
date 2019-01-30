@@ -4,6 +4,7 @@ import { TicketRedeemableInterface } from "../../interfaces/resources/ticket-red
 
 /**
  * @endpoint tickets.redeem
+ * @url /tickets/{ticket_id}/redeem
  */
 class TicketRedeemResource extends ResourceClass {
 	constructor() {
@@ -15,6 +16,7 @@ class TicketRedeemResource extends ResourceClass {
 	 * @auth true
 	 * @params {ticket_id:uuid}
 	 * @required {ticket_id:uuid}
+	 * @url /tickets/{ticket_id}/redeem
 	 */
 	read(): TicketRedeemableInterface {
 		return createRequestMethod({

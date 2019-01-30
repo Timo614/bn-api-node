@@ -5,6 +5,7 @@ import { DeviceTokenInterface } from "../../interfaces/resources/device-token.in
 
 /**
  * @endpoint users.deviceTokens
+ * @url /users/{user_id}/tokens
  */
 class UserDeviceTokensResource extends ResourceClass {
 	constructor() {
@@ -15,6 +16,7 @@ class UserDeviceTokensResource extends ResourceClass {
 	 * List the device tokens for a user
 	 * @params {user_id: uuid}
 	 * @required {user_id: uuid}
+	 * @url /users/{user_id}/tokens
 	 */
 	read(): DeviceTokenInterface {
 		return createRequestMethod({
@@ -30,6 +32,7 @@ class UserDeviceTokensResource extends ResourceClass {
 	 * List the logged in users' device tokens
 	 * @params {...[[PagingInterface]], }
 	 * @data Array<[[DeviceTokenInterface]]>
+	 * @url /users/{user_id}/tokens
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -44,6 +47,7 @@ class UserDeviceTokensResource extends ResourceClass {
      * Create a device token for the logged in user
      * @params {...[[DeviceTokenInterface]], }
      * @required {token_source: [[DeviceTokenSource]], token: string}
+	 * @url /users/{user_id}/tokens
      */
 	create(): DeviceTokenInterface {
 		return createRequestMethod({
@@ -58,6 +62,7 @@ class UserDeviceTokensResource extends ResourceClass {
      * Delete a device token for a user
      * @params { token_id: uuid }
      * @required {token_id: uuid}
+	 * @url /users/{user_id}/tokens/{token_id}
      */
 	del(): DeviceTokenInterface {
 		return createRequestMethod({

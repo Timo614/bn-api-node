@@ -2,6 +2,10 @@ import { createRequestMethod } from "../interfaces/server/request-method.interfa
 import ResourceClass from "../classes/abstracts/resource.class";
 import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface";
 
+/**
+ * @endpoint external
+ * @url /external
+ */
 class ExternalResource extends ResourceClass {
 	constructor() {
 		super("external");
@@ -11,6 +15,7 @@ class ExternalResource extends ResourceClass {
 	 * Login with Facebook
 	 * @auth false
 	 * @params {accessToken: string, userID:string}
+	 * @url /external/facebook/web_login
 	 */
 	facebookLogin(): AuthTokenInterface {
 		return createRequestMethod({

@@ -8,6 +8,7 @@ import XhrClient from "../classes/xhr-client";
 
 /**
  * @endpoint users
+ * @url /users
  */
 class UsersResource extends ResourceClass {
 	constructor() {
@@ -22,6 +23,7 @@ class UsersResource extends ResourceClass {
 	/**
 	 * Get your current user
 	 * @auth true
+	 * @url /users/me
 	 */
 	current(): UserInterface {
 		return createRequestMethod({
@@ -35,6 +37,7 @@ class UsersResource extends ResourceClass {
 	/**
 	 * Update you current user
 	 * @params {...UserInterface}
+	 * @url /users/me
 	 */
 	update(): UserInterface {
 		return createRequestMethod({
@@ -51,6 +54,7 @@ class UsersResource extends ResourceClass {
 	 * @auth false
 	 * @alias register
 	 * @params {...[[UserInterface]], captcha_response:string}
+	 * @url /users/register
 	 */
 	create(): void {
 		return createRequestMethod({
@@ -74,6 +78,7 @@ class UsersResource extends ResourceClass {
 	 * @auth false
 	 * @params {...[[UserInterface]], captcha_response:string}
 	 * @required {email: string, password: string}
+	 * @url /users
 	 */
 	createAndLogin(): AuthTokenInterface {
 		return createRequestMethod({
@@ -96,6 +101,7 @@ class UsersResource extends ResourceClass {
 	 * @auth true
 	 * @params {id:uuid}
 	 * @required {id:uuid}
+	 * @url /users/{id}
 	 */
 	read(): UserInterface {
 		return createRequestMethod({
@@ -111,6 +117,7 @@ class UsersResource extends ResourceClass {
 	 * @auth true
 	 * @params {id: uuid}
 	 * @required {id: uuid}
+	 * @url /users/{id}/organizations
 	 */
 	listOrganizations(): Array<OrganizationInterface> {
 		return createRequestMethod({

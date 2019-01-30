@@ -4,6 +4,7 @@ import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface
 
 /**
  * @endpoint passwordReset
+ * @url /password_reset
  */
 class PasswordResetResource extends ResourceClass {
 	constructor() {
@@ -14,6 +15,7 @@ class PasswordResetResource extends ResourceClass {
 	 * Start the password reset process
 	 * @params {email:string}
 	 * @return
+	 * @url /password_reset
 	 */
 	create(): {message?:string, error?:string} {
 		return createRequestMethod({
@@ -29,6 +31,7 @@ class PasswordResetResource extends ResourceClass {
 	 * @name update
 	 * @params {password_reset_token:string, password:string}
 	 * @return
+	 * @url /password_reset
 	 */
 	update():AuthTokenInterface {
 		return createRequestMethod({

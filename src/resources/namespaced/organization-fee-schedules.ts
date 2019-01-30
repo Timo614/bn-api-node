@@ -5,6 +5,7 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
 
 /**
  * @endpoint organizations.feeSchedules
+ * @url /organizations/{organization_id}/fee_schedule
  */
 class OrganizationFeeSchedulesResource extends ResourceClass {
 	constructor() {
@@ -16,6 +17,7 @@ class OrganizationFeeSchedulesResource extends ResourceClass {
 	 * @auth true
 	 * @params {organization_id: uuid, ...[[FeeScheduleInterface]]}
 	 * @required {organization_id: uuid, name: string, ranges: Array<[[FeeScheduleRangeInterface]]>>}
+	 * @url /organizations/{organization_id}/fee_schedule
 	 */
 	create(): FeeScheduleInterface {
 		return createRequestMethod({
@@ -32,6 +34,7 @@ class OrganizationFeeSchedulesResource extends ResourceClass {
 	 * Get a list of fee schedules for the event
 	 * @params {organization_id:uuid}
 	 * @data Array<[[FeeScheduleInterface]]>
+	 * @url /organizations/{organization_id}/fee_schedule
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({

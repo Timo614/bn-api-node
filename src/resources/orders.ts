@@ -8,6 +8,7 @@ import { OrderDetailsInterface } from "../interfaces/resources/order-details.int
 
 /**
  * @endpoint orders
+ * @url /orders
  */
 class OrdersResource extends ResourceClass {
 	constructor() {
@@ -21,6 +22,7 @@ class OrdersResource extends ResourceClass {
 	 * List orders for user
 	 * @auth true
 	 * @data Array<[[OrderInterface]]>
+	 * @url /orders
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -36,6 +38,7 @@ class OrdersResource extends ResourceClass {
 	 * @auth true
 	 * @params {id:uuid}
 	 * @required {id:uuid}
+	 * @url /orders/{id}
 	 */
 	read(): OrderInterface {
 		return createRequestMethod({
@@ -51,6 +54,7 @@ class OrdersResource extends ResourceClass {
 	 * @auth true
 	 * @params {id:uuid, note: string}
 	 * @required {id:uuid}
+	 * @url /orders/{id}
 	 */
 	update(): OrderInterface {
 		return createRequestMethod({
@@ -66,6 +70,7 @@ class OrdersResource extends ResourceClass {
 	 * @auth true
 	 * @params {id:uuid}
 	 * @required {id:uuid}
+	 * @url /orders/{id}/details
 	 */
 	details(): OrderDetailsInterface {
 		return createRequestMethod({
@@ -81,6 +86,7 @@ class OrdersResource extends ResourceClass {
 	 * @auth true
 	 * @params {id:uuid, items: Array<[[RefundItemInterface]]>}
 	 * @required {id:uuid, items: Array<[[RefundItemInterface]]>}
+	 * @url /orders/{id}/refund
 	 */
 	refund(): RefundResponseInterface {
 		return createRequestMethod({

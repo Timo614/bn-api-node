@@ -4,6 +4,7 @@ import { StagesInterface } from "../interfaces/resources/stages.interface";
 
 /**
  * @endpoint stages
+ * @url /stages
  */
 class StagesResource extends ResourceClass {
 	constructor() {
@@ -14,6 +15,7 @@ class StagesResource extends ResourceClass {
 	 * Read a stage
 	 * @required {id:uuid}
 	 * @auth false
+	 * @url /stages/{id}
 	 */
 	read(): StagesInterface {
 		return createRequestMethod({
@@ -28,6 +30,7 @@ class StagesResource extends ResourceClass {
 	 * @required {id:uuid}
 	 * @params {id: uuid, name:string, description: string, capacity: number}
 	 * @auth true
+	 * @url /stages/{id}
 	 */
 	update(): StagesInterface {
 		return createRequestMethod({
@@ -43,6 +46,7 @@ class StagesResource extends ResourceClass {
 	 * @required {id:uuid}
 	 * @auth true
 	 * @returns {status: 200}
+	 * @url /stages/{id}
 	 */
 	del(): void {
 		return createRequestMethod({

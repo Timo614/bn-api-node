@@ -5,6 +5,7 @@ import XhrClient from "../classes/xhr-client";
 
 /**
  * @endpoint auth
+ * @url /auth
  */
 class AuthResource extends ResourceClass {
 	constructor() {
@@ -17,6 +18,7 @@ class AuthResource extends ResourceClass {
 	 * @auth false
 	 * @params {email:string, password: string, captcha_response?: string}
 	 * @required {email:string, password: string}
+	 * @url /auth/token
 	 */
 	authenticate(): AuthTokenInterface {
 		return createRequestMethod({
@@ -44,6 +46,7 @@ class AuthResource extends ResourceClass {
 	 * @auth false
 	 * @params {refresh_token:string}
 	 * @required {refresh_token:string}
+	 * @url /auth/token/refresh
 	 */
 	refresh(): AuthTokenInterface {
 		return createRequestMethod({

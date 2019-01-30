@@ -5,6 +5,7 @@ import { HoldInterface } from "../interfaces/resources/hold.interface";
 
 /**
  * @endpoint comps
+ * @url /comps
  */
 class CompsResource extends ResourceClass {
 	constructor() {
@@ -17,6 +18,7 @@ class CompsResource extends ResourceClass {
 	 * @auth true
 	 * @params {...[[HoldInterface]]}
 	 * @required {id: uuid}
+	 * @url /comps/{id}
 	 */
 	update(): HoldInterface {
 		return createRequestMethod({
@@ -33,6 +35,7 @@ class CompsResource extends ResourceClass {
 	 * @params {id:uuid}
 	 * @required {id:uuid}
 	 * @return {status: 200}
+	 * @url /comps/{id}
 	 */
 	del(): void {
 		return createRequestMethod({
@@ -48,6 +51,7 @@ class CompsResource extends ResourceClass {
 	 * @auth true
 	 * @params {id:uuid}
 	 * @required {id: uuid}
+	 * @url /comps/{id}
 	 */
 	read(): HoldInterface {
 		return createRequestMethod({

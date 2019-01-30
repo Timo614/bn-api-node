@@ -12,6 +12,7 @@ import {
 
 /**
  * @endpoint reports
+ * @url /reports
  */
 
 class ReportsResource extends ResourceClass {
@@ -24,6 +25,7 @@ class ReportsResource extends ResourceClass {
 	 * @auth true
 	 * @params {organization_id:uuid, event_id?: uuid, start_utc?: Date, end_utc?: Date}
 	 * @required {organization_id:uuid}
+	 * @url /reports/{organization_id}?report=transaction_details
 	 */
 	transactionDetails(): Array<ReportTransactionDetailsInterface> {
 		return createRequestMethod({
@@ -39,6 +41,7 @@ class ReportsResource extends ResourceClass {
 	 * @auth true
 	 * @params {organization_id:uuid, event_id: uuid, start_utc?: Date, end_utc?: Date}
 	 * @required {organization_id:uuid, event_id: uuid,}
+	 * @url /reports/{organization_id}?report=event_summary
 	 */
 	eventSummary(): { sales: Array<EventSummarySalesRowInterface>, ticket_fees: Array<EventSummaryFeesRowInterface>, other_fees: Array<EventSummaryOtherFeesInterface> } {
 		return createRequestMethod({
@@ -54,8 +57,9 @@ class ReportsResource extends ResourceClass {
 	 * @auth true
 	 * @params {organization_id:uuid, event_id?: uuid}
 	 * @required {organization_id:uuid}
+	 * @url /reports/{organization_id}?report=ticket_count
 	 */
-	ticketCount(): { organization_id: {event_id: {ticket_type_id: {sales: TicketCountSalesRowInterface, totals: TicketCountRowInterface}}} } {
+	ticketCount(): { organization_id: { event_id: { ticket_type_id: { sales: TicketCountSalesRowInterface, totals: TicketCountRowInterface } } } } {
 		return createRequestMethod({
 			method: "GET",
 			path: "/{organization_id}?report=ticket_count",

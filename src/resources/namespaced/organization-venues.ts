@@ -5,17 +5,18 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
 
 /**
  * @endpoint organizations.venues
+ * @url /organizations/{organization_id}/venues
  */
 class OrganizationVenueResource extends ResourceClass {
 	constructor() {
 		super("organizations");
 	}
 
-
 	/**
 	 * Add a venue to the organization
 	 * @params {organization_id:uuid, ...VenueInterface}
 	 * @required {organization_id:uuid, ...VenueInterface}
+	 * @url /organizations/{organization_id}/venues
 	 */
 	create(): VenueInterface {
 		return createRequestMethod({
@@ -26,28 +27,12 @@ class OrganizationVenueResource extends ResourceClass {
 		}) as any;
 	}
 
-
-	// /**
-	//  * Delete a venue from the organization
-	//  * @params {organization_id:uuid, user_id: uuid }
-	//  * @required {organization_id:uuid, user_id: uuid }
-	//  */
-	// del(): OrganizationInterface {
-	// 	return createRequestMethod({
-	// 		name: "remove",
-	// 		method: "DELETE",
-	// 		path: "/{organization_id}/users",
-	// 		required: ["organization_id", "user_id"],
-	// 		requiresAuth: true
-	// 	}) as any;
-	// }
-
-
 	/**
 	 * List venues in the organization
 	 * @params {organization_id:uuid}
 	 * @required {organization_id:uuid}
 	 * @data Array<[[VenueInterface]]>
+	 * @url /organizations/{organization_id}/venues
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({

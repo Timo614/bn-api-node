@@ -6,6 +6,7 @@ import { TicketInterface } from "../../interfaces/resources/ticket.interface";
 
 /**
  * @endpoint orders.tickets
+ * @url /orders/{order_id}/tickets
  */
 class OrderTicketsResource extends ResourceClass {
 	constructor() {
@@ -17,6 +18,7 @@ class OrderTicketsResource extends ResourceClass {
 	 * @auth true
 	 * @params {order_id: uuid}
 	 * @required {order_id: uuid}
+	 * @url /orders/{order_id}/tickets
 	 */
 	index(): Array<TicketInterface> {
 		return createRequestMethod({

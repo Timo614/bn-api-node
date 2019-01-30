@@ -6,6 +6,7 @@ import { CodeInterface } from "../../interfaces/resources/code.interface";
 
 /**
  * @endpoint events.codes
+ * @url /events/{event_id}/codes
  */
 class EventCodesResource extends ResourceClass {
 	constructor() {
@@ -19,6 +20,7 @@ class EventCodesResource extends ResourceClass {
 	 * @notimplemented {tags: {type: "Discount" | "Access"}}
 	 * @required {event_id: uuid}
 	 * @data Array<[[CodeInterface]]>
+	 * @url /events/{event_id}/codes
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -33,7 +35,7 @@ class EventCodesResource extends ResourceClass {
 	 * @auth true
 	 * @params {event_id: uuid}
 	 * @required {event_id: uuid}
-	 *
+	 * @url /events/{event_id}/codes
 	 */
 	create(): CodeInterface {
 		return createRequestMethod({

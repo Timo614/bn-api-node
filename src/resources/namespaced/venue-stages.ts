@@ -4,6 +4,7 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
 
 /**
  * @endpoint venues.stages
+ * @url /venues/{venue_id}/stages
  */
 class VenueStagesResource extends ResourceClass {
 	constructor() {
@@ -15,6 +16,7 @@ class VenueStagesResource extends ResourceClass {
 	 * @params {venue_id:uuid}
 	 * @required {venue_id:uuid}
 	 * @data  Array<[[StagesInterface]]>
+	 * @url /venues/{venue_id}/stages
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -29,6 +31,7 @@ class VenueStagesResource extends ResourceClass {
 	 * @params {venue_id:uuid, name:string, capacity?: number, description?: string}
 	 * @required {venue_id:uuid, name: string}
 	 * @data  Array<[[StagesInterface]]>
+	 * @url /venues/{venue_id}/stages
 	 */
 	create(): IndexInterface {
 		return createRequestMethod({

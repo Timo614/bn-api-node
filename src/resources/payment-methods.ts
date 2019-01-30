@@ -4,6 +4,7 @@ import { IndexInterface } from "../interfaces/resources/structures/index.interfa
 
 /**
  * @endpoint paymentMethods
+ * @url /payment_methods
  */
 class PaymentMethodsResource extends ResourceClass {
 	constructor() {
@@ -14,6 +15,7 @@ class PaymentMethodsResource extends ResourceClass {
 	 * Check the status of the server
 	 * @auth true
 	 * @data Array<[[PaymentMethodsInterface]]>
+	 * @url /payment_methods
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({

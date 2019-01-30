@@ -5,6 +5,7 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
 
 /**
  * @endpoint organizations.artists
+ * @url /organizations/{organization_id}/artists
  */
 class OrganizationArtistsResource extends ResourceClass {
 	constructor() {
@@ -17,6 +18,7 @@ class OrganizationArtistsResource extends ResourceClass {
 	 * @params {organization_id:uuid}
 	 * @required {organization_id:uuid}
 	 * @data Array<[[ArtistInterface]]>
+	 * @url /organizations/{organization_id}/artists
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -32,6 +34,7 @@ class OrganizationArtistsResource extends ResourceClass {
 	 * Add an artist to this organization
 	 * @params {ArtistInterface}
 	 * @required {organization_id:uuid, name: string, bio: string}
+	 * @url /organizations/{organization_id}/artists
 	 */
 	create(): ArtistInterface {
 		return createRequestMethod({

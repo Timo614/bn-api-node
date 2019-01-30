@@ -5,6 +5,7 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
 
 /**
  * @endpoint organizations.invite
+ * @url /organizations/{organization_id}/invites
  */
 class OrganizationInvitationsResource extends ResourceClass {
 	constructor() {
@@ -17,6 +18,7 @@ class OrganizationInvitationsResource extends ResourceClass {
 	 * @alias invite
 	 * @params {organization_id:uuid, user_email: string, roles: Array<[[UserRole]]>}
 	 * @required {organization_id:uuid, user_email: string, roles: Array<[[UserRole]]>}
+	 * @url /organizations/{organization_id}/invites
 	 */
 	create(): OrganizationInvitationInterface {
 		return createRequestMethod({
@@ -35,6 +37,7 @@ class OrganizationInvitationsResource extends ResourceClass {
 	 * @params {organization_id:uuid}
 	 * @required {organization_id:uuid}
 	 * @data Array<[[OrganizationInvitationInterface]]>
+	 * @url /organizations/{organization_id}/invites
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -52,6 +55,7 @@ class OrganizationInvitationsResource extends ResourceClass {
 	 * @params {organization_id:uuid, invite_id: uuid}
 	 * @required {organization_id:uuid, invite_id: uuid}
 	 * @returns status: 200
+	 * @url /organizations/{organization_id}/invites/{invite_id}
 	 */
 	del(): any {
 		return createRequestMethod({

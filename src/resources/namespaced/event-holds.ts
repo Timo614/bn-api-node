@@ -5,6 +5,7 @@ import { HoldInterface } from "../../interfaces/resources/hold.interface";
 
 /**
  * @endpoint events.holds
+ * @url /events/{event_id}/holds
  */
 class EventHoldsResource extends ResourceClass {
 	constructor() {
@@ -17,6 +18,7 @@ class EventHoldsResource extends ResourceClass {
 	 * @params {event_id:uuid}
 	 * @required {event_id:uuid}
 	 * @data Array<[[HoldInterface]]>
+	 * @url /events/{event_id}/holds
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -32,6 +34,7 @@ class EventHoldsResource extends ResourceClass {
 	 * @auth true
 	 * @params {event_id:uuid, ...[[HoldInterface]]}
 	 * @required {event_id:uuid, name: string, redemption_code: string, discount_in_cents: number}
+	 * @url /events/{event_id}/holds
 	 */
 	create(): HoldInterface {
 		return createRequestMethod({

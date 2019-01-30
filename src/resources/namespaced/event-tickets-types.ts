@@ -5,6 +5,7 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
 
 /**
  * @endpoint events.ticketTypes
+ * @url /events/{event_id}/ticket_types
  */
 class EventTicketTypesResource extends ResourceClass {
 	constructor() {
@@ -16,6 +17,7 @@ class EventTicketTypesResource extends ResourceClass {
 	 * @auth true
 	 * @params {event_id:uuid, ...[[TicketTypeInterface]]}
 	 * @required {event_id:uuid, name: string, price_in_cents: number, limit_per_person: number, start_date: Date, end_date: Date}
+	 * @url /events/{event_id}/ticket_types
 	 */
 	create(): TicketTypeInterface {
 		return createRequestMethod({
@@ -32,6 +34,7 @@ class EventTicketTypesResource extends ResourceClass {
 	 * @auth true
 	 * @params {event_id:uuid, id: uuid, ...[[TicketTypeInterface]]}
 	 * @required {event_id:uuid, id:uuid, ...[[TicketTypeInterface]]}
+	 * @url /events/{event_id}/ticket_types/{id}
 	 */
 	update(): TicketTypeInterface {
 		return createRequestMethod({
@@ -49,6 +52,7 @@ class EventTicketTypesResource extends ResourceClass {
 	 * @params {event_id:uuid}
 	 * @required {event_id:uuid}
 	 * @data Array<[[TicketTypeInterface]]>
+	 * @url /events/{event_id}/ticket_types
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -66,6 +70,7 @@ class EventTicketTypesResource extends ResourceClass {
 	 * @params {event_id:uuid, ticket_type_id: uuid}
 	 * @required {event_id:uuid, ticket_type_id: uuid}
 	 * @data Array<[[TicketTypeInterface]]>
+	 * @url /events/{event_id}/ticket_types/{ticket_type_id}
 	 */
 	cancel(): IndexInterface {
 		return createRequestMethod({

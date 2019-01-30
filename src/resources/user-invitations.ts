@@ -3,6 +3,7 @@ import ResourceClass from "../classes/abstracts/resource.class";
 
 /**
  * @endpoint userInvites
+ * @url /user_invites
  */
 class UserInvitationsResource extends ResourceClass {
 	constructor() {
@@ -14,6 +15,7 @@ class UserInvitationsResource extends ResourceClass {
 	 * @auth true
 	 * @params {first_name?: string, last_name?: string, email: string}
 	 * @required { email: string}
+	 * @url /user_invites
 	 */
 	create(): void {
 		return createRequestMethod({

@@ -6,6 +6,7 @@ import HoldCompsResource from "./namespaced/hold-comps";
 
 /**
  * @endpoint holds
+ * @url /holds
  */
 
 class HoldsResource extends ResourceClass {
@@ -22,6 +23,7 @@ class HoldsResource extends ResourceClass {
 	 * @params {id:uuid, ...[[HoldInterface]]}
 	 * @required {id:uuid}
 	 * @return {status: 200}
+	 * @url /holds/{id}
 	 */
 	update(): void {
 		return createRequestMethod({
@@ -38,6 +40,7 @@ class HoldsResource extends ResourceClass {
      * @params {id:uuid}
      * @required {id:uuid}
      * @return [[HoldInterface]]
+	 * @url /holds/{id}
      */
 	read(): HoldInterface {
 		return createRequestMethod({
@@ -53,6 +56,7 @@ class HoldsResource extends ResourceClass {
 	 * @params {id:uuid}
 	 * @required {id:uuid}
 	 * @return {status: 200}
+	 * @url /holds/{id}
 	 */
 	delete(): void {
 		return createRequestMethod({
@@ -67,6 +71,7 @@ class HoldsResource extends ResourceClass {
 	 * @params {hold_id:uuid}
 	 * @required {hold_id:uuid}
 	 * @data Array<[[CartItemInterface]]>
+	 * @url /holds/{id}/tickets
 	 */
 	// index(): IndexInterface {
 	// 	return createRequestMethod({
@@ -84,6 +89,7 @@ class HoldsResource extends ResourceClass {
 	 * @params {id:uuid,...[[HoldInterface]]}
 	 * @required {hold_id:uuid, name: string, redemption_code: string, discount_in_cents: number, hold_type: string, quantity: number}
 	 * @return [[HoldInterface]]
+	 * @url /holds/{id}/split
 	 */
 	split(): HoldInterface {
 		return createRequestMethod({

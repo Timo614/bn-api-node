@@ -5,13 +5,12 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
 
 /**
  * @endpoint events.interests
+ * @url /events/{event_id}/interest
  */
 class EventInterestsResource extends ResourceClass {
 	constructor() {
 		super("events");
 	}
-
-
 
 	/**
 	 * List interested users
@@ -19,6 +18,7 @@ class EventInterestsResource extends ResourceClass {
 	 * @params {event_id: uuid}
 	 * @required {event_id: uuid}
 	 * @data Array<[[EventInterestInterface]]>
+	 * @url /events/{event_id}/interest
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -33,6 +33,7 @@ class EventInterestsResource extends ResourceClass {
 	 * @auth true
 	 * @params {event_id: uuid}
 	 * @required {event_id: uuid}
+	 * @url /events/{event_id}/interest
 	 */
 	create(): EventInterestInterface {
 		return createRequestMethod({
@@ -48,6 +49,7 @@ class EventInterestsResource extends ResourceClass {
 	 * @auth true
 	 * @params {event_id:uuid}
 	 * @required {event_id:uuid}
+	 * @url /events/{event_id}/interest
 	 */
 	del(): EventInterestInterface {
 		return createRequestMethod({

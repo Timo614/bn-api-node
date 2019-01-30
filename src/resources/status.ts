@@ -3,6 +3,7 @@ import ResourceClass from "../classes/abstracts/resource.class";
 
 /**
  * @endpoint status
+ * @url /status
  */
 class StatusResource extends ResourceClass {
 	constructor() {
@@ -13,6 +14,7 @@ class StatusResource extends ResourceClass {
 	 * Check the status of the server
 	 * @auth false
 	 * @response 200
+	 * @url /status
 	 */
 	read(): void {
 		return createRequestMethod({

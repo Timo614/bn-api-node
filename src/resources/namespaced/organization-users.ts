@@ -5,6 +5,7 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
 
 /**
  * @endpoint organizations.users
+ * @url /organizations/{organization_id}/users
  */
 class OrganizationUsersResource extends ResourceClass {
 	constructor() {
@@ -16,6 +17,7 @@ class OrganizationUsersResource extends ResourceClass {
 	 * Add a user to the organization
 	 * @params {organization_id:uuid, user_id: uuid }
 	 * @required {organization_id:uuid, user_id: uuid, roles: Array<<string>> }
+	 * @url /organizations/{organization_id}/users
 	 */
 	add(): void {
 		return createRequestMethod({
@@ -30,6 +32,7 @@ class OrganizationUsersResource extends ResourceClass {
 	 * Replaces all the roles a user has in the organization, if the user does not exist, it will be created
 	 * @params {organization_id:uuid, user_id: uuid }
 	 * @required {organization_id:uuid, user_id: uuid, roles: Array<<string>> }
+	 * @url /organizations/{organization_id}/users
 	 */
 	replace(): void {
 		return createRequestMethod({
@@ -44,6 +47,7 @@ class OrganizationUsersResource extends ResourceClass {
 	 * Delete a user from the organization
 	 * @params {organization_id:uuid, user_id: uuid }
 	 * @required {organization_id:uuid, user_id: uuid }
+	 * @url /organizations/{organization_id}/users/{user_id}
 	 */
 	del(): OrganizationInterface {
 		return createRequestMethod({
@@ -61,6 +65,7 @@ class OrganizationUsersResource extends ResourceClass {
 	 * @params {organization_id:uuid}
 	 * @required {organization_id:uuid}
 	 * @data Array<[[UserInterface]]>
+	 * @url /organizations/{organization_id}/users
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({

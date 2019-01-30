@@ -1,11 +1,11 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
-import { ResourceInterface } from "../interfaces/server/resource";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { RegionInterface } from "../interfaces/resources/region.interface";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint regions
+ * @url /regions
  */
 
 class RegionsResource extends ResourceClass {
@@ -18,6 +18,7 @@ class RegionsResource extends ResourceClass {
 	 * @auth false
 	 * @params {id}
 	 * @required {id}
+	 * @url /regions/{id}
 	 */
 	read(): RegionInterface {
 		return createRequestMethod({
@@ -32,6 +33,7 @@ class RegionsResource extends ResourceClass {
 	 * Update a single region
 	 * @auth true
 	 * @params {id, ...RegionInterface}
+	 * @url /regions/{id}
 	 */
 	update(): RegionInterface {
 		return createRequestMethod({
@@ -47,6 +49,7 @@ class RegionsResource extends ResourceClass {
 	 * Create an region
 	 * @auth true
 	 * @params {...RegionInterface}
+	 * @url /regions
 	 */
 	create(): RegionInterface {
 		return createRequestMethod({
@@ -62,6 +65,7 @@ class RegionsResource extends ResourceClass {
 	 * List regions
 	 * @auth false
 	 * @data Array<[[RegionInterface]]>
+	 * @url /regions
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({

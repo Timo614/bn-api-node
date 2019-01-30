@@ -4,6 +4,7 @@ import ResourceClass from "../classes/abstracts/resource.class";
 
 /**
  * @endpoint cart
+ * @url /cart
  */
 class CartResource extends ResourceClass {
 	constructor() {
@@ -15,6 +16,7 @@ class CartResource extends ResourceClass {
 	 * @auth false
 	 * @params {items: Array<[[CartItemInterface]]>}
 	 * @required {items: Array<[[CartItemInterface]]>}
+	 * @url /cart
 	 */
 	update(): OrderInterface {
 		return createRequestMethod({
@@ -30,6 +32,7 @@ class CartResource extends ResourceClass {
 	 * @auth false
 	 * @params {items: Array<[[CartItemInterface]]>}
 	 * @required {items: Array<[[CartItemInterface]]>}
+	 * @url /cart
 	 */
 	replace(): OrderInterface {
 		return createRequestMethod({
@@ -44,6 +47,7 @@ class CartResource extends ResourceClass {
 	 * Gets the user's current cart
 	 * @auth false
 	 * @alias index
+	 * @url /cart
 	 */
 	read(): OrderInterface {
 		return createRequestMethod({
@@ -58,6 +62,7 @@ class CartResource extends ResourceClass {
 	/**
 	 * Delete all items from the user's cart
 	 * @auth true
+	 * @url /cart
 	 */
 	del(): void {
 		return createRequestMethod({
@@ -73,6 +78,7 @@ class CartResource extends ResourceClass {
 	 * @required {method: CheckoutMethodInterface}
 	 * @TODO Create a response type
 	 * @TODO Create a request type
+	 * @url /cart/checkout
 	 */
 	checkout(): any {
 		return createRequestMethod({

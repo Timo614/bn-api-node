@@ -1,11 +1,10 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
-import { RedemptionCodeInterface } from "../interfaces/resources/redemption-code.interface";
-import HoldCompsResource from "./namespaced/hold-comps";
 
 /**
  * @endpoint redemption_codes
+ * @url /redemption_codes
  */
 
 class RedemptionCodesResource extends ResourceClass {
@@ -20,6 +19,7 @@ class RedemptionCodesResource extends ResourceClass {
 	 * @params {code:string}
 	 * @required {code:string}
 	 * @data [[RedemptionCodeInterface]]
+	 * @url /redemption_codes/{code}
 	 */
 	read(): IndexInterface {
 		return createRequestMethod({

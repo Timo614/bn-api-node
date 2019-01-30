@@ -4,6 +4,7 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
 
 /**
  * @endpoint events.guests
+ * @url /events/{event_id}/guests
  */
 class EventGuestsResource extends ResourceClass {
 	constructor() {
@@ -16,6 +17,7 @@ class EventGuestsResource extends ResourceClass {
 	 * @params {event_id:uuid}
 	 * @required {event_id:uuid}
 	 * @data Array<[[TicketRedeemableInterface]]>
+	 * @url /events/{event_id}/guests
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({

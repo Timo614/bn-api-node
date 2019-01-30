@@ -15,6 +15,7 @@ import { EventTypes } from "../interfaces/enums/events.enum";
 
 /**
  * @endpoint events
+ * @url /events
  */
 class EventsResource extends ResourceClass {
 	constructor() {
@@ -36,6 +37,7 @@ class EventsResource extends ResourceClass {
 	 * @auth false
 	 * @params {...[[PagingInterface]], event_id?: string}
 	 * @data Array<[[EventInterface]]>
+	 * @url /events
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -51,6 +53,7 @@ class EventsResource extends ResourceClass {
 	 * @auth true
 	 * @params {...[[PagingInterface]]}
 	 * @data Array<[[EventInterface]]>
+	 * @url /events/checkins
 	 */
 	checkins(): IndexInterface {
 		return createRequestMethod({
@@ -68,6 +71,7 @@ class EventsResource extends ResourceClass {
 	 * @auth true
 	 * @params {EventInterface}
 	 * @required {name: string, organization_id: uuid, event_type: [[EventTypes]]}
+	 * @url /events
 	 */
 	create(): EventInterface {
 		return createRequestMethod({
@@ -86,6 +90,7 @@ class EventsResource extends ResourceClass {
 	 * @auth true
 	 * @params {...EventInterface}
 	 * @required {id: uuid}
+	 * @url /events/{id}
 	 */
 	update(): EventInterface {
 		return createRequestMethod({
@@ -101,6 +106,7 @@ class EventsResource extends ResourceClass {
 	 * @auth true
 	 * @params {id:uuid}
 	 * @required {id:uuid}
+	 * @url /events/{id}
 	 */
 	del(): EventInterface {
 		return createRequestMethod({
@@ -118,6 +124,7 @@ class EventsResource extends ResourceClass {
 	 * @auth false
 	 * @params {id:uuid}
 	 * @required {id: uuid}
+	 * @url /events/{id}/dashboard
 	 */
 	dashboard(): EventInterface {
 		return createRequestMethod({
@@ -133,6 +140,7 @@ class EventsResource extends ResourceClass {
 	 * @auth false
 	 * @params {id:uuid}
 	 * @required {id: uuid}
+	 * @url /events/{id}
 	 */
 	read(): EventInterface {
 		return createRequestMethod({
@@ -149,6 +157,7 @@ class EventsResource extends ResourceClass {
 	 * @auth true
 	 * @params {id:uuid}
 	 * @required {id: uuid}
+	 * @url /events/{id}/publish
 	 */
 	publish(): EventInterface {
 		return createRequestMethod({
@@ -165,6 +174,7 @@ class EventsResource extends ResourceClass {
 	 * @params {id:uuid}
 	 * @required {id: uuid}
 	 * @returns {status: 200}
+	 * @url /events/{id}/unpublish
 	 */
 	unpublish(): void {
 		return createRequestMethod({

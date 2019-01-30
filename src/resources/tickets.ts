@@ -9,6 +9,7 @@ import TicketTransferResource from "./namespaced/ticket-transfer";
 
 /**
  * @endpoint tickets
+ * @url /tickets
  */
 class TicketsResource extends ResourceClass {
 	constructor() {
@@ -24,6 +25,7 @@ class TicketsResource extends ResourceClass {
 	 * @auth true
 	 * @params {start_utc: Date, end_utc: Date}
 	 * @data Array<[[TicketInterface]]>
+	 * @url /tickets
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
@@ -39,6 +41,7 @@ class TicketsResource extends ResourceClass {
 	 * @auth true
 	 * @params {id: uuid}
 	 * @required {id:uuid}
+	 * @url /tickets/{id}
 	 */
 	read(): {ticket: TicketInterface, user: UserInterface, event: EventInterface} {
 		return createRequestMethod({

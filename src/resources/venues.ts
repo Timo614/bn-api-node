@@ -7,6 +7,7 @@ import VenueStagesResource from "./namespaced/venue-stages";
 
 /**
  * @endpoint venues
+ * @url /venues
  */
 class VenuesResource extends ResourceClass {
 	constructor() {
@@ -22,6 +23,7 @@ class VenuesResource extends ResourceClass {
 	 * @auth true
 	 * @params {id: uuid, organization_id: uuid}
 	 * @required {id: uuid, organization_id: uuid}
+	 * @url /venues/{id}/organizations
 	 */
 	addToOrganization(): VenueInterface {
 		return createRequestMethod({
@@ -37,6 +39,7 @@ class VenuesResource extends ResourceClass {
 	 * @auth true
 	 * @params {id: uuid}
 	 * @required {id: uuid}
+	 * @url /venues/{id}/toggle_privacy
 	 */
 	togglePrivacy(): VenueInterface {
 		return createRequestMethod({
@@ -53,6 +56,7 @@ class VenuesResource extends ResourceClass {
 	 * @auth true
 	 * @params {id}
 	 * @required {id}
+	 * @url /venues/{id}
 	 */
 	read(): VenueInterface {
 		return createRequestMethod({
@@ -68,6 +72,7 @@ class VenuesResource extends ResourceClass {
 	 * @auth true
 	 * @params {id: uuid, ...VenueInterface}
 	 * @required {id: uuid}
+	 * @url /venues/{id}
 	 */
 	update(): VenueInterface {
 		return createRequestMethod({
@@ -83,6 +88,7 @@ class VenuesResource extends ResourceClass {
 	 * @auth true
 	 * @params {...VenueInterface}
 	 * @required {owner_user_id: uuid, name: string, address: string, city: string, state: string, country: string, postal_code: string}
+	 * @url /venues
 	 */
 	create(): VenueInterface {
 		return createRequestMethod({
@@ -105,6 +111,7 @@ class VenuesResource extends ResourceClass {
 	 * List venues
 	 * @auth true
 	 * @data Array<[[VenueInterface]]>
+	 * @url /venues
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({

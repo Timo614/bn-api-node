@@ -12,6 +12,7 @@ import OrganizationFansResource from "./namespaced/organization-fans";
 
 /**
  * @endpoint organizations
+ * @url /organizations
  */
 class OrganizationsResource extends ResourceClass {
 	constructor() {
@@ -32,6 +33,7 @@ class OrganizationsResource extends ResourceClass {
 	 * @auth true
 	 * @params {id}
 	 * @required {id}
+	 * @url /organizations/{id}
 	 */
 	read(): OrganizationInterface {
 		return createRequestMethod({
@@ -47,6 +49,7 @@ class OrganizationsResource extends ResourceClass {
 	 * @auth true
 	 * @params {id: uuid, ...OrganizationInterface}
 	 * @required {id: uuid}
+	 * @url /organizations/{id}
 	 */
 	update(): OrganizationInterface {
 		return createRequestMethod({
@@ -62,6 +65,7 @@ class OrganizationsResource extends ResourceClass {
 	 * @auth true
 	 * @params {...OrganizationInterface}
 	 * @required {name: string}
+	 * @url /organizations
 	 */
 	create(): OrganizationInterface {
 		return createRequestMethod({
@@ -77,6 +81,7 @@ class OrganizationsResource extends ResourceClass {
 	 * List organizations
 	 * @auth true
 	 * @data Array<[[OrganizationInterface]]>
+	 * @url /organizations
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
