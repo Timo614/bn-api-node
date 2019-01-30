@@ -75,6 +75,9 @@
 						<dt>endpoint</dt>
 						<dd><p>users.deviceTokens</p>
 						</dd>
+						<dt>url</dt>
+						<dd><p>/users/{user_id}/tokens</p>
+						</dd>
 					</dl>
 				</div>
 			</section>
@@ -140,7 +143,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/resources/namespaced/user-device-tokens.ts#L9">resources/namespaced/user-device-tokens.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/resources/namespaced/user-device-tokens.ts#L10">resources/namespaced/user-device-tokens.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_resources_namespaced_user_device_tokens_.userdevicetokensresource.html" class="tsd-signature-type">UserDeviceTokensResource</a></h4>
@@ -158,7 +161,7 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#methods">methods</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#methods">methods</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/classes/abstracts/resource.class.ts#L9">classes/abstracts/resource.class.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/classes/abstracts/resource.class.ts#L9">classes/abstracts/resource.class.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +173,7 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#namespaces">namespaces</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#namespaces">namespaces</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/classes/abstracts/resource.class.ts#L7">classes/abstracts/resource.class.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/classes/abstracts/resource.class.ts#L7">classes/abstracts/resource.class.ts:7</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -190,7 +193,7 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#path">path</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#path">path</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/classes/abstracts/resource.class.ts#L5">classes/abstracts/resource.class.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/classes/abstracts/resource.class.ts#L5">classes/abstracts/resource.class.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -207,7 +210,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/resources/namespaced/user-device-tokens.ts#L48">resources/namespaced/user-device-tokens.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/resources/namespaced/user-device-tokens.ts#L52">resources/namespaced/user-device-tokens.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -220,6 +223,9 @@
 									</dd>
 									<dt>required</dt>
 									<dd><p>{token_source: <a href="../enums/_interfaces_enums_device_tokens_enum_.devicetokensource.html">DeviceTokenSource</a>, token: string}</p>
+									</dd>
+									<dt>url</dt>
+									<dd><p>/users/{user_id}/tokens</p>
 									</dd>
 								</dl>
 							</div>
@@ -237,7 +243,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/resources/namespaced/user-device-tokens.ts#L62">resources/namespaced/user-device-tokens.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/resources/namespaced/user-device-tokens.ts#L67">resources/namespaced/user-device-tokens.ts:67</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -250,6 +256,9 @@
 									</dd>
 									<dt>required</dt>
 									<dd><p>{token_id: uuid}</p>
+									</dd>
+									<dt>url</dt>
+									<dd><p>/users/{user_id}/tokens/{token_id}</p>
 									</dd>
 								</dl>
 							</div>
@@ -267,7 +276,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/resources/namespaced/user-device-tokens.ts#L34">resources/namespaced/user-device-tokens.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/resources/namespaced/user-device-tokens.ts#L37">resources/namespaced/user-device-tokens.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,6 +289,9 @@
 									</dd>
 									<dt>data</dt>
 									<dd><p>Array&lt;<a href="../interfaces/_interfaces_resources_device_token_interface_.devicetokeninterface.html">DeviceTokenInterface</a>&gt;</p>
+									</dd>
+									<dt>url</dt>
+									<dd><p>/users/{user_id}/tokens</p>
 									</dd>
 								</dl>
 							</div>
@@ -297,7 +309,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/resources/namespaced/user-device-tokens.ts#L19">resources/namespaced/user-device-tokens.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/resources/namespaced/user-device-tokens.ts#L21">resources/namespaced/user-device-tokens.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -310,6 +322,9 @@
 									</dd>
 									<dt>required</dt>
 									<dd><p>{user_id: uuid}</p>
+									</dd>
+									<dt>url</dt>
+									<dd><p>/users/{user_id}/tokens</p>
 									</dd>
 								</dl>
 							</div>

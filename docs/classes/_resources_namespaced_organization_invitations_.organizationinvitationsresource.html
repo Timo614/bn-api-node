@@ -75,6 +75,9 @@
 						<dt>endpoint</dt>
 						<dd><p>organizations.invite</p>
 						</dd>
+						<dt>url</dt>
+						<dd><p>/organizations/{organization_id}/invites</p>
+						</dd>
 					</dl>
 				</div>
 			</section>
@@ -139,7 +142,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/resources/namespaced/organization-invitations.ts#L9">resources/namespaced/organization-invitations.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/resources/namespaced/organization-invitations.ts#L10">resources/namespaced/organization-invitations.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_resources_namespaced_organization_invitations_.organizationinvitationsresource.html" class="tsd-signature-type">OrganizationInvitationsResource</a></h4>
@@ -157,7 +160,7 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#methods">methods</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#methods">methods</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/classes/abstracts/resource.class.ts#L9">classes/abstracts/resource.class.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/classes/abstracts/resource.class.ts#L9">classes/abstracts/resource.class.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -169,7 +172,7 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#namespaces">namespaces</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#namespaces">namespaces</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/classes/abstracts/resource.class.ts#L7">classes/abstracts/resource.class.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/classes/abstracts/resource.class.ts#L7">classes/abstracts/resource.class.ts:7</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -189,7 +192,7 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#path">path</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#path">path</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/classes/abstracts/resource.class.ts#L5">classes/abstracts/resource.class.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/classes/abstracts/resource.class.ts#L5">classes/abstracts/resource.class.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -206,7 +209,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/resources/namespaced/organization-invitations.ts#L21">resources/namespaced/organization-invitations.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/resources/namespaced/organization-invitations.ts#L23">resources/namespaced/organization-invitations.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -226,6 +229,9 @@
 									<dt>required</dt>
 									<dd><p>{organization_id:uuid, user_email: string, roles: Array&lt;<a href="../enums/_interfaces_enums_user_roles_enum_.userrole.html">UserRole</a>&gt;}</p>
 									</dd>
+									<dt>url</dt>
+									<dd><p>/organizations/{organization_id}/invites</p>
+									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_organization_invitation_interface_.organizationinvitationinterface.html" class="tsd-signature-type">OrganizationInvitationInterface</a></h4>
@@ -242,7 +248,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/resources/namespaced/organization-invitations.ts#L56">resources/namespaced/organization-invitations.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/resources/namespaced/organization-invitations.ts#L60">resources/namespaced/organization-invitations.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -258,6 +264,9 @@
 									</dd>
 									<dt>required</dt>
 									<dd><p>{organization_id:uuid, invite_id: uuid}</p>
+									</dd>
+									<dt>url</dt>
+									<dd><p>/organizations/{organization_id}/invites/{invite_id}</p>
 									</dd>
 								</dl>
 							</div>
@@ -276,7 +285,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/10d96a1/src/resources/namespaced/organization-invitations.ts#L39">resources/namespaced/organization-invitations.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/44e2cec/src/resources/namespaced/organization-invitations.ts#L42">resources/namespaced/organization-invitations.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -295,6 +304,9 @@
 									</dd>
 									<dt>data</dt>
 									<dd><p>Array&lt;<a href="../interfaces/_interfaces_resources_organization_invitation_interface_.organizationinvitationinterface.html">OrganizationInvitationInterface</a>&gt;</p>
+									</dd>
+									<dt>url</dt>
+									<dd><p>/organizations/{organization_id}/invites</p>
 									</dd>
 								</dl>
 							</div>
