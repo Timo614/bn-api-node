@@ -1,4 +1,4 @@
-name,phone,address,city,state,country,postal_code,region_id
-Public Works,5551231234,1 Main Road,San Francisco,California,United States, 12345,San Francisco
-Bimbos,5551231234,1 Main Road,San Francisco,California,United States, 12345,San Francisco
-Lavo Nightclu,5551231234,1 Big Road,New York,New York,United States, 12345,New York
+name,phone,address,city,state,country,postal_code,region_id,timezone
+Public Works,5551231234,1 Main Road,San Francisco,California,United States, 12345,San Francisco,America/Los_Angeles
+Bimbos,5551231234,1 Main Road,San Francisco,California,United States, 12345,San Francisco,America/Los_Angeles
+Lavo Nightclu,5551231234,1 Big Road,New York,New York,United States, 12345,New York,America/Los_Angeles

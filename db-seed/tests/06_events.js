@@ -10,7 +10,9 @@ describe("Integration::Events", function () {
 	let publicServer, adminServer;
 	const events = q.readCSV("./data/events.csv").map(event => {
 		event.age_limit = Number(event.age_limit);
-		event.event_start = isNaN(event.event_start) ? event.event_start : moment().add(event.event_start, "days").utc().format("YYYY-MM-DDTHH:mm:ss.SSS");
+		const eventStart = isNaN(event.event_start) ? moment(event.event_start) : moment().add(event.event_start, "days");
+		event.event_start = eventStart.utc().format("YYYY-MM-DDTHH:mm:ss.SSS");
+		event.event_end = eventStart.add(24, "h").utc().format("YYYY-MM-DDTHH:mm:ss.SSS");
 		event.door_time = isNaN(event.door_time) ? event.door_time : moment().add(event.door_time, "days").utc().format("YYYY-MM-DDTHH:mm:ss.SSS");
 		return event;
 	});
@@ -157,6 +159,7 @@ describe("Integration::Events", function () {
 				id: global.eventsByName["Priority Party"],
 				name: "Priority Parties",
 				event_start: "2020-12-12T12:00:00",
+				event_end: "2020-12-13T12:00:00",
 				door_time: "2020-12-12T12:00:00",
 				status: "Published",
 				promo_image_url: "https://res.cloudinary.com/bigneon-dev/image/upload/v1540996739/bigneon/pssets0z4vxrjasvhvmj.jpg",

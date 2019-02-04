@@ -1,3 +1,4 @@
+require("dotenv").config();
 const q = require("../queries");
 const assert = require("assert");
 const global = require("../helpers/globals");
@@ -48,7 +49,7 @@ describe("Integration::FanPurchaseTickets", function() {
 
 			let token;
 			it("User sends payment request to stripe", async function () {
-				const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
+				const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 				const stripeData = await stripe.tokens.create({
 					card: {
