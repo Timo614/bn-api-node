@@ -68,6 +68,22 @@ class ReportsResource extends ResourceClass {
 		}) as any;
 	}
 
+	/**
+	 * Get weekly settlement report
+	 * @auth true
+	 * @params {organization_id:uuid}
+	 * @required {organization_id:uuid}
+	 * @url /reports/{organization_id}?report=weekly_settlement
+	 */
+	weeklySettlement(): { event_id: string, sales: Array<EventSummarySalesRowInterface>, ticket_fees: Array<EventSummaryFeesRowInterface>, other_fees: Array<EventSummaryOtherFeesInterface> } {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{organization_id}?report=weekly_settlement",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
+
 }
 
 export default ReportsResource;
