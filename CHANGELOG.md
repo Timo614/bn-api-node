@@ -1,3 +1,10 @@
+#### 1.0.5 (2019-02-08)
+
+##### New Features
+
+* **endpoints:**  Added cart.clear ([d9537957](https://github.com/big-neon/bn-api-node/commit/d953795766fc1a162883a77daf19e66247767ad4))
+* **endpoints:**  Kept venues.events.index but changed the url associated with it ([d9537957](https://github.com/big-neon/bn-api-node/commit/d953795766fc1a162883a77daf19e66247767ad4))
+
 #### 1.0.4 (2019-01-28)
 
 ##### New Features
