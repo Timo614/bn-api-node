@@ -4,7 +4,7 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
 
 /**
  * @endpoint venues.events
- * @url /venues/{venue_id}/events
+ * @url /venues/{id}/events
  */
 class VenueEventsResource extends ResourceClass {
 	constructor() {
@@ -17,12 +17,14 @@ class VenueEventsResource extends ResourceClass {
 	 * @params {venue_id:uuid}
 	 * @required {venue_id:uuid}
 	 * @data  Array<[[EventInterface]]>
-	 * @url /venues/{venue_id}/events
+	 * @deprecated Use /events?venue_id={venue_id}
+	 * @url /events?venue_id={venue_id}
 	 */
 	index(): IndexInterface {
 		return createRequestMethod({
 			method: "GET",
-			path: "/{venue_id}/events",
+			overridePath: "/events/",
+			path: "?venue_id={venue_id}",
 			required: [],
 			requiresAuth: true
 		}) as any;
