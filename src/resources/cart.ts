@@ -73,6 +73,19 @@ class CartResource extends ResourceClass {
 	}
 
 	/**
+	 * Delete all invalid items from the user's cart
+	 * @auth true
+	 * @url /cart/clear_invalid_items
+	 */
+	clear(): void {
+		return createRequestMethod({
+			method: "DELETE",
+			path: "/clear_invalid_items",
+			requiresAuth: true,
+		}) as any;
+	}
+
+	/**
 	 * Checkout the cart
 	 * @params {amount: number, method: CheckoutMethodInterface}
 	 * @required {method: CheckoutMethodInterface}

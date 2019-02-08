@@ -7,6 +7,7 @@ export interface RequestMethodInterface {
     names: Array<string>;
     name: string;
     method: string;
+    overridePath?: string;
     path: string;
     required?: Array<string>;//All of these fields must be present
     requireOne?: Array<string>;//At least one of these fields must be present
@@ -24,6 +25,7 @@ export const createRequestMethod = (base: any = {}): RequestMethodInterface => {
 		...{
 			namespace: "",
 			method: "GET",
+			overridePath: null,
 			path: "",
 			names: [],
 			name: "",

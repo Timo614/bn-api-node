@@ -194,7 +194,8 @@ export class RequestMethod {
 			ignoreValidation: boolean = false
 		) => {
 			method = { ...method, ...overrideMethod };
-			let path = `${this.path}${method.path}`.replace(/\/\//g, "/");
+			let overridePath = method.overridePath || this.path;
+			let path = `${overridePath}${method.path}`.replace(/\/\//g, "/");
 			// If the path has any {identifier} parameter, replace it with the data[identifier] key
 
 			try {

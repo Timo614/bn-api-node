@@ -69,7 +69,7 @@ describe("Integration::FanPurchaseTickets", function() {
 					amount,
 					method: {
 						type: "Card",
-						provider: "stripe",
+						provider: "Stripe",
 						token,
 						save_payment_method: false,
 						set_default: false
