@@ -14,7 +14,8 @@ export interface OrganizationInterface {
 	sendgrid_api_key?: string;
 	google_ga_key?: string;
 	facebook_pixel_key?: string;
-	allowed_payment_providers?: string
+	allowed_payment_providers?: string,
+	timezone?:string
 }
 
 export const createOrganization = (base: any = {}): OrganizationInterface => {
@@ -35,7 +36,8 @@ export const createOrganization = (base: any = {}): OrganizationInterface => {
 			sendgrid_api_key: "",
 			google_ga_key: "",
 			facebook_pixel_key: "",
-			allowed_payment_providers: "stripe"
+			allowed_payment_providers: "Stripe",
+			timezone: ""
 		},
 		...base
 	} as OrganizationInterface
