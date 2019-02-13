@@ -51,6 +51,7 @@ describe("Integration::Events", function () {
 
 				event.venue_id = venuesByName[event.venue_id];
 				event.organization_id = orgsByName[event.organization_id];
+				event.cover_image_url = event.promo_image_url;
 				const result = await adminServer.events.create(event);
 				id = result.data.id;
 				global.eventsByName[result.data.name] = id;

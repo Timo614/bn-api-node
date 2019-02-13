@@ -19,6 +19,7 @@ export interface EventInterface {
 	status?: string;
 	publish_date: Date;
 	promo_image_url?: string;
+	cover_image_url?: string;
 	additional_info?: string;
 	age_limit?: number;
 	organization?: OrganizationInterface;
@@ -63,6 +64,7 @@ export const createEvent = (base: any = {}): EventInterface => {
 			status: "",
 			publish_date: "",
 			promo_image_url: "",
+			cover_image_url: "",
 			additional_info: "",
 			age_limit: 0,
 			organization: {},
