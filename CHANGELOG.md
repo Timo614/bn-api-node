@@ -1,3 +1,9 @@
+#### 1.0.6 (2019-02-15)
+
+##### New Features
+
+* **endpoints:**  Added `events.users.index` and `events.users.invite` 
+
 #### 1.0.5 (2019-02-08)
 
 ##### New Features
