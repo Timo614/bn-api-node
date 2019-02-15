@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>OrganizationEventsResource | bn-api-node</title>
+	<title>EventUsersResource | bn-api-node</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_resources_namespaced_organization_events_.html">&quot;resources/namespaced/organization-events&quot;</a>
+					<a href="../modules/_resources_namespaced_event_users_.html">&quot;resources/namespaced/event-users&quot;</a>
 				</li>
 				<li>
-					<a href="_resources_namespaced_organization_events_.organizationeventsresource.html">OrganizationEventsResource</a>
+					<a href="_resources_namespaced_event_users_.eventusersresource.html">EventUsersResource</a>
 				</li>
 			</ul>
-			<h1>Class OrganizationEventsResource</h1>
+			<h1>Class EventUsersResource</h1>
 		</div>
 	</div>
 </header>
@@ -73,10 +73,10 @@
 				<div class="tsd-comment tsd-typography">
 					<dl class="tsd-comment-tags">
 						<dt>endpoint</dt>
-						<dd><p>organizations.events</p>
+						<dd><p>event.users</p>
 						</dd>
 						<dt>url</dt>
-						<dd><p>/organizations/{organization_id}/events</p>
+						<dd><p>/event/{event_id}/users</p>
 						</dd>
 					</dl>
 				</div>
@@ -88,7 +88,7 @@
 						<a href="_classes_abstracts_resource_class_.resourceclass.html" class="tsd-signature-type">ResourceClass</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">OrganizationEventsResource</span>
+								<span class="target">EventUsersResource</span>
 							</li>
 						</ul>
 					</li>
@@ -107,21 +107,22 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_resources_namespaced_organization_events_.organizationeventsresource.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_resources_namespaced_event_users_.eventusersresource.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_resources_namespaced_organization_events_.organizationeventsresource.html#methods" class="tsd-kind-icon">methods</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_resources_namespaced_organization_events_.organizationeventsresource.html#namespaces" class="tsd-kind-icon">namespaces</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_resources_namespaced_organization_events_.organizationeventsresource.html#path" class="tsd-kind-icon">path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_resources_namespaced_event_users_.eventusersresource.html#methods" class="tsd-kind-icon">methods</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_resources_namespaced_event_users_.eventusersresource.html#namespaces" class="tsd-kind-icon">namespaces</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_resources_namespaced_event_users_.eventusersresource.html#path" class="tsd-kind-icon">path</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_namespaced_organization_events_.organizationeventsresource.html#index" class="tsd-kind-icon">index</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_namespaced_event_users_.eventusersresource.html#index" class="tsd-kind-icon">index</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_namespaced_event_users_.eventusersresource.html#invite" class="tsd-kind-icon">invite</a></li>
 							</ul>
 						</section>
 					</div>
@@ -133,17 +134,17 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Organization<wbr>Events<wbr>Resource<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_resources_namespaced_organization_events_.organizationeventsresource.html" class="tsd-signature-type">OrganizationEventsResource</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Event<wbr>Users<wbr>Resource<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_resources_namespaced_event_users_.eventusersresource.html" class="tsd-signature-type">EventUsersResource</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/a1c0d90/src/resources/namespaced/organization-events.ts#L9">resources/namespaced/organization-events.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/a1c0d90/src/resources/namespaced/event-users.ts#L11">resources/namespaced/event-users.ts:11</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="_resources_namespaced_organization_events_.organizationeventsresource.html" class="tsd-signature-type">OrganizationEventsResource</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_resources_namespaced_event_users_.eventusersresource.html" class="tsd-signature-type">EventUsersResource</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -207,32 +208,62 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/a1c0d90/src/resources/namespaced/organization-events.ts#L22">resources/namespaced/organization-events.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/a1c0d90/src/resources/namespaced/event-users.ts#L23">resources/namespaced/event-users.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>List the events that are a part of this organization</p>
+									<p>List users with external access to this event</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>params</dt>
+									<dd><p>{event_id:uuid}</p>
+									</dd>
+									<dt>required</dt>
+									<dd><p>{event_id:uuid}</p>
+									</dd>
+									<dt>data</dt>
+									<dd><p>Array&lt;<a href="../interfaces/_interfaces_resources_user_interface_.userinterface.html">UserInterface</a>&gt;</p>
+									</dd>
+									<dt>url</dt>
+									<dd><p>/events/{event_id}/users</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_structures_index_interface_.indexinterface.html" class="tsd-signature-type">IndexInterface</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="invite" class="tsd-anchor"></a>
+					<h3>invite</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">invite<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_organization_invitation_interface_.organizationinvitationinterface.html" class="tsd-signature-type">OrganizationInvitationInterface</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/a1c0d90/src/resources/namespaced/event-users.ts#L39">resources/namespaced/event-users.ts:39</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create an invitation to this event</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>auth</dt>
 									<dd><p>true</p>
 									</dd>
 									<dt>params</dt>
-									<dd><p>{organization_id:uuid}</p>
-									</dd>
-									<dt>required</dt>
-									<dd><p>{organization_id:uuid}</p>
-									</dd>
-									<dt>data</dt>
-									<dd><p>Array&lt;<a href="../interfaces/_interfaces_resources_event_interface_.eventinterface.html">EventInterface</a>&gt;</p>
+									<dd><p>{event_id:uuid, user_email: string, roles: Array&lt;<a href="../enums/_interfaces_enums_user_roles_enum_.userrole.html">UserRole</a>&gt;}</p>
 									</dd>
 									<dt>url</dt>
-									<dd><p>/organizations/{organization_id}/events</p>
+									<dd><p>/events/{event_id}/users</p>
 									</dd>
 								</dl>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_structures_index_interface_.indexinterface.html" class="tsd-signature-type">IndexInterface</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_organization_invitation_interface_.organizationinvitationinterface.html" class="tsd-signature-type">OrganizationInvitationInterface</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -245,7 +276,7 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_resources_namespaced_organization_events_.html">"resources/namespaced/organization-<wbr>events"</a>
+						<a href="../modules/_resources_namespaced_event_users_.html">"resources/namespaced/event-<wbr>users"</a>
 					</li>
 				</ul>
 			</nav>
@@ -254,22 +285,25 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_resources_namespaced_organization_events_.organizationeventsresource.html" class="tsd-kind-icon">Organization<wbr>Events<wbr>Resource</a>
+						<a href="_resources_namespaced_event_users_.eventusersresource.html" class="tsd-kind-icon">Event<wbr>Users<wbr>Resource</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_resources_namespaced_organization_events_.organizationeventsresource.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_resources_namespaced_event_users_.eventusersresource.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_resources_namespaced_organization_events_.organizationeventsresource.html#methods" class="tsd-kind-icon">methods</a>
+								<a href="_resources_namespaced_event_users_.eventusersresource.html#methods" class="tsd-kind-icon">methods</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_resources_namespaced_organization_events_.organizationeventsresource.html#namespaces" class="tsd-kind-icon">namespaces</a>
+								<a href="_resources_namespaced_event_users_.eventusersresource.html#namespaces" class="tsd-kind-icon">namespaces</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_resources_namespaced_organization_events_.organizationeventsresource.html#path" class="tsd-kind-icon">path</a>
+								<a href="_resources_namespaced_event_users_.eventusersresource.html#path" class="tsd-kind-icon">path</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_resources_namespaced_organization_events_.organizationeventsresource.html#index" class="tsd-kind-icon">index</a>
+								<a href="_resources_namespaced_event_users_.eventusersresource.html#index" class="tsd-kind-icon">index</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_resources_namespaced_event_users_.eventusersresource.html#invite" class="tsd-kind-icon">invite</a>
 							</li>
 						</ul>
 					</li>
