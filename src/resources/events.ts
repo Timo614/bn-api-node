@@ -1,4 +1,7 @@
-import { createRequestMethod, RequestMethodInterface } from "../interfaces/server/request-method.interface";
+import {
+	createRequestMethod,
+	RequestMethodInterface
+} from "../interfaces/server/request-method.interface";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { EventInterface } from "../interfaces/resources/event.interface";
 import EventArtistsResource from "./namespaced/event-artists";
@@ -12,6 +15,7 @@ import EventCodesResource from "./namespaced/event-codes";
 import EventFansResource from "./namespaced/event-fans";
 import XhrClient from "../classes/xhr-client";
 import { EventTypes } from "../interfaces/enums/events.enum";
+import EventUsersResource from "./namespaced/event-users";
 
 /**
  * @endpoint events
@@ -29,6 +33,7 @@ class EventsResource extends ResourceClass {
 			interests: EventInterestsResource,
 			ticketTypes: EventTicketTypesResource,
 			tickets: EventTicketsResource,
+			users: EventUsersResource
 		};
 	}
 
@@ -64,8 +69,6 @@ class EventsResource extends ResourceClass {
 		}) as any;
 	}
 
-
-
 	/**
 	 * Create an event
 	 * @auth true
@@ -79,7 +82,12 @@ class EventsResource extends ResourceClass {
 			path: "",
 			required: ["name", "organization_id", "event_type"],
 			requiresAuth: true,
-			beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any) {
+			beforeRequest(
+				client: XhrClient,
+				method: RequestMethodInterface,
+				data: any,
+				headers: any
+			) {
 				data.event_type = data.event_type || EventTypes.MUSIC;
 			}
 		}) as any;
@@ -117,7 +125,6 @@ class EventsResource extends ResourceClass {
 			requiresAuth: true
 		}) as any;
 	}
-
 
 	/**
 	 * Dashboard for an event
