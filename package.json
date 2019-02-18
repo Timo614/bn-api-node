@@ -1,6 +1,6 @@
 {
   "name": "bn-api-node",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Bigneon Javascript Middleware",
   "main": "./dist/bundle.client.js",
   "scripts": {
