@@ -46,6 +46,42 @@ class EventUsersResource extends ResourceClass {
 			requiresAuth: true
 		}) as any;
 	}
+
+	/**
+	 * Delete a promoter of this event
+	 * @auth true
+	 * @params {event_id:uuid, user_id: uuid}
+	 * @required {event_id:uuid, user_id: uuid}
+	 * @returns status: 200
+	 * @url /events/{event_id}/users/{invite_id}
+	 */
+	del(): any {
+		return createRequestMethod({
+			method: "DELETE",
+			path: "/{event_id}/users/{user_id}",
+			required: [],
+			requireOne: [],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Delete a pending invitation to be a promoter of this event
+	 * @auth true
+	 * @params {event_id:uuid, invite_id: uuid}
+	 * @required {event_id:uuid, invite_id: uuid}
+	 * @returns status: 200
+	 * @url /events/{event_id}/users/invites/{invite_id}
+	 */
+	deleteInvite(): any {
+		return createRequestMethod({
+			method: "DELETE",
+			path: "/{event_id}/users/invites/{invite_id}",
+			required: [],
+			requireOne: [],
+			requiresAuth: true
+		}) as any;
+	}
 }
 
 export default EventUsersResource;
