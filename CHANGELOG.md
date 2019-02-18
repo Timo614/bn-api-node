@@ -1,3 +1,9 @@
+#### 1.0.7 (2019-02-18)
+
+##### New Features
+
+* **endpoints:**  Added `events.users.del` and `events.users.deleteInvite` 
+
 #### 1.0.6 (2019-02-15)
 
 ##### New Features
