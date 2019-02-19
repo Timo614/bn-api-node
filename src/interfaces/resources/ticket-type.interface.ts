@@ -2,6 +2,7 @@ import {
 	createTicketPricing,
 	TicketPricingInterface
 } from "./ticket-pricing.interface";
+import { SoldOutBehavior } from "../enums/ticket-types.enum";
 
 export interface TicketTypeInterface {
 	readonly id?: string;
@@ -15,7 +16,7 @@ export interface TicketTypeInterface {
 	increment: number; //How many can be bought at a time (4 per table)
 	price_in_cents: number;
 	ticket_pricing: Array<TicketPricingInterface>;
-	sold_out_behavior: string;
+	sold_out_behavior: SoldOutBehavior;
 	readonly created_at?: Date;
 	readonly updated_at?: Date;
 	readonly cancelled_at?: Date;
@@ -40,7 +41,7 @@ export const createTicketType = (base: any = {}): TicketTypeInterface => {
 			increment: 1, //In batches of 1
 			price_in_cents: 0,
 			ticket_pricing: [],
-			sold_out_behavior: "",
+			sold_out_behavior: SoldOutBehavior.SHOW_SOLD_OUT,
 			created_at: "",
 			updated_at: "",
 			cancelled_at: null

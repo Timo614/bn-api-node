@@ -1,3 +1,9 @@
+#### 1.0.8 (2019-02-19)
+
+##### New Features
+
+* **enhancement:**  Added Sold out behavior to ticket_types ([f39a5b7a](https://github.com/big-neon/bn-api-node/commit/f39a5b7aabd7ece7803d38e182d653deb634124d))
+
 #### 1.0.7 (2019-02-18)
 
 ##### New Features
