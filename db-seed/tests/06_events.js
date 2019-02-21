@@ -3,7 +3,9 @@ const assert = require("assert");
 const global = require("../helpers/globals");
 const ticketing = require("../helpers/ticketing");
 const interfaceFields = require("../../dist/interfaces/resources/event.interface");
+const { SoldOutBehavior } =  require("../../dist/interfaces/enums/ticket-types.enum");
 const assertFieldsMatch = require("../queries").assertFieldsMatch;
+
 const moment = require("moment");
 
 describe("Integration::Events", function () {
@@ -101,21 +103,24 @@ describe("Integration::Events", function () {
 						startPrice: 1000,
 						pricingPeriods: 5,
 						capacity: 1000,
-						limit_per_person: 0
+						limit_per_person: 0,
+						sold_out_behavior: SoldOutBehavior.SHOW_SOLD_OUT
 					},
 					{
 						name: "Balcony",
 						startPrice: 2000,
 						pricingPeriods: 2,
 						capacity: 150,
-						limit_per_person: 4
+						limit_per_person: 4,
+						sold_out_behavior: SoldOutBehavior.SHOW_SOLD_OUT
 					},
 					{
 						name: "VIP",
 						startPrice: 10000,
 						pricingPeriods: 2,
 						capacity: 200,
-						limit_per_person: 1
+						limit_per_person: 1,
+						sold_out_behavior: SoldOutBehavior.SHOW_SOLD_OUT
 					}
 				];
 
@@ -125,15 +130,18 @@ describe("Integration::Events", function () {
 						startPrice,
 						pricingPeriods,
 						capacity,
-						limit_per_person
+						limit_per_person,
+						sold_out_behavior
 					} = testTicketTypes[index];
+
 					const ticketTypeDetails = ticketing.generateTicketTypePricing({
 						name,
 						startPrice,
 						pricingPeriods,
 						capacity,
 						eventDateString: event.door_time,
-						limit_per_person
+						limit_per_person,
+						sold_out_behavior
 					});
 					const result = await adminServer.events.ticketTypes.create({
 						event_id: id,

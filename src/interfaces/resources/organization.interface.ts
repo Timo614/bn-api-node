@@ -15,7 +15,8 @@ export interface OrganizationInterface {
 	google_ga_key?: string;
 	facebook_pixel_key?: string;
 	allowed_payment_providers?: string,
-	timezone?:string
+	timezone?:string,
+	cc_fee_percent?: number
 }
 
 export const createOrganization = (base: any = {}): OrganizationInterface => {
@@ -37,7 +38,8 @@ export const createOrganization = (base: any = {}): OrganizationInterface => {
 			google_ga_key: "",
 			facebook_pixel_key: "",
 			allowed_payment_providers: "Stripe",
-			timezone: ""
+			timezone: "",
+			cc_fee_percent: 0
 		},
 		...base
 	} as OrganizationInterface

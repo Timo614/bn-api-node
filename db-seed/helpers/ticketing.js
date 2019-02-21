@@ -7,7 +7,9 @@ const ticketing = {
 			startPrice,
 			pricingPeriods,
 			eventDateString,
-			capacity, limit_per_person
+			capacity,
+			limit_per_person,
+			sold_out_behavior
 		}) {
 		const m = moment.utc();
 		const nowMoment =
@@ -57,6 +59,7 @@ const ticketing = {
 				.format(moment.HTML5_FMT.DATETIME_LOCAL_MS),
 			end_date: eventDateString,
 			limit_per_person,
+			sold_out_behavior,
 			price_in_cents: ticket_pricing[0].price_in_cents,
 			ticket_pricing
 		};
