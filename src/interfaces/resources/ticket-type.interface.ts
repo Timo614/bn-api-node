@@ -17,6 +17,7 @@ export interface TicketTypeInterface {
 	price_in_cents: number;
 	ticket_pricing: Array<TicketPricingInterface>;
 	sold_out_behavior: SoldOutBehavior;
+	is_private: boolean;
 	readonly created_at?: Date;
 	readonly updated_at?: Date;
 	readonly cancelled_at?: Date;
@@ -42,6 +43,7 @@ export const createTicketType = (base: any = {}): TicketTypeInterface => {
 			price_in_cents: 0,
 			ticket_pricing: [],
 			sold_out_behavior: SoldOutBehavior.SHOW_SOLD_OUT,
+			is_private: false,
 			created_at: "",
 			updated_at: "",
 			cancelled_at: null
