@@ -10,6 +10,7 @@ import Invitations from "./invitations";
 import Organization from "./organization";
 import Regions from "./regions";
 import Reports from "./reports";
+import Settlements from "./settlements";
 import Stages from "./stages";
 import Status from "./status";
 import UserInvites from "./user-invitations";
@@ -52,6 +53,7 @@ import RedemptionCodes from "./redemption-codes";
  * @endpoint organizations.feeSchedules [[OrganizationFeeSchedulesResource]]
  * @endpoint organizations.invite [[OrganizationInvitationsResource]]
  * @endpoint organizations.owner [[OrganizationOwnersResource]]
+ * @endpoint organizations.settlements [[OrganizationSettlementsResource]]
  * @endpoint organizations.users [[OrganizationUsersResource]]
  * @endpoint organizations.venues [[OrganizationVenueResource]]
  * @endpoint passwordReset [[PasswordResetResource]]
@@ -59,6 +61,7 @@ import RedemptionCodes from "./redemption-codes";
  * @endpoint redemptionCodes [[RedemptionCodeResource]]
  * @endpoint regions [[RegionsResource]]
  * @endpoint reports [[ReportsResource]]
+ * @endpoint settlements [[SettlementsResource]]
  * @endpoint stages [[StagesResource]]
  * @endpoint status [[StatusResource]]
  * @endpoint tickets [[TicketsResource]]
@@ -90,6 +93,7 @@ export const endpoints: {
 	redemptionCodes: RedemptionCodes,
 	regions: Regions,
 	reports: Reports,
+	settlements: Settlements,
 	stages: Stages,
 	status: Status,
 	tickets: Tickets,

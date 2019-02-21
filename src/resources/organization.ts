@@ -9,6 +9,7 @@ import OrganizationUsersResource from "./namespaced/organization-users";
 import OrganizationVenueResource from "./namespaced/organization-venues";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 import OrganizationFansResource from "./namespaced/organization-fans";
+import OrganizationSettlementsResource from "./namespaced/organization-settlements";
 
 /**
  * @endpoint organizations
@@ -23,6 +24,7 @@ class OrganizationsResource extends ResourceClass {
 			fans: OrganizationFansResource,
 			feeSchedules: OrganizationFeeSchedulesResource,
 			invite: OrganizationInvitationsResource,
+			settlements: OrganizationSettlementsResource,
 			users: OrganizationUsersResource,
 			venues: OrganizationVenueResource,
 		};

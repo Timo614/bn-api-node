@@ -1,3 +1,9 @@
+#### 1.0.9 (2019-02-21)
+
+##### Other Changes
+
+* **endpoint:**  Added settlements endpoints ([f3800432](https://github.com/big-neon/bn-api-node/commit/f38004327a7302cd436ccdcda91e357d9ee8f9ea))
+
 #### 1.0.8 (2019-02-19)
 
 ##### New Features
