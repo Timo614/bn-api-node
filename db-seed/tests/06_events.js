@@ -104,7 +104,8 @@ describe("Integration::Events", function () {
 						pricingPeriods: 5,
 						capacity: 1000,
 						limit_per_person: 0,
-						sold_out_behavior: SoldOutBehavior.SHOW_SOLD_OUT
+						sold_out_behavior: SoldOutBehavior.SHOW_SOLD_OUT,
+						is_private: false
 					},
 					{
 						name: "Balcony",
@@ -112,7 +113,8 @@ describe("Integration::Events", function () {
 						pricingPeriods: 2,
 						capacity: 150,
 						limit_per_person: 4,
-						sold_out_behavior: SoldOutBehavior.SHOW_SOLD_OUT
+						sold_out_behavior: SoldOutBehavior.HIDE,
+						is_private: false
 					},
 					{
 						name: "VIP",
@@ -120,29 +122,17 @@ describe("Integration::Events", function () {
 						pricingPeriods: 2,
 						capacity: 200,
 						limit_per_person: 1,
-						sold_out_behavior: SoldOutBehavior.SHOW_SOLD_OUT
+						sold_out_behavior: SoldOutBehavior.SHOW_SOLD_OUT,
+						is_private: false
 					}
 				];
 
 				for (let index = 0; index < testTicketTypes.length; index++) {
-					const {
-						name,
-						startPrice,
-						pricingPeriods,
-						capacity,
-						limit_per_person,
-						sold_out_behavior
-					} = testTicketTypes[index];
-
 					const ticketTypeDetails = ticketing.generateTicketTypePricing({
-						name,
-						startPrice,
-						pricingPeriods,
-						capacity,
-						eventDateString: event.door_time,
-						limit_per_person,
-						sold_out_behavior
+						...testTicketTypes[index],
+						eventDateString: event.door_time
 					});
+
 					const result = await adminServer.events.ticketTypes.create({
 						event_id: id,
 						...ticketTypeDetails
@@ -150,7 +140,7 @@ describe("Integration::Events", function () {
 					assert.strictEqual(
 						result.status,
 						201,
-						`${name} ticket type was not added to event ${event.name}; ${ticketTypeDetails}`
+						`${testTicketTypes[index].name} ticket type was not added to event ${event.name}; ${ticketTypeDetails}`
 					);
 				}
 			});
