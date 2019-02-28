@@ -3,13 +3,10 @@ const moment = require("moment");
 const ticketing = {
 	generateTicketTypePricing(
 		{
-			name,
 			startPrice,
 			pricingPeriods,
 			eventDateString,
-			capacity,
-			limit_per_person,
-			sold_out_behavior
+			...rest
 		}) {
 		const m = moment.utc();
 		const nowMoment =
@@ -52,16 +49,13 @@ const ticketing = {
 		}
 
 		return {
-			name,
-			capacity,
 			start_date: moment(nowMoment)
 				.utc()
 				.format(moment.HTML5_FMT.DATETIME_LOCAL_MS),
 			end_date: eventDateString,
-			limit_per_person,
-			sold_out_behavior,
 			price_in_cents: ticket_pricing[0].price_in_cents,
-			ticket_pricing
+			ticket_pricing,
+			...rest
 		};
 	}
 };

@@ -21,7 +21,7 @@ class ExternalResource extends ResourceClass {
 		return createRequestMethod({
 			method: "POST",
 			path: "/facebook/web_login",
-			required: ["accessToken","userID", "expiresIn", "signedRequest", "reauthorize_required_in"],
+			required: ["accessToken", "userID", "expiresIn", "signedRequest"],
 			requiresAuth: false
 		}) as any;
 	}
