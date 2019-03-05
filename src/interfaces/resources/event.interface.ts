@@ -38,6 +38,7 @@ export interface EventInterface {
 	override_status?: OverrideStatus;
 	limited_tickets_remaining?: number;
 	event_type: EventTypes,
+	private_access_code?: string,
 	readonly tracking_keys: {google_ga_key?: string, facebook_pixel_key?: string},
 	readonly localized_times: EventLocalizedTimeInterface,
 	readonly created_at: string;
@@ -83,6 +84,7 @@ export const createEvent = (base: any = {}): EventInterface => {
 			override_status: undefined,
 			limited_tickets_remaining: null,
 			event_type: EventTypes.MUSIC,
+			private_access_code: null,
 			tracking_keys: {},
 			localized_times: createEventLocalizedTimeInterface(),
 			created_at: "",

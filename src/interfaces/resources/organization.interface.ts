@@ -16,7 +16,8 @@ export interface OrganizationInterface {
 	facebook_pixel_key?: string;
 	allowed_payment_providers?: string,
 	timezone?:string,
-	cc_fee_percent?: number
+	cc_fee_percent?: number,
+	globee_api_key?: string,
 }
 
 export const createOrganization = (base: any = {}): OrganizationInterface => {
@@ -39,7 +40,8 @@ export const createOrganization = (base: any = {}): OrganizationInterface => {
 			facebook_pixel_key: "",
 			allowed_payment_providers: "Stripe",
 			timezone: "",
-			cc_fee_percent: 0
+			cc_fee_percent: 0,
+			globee_api_key: null
 		},
 		...base
 	} as OrganizationInterface
