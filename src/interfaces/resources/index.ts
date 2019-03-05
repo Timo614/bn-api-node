@@ -19,6 +19,7 @@ import { createOrganizationVenue } from "./organization-event.interface";
 import { createOrganizationInvitation } from "./organization-invitation.interface";
 import { createOrganizationUser } from "./organization-user.interface";
 import { createPaymentMethod } from "./payment-method.interface";
+import { createBroadcast } from "./broadcast.interface";
 import { createRefundItem } from "./refund-item.interface";
 import { createRefundResponse } from "./refund-response.interface";
 import { createRegion } from "./region.interface";
@@ -51,6 +52,7 @@ export default {
 	createOrganizationInvitation,
 	createOrganizationUser,
 	createPaymentMethod,
+	createBroadcast,
 	createRefundItem,
 	createRefundResponse,
 	createRegion,

@@ -1,5 +1,6 @@
 import Artist from "./artists";
 import Auth from "./auth";
+import Broadcast from "./broadcasts";
 import Cart from "./cart";
 import Code from "./codes";
 import Comps from "./comps";
@@ -28,11 +29,13 @@ import RedemptionCodes from "./redemption-codes";
  * List of available endpoints
  * @endpoint artists [[ArtistsResource]]
  * @endpoint auth [[AuthResource]]
+ * @endpoint broadcasts [[BroadcastsResource]]
  * @endpoint cart [[CartResource]]
  * @endpoint codes [[CodesResource]]
  * @endpoint comps [[CompsResource]]
  * @endpoint events [[EventsResource]]
  * @endpoint events.artists [[EventArtistsResource]]
+ * @endpoint events.broadcasts [[EventBroadcastsResource]]
  * @endpoint events.codes [[EventCodesResource]]
  * @endpoint events.interests [[EventInterestsResource]]
  * @endpoint events.fans [[EventFansResource]]
@@ -79,6 +82,7 @@ export const endpoints: {
 } = {
 	artists: Artist,
 	auth: Auth,
+	broadcasts: Broadcast,
 	cart: Cart,
 	codes: Code,
 	comps: Comps,

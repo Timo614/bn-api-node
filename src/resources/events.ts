@@ -16,6 +16,7 @@ import EventFansResource from "./namespaced/event-fans";
 import XhrClient from "../classes/xhr-client";
 import { EventTypes } from "../interfaces/enums/events.enum";
 import EventUsersResource from "./namespaced/event-users";
+import EventBroadcastsResource from "./namespaced/event-broadcasts";
 
 /**
  * @endpoint events
@@ -31,6 +32,7 @@ class EventsResource extends ResourceClass {
 			guests: EventGuestsResource,
 			holds: EventHoldsResource,
 			interests: EventInterestsResource,
+			broadcasts: EventBroadcastsResource,
 			ticketTypes: EventTicketTypesResource,
 			tickets: EventTicketsResource,
 			users: EventUsersResource

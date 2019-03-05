@@ -1,3 +1,10 @@
+#### 1.0.10 (2019-03-05)
+
+##### New Features
+
+*  **endpoint:** Added broadcasts endpoints `broadcasts.read` `broadcasts.update` `broadcasts.del` `events.broadcasts.create` `events.broadcasts.index` ([6abf17ce](https://github.com/big-neon/bn-api-node/commit/6abf17ce248ec1a73e4dcdcd07177a5b55a8babe))
+*  **enums:** Added enums for broadcasts
+
 #### 1.0.9 (2019-02-21)
 
 ##### Other Changes

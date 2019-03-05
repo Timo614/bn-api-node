@@ -13,6 +13,14 @@ import {
 	SettlementTransactionType,
 	SETTLEMENT_TRANSACTION_TYPE
 } from "./settlements.enum";
+import {
+	BroadcastType,
+	BROADCAST_TYPE,
+	BroadcastStatus,
+	BROADCAST_STATUS,
+	BroadcastChannel,
+	BROADCAST_CHANNEL
+} from "./broadcasts.enum";
 
 export default {
 	EventOverrideStatus,
@@ -27,5 +35,11 @@ export default {
 	SettlementStatus,
 	SETTLEMENT_STATUS,
 	SettlementTransactionType,
-	SETTLEMENT_TRANSACTION_TYPE
+	SETTLEMENT_TRANSACTION_TYPE,
+	BroadcastType,
+	BROADCAST_TYPE,
+	BroadcastStatus,
+	BROADCAST_STATUS,
+	BroadcastChannel,
+	BROADCAST_CHANNEL
 }
