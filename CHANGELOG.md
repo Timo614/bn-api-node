@@ -1,9 +1,3 @@
-#### 1.0.11 (2019-03-05)
-
-##### Other Changes
-
-* **field:** Added missing fields `organization`.`globee_api_key` and `events`.`private_access_code` ([82a5a5f6](https://github.com/big-neon/bn-api-node/commit/82a5a5f67a510cc669fd983f057f59dac8964bef))
-
 #### 1.0.10 (2019-03-05)
 
 ##### New Features
@@ -11,6 +5,9 @@
 *  **endpoint:** Added broadcasts endpoints `broadcasts.read` `broadcasts.update` `broadcasts.del` `events.broadcasts.create` `events.broadcasts.index` ([6abf17ce](https://github.com/big-neon/bn-api-node/commit/6abf17ce248ec1a73e4dcdcd07177a5b55a8babe))
 *  **enums:** Added enums for broadcasts
 
+##### Other Changes
+
+* **field:** Added missing fields `organization`.`globee_api_key` and `events`.`private_access_code` ([82a5a5f6](https://github.com/big-neon/bn-api-node/commit/82a5a5f67a510cc669fd983f057f59dac8964bef))
 
 #### 1.0.9 (2019-02-21)
 
