@@ -1,3 +1,4 @@
+import Admin from "./admin";
 import Artist from "./artists";
 import Auth from "./auth";
 import Broadcast from "./broadcasts";
@@ -27,6 +28,7 @@ import RedemptionCodes from "./redemption-codes";
 
 /**
  * List of available endpoints
+ * @endpoint admin [[AdminResource]]
  * @endpoint artists [[ArtistsResource]]
  * @endpoint auth [[AuthResource]]
  * @endpoint broadcasts [[BroadcastsResource]]
@@ -80,6 +82,7 @@ import RedemptionCodes from "./redemption-codes";
 export const endpoints: {
 [endpoint: string]: ResourceInterface | ResourceClass;
 } = {
+	admin: Admin,
 	artists: Artist,
 	auth: Auth,
 	broadcasts: Broadcast,

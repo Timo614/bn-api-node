@@ -68,6 +68,8 @@ class ReportsResource extends ResourceClass {
 		}) as any;
 	}
 
+
+
 	/**
 	 * Get weekly settlement report
 	 * @auth true
