@@ -1,8 +1,15 @@
+#### 1.0.12 (2019-03-19)
+
+##### New Features
+
+* **endpoints:**  Removed unused field requirements for facebook login
+
 #### 1.0.11 (2019-03-11)
 
 ##### New Features
 
 * **endpoints:**  Added endpoints for `admin.ticketCount` and `admin.stuckDomainActions` ([9e5b16fe](https://github.com/big-neon/bn-api-node/commit/9e5b16fe08e71003eced70ba7c10ea8ba97d8c55))
+
 
 #### 1.0.10 (2019-03-05)
 
