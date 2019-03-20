@@ -20,7 +20,7 @@ class OrganizationSettlementsResource extends ResourceClass {
 	 */
 	prepare(): VenueInterface {
 		return createRequestMethod({
-			method: "GET",
+			method: "POST",
 			path: "/{organization_id}/settlements/prepare",
 			required: ["start_utc", "end_utc"],
 			requiresAuth: true

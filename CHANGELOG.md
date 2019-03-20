@@ -1,3 +1,9 @@
+#### 1.0.13 (2019-03-20)
+
+##### New Features
+
+* **endpoint:**  Change settlements prepare to POST ([10253c3a](https://github.com/big-neon/bn-api-node/commit/10253c3a554817bd7ffaa41eac4522846827b7ea))
+
 #### 1.0.12 (2019-03-19)
 
 ##### New Features
