@@ -18,6 +18,7 @@ export interface OrganizationInterface {
 	timezone?:string,
 	cc_fee_percent?: number,
 	globee_api_key?: string,
+	max_instances_per_ticket_type: number 
 }
 
 export const createOrganization = (base: any = {}): OrganizationInterface => {
@@ -41,7 +42,8 @@ export const createOrganization = (base: any = {}): OrganizationInterface => {
 			allowed_payment_providers: "Stripe",
 			timezone: "",
 			cc_fee_percent: 0,
-			globee_api_key: null
+			globee_api_key: null,
+			max_instances_per_ticket_type: 0
 		},
 		...base
 	} as OrganizationInterface

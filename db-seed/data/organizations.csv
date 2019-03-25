@@ -1,3 +1,3 @@
-name,address,city,state,country,postal_code,phone,company_event_fee_in_cents,client_event_fee_in_cents,timezone
-Organization 1,1 Bloubulle Rd,Pretoria,Gauteng,South Africa,0001,0121005555,50,50,Africa/Johannesburg
-The Midway,100 Pacific Highway,San Fransisco,California,USA,940123,5151005555,50,50,America/Los_Angeles
+name,address,city,state,country,postal_code,phone,company_event_fee_in_cents,client_event_fee_in_cents,timezone,max_instances_per_ticket_type
+Organization 1,1 Bloubulle Rd,Pretoria,Gauteng,South Africa,0001,0121005555,50,50,Africa/Johannesburg,50000
+The Midway,100 Pacific Highway,San Fransisco,California,USA,940123,5151005555,50,50,America/Los_Angeles,10000

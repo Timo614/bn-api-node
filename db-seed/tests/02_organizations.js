@@ -8,10 +8,10 @@ describe("Integration::Organizations", function () {
 	let publicServer, adminServer, adminData;
 
 	const orgs = q.readCSV("./data/organizations.csv").map(row => {
-		//Convert string to number for event_fee_in_cents
-		row.event_fee_in_cents = Number(row.event_fee_in_cents);
-		row.company_event_fee_in_cents = Number(row.company_event_fee_in_cents);
-		row.client_event_fee_in_cents = Number(row.client_event_fee_in_cents);
+		//Convert string to number for these fields
+		const stringsToConvertToNumbers = ["event_fee_in_cents", "company_event_fee_in_cents", "client_event_fee_in_cents", "max_instances_per_ticket_type"];
+		stringsToConvertToNumbers.forEach(key => row[key] = Number(row[key]));
+
 		return row;
 	});
 
