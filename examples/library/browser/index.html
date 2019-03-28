@@ -6,11 +6,11 @@
     <script src="../../../dist/bundle.client.js"></script>
     <script>
 		console.log(Bigneon);
-		var server = new Bigneon.default.Server({port: 9000});
+		var server = new Bigneon.default.Server({prefix: 'https://beta.bigneon.com/api'});
 		server.events.index().then(res => {
 			res.data.data.forEach(event => {
 				console.log("Event Name:", event.name);
-				server.events.readFull({id: event.id}).then(eventDetails => {
+				server.events.read({id: event.id}).then(eventDetails => {
 					console.log("Full", eventDetails.data);
                 });
             });

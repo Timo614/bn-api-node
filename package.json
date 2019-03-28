@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run build:tsc && ./node_modules/.bin/mocha test/**/*.js",
     "test:no-build": "mocha test/index.js",
-    "build": "npm run build:tsc && ./node_modules/.bin/webpack --config ./build/webpack.config.js",
+    "build": "tsc && tsc -m es6 --outDir dist-esm && webpack --config build/webpack.browser.js",
     "build:web": "webpack --config ./build/webpack.browser.js",
     "build:server": "webpack --config ./build/webpack.server.js",
     "build:tsc": "tsc",
@@ -40,7 +40,9 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-stage-0": "^7.0.0",
     "@types/node": "^10.11.2",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.4",
+    "babel-minify-webpack-plugin": "^0.3.1",
     "babel-polyfill": "^6.26.0",
     "chai": "^4.1.2",
     "eslint": "^5.5.0",

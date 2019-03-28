@@ -1,3 +1,9 @@
+#### 1.0.14 (2019-03-28)
+
+##### New Features
+
+*  Improved build process ([e1eaa200](https://github.com/big-neon/bn-api-node/commit/e1eaa2007fc8d9455b04eaf18ad82ac2a76ab506))
+
 #### 1.0.13 (2019-03-20)
 
 ##### New Features

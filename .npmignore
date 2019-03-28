@@ -3,3 +3,9 @@ node_modules
 .idea
 *.iml
 .env
+
+.*
+**/tsconfig.json
+**/webpack.config.js
+node_modules
+src
