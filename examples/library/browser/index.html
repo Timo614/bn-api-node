@@ -6,7 +6,7 @@
     <script src="../../../dist/bundle.client.js"></script>
     <script>
 		console.log(Bigneon);
-		var server = new Bigneon.default.Server({prefix: 'https://www.bigneon.com/api'});
+		var server = new Bigneon.default.Server({prefix: 'https://beta.bigneon.com/api'});
 		server.events.index().then(res => {
 			res.data.data.forEach(event => {
 				console.log("Event Name:", event.name);
