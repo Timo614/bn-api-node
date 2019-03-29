@@ -9,7 +9,6 @@ import { CodeInterface } from "../interfaces/resources/code.interface";
 class CodesResource extends ResourceClass {
 	constructor() {
 		super("codes");
-
 	}
 
 	/**
@@ -36,7 +35,7 @@ class CodesResource extends ResourceClass {
 	 * @return {status: 200}
 	 * @url /codes/{id}
 	 */
-	del(): void {
+	delete(): void {
 		return createRequestMethod({
 			method: "DELETE",
 			path: "/{id}",
@@ -60,7 +59,6 @@ class CodesResource extends ResourceClass {
 			requiresAuth: true
 		}) as any;
 	}
-
 }
 
 export default CodesResource;

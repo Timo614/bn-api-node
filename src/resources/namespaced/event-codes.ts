@@ -44,7 +44,7 @@ class EventCodesResource extends ResourceClass {
 			path: "/{event_id}/codes",
 			requires: [
 				"name",
-				"redemption_code",
+				"redemption_codes",
 				"code_type",
 				"max_uses",
 				"discount_in_cents",

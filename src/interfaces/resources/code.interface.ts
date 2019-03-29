@@ -1,10 +1,9 @@
 export interface CodeInterface {
-
 	readonly id?: string;
 	readonly event_id: string;
 	name: string;
 	code_type: string;
-	redemption_code: string;
+	redemption_codes: Array<string>;
 	max_uses: number;
 	discount_in_cents: number;
 	start_date: Date;
@@ -13,8 +12,6 @@ export interface CodeInterface {
 	ticket_type_ids: Array<string>;
 	readonly created_at?: Date;
 	readonly updated_at?: Date;
-
-
 }
 
 export const createCode = (base: any = {}): CodeInterface => {
@@ -24,7 +21,7 @@ export const createCode = (base: any = {}): CodeInterface => {
 			event_id: "",
 			name: "",
 			code_type: "",
-			redemption_code: "",
+			redemption_codes: [],
 			max_uses: 0,
 			discount_in_cents: 0,
 			start_date: Date,
@@ -35,5 +32,5 @@ export const createCode = (base: any = {}): CodeInterface => {
 			updated_at: ""
 		},
 		...base
-	} as CodeInterface
+	} as CodeInterface;
 };
