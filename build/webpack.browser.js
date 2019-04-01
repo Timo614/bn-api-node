@@ -25,7 +25,8 @@ const clientConfig = {
 	},
 	plugins: [
 		new webpack.DefinePlugin({
-			"process.env.NODE_ENV": "\"production\""
+			"process.env.NODE_ENV": "\"production\"",
+			"process.env.VERSION": JSON.stringify(require("../package.json").version)
 		}),
 		new MinifyPlugin({}, {
 			test: /\.js($|\?)/i,

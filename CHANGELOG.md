@@ -1,8 +1,12 @@
-#### 1.0.14 (2019-03-28)
+#### 1.1.0 (2019-04-01)
 
 ##### New Features
 
 *  Improved build process ([e1eaa200](https://github.com/big-neon/bn-api-node/commit/e1eaa2007fc8d9455b04eaf18ad82ac2a76ab506))
+
+##### Other Changes
+
+*  Using webpack to inject the version instead of importing package.json ([4136d518](https://github.com/big-neon/bn-api-node/commit/4136d51850b9a3d67457df76bc9937d3e75a4832))
 
 #### 1.0.13 (2019-03-20)
 

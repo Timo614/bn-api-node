@@ -5,7 +5,7 @@ import { mergeDeep, decodeJWT } from "../helpers/utils";
 import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface";
 import Server from "./server";
 
-const version = require("../../package.json").version;
+const version = process.env.VERSION;
 
 export default class XhrClient {
 	serverInterface: ServerInterface;
