@@ -7,8 +7,15 @@ import { StagesInterface } from "../interfaces/resources/stages.interface";
  * @url /stages
  */
 class StagesResource extends ResourceClass {
+	methodDefinitions = {
+		read: this.read(),
+		update: this.update(),
+		del: this.del(),
+	};
+
 	constructor() {
 		super("stages");
+		this.buildAliases();
 	}
 
 	/**

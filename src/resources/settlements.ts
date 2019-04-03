@@ -7,8 +7,14 @@ import { DisplaySettlementInterface } from "../interfaces/resources/settlements.
  * @url /settlements
  */
 class SettlementsResource extends ResourceClass {
+	methodDefinitions = {
+		read: this.read(),
+		del: this.del(),
+	};
+
 	constructor() {
 		super("settlements");
+		this.buildAliases();
 	}
 
 	/**

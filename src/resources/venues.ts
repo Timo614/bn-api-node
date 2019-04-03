@@ -10,8 +10,18 @@ import VenueStagesResource from "./namespaced/venue-stages";
  * @url /venues
  */
 class VenuesResource extends ResourceClass {
+	methodDefinitions = {
+		addToOrganization: this.addToOrganization(),
+		togglePrivacy: this.togglePrivacy(),
+		read: this.read(),
+		update: this.update(),
+		create: this.create(),
+		index: this.index(),
+	};
+
 	constructor() {
 		super("venues");
+		this.buildAliases();
 		this.namespaces = {
 			events: VenueEventsResource,
 			stages: VenueStagesResource

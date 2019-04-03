@@ -8,8 +8,16 @@ import { DeviceTokenInterface } from "../../interfaces/resources/device-token.in
  * @url /users/{user_id}/tokens
  */
 class UserDeviceTokensResource extends ResourceClass {
+	methodDefinitions = {
+		read: this.read(),
+		index: this.index(),
+		create: this.create(),
+		del: this.del(),
+	};
+
 	constructor() {
 		super("users");
+		this.buildAliases();
 	}
 
 	/**

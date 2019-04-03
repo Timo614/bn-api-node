@@ -16,8 +16,16 @@ import OrganizationSettlementsResource from "./namespaced/organization-settlemen
  * @url /organizations
  */
 class OrganizationsResource extends ResourceClass {
+	methodDefinitions = {
+		read: this.read(),
+		update: this.update(),
+		create: this.create(),
+		index: this.index(),
+	};
+
 	constructor() {
 		super("organizations");
+		this.buildAliases();
 		this.namespaces = {
 			artists: OrganizationArtistsResource,
 			events: OrganizationEventsResource,

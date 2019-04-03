@@ -8,8 +8,15 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
  * @url /organizations/{organization_id}/settlements
  */
 class OrganizationSettlementsResource extends ResourceClass {
+	methodDefinitions = {
+		prepare: this.prepare(),
+		create: this.create(),
+		index: this.index(),
+	};
+
 	constructor() {
 		super("organizations");
+		this.buildAliases();
 	}
 
 	/**

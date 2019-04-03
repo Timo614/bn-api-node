@@ -6,8 +6,13 @@ import ResourceClass from "../classes/abstracts/resource.class";
  * @url /user_invites
  */
 class UserInvitationsResource extends ResourceClass {
+	methodDefinitions = {
+		create: this.create(),
+	};
+
 	constructor() {
 		super("user_invites");
+		this.buildAliases();
 	}
 
 	/**

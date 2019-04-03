@@ -6,8 +6,13 @@ import ResourceClass from "../classes/abstracts/resource.class";
  * @url /status
  */
 class StatusResource extends ResourceClass {
+	methodDefinitions = {
+		read: this.read()
+	};
+
 	constructor() {
 		super("status");
+		this.buildAliases();
 	}
 
 	/**
@@ -25,4 +30,5 @@ class StatusResource extends ResourceClass {
 		}) as any;
 	}
 }
+
 export default StatusResource;

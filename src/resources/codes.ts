@@ -7,8 +7,15 @@ import { CodeInterface } from "../interfaces/resources/code.interface";
  * @url /codes
  */
 class CodesResource extends ResourceClass {
+	methodDefinitions = {
+		update: this.update(),
+		del: this.delete(),
+		read: this.read(),
+	};
+
 	constructor() {
 		super("codes");
+		this.buildAliases();
 	}
 
 	/**
@@ -37,6 +44,7 @@ class CodesResource extends ResourceClass {
 	 */
 	delete(): void {
 		return createRequestMethod({
+			name: "del",
 			method: "DELETE",
 			path: "/{id}",
 			required: [],
@@ -62,3 +70,4 @@ class CodesResource extends ResourceClass {
 }
 
 export default CodesResource;
+

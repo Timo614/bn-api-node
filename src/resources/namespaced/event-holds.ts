@@ -8,8 +8,14 @@ import { HoldInterface } from "../../interfaces/resources/hold.interface";
  * @url /events/{event_id}/holds
  */
 class EventHoldsResource extends ResourceClass {
+	methodDefinitions = {
+		index: this.index(),
+		create: this.create(),
+	};
+
 	constructor() {
 		super("events");
+		this.buildAliases();
 	}
 
 	/**

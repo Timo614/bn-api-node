@@ -7,8 +7,14 @@ import { EventArtistInterface } from "../../interfaces/resources/event-artist.in
  * @url /events/{event_id}/artists
  */
 class EventArtistsResource extends ResourceClass {
+	methodDefinitions = {
+		create: this.create(),
+		update: this.update(),
+	};
+
 	constructor() {
 		super("events");
+		this.buildAliases();
 	}
 
 	/**

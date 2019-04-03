@@ -10,8 +10,16 @@ import HoldCompsResource from "./namespaced/hold-comps";
  */
 
 class HoldsResource extends ResourceClass {
+	methodDefinitions = {
+		update: this.update(),
+		read: this.read(),
+		delete: this.delete(),
+		split: this.split(),
+	};
+
 	constructor() {
 		super("holds");
+		this.buildAliases();
 		this.namespaces = {
 			comps: HoldCompsResource,
 		}
@@ -60,6 +68,7 @@ class HoldsResource extends ResourceClass {
 	 */
 	delete(): void {
 		return createRequestMethod({
+			name: "del",
 			method: "DELETE",
 			path: "/{id}",
 			requiresAuth: true

@@ -11,8 +11,18 @@ import XhrClient from "../classes/xhr-client";
  * @url /users
  */
 class UsersResource extends ResourceClass {
+	methodDefinitions = {
+		current: this.current(),
+		update: this.update(),
+		create: this.create(),
+		createAndLogin: this.createAndLogin(),
+		read: this.read(),
+		listOrganizations: this.listOrganizations(),
+	};
+
 	constructor() {
 		super("users");
+		this.buildAliases();
 		this.namespaces = {
 			deviceTokens: UserDeviceTokensResource,
 		};

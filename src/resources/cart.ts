@@ -7,8 +7,18 @@ import ResourceClass from "../classes/abstracts/resource.class";
  * @url /cart
  */
 class CartResource extends ResourceClass {
+	methodDefinitions = {
+		update: this.update(),
+		replace: this.replace(),
+		read: this.read(),
+		del: this.del(),
+		clear: this.clear(),
+		checkout: this.checkout(),
+	};
+
 	constructor() {
 		super("cart");
+		this.buildAliases();
 	}
 
 	/**

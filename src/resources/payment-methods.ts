@@ -7,8 +7,13 @@ import { IndexInterface } from "../interfaces/resources/structures/index.interfa
  * @url /payment_methods
  */
 class PaymentMethodsResource extends ResourceClass {
+	methodDefinitions = {
+		index: this.index()
+	};
+
 	constructor() {
 		super("payment_methods");
+		this.buildAliases();
 	}
 
 	/**

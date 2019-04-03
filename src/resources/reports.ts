@@ -16,8 +16,16 @@ import {
  */
 
 class ReportsResource extends ResourceClass {
+	methodDefinitions = {
+		transactionDetails: this.transactionDetails(),
+		eventSummary: this.eventSummary(),
+		ticketCount: this.ticketCount(),
+		weeklySettlement: this.weeklySettlement(),
+	};
+
 	constructor() {
 		super("reports");
+		this.buildAliases();
 	}
 
 	/**

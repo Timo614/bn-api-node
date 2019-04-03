@@ -9,8 +9,16 @@ import { OrganizationInvitationInterface } from "../../interfaces/resources/orga
  * @url /event/{event_id}/users
  */
 class EventUsersResource extends ResourceClass {
+	methodDefinitions = {
+		index: this.index(),
+		invite: this.invite(),
+		del: this.del(),
+		deleteInvite: this.deleteInvite(),
+	};
+
 	constructor() {
 		super("events");
+		this.buildAliases();
 	}
 
 	/**

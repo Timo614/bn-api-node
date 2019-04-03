@@ -7,8 +7,13 @@ import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface
  * @url /external
  */
 class ExternalResource extends ResourceClass {
+	methodDefinitions = {
+		facebookLogin: this.facebookLogin()
+	};
+
 	constructor() {
 		super("external");
+		this.buildAliases();
 	}
 
 	/**

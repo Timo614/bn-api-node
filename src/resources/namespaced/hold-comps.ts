@@ -8,8 +8,14 @@ import { CompInterface } from "../../interfaces/resources/comp.interface";
  * @url /holds/{hold_id}/comps
  */
 class HoldCompsResource extends ResourceClass {
+	methodDefinitions = {
+		index: this.index(),
+		create: this.create(),
+	};
+
 	constructor() {
 		super("holds");
+		this.buildAliases();
 	}
 
 	/**

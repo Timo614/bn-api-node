@@ -32,15 +32,17 @@ export class Server {
 				resourceData = new resourceData();
 			}
 
-			let resource: RequestMethod = new RequestMethod(
+			let requestMethod: RequestMethod = new RequestMethod(
 				key,
 				resourceData,
 				this.client,
 				this
 			);
-			self[key] = resource;
 
-			this.matchingResources = this.matchingResources.concat(this._getMatchingResources(resourceData.path, resource, key));
+
+			self[key] = requestMethod;
+
+			this.matchingResources = this.matchingResources.concat(this._getMatchingResources(resourceData.path, requestMethod, key));
 		}
 	}
 
@@ -63,14 +65,14 @@ export class Server {
 	/**
 	 * A temporary function to pull the full paths of all of the endpoints
 	 * Once we have fully migrated over to this library this can be removed.
-	 * @param resourceData
+	 * @param requestMethod
 	 * @param key
 	 * @private
 	 */
-	_getMatchingResources(basePath: string, resourceData: RequestMethod, key: string): Array<any> {
+	_getMatchingResources(basePath: string, requestMethod: RequestMethod, key: string): Array<any> {
 		let paths = [];
-		for (let i in resourceData.methods) {
-			let { path, method, namespace, name } = resourceData.methods[i];
+		for (let i in requestMethod.methods) {
+			let { path, method, namespace, name } = requestMethod.methods[i];
 			let methodBlock = {
 				name,
 				namespace,

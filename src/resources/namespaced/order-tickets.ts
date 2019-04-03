@@ -1,7 +1,5 @@
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
 import ResourceClass from "../../classes/abstracts/resource.class";
-import { TicketTransferAuthorizationInterface } from "../../interfaces/resources/ticket-transfer-authorization.interface";
-import { IndexInterface } from "../../interfaces/resources/structures/index.interface";
 import { TicketInterface } from "../../interfaces/resources/ticket.interface";
 
 /**
@@ -9,8 +7,13 @@ import { TicketInterface } from "../../interfaces/resources/ticket.interface";
  * @url /orders/{order_id}/tickets
  */
 class OrderTicketsResource extends ResourceClass {
+	methodDefinitions = {
+		index: this.index()
+	};
+
 	constructor() {
 		super("orders");
+		this.buildAliases();
 	}
 
 	/**

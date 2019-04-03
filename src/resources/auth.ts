@@ -8,8 +8,14 @@ import XhrClient from "../classes/xhr-client";
  * @url /auth
  */
 class AuthResource extends ResourceClass {
+	methodDefinitions = {
+		authenticate: this.authenticate(),
+		refresh: this.refresh(),
+	};
+
 	constructor() {
 		super("auth");
+		this.buildAliases();
 	}
 
 	/**
@@ -27,14 +33,14 @@ class AuthResource extends ResourceClass {
 			path: "/token",
 			required: ["email", "password"],
 			requiresAuth: false,
-			beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any ) {
-				for(let key in data) {
+			beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any) {
+				for (let key in data) {
 					if (key !== "password" && typeof data[key] === "string") {
 						data[key] = data[key].trim();
 					}
 				}
 			},
-			afterRequest(server: any = {},client: any = {}, data: any = {}): Promise<any> {
+			afterRequest(server: any = {}, client: any = {}, data: any = {}): Promise<any> {
 				client.setTokens(data.data);
 				return Promise.resolve(data);
 			}
@@ -55,7 +61,7 @@ class AuthResource extends ResourceClass {
 			path: "/token/refresh",
 			required: ["refresh_token"],
 			requiresAuth: false,
-			afterRequest(server: any = {},client: any = {}, data: any = {}): Promise<any> {
+			afterRequest(server: any = {}, client: any = {}, data: any = {}): Promise<any> {
 				client.setTokens(data.data);
 				return Promise.resolve(data);
 			}

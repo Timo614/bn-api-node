@@ -9,8 +9,16 @@ import { IndexInterface } from "../interfaces/resources/structures/index.interfa
  */
 
 class RegionsResource extends ResourceClass {
+	methodDefinitions = {
+		read: this.read(),
+		update: this.update(),
+		create: this.create(),
+		index: this.index(),
+	};
+
 	constructor() {
 		super("regions");
+		this.buildAliases();
 	}
 
 	/**
@@ -77,4 +85,5 @@ class RegionsResource extends ResourceClass {
 	}
 
 }
+
 export default RegionsResource;

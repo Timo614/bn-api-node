@@ -8,8 +8,14 @@ import { TicketRedeemableInterface } from "../../interfaces/resources/ticket-red
  * @url /events/{event_id}/tickets
  */
 class EventTicketsResource extends ResourceClass {
+	methodDefinitions = {
+		index: this.index(),
+		redeem: this.redeem(),
+	};
+
 	constructor() {
 		super("events");
+		this.buildAliases();
 	}
 
 	/**

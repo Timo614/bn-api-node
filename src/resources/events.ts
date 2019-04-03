@@ -23,8 +23,21 @@ import EventBroadcastsResource from "./namespaced/event-broadcasts";
  * @url /events
  */
 class EventsResource extends ResourceClass {
+	methodDefinitions = {
+		index: this.index(),
+		checkins: this.checkins(),
+		create: this.create(),
+		update: this.update(),
+		del: this.del(),
+		dashboard: this.dashboard(),
+		read: this.read(),
+		publish: this.publish(),
+		unpublish: this.unpublish(),
+	};
+
 	constructor() {
 		super("events");
+		this.buildAliases();
 		this.namespaces = {
 			artists: EventArtistsResource,
 			codes: EventCodesResource,

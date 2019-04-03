@@ -7,8 +7,14 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
  * @url /venues/{venue_id}/stages
  */
 class VenueStagesResource extends ResourceClass {
+	methodDefinitions = {
+		index: this.index(),
+		create: this.create(),
+	};
+
 	constructor() {
 		super("venues");
+		this.buildAliases();
 	}
 
 	/**

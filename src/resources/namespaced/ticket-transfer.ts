@@ -7,8 +7,15 @@ import { TicketTransferAuthorizationInterface } from "../../interfaces/resources
  * @url /tickets/
  */
 class TicketTransferResource extends ResourceClass {
+	methodDefinitions = {
+		transfer: this.transfer(),
+		send: this.send(),
+		receive: this.receive(),
+	};
+
 	constructor() {
 		super("tickets");
+		this.buildAliases();
 	}
 
 	/**

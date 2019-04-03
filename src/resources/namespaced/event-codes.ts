@@ -9,8 +9,14 @@ import { CodeInterface } from "../../interfaces/resources/code.interface";
  * @url /events/{event_id}/codes
  */
 class EventCodesResource extends ResourceClass {
+	methodDefinitions = {
+		index: this.index(),
+		create: this.create(),
+	};
+
 	constructor() {
 		super("events");
+		this.buildAliases();
 	}
 
 	/**

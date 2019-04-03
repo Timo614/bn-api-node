@@ -1,6 +1,6 @@
 // import fs from 'fs';
 import { ResourceInterface } from "../interfaces/server/resource";
-import { RequestMethodInterface } from "../interfaces/server/request-method.interface";
+import { createRequestMethod, RequestMethodInterface } from "../interfaces/server/request-method.interface";
 import { getAllMethodNames } from "../helpers/utils";
 import XhrClient from "./xhr-client";
 import ResourceClass from "./abstracts/resource.class";
@@ -9,6 +9,7 @@ import Server from "./server";
 export class RequestMethod {
 	private path: string;
 
+	public resource: ResourceClass;
 
 	methods: Array<RequestMethodInterface> = [];
 
@@ -18,6 +19,7 @@ export class RequestMethod {
 		let self: any = this;
 		let path = "/" + resource.path;
 
+		this.resource = resource;
 
 		this.path = path;
 
@@ -41,17 +43,18 @@ export class RequestMethod {
 				//Attach the request method to the namespace
 				namespace[name] = request;
 			});
-
 		}
 	}
 
 	_buildMethodArray(resource: ResourceClass): Array<RequestMethodInterface> {
 		let methods: Array<RequestMethodInterface> = [];
-		let availableMethods = getAllMethodNames(resource);
 
-		availableMethods.forEach(method => {
-			let resourceElement: any = (resource as any)[method];
-			let requestMethod = resourceElement();
+		let availableMethods = getAllMethodNames(resource);
+		if (availableMethods.length === 0) {
+			console.error(`No methods have been defined for ${this.path}`);
+		}
+		availableMethods.forEach((method:string) => {
+			let requestMethod: RequestMethodInterface = resource.methodDefinitions[method];
 
 			//If we specify a name add it to the list of aliases
 			if (requestMethod.name) {
@@ -212,11 +215,12 @@ export class RequestMethod {
 
 
 			let promise;
-			if (process.env.DEBUG) {
-				console.debug(`URL: ${path}`);
-			}
+
 
 			if (this.client.mocker) {
+				if (process.env.DEBUG) {
+					console.debug(`URL: ${path}`);
+				}
 				for (let i in method.names) {
 					let methodName = method.names[i];
 					let mockerPath = `${this.parentEndpoint}.${method.namespace ? (method.namespace + ".") : ""}${methodName}`;
@@ -233,6 +237,9 @@ export class RequestMethod {
 					: await this.client.getPublicAgent(headers);
 
 
+				if (process.env.DEBUG) {
+					console.debug(`URL: ${axiosInstance.baseURL}${path}`);
+				}
 				if (method.minTimeout && method.minTimeout > axiosInstance.defaults.timeout) {
 					axiosInstance.defaults.timeout = method.minTimeout;
 				}

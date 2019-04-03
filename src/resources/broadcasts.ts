@@ -7,8 +7,15 @@ import { BroadcastInterface } from "../interfaces/resources/broadcast.interface"
  * @url /broadcasts
  */
 class BroadcastsResource extends ResourceClass {
+	methodDefinitions = {
+		read: this.read(),
+		update: this.update(),
+		del: this.del(),
+	};
+
 	constructor() {
 		super("broadcasts");
+		this.buildAliases();
 	}
 
 	/**

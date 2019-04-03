@@ -9,8 +9,15 @@ import { FanInterface } from "../../interfaces/resources/fan.interface";
  * @url /organizations/{organization_id}/fans
  */
 class OrganizationFansResource extends ResourceClass {
+	methodDefinitions = {
+		read: this.read(),
+		index: this.index(),
+		history: this.history(),
+	};
+
 	constructor() {
 		super("organizations");
+		this.buildAliases();
 	}
 
 	/**

@@ -8,9 +8,13 @@ import { IndexInterface } from "../interfaces/resources/structures/index.interfa
  */
 
 class RedemptionCodesResource extends ResourceClass {
+	methodDefinitions = {
+		read: this.read()
+	};
+
 	constructor() {
 		super("redemption_codes");
-		this.namespaces = {};
+		this.buildAliases();
 	}
 
 	/**

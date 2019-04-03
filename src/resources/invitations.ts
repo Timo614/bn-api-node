@@ -6,8 +6,15 @@ import ResourceClass from "../classes/abstracts/resource.class";
  * @url /invitations
  */
 class InvitationsResource extends ResourceClass {
+	methodDefinitions = {
+		accept: this.accept(),
+		decline: this.decline(),
+		read: this.read(),
+	};
+
 	constructor() {
 		super("invitations");
+		this.buildAliases();
 	}
 
 	/**

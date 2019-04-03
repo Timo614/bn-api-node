@@ -7,8 +7,14 @@ import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface
  * @url /password_reset
  */
 class PasswordResetResource extends ResourceClass {
+	methodDefinitions = {
+		create: this.create(),
+		update: this.update(),
+	};
+
 	constructor() {
 		super("password_reset");
+		this.buildAliases();
 	}
 
 	/**

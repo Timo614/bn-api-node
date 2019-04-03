@@ -12,8 +12,14 @@ import TicketTransferResource from "./namespaced/ticket-transfer";
  * @url /tickets
  */
 class TicketsResource extends ResourceClass {
+	methodDefinitions = {
+		index: this.index(),
+		read: this.read(),
+	};
+
 	constructor() {
 		super("tickets");
+		this.buildAliases();
 		this.namespaces = {
 			redeem: TicketRedeemResource,
 			transfer: TicketTransferResource,

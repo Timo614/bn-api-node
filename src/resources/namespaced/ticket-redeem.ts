@@ -7,8 +7,13 @@ import { TicketRedeemableInterface } from "../../interfaces/resources/ticket-red
  * @url /tickets/{ticket_id}/redeem
  */
 class TicketRedeemResource extends ResourceClass {
+	methodDefinitions = {
+		read: this.read()
+	};
+
 	constructor() {
 		super("tickets");
+		this.buildAliases();
 	}
 
 	/**

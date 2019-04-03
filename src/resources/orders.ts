@@ -11,8 +11,17 @@ import { OrderDetailsInterface } from "../interfaces/resources/order-details.int
  * @url /orders
  */
 class OrdersResource extends ResourceClass {
+	methodDefinitions = {
+		index: this.index(),
+		read: this.read(),
+		update: this.update(),
+		details: this.details(),
+		refund: this.refund(),
+	};
+
 	constructor() {
 		super("orders");
+		this.buildAliases();
 		this.namespaces = {
 			tickets: OrderTicketsResource,
 		}

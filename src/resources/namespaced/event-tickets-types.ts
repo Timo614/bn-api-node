@@ -8,8 +8,16 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
  * @url /events/{event_id}/ticket_types
  */
 class EventTicketTypesResource extends ResourceClass {
+	methodDefinitions = {
+		create: this.create(),
+		update: this.update(),
+		index: this.index(),
+		cancel: this.cancel(),
+	};
+
 	constructor() {
 		super("events");
+		this.buildAliases();
 	}
 
 	/**

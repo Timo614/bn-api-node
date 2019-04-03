@@ -7,8 +7,13 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
  * @url /events/{event_id}/guests
  */
 class EventGuestsResource extends ResourceClass {
+	methodDefinitions = {
+		index: this.index()
+	};
+
 	constructor() {
 		super("events");
+		this.buildAliases();
 	}
 
 	/**

@@ -1,3 +1,14 @@
+#### 2.0.0 (2019-03-22)
+
+## This is a major release. The endpoint registration method has been completely changed
+
+##### New Features
+
+*  Updated the namespaced endpoints for the new system ([09186808](https://github.com/big-neon/bn-api-node/commit/091868086ee8640b0e2e011252c343a3692cb1d8))
+*  Moved all the base level endpoints to new system ([d332a09a](https://github.com/big-neon/bn-api-node/commit/d332a09a2a1081cb99fc764f780eba62d9cf6639))
+*  Changed the entire mechanism for generating available endpoints ([2c074d74](https://github.com/big-neon/bn-api-node/commit/2c074d749f51b089ead921373e56133460631822))
+
+
 #### 1.1.0 (2019-04-01)
 
 ##### New Features
