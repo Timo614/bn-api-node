@@ -1,3 +1,7 @@
+#### 2.0.1 (2019-04-04)
+
+* Added new discount fields to codes
+
 #### 2.0.0 (2019-03-22)
 
 ## This is a major release. The endpoint registration method has been completely changed
