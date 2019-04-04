@@ -1,8 +1,9 @@
-import { createRequestMethod } from "../../interfaces/server/request-method.interface";
+import { createRequestMethod, RequestMethodInterface } from "../../interfaces/server/request-method.interface";
 import ResourceClass from "../../classes/abstracts/resource.class";
 import { EventInterestInterface } from "../../interfaces/resources/event-interest.interface";
 import { IndexInterface } from "../../interfaces/resources/structures/index.interface";
 import { CodeInterface } from "../../interfaces/resources/code.interface";
+import XhrClient from "../../classes/xhr-client";
 
 /**
  * @endpoint events.codes
@@ -53,16 +54,23 @@ class EventCodesResource extends ResourceClass {
 				"redemption_codes",
 				"code_type",
 				"max_uses",
-				"discount_in_cents",
 				"start_date",
 				"end_date",
 				"ticket_type_ids"
 			],
-			requiresAuth: true
+			requireOne: ["discount_in_cents", "discount_as_percentage"],
+			requiresAuth: true,
+			beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any) {
+				let discountInCents = data.discount_in_cents;
+				let discountAsPercentage = data.discount_as_percentage;
+
+				if ((!discountInCents && !discountAsPercentage) || (discountInCents && discountAsPercentage)) {
+					throw { error: { "message": "You must enter either discount_in_cents or discount_as_percentage" } };
+				}
+			},
+
 		}) as any;
 	}
-
-
 }
 
 export default EventCodesResource;

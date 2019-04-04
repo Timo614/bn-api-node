@@ -48,6 +48,7 @@ class CodesResource extends ResourceClass {
 			method: "DELETE",
 			path: "/{id}",
 			required: [],
+
 			requiresAuth: true
 		}) as any;
 	}

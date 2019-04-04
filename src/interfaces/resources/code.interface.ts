@@ -5,7 +5,8 @@ export interface CodeInterface {
 	code_type: string;
 	redemption_codes: Array<string>;
 	max_uses: number;
-	discount_in_cents: number;
+	discount_in_cents?: number;
+	discount_as_percent?: number;
 	start_date: Date;
 	end_date: Date;
 	max_tickets_per_user?: number;
@@ -23,7 +24,6 @@ export const createCode = (base: any = {}): CodeInterface => {
 			code_type: "",
 			redemption_codes: [],
 			max_uses: 0,
-			discount_in_cents: 0,
 			start_date: Date,
 			end_date: Date,
 			max_tickets_per_user: 0,
