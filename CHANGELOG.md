@@ -1,3 +1,9 @@
+#### 2.0.2 (2019-04-06)
+
+##### Other Changes
+
+*  Fixed the validation for access codes ([2259efec](https://github.com/big-neon/bn-api-node/commit/2259efecc3f4107df3b01529b093072c624cdb86))
+
 #### 2.0.1 (2019-04-04)
 
 * Added new discount fields to codes

@@ -61,6 +61,10 @@ class EventCodesResource extends ResourceClass {
 			requireOne: ["discount_in_cents", "discount_as_percentage"],
 			requiresAuth: true,
 			beforeRequest(client: XhrClient, method: RequestMethodInterface, data: any, headers: any) {
+				if (data.code_type === "Access") {
+					data.discount_in_cents = 0;
+					return true;
+				}
 				let discountInCents = data.discount_in_cents;
 				let discountAsPercentage = data.discount_as_percentage;
 
