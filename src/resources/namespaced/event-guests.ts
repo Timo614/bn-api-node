@@ -19,7 +19,7 @@ class EventGuestsResource extends ResourceClass {
 	/**
 	 * Get a list of redeemable tickets for the event
 	 * @auth true
-	 * @params {event_id:uuid}
+	 * @params {event_id:uuid, changes_since: Date, query: String}
 	 * @required {event_id:uuid}
 	 * @data Array<[[TicketRedeemableInterface]]>
 	 * @url /events/{event_id}/guests
@@ -29,7 +29,7 @@ class EventGuestsResource extends ResourceClass {
 			name: "index",
 			method: "GET",
 			path: "/{event_id}/guests",
-			required: ["query"],
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}

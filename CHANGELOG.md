@@ -1,3 +1,9 @@
+#### 2.0.3 (2019-04-16)
+
+##### New Features
+
+*  Added `changes_since` query parameter to guests index ([2c422e8f](https://github.com/big-neon/bn-api-node/commit/2c422e8f926ad7e88af1e4bc1ed4e5a5afbe9303))
+
 #### 2.0.2 (2019-04-06)
 
 ##### Other Changes
