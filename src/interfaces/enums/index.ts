@@ -6,7 +6,12 @@ import {
 } from "./events.enum";
 import { UserRole, USER_ROLES_STRING } from "./user-roles.enum";
 import { DeviceTokenSource } from "./device-tokens.enum";
-import { SoldOutBehavior, SOLD_OUT_BEHAVIOR } from "./ticket-types.enum";
+import {
+	SoldOutBehavior,
+	SOLD_OUT_BEHAVIOR,
+	Visibility,
+	VISIBILITY
+} from "./ticket-types.enum";
 import {
 	SettlementStatus,
 	SETTLEMENT_STATUS,
@@ -32,6 +37,8 @@ export default {
 	EVENT_TYPES_STRING,
 	SoldOutBehavior,
 	SOLD_OUT_BEHAVIOR,
+	Visibility,
+	VISIBILITY,
 	SettlementStatus,
 	SETTLEMENT_STATUS,
 	SettlementTransactionType,
@@ -42,4 +49,4 @@ export default {
 	BROADCAST_STATUS,
 	BroadcastChannel,
 	BROADCAST_CHANNEL
-}
+};

@@ -2,7 +2,7 @@ import {
 	createTicketPricing,
 	TicketPricingInterface
 } from "./ticket-pricing.interface";
-import { SoldOutBehavior } from "../enums/ticket-types.enum";
+import { SoldOutBehavior, Visibility } from "../enums/ticket-types.enum";
 
 export interface TicketTypeInterface {
 	readonly id?: string;
@@ -44,6 +44,7 @@ export const createTicketType = (base: any = {}): TicketTypeInterface => {
 			ticket_pricing: [],
 			sold_out_behavior: SoldOutBehavior.SHOW_SOLD_OUT,
 			is_private: false,
+			visibility: Visibility.ALWAYS,
 			created_at: "",
 			updated_at: "",
 			cancelled_at: null
