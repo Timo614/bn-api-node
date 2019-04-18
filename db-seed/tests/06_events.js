@@ -3,7 +3,7 @@ const assert = require("assert");
 const global = require("../helpers/globals");
 const ticketing = require("../helpers/ticketing");
 const interfaceFields = require("../../dist/interfaces/resources/event.interface");
-const { SoldOutBehavior } =  require("../../dist/interfaces/enums/ticket-types.enum");
+const { SoldOutBehavior, Visibility } =  require("../../dist/interfaces/enums/ticket-types.enum");
 const assertFieldsMatch = require("../queries").assertFieldsMatch;
 
 const moment = require("moment");
@@ -100,6 +100,7 @@ describe("Integration::Events", function () {
 				const testTicketTypes = [
 					{
 						name: "General Access",
+						visibility: Visibility.ALWAYS,
 						startPrice: 1000,
 						pricingPeriods: 5,
 						capacity: 1000,
@@ -109,6 +110,7 @@ describe("Integration::Events", function () {
 					},
 					{
 						name: "Balcony",
+						visibility: Visibility.HIDDEN,
 						startPrice: 2000,
 						pricingPeriods: 2,
 						capacity: 150,
@@ -118,6 +120,7 @@ describe("Integration::Events", function () {
 					},
 					{
 						name: "VIP",
+						visibility: Visibility.WHEN_AVAILABLE,
 						startPrice: 10000,
 						pricingPeriods: 2,
 						capacity: 200,

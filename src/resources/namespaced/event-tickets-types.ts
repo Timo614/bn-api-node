@@ -24,7 +24,7 @@ class EventTicketTypesResource extends ResourceClass {
 	 * Create a ticket type
 	 * @auth true
 	 * @params {event_id:uuid, ...[[TicketTypeInterface]]}
-	 * @required {event_id:uuid, name: string, price_in_cents: number, limit_per_person: number, start_date: Date, end_date: Date}
+	 * @required {event_id:uuid, name: string, price_in_cents: number, limit_per_person: number, start_date: Date, end_date: Date, visibility: string}
 	 * @url /events/{event_id}/ticket_types
 	 */
 	create(): TicketTypeInterface {
@@ -32,7 +32,7 @@ class EventTicketTypesResource extends ResourceClass {
 			name: "create",
 			method: "POST",
 			path: "/{event_id}/ticket_types",
-			required: ["name", "price_in_cents", "start_date", "end_date", "limit_per_person"],
+			required: ["name", "price_in_cents", "start_date", "end_date", "limit_per_person", "visibility"],
 			requiresAuth: true
 		}) as any;
 	}
