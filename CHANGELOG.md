@@ -1,3 +1,9 @@
+#### 2.0.4 (2019-04-23)
+
+##### New Features
+
+*  Visibility enum for ticket types ([6657f9c0](https://github.com/big-neon/bn-api-node/commit/6657f9c07ef82c4b64e571d4990ed955b9e2c600))
+
 #### 2.0.3 (2019-04-16)
 
 ##### New Features
