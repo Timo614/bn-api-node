@@ -1,3 +1,9 @@
+#### 2.0.5 (2019-04-24)
+
+##### New Features
+
+*  Convert comps to hold children ([87f079f3](https://github.com/big-neon/bn-api-node/commit/87f079f36a8db4fa36349826a00606d7d341113f))
+
 #### 2.0.4 (2019-04-23)
 
 ##### New Features
