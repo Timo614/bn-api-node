@@ -1,3 +1,9 @@
+#### 2.0.6 (2019-04-24)
+
+##### New Features
+
+*  Add hold links ([360e2a42](https://github.com/big-neon/bn-api-node/commit/360e2a42450111e79f47cdc4ebebf5aa205e6469))
+
 #### 2.0.5 (2019-04-24)
 
 ##### New Features
