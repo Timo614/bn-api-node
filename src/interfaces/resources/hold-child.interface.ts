@@ -1,4 +1,4 @@
-export interface CompInterface {
+export interface HoldChildInterface {
 
 	readonly id?: string;
 	event_id?: string;
@@ -14,7 +14,7 @@ export interface CompInterface {
 
 }
 
-export const createComp = (base: any = {}): CompInterface => {
+export const createHoldChild = (base: any = {}): HoldChildInterface => {
 	return {
 		...{
 			id: "",
@@ -29,5 +29,5 @@ export const createComp = (base: any = {}): CompInterface => {
 			updated_at: ""
 		},
 		...base
-	} as CompInterface
+	} as HoldChildInterface
 };

@@ -1,7 +1,7 @@
 import { createArtist } from "./artist.interface";
 import { createAuthToken } from "./auth-token.interface";
 import { createCartItem } from "./cart-item.interface";
-import { createComp } from "./comp.interface";
+import { createHoldChild } from "./hold-child.interface";
 import { createCode } from "./code.interface";
 import { createDeviceToken } from "./device-token.interface";
 import { createEvent } from "./event.interface";
@@ -35,7 +35,7 @@ export default {
 	createAuthToken,
 	createCartItem,
 	createCode,
-	createComp,
+	createHoldChild,
 	createDeviceToken,
 	createEvent,
 	createEventArtist,

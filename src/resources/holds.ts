@@ -2,7 +2,7 @@ import { createRequestMethod } from "../interfaces/server/request-method.interfa
 import ResourceClass from "../classes/abstracts/resource.class";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 import { HoldInterface } from "../interfaces/resources/hold.interface";
-import HoldCompsResource from "./namespaced/hold-comps";
+import HoldChildrenResource from "./namespaced/hold-children";
 
 /**
  * @endpoint holds
@@ -21,7 +21,7 @@ class HoldsResource extends ResourceClass {
 		super("holds");
 		this.buildAliases();
 		this.namespaces = {
-			comps: HoldCompsResource,
+			children: HoldChildrenResource,
 		}
 	}
 
