@@ -3,6 +3,7 @@ import ResourceClass from "../classes/abstracts/resource.class";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
 import { HoldInterface } from "../interfaces/resources/hold.interface";
 import HoldChildrenResource from "./namespaced/hold-children";
+import { LinkInterface } from "../interfaces/resources/structures/link.interface";
 
 /**
  * @endpoint holds
@@ -14,15 +15,15 @@ class HoldsResource extends ResourceClass {
 		update: this.update(),
 		read: this.read(),
 		delete: this.delete(),
-		split: this.split(),
+		split: this.split()
 	};
 
 	constructor() {
 		super("holds");
 		this.buildAliases();
 		this.namespaces = {
-			children: HoldChildrenResource,
-		}
+			children: HoldChildrenResource
+		};
 	}
 
 	/**
@@ -37,19 +38,27 @@ class HoldsResource extends ResourceClass {
 		return createRequestMethod({
 			method: "PATCH",
 			path: "/{id}",
-			requireOne: ["name", "discount_in_cents", "redemption_code", "end_at", "max_per_order", "hold_type", "quantity"],
+			requireOne: [
+				"name",
+				"discount_in_cents",
+				"redemption_code",
+				"end_at",
+				"max_per_order",
+				"hold_type",
+				"quantity"
+			],
 			requiresAuth: true
 		}) as any;
 	}
 
 	/**
-     * Update the hold details
-     * @auth true
-     * @params {id:uuid}
-     * @required {id:uuid}
-     * @return [[HoldInterface]]
+	 * Update the hold details
+	 * @auth true
+	 * @params {id:uuid}
+	 * @required {id:uuid}
+	 * @return [[HoldInterface]]
 	 * @url /holds/{id}
-     */
+	 */
 	read(): HoldInterface {
 		return createRequestMethod({
 			method: "GET",
@@ -91,7 +100,6 @@ class HoldsResource extends ResourceClass {
 	// 	}) as any;
 	// }
 
-
 	/**
 	 * Splits a hold into two
 	 * @auth true
@@ -104,10 +112,33 @@ class HoldsResource extends ResourceClass {
 		return createRequestMethod({
 			method: "POST",
 			path: "/{id}/split",
-			required: ["name", "redemption_code", "discount_in_cents", "quantity", "hold_type"],
+			required: [
+				"name",
+				"redemption_code",
+				"discount_in_cents",
+				"quantity",
+				"hold_type"
+			],
 			requiresAuth: true
 		}) as any;
 	}
 
+	/**
+	 * Gets a shortened, deep link to the event page
+	 * with the redemption code for the hold already applied
+	 * to the cart
+	 * @auth true
+	 * @params {id:uuid}
+	 * @required {id:uuid}
+	 * @url /holds/{id}/link
+	 */
+	link(): LinkInterface {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{id}/link",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
 }
 export default HoldsResource;
