@@ -1,3 +1,9 @@
+#### 2.0.7 (2019-04-29)
+
+##### Bug Fixes
+
+*  Fixed missing static definitions for `link` endpoints ([a800972](https://github.com/big-neon/bn-api-node/commit/a8009720185cdfb79ab75603ce99ede5c09f286f))
+
 #### 2.0.6 (2019-04-29)
 
 ##### New Features
