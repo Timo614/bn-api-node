@@ -15,7 +15,8 @@ class HoldsResource extends ResourceClass {
 		update: this.update(),
 		read: this.read(),
 		delete: this.delete(),
-		split: this.split()
+		split: this.split(),
+		link: this.link()
 	};
 
 	constructor() {

@@ -11,7 +11,8 @@ class CodesResource extends ResourceClass {
 	methodDefinitions = {
 		update: this.update(),
 		del: this.delete(),
-		read: this.read()
+		read: this.read(),
+		link: this.link()
 	};
 
 	constructor() {
