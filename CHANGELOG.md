@@ -1,8 +1,9 @@
-#### 2.0.6 (2019-04-24)
+#### 2.0.6 (2019-04-29)
 
 ##### New Features
 
 *  Add hold links ([360e2a42](https://github.com/big-neon/bn-api-node/commit/360e2a42450111e79f47cdc4ebebf5aa205e6469))
+*  Add promo code report interface ([5ca5a20](https://github.com/big-neon/bn-api-node/commit/5ca5a205fa531f45d9ece810bd9005625301bd9e))
 
 #### 2.0.5 (2019-04-24)
 
