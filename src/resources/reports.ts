@@ -21,6 +21,7 @@ class ReportsResource extends ResourceClass {
 		eventSummary: this.eventSummary(),
 		ticketCount: this.ticketCount(),
 		weeklySettlement: this.weeklySettlement(),
+		promoCodeSales: this.promoCodeSales(),
 	};
 
 	constructor() {
@@ -76,7 +77,21 @@ class ReportsResource extends ResourceClass {
 		}) as any;
 	}
 
-
+	/**
+	 * Get promo code sales report
+	 * @auth true
+	 * @params {organization_id:uuid, event_id?: uuid}
+	 * @required {organization_id:uuid}
+	 * @url /reports/{organization_id}?report=promo_code
+	 */
+	promoCodeSales(): { organization_id: { event_id: { ticket_type_id: { sales: TicketCountSalesRowInterface, totals: TicketCountRowInterface } } } } {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{organization_id}?report=promo_code",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
 
 	/**
 	 * Get weekly settlement report
