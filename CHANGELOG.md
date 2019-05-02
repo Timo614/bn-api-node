@@ -1,3 +1,9 @@
+#### 2.0.8 (2019-05-02)
+
+##### New Features
+
+* **endpoints:**  Added `events.ticket_types.create_multiple` endpoint ([e6c459a2](https://github.com/big-neon/bn-api-node/commit/e6c459a21f2115d8e41c20f3f6543d2798f633d6))
+
 #### 2.0.7 (2019-04-29)
 
 ##### Bug Fixes

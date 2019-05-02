@@ -130,22 +130,23 @@ describe("Integration::Events", function () {
 					}
 				];
 
+				let saveTicketTypes = [];
 				for (let index = 0; index < testTicketTypes.length; index++) {
 					const ticketTypeDetails = ticketing.generateTicketTypePricing({
 						...testTicketTypes[index],
 						eventDateString: event.door_time
 					});
-
-					const result = await adminServer.events.ticketTypes.create({
-						event_id: id,
-						...ticketTypeDetails
-					});
-					assert.strictEqual(
-						result.status,
-						201,
-						`${testTicketTypes[index].name} ticket type was not added to event ${event.name}; ${ticketTypeDetails}`
-					);
+					saveTicketTypes.push(ticketTypeDetails);
 				}
+				const result = await adminServer.events.ticketTypes.create_multiple({
+					event_id: id,
+					ticket_types: saveTicketTypes
+				});
+				assert.strictEqual(
+					result.status,
+					201,
+					`Ticket types were not saved for ${event.name}; ${saveTicketTypes}`
+				);
 			});
 
 			it(`SuperUser publishes event "${event.name}"`, async function () {

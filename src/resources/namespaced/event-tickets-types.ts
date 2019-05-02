@@ -10,6 +10,7 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
 class EventTicketTypesResource extends ResourceClass {
 	methodDefinitions = {
 		create: this.create(),
+		create_multiple: this.create_multiple(),
 		update: this.update(),
 		index: this.index(),
 		cancel: this.cancel(),
@@ -33,6 +34,22 @@ class EventTicketTypesResource extends ResourceClass {
 			method: "POST",
 			path: "/{event_id}/ticket_types",
 			required: ["name", "price_in_cents", "start_date", "end_date", "limit_per_person", "visibility"],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Create multiple ticket types in one go
+	 * @auth true
+	 * @params {event_id:uuid, ticket_types: Array<...[[TicketTypeInterface]]>}
+	 * @required {event_id: uuid, ticket_types: Array<...[[TicketTypeInterface]]>}
+	 * @url /events/{event_id}/ticket_types/multiple
+	 */
+	create_multiple(): [{id: string}] {
+		return createRequestMethod({
+			method: "POST",
+			path: "/{event_id}/ticket_types/multiple",
+			required: ["ticket_types"],
 			requiresAuth: true
 		}) as any;
 	}

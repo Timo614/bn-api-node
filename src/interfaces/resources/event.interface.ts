@@ -39,6 +39,7 @@ export interface EventInterface {
 	limited_tickets_remaining?: number;
 	event_type: EventTypes,
 	private_access_code?: string,
+	sales_start_date?: Date,
 	readonly tracking_keys: {google_ga_key?: string, facebook_pixel_key?: string},
 	readonly localized_times: EventLocalizedTimeInterface,
 	readonly created_at: string;
@@ -87,6 +88,7 @@ export const createEvent = (base: any = {}): EventInterface => {
 			private_access_code: null,
 			tracking_keys: {},
 			localized_times: createEventLocalizedTimeInterface(),
+			sales_start_date: null,
 			created_at: "",
 			updated_at: ""
 		},
