@@ -20,6 +20,7 @@ import Users from "./users";
 import Venue from "./venues";
 import Orders from "./orders";
 import Tickets from "./tickets";
+import Transfers from "./transfers";
 import { ResourceInterface } from "../interfaces/server/resource";
 import ResourceClass from "../classes/abstracts/resource.class";
 import PasswordReset from "./password-reset";
@@ -69,6 +70,7 @@ import RedemptionCodes from "./redemption-codes";
  * @endpoint settlements [[SettlementsResource]]
  * @endpoint stages [[StagesResource]]
  * @endpoint status [[StatusResource]]
+ * @endpoint transfers [[TransfersResource]]
  * @endpoint tickets [[TicketsResource]]
  * @endpoint tickets.redeem [[TicketRedeemResource]]
  * @endpoint userInvites [[UserInvitationsResource]]
@@ -104,6 +106,7 @@ export const endpoints: {
 	stages: Stages,
 	status: Status,
 	tickets: Tickets,
+	transfers: Transfers,
 	userInvites: UserInvites,
 	users: Users,
 	venues: Venue

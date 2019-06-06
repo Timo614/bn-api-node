@@ -1,6 +1,6 @@
 import { createRequestMethod } from "../../interfaces/server/request-method.interface";
 import ResourceClass from "../../classes/abstracts/resource.class";
-import { TicketInterface } from "../../interfaces/resources/ticket.interface";
+import { IndexInterface } from "../../interfaces/resources/structures/index.interface";
 
 /**
  * @endpoint orders.tickets
@@ -23,7 +23,7 @@ class OrderTicketsResource extends ResourceClass {
 	 * @required {order_id: uuid}
 	 * @url /orders/{order_id}/tickets
 	 */
-	index(): Array<TicketInterface> {
+	index(): Array<IndexInterface> {
 		return createRequestMethod({
 			method: "GET",
 			path: "/{order_id}/tickets",
