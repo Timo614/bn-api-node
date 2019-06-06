@@ -1,3 +1,11 @@
+#### 2.0.9 (2019-05-02)
+##### New Features
+
+* **endpoints:**  Added `transfers.index` endpoint 
+* **endpoints:**  Added `transfers.cancel` endpoint 
+* **endpoints:**  Added `transfers.read` endpoint 
+* **endpoints:**  Added `orders.transfers.index` endpoint 
+
 #### 2.0.8 (2019-05-02)
 
 ##### New Features
