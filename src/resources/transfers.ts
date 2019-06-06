@@ -1,6 +1,7 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { IndexInterface } from "../interfaces/resources/structures/index.interface";
+import { TransferInterface } from "../interfaces/resources/transfer.interface";
 
 /**
  * @endpoint transfers
@@ -9,6 +10,7 @@ import { IndexInterface } from "../interfaces/resources/structures/index.interfa
 class TransfersResource extends ResourceClass {
 	methodDefinitions = {
 		index: this.index(),
+		read: this.read(),
 		cancel: this.cancel()
 	};
 
@@ -28,6 +30,23 @@ class TransfersResource extends ResourceClass {
 		return createRequestMethod({
 			method: "GET",
 			path: "",
+			requiresAuth: true
+		}) as any;
+	}
+
+
+	/**
+	 * Gets a single transfer by transfer_key
+	 * @auth true
+	 * @params {id: uuid}
+	 * @required {id:uuid}
+	 * @url /transfer_key/{id}
+	 */
+	read(): TransferInterface {
+		return createRequestMethod({
+			method: "GET",
+			path: "/transfer_key/{id}",
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}
