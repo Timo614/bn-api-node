@@ -33,6 +33,7 @@ class EventsResource extends ResourceClass {
 		read: this.read(),
 		publish: this.publish(),
 		unpublish: this.unpublish(),
+		createLink: this.createLink()
 	};
 
 	constructor() {
@@ -202,6 +203,23 @@ class EventsResource extends ResourceClass {
 		return createRequestMethod({
 			method: "POST",
 			path: "/{id}/unpublish",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Creates a short link to the event with tracking data
+	 * @auth true
+	 * @params {id:uuid, source, medium, campaign, term, content}
+	 * @required {id: uuid}
+	 * @returns {status: 200}
+	 * @url /events/{id}/links
+	 */
+	createLink(): void {
+		return createRequestMethod({
+			method: "POST",
+			path: "/{id}/links",
 			required: [],
 			requiresAuth: true
 		}) as any;
