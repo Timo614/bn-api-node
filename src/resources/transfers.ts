@@ -40,7 +40,7 @@ class TransfersResource extends ResourceClass {
 	 * @auth true
 	 * @params {id: uuid}
 	 * @required {id:uuid}
-	 * @url /transfer_key/{id}
+	 * @url /transfers/transfer_key/{id}
 	 */
 	read(): TransferInterface {
 		return createRequestMethod({
@@ -56,7 +56,7 @@ class TransfersResource extends ResourceClass {
 	 * @auth true
 	 * @params {id: uuid}
 	 * @required {id: uuid}
-	 * @url /tickets/{id}
+	 * @url /transfers/{id}
 	 */
 	cancel(): void {
 		return createRequestMethod({
