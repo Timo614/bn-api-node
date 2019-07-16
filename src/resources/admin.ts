@@ -13,7 +13,8 @@ class AdminResource extends ResourceClass {
 
 	methodDefinitions = {
 		ticketCount: this.ticketCount(),
-		stuckDomainActions: this.stuckDomainActions()
+		stuckDomainActions: this.stuckDomainActions(),
+		orders: this.orders()
 	};
 
 	constructor() {
@@ -45,6 +46,20 @@ class AdminResource extends ResourceClass {
 		return createRequestMethod({
 			method: "GET",
 			path: "/stuck_domain_actions",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Get a list of orders for an event
+	 * @auth true
+	 * @url /admin/orders
+	 */
+	orders(): any {
+		return createRequestMethod({
+			method: "GET",
+			path: "/orders",
 			required: [],
 			requiresAuth: true
 		}) as any;
