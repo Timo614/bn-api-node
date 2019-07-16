@@ -13,6 +13,7 @@ class OrganizationFansResource extends ResourceClass {
 		read: this.read(),
 		index: this.index(),
 		history: this.history(),
+		activity: this.activity(),
 	};
 
 	constructor() {
@@ -67,7 +68,21 @@ class OrganizationFansResource extends ResourceClass {
 		}) as any;
 	}
 
-
+	/**
+	 * List a specific fans activity history for an organization
+	 * @params {...[[PagingInterface]], organization_id:uuid, user_id:uuid}
+	 * @required {organization_id:uuid, user_id: uuid}
+	 * @data Array<[[FanHistoryItemInterface]]>
+	 * @url /organizations/{organization_id}/fans/{user_id}/history
+	 */
+	activity(): IndexInterface {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{organization_id}/fans/{user_id}/activity",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
 }
 
 export default OrganizationFansResource;
