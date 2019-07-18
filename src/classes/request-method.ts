@@ -102,7 +102,7 @@ export class RequestMethod {
 			.concat(method.requireOne || [])
 			.concat(method.required || []);
 
-		let regex = /{([a-zA-Z0-9_-]+)(\|{1}(.*?))?}/g;
+		let regex = /{([a-zA-Z0-9_-]+)(\|{1}([a-zA-Z0-9_-]+))?}/;
 		let newPath = path;
 		let matches;
 		do {

@@ -26,6 +26,7 @@ import ResourceClass from "../classes/abstracts/resource.class";
 import PasswordReset from "./password-reset";
 import PaymentMethods from "./payment-methods";
 import RedemptionCodes from "./redemption-codes";
+import Notes from "./notes";
 
 /**
  * List of available endpoints
@@ -80,6 +81,7 @@ import RedemptionCodes from "./redemption-codes";
  * @endpoint venues [[VenuesResource]]
  * @endpoint venues.events [[VenueEventsResource]]
  * @endpoint venues.stages [[VenueStagesResource]]
+ * @endpoint notes [[NotesResource]]
  */
 export const endpoints: {
 [endpoint: string]: ResourceInterface | ResourceClass;
@@ -95,6 +97,7 @@ export const endpoints: {
 	external: External,
 	holds: Holds,
 	invitations: Invitations,
+	notes: Notes,
 	orders: Orders,
 	organizations: Organization,
 	passwordReset: PasswordReset,
