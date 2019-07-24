@@ -17,6 +17,7 @@ class OrdersResource extends ResourceClass {
 		update: this.update(),
 		details: this.details(),
 		refund: this.refund(),
+		activity: this.activity()
 	};
 
 	constructor() {
@@ -106,7 +107,21 @@ class OrdersResource extends ResourceClass {
 		}) as any;
 	}
 
-
+	/**
+	 * Get activities for an order
+	 * @auth true
+	 * @params {id:uuid}
+	 * @required {id:uuid}
+	 * @url /orders/{id}/activity
+	 */
+	activity(): IndexInterface {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{id}/activity",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
 }
 
 export default OrdersResource;
