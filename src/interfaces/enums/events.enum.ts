@@ -24,10 +24,18 @@ export const OVERRIDE_STATUS_STRING = {
 
 export enum EventTypes {
 	MUSIC = "Music",
-	CONFERENCE = "Conference"
+	CONFERENCE = "Conference",
+	ART = "Art",
+	CULINARY = "Culinary",
+	COMEDY = "Comedy",
+	SPORTS = "Sports",
 }
 
 export const EVENT_TYPES_STRING = {
 	[EventTypes.MUSIC]: "Music",
-	[EventTypes.CONFERENCE]: "Conference"
+	[EventTypes.CONFERENCE]: "Conference",
+	[EventTypes.ART]: "Art",
+	[EventTypes.CULINARY]: "Culinary",
+	[EventTypes.COMEDY]: "Comedy",
+	[EventTypes.SPORTS]: "Sports",
 };

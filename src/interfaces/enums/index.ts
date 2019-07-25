@@ -28,9 +28,9 @@ import {
 } from "./broadcasts.enum";
 
 import {
-	TransferStatus, 
+	TransferStatus,
 	TRANSFER_TYPES_STRING
-} from './transfers.enum';
+} from "./transfers.enum";
 
 export default {
 	EventOverrideStatus,
@@ -54,6 +54,6 @@ export default {
 	BROADCAST_STATUS,
 	BroadcastChannel,
 	BROADCAST_CHANNEL,
-	TransferStatus, 
+	TransferStatus,
 	TRANSFER_TYPES_STRING
 };
