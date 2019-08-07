@@ -5,6 +5,7 @@ import { IndexInterface } from "../interfaces/resources/structures/index.interfa
 import OrderTicketsResource from "./namespaced/order-tickets";
 import { RefundResponseInterface } from "../interfaces/resources/refund-response.interface";
 import { OrderDetailsInterface } from "../interfaces/resources/order-details.interface";
+import { SendPublicRedeemLinkResultInterface } from "../interfaces/resources/send-redeem-link.interface";
 
 /**
  * @endpoint orders
@@ -17,15 +18,16 @@ class OrdersResource extends ResourceClass {
 		update: this.update(),
 		details: this.details(),
 		refund: this.refund(),
-		activity: this.activity()
+		activity: this.activity(),
+		sendPublicRedeemLink: this.sendPublicRedeemLink()
 	};
 
 	constructor() {
 		super("orders");
 		this.buildAliases();
 		this.namespaces = {
-			tickets: OrderTicketsResource,
-		}
+			tickets: OrderTicketsResource
+		};
 	}
 
 	/**
@@ -119,6 +121,19 @@ class OrdersResource extends ResourceClass {
 			method: "GET",
 			path: "/{id}/activity",
 			required: [],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Send a link to a public page that can has the
+	 * redeem codes and
+	 */
+	sendPublicRedeemLink(): SendPublicRedeemLinkResultInterface {
+		return createRequestMethod({
+			method: "POST",
+			path: "/{id}/send_public_redeem_link",
+			required: ["email_or_phone"],
 			requiresAuth: true
 		}) as any;
 	}
