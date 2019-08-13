@@ -28,7 +28,8 @@ class EventsResource extends ResourceClass {
 		checkins: this.checkins(),
 		create: this.create(),
 		update: this.update(),
-		del: this.del(),
+		delete: this.delete(),
+		cancel: this.cancel(),
 		dashboard: this.dashboard(),
 		read: this.read(),
 		publish: this.publish(),
@@ -132,11 +133,28 @@ class EventsResource extends ResourceClass {
 	 * @required {id:uuid}
 	 * @url /events/{id}
 	 */
-	del(): EventInterface {
+	cancel(): EventInterface {
 		return createRequestMethod({
 			name: "cancel",
 			method: "DELETE",
 			path: "/{id}",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Delete an event
+	 * @auth true
+	 * @params {id:uuid}
+	 * @required {id:uuid}
+	 * @url /events/{id}
+	 */
+	delete(): EventInterface {
+		return createRequestMethod({
+			names: ["delete", "del"],
+			method: "DELETE",
+			path: "/{id}/delete",
 			required: [],
 			requiresAuth: true
 		}) as any;
