@@ -5,7 +5,7 @@ export interface SendPublicRedeemLinkResultInterface {
 	signature: string;
 }
 
-export const create = (base: any = {}): SendPublicRedeemLinkResultInterface => {
+export const createSendPublicRedeemLinkResult = (base: any = {}): SendPublicRedeemLinkResultInterface => {
 	return {
 		...{
 			url: "",

@@ -10,6 +10,7 @@ import External from "./external";
 import Holds from "./holds";
 import Invitations from "./invitations";
 import Organization from "./organization";
+import Public from "./public";
 import Regions from "./regions";
 import Reports from "./reports";
 import Settlements from "./settlements";
@@ -65,6 +66,7 @@ import Notes from "./notes";
  * @endpoint organizations.venues [[OrganizationVenueResource]]
  * @endpoint passwordReset [[PasswordResetResource]]
  * @endpoint paymentMethods [[PaymentMethodsResource]]
+ * @endpoint public [[PublicResource]]
  * @endpoint redemptionCodes [[RedemptionCodeResource]]
  * @endpoint regions [[RegionsResource]]
  * @endpoint reports [[ReportsResource]]
@@ -102,6 +104,7 @@ export const endpoints: {
 	organizations: Organization,
 	passwordReset: PasswordReset,
 	paymentMethods: PaymentMethods,
+	public: Public,
 	redemptionCodes: RedemptionCodes,
 	regions: Regions,
 	reports: Reports,

@@ -24,6 +24,7 @@ import { createBroadcast } from "./broadcast.interface";
 import { createRefundItem } from "./refund-item.interface";
 import { createRefundResponse } from "./refund-response.interface";
 import { createRegion } from "./region.interface";
+import { createSendPublicRedeemLinkResult } from "./send-redeem-link.interface";
 import { createStage } from "./stages.interface";
 import { createTicket } from "./ticket.interface";
 import { createTicketRedeemable } from "./ticket-redeemable.interface";
@@ -58,6 +59,7 @@ export default {
 	createRefundItem,
 	createRefundResponse,
 	createRegion,
+	createSendPublicRedeemLinkResult,
 	createStage,
 	createTicket,
 	createTicketRedeemable,

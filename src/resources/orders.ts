@@ -126,8 +126,11 @@ class OrdersResource extends ResourceClass {
 	}
 
 	/**
-	 * Send a link to a public page that can has the
-	 * redeem codes and
+	 * Send a link to a public page that can generate the redeem codes for a public recipient
+	 * @auth true
+	 * @params {email_or_phone: string}
+	 * @required {email_or_phone: string}
+	 * @url /orders/{id}/send_public_redeem_link
 	 */
 	sendPublicRedeemLink(): SendPublicRedeemLinkResultInterface {
 		return createRequestMethod({
