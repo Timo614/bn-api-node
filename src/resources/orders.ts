@@ -19,7 +19,8 @@ class OrdersResource extends ResourceClass {
 		details: this.details(),
 		refund: this.refund(),
 		activity: this.activity(),
-		sendPublicRedeemLink: this.sendPublicRedeemLink()
+		sendPublicRedeemLink: this.sendPublicRedeemLink(),
+		sendBoxOfficeInstructions: this.sendBoxOfficeInstructions()
 	};
 
 	constructor() {
@@ -137,6 +138,23 @@ class OrdersResource extends ResourceClass {
 			method: "POST",
 			path: "/{id}/send_public_redeem_link",
 			required: ["email_or_phone"],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Sends instructions to checkin and download from the box office
+	 * @auth true
+	 * @params {phone: string}
+	 * @required {phone: string}
+	 * @url /orders/{id}/send_box_office_instructions
+	 * @return {status: 200}
+	 */
+	sendBoxOfficeInstructions(): void {
+		return createRequestMethod({
+			method: "POST",
+			path: "/{id}/send_box_office_instructions",
+			required: ["phone"],
 			requiresAuth: true
 		}) as any;
 	}
