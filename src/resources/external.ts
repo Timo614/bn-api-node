@@ -1,6 +1,7 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { AuthTokenInterface } from "../interfaces/resources/auth-token.interface";
+import ExternalFacebookResource from "./namespaced/external-facebook";
 
 /**
  * @endpoint external
@@ -14,6 +15,9 @@ class ExternalResource extends ResourceClass {
 	constructor() {
 		super("external");
 		this.buildAliases();
+		this.namespaces = {
+			facebook: ExternalFacebookResource
+		};
 	}
 
 	/**
