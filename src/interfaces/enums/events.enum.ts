@@ -29,6 +29,8 @@ export enum EventTypes {
 	CULINARY = "Culinary",
 	COMEDY = "Comedy",
 	SPORTS = "Sports",
+	TECH = "Tech",
+	OTHER = "Other"
 }
 
 export const EVENT_TYPES_STRING = {
@@ -38,4 +40,6 @@ export const EVENT_TYPES_STRING = {
 	[EventTypes.CULINARY]: "Culinary",
 	[EventTypes.COMEDY]: "Comedy",
 	[EventTypes.SPORTS]: "Sports",
+	[EventTypes.TECH]: "Tech",
+	[EventTypes.OTHER]: "Other",
 };
