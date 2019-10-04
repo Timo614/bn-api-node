@@ -1,6 +1,7 @@
 import { createRequestMethod } from "../interfaces/server/request-method.interface";
 import ResourceClass from "../classes/abstracts/resource.class";
 import { DisplaySettlementInterface } from "../interfaces/resources/settlements.interface";
+import SettlementsAdjustmentsResource from "./namespaced/settlements-adjustments";
 
 /**
  * @endpoint settlements
@@ -15,6 +16,10 @@ class SettlementsResource extends ResourceClass {
 	constructor() {
 		super("settlements");
 		this.buildAliases();
+
+		this.namespaces = {
+			adjustments: SettlementsAdjustmentsResource
+		};
 	}
 
 	/**

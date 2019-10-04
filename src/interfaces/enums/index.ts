@@ -18,6 +18,12 @@ import {
 	SettlementTransactionType,
 	SETTLEMENT_TRANSACTION_TYPE
 } from "./settlements.enum";
+
+import { 
+	AdjustmentTypes, 
+	ADJUSTMENT_TYPES
+} from './adjustments.enum';
+
 import {
 	BroadcastType,
 	BROADCAST_TYPE,
@@ -48,6 +54,8 @@ export default {
 	SETTLEMENT_STATUS,
 	SettlementTransactionType,
 	SETTLEMENT_TRANSACTION_TYPE,
+	AdjustmentTypes, 
+	ADJUSTMENT_TYPES,
 	BroadcastType,
 	BROADCAST_TYPE,
 	BroadcastStatus,

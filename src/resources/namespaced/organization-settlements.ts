@@ -9,44 +9,12 @@ import { IndexInterface } from "../../interfaces/resources/structures/index.inte
  */
 class OrganizationSettlementsResource extends ResourceClass {
 	methodDefinitions = {
-		prepare: this.prepare(),
-		create: this.create(),
-		index: this.index(),
+		index: this.index()
 	};
 
 	constructor() {
 		super("organizations");
 		this.buildAliases();
-	}
-
-	/**
-	 * Prepare a settlement, get the pending values for the date range
-	 * @params {organization_id:uuid, ...[[NewSettlementRequestInterface]]}
-	 * @required {organization_id:uuid, start_utc: Date, end_utc: Date }
-	 * @url /organizations/{organization_id}/settlements/prepare
-	 */
-	prepare(): VenueInterface {
-		return createRequestMethod({
-			method: "POST",
-			path: "/{organization_id}/settlements/prepare",
-			required: ["start_utc", "end_utc"],
-			requiresAuth: true
-		}) as any;
-	}
-
-	/**
-	 * Add a settlement to the organization
-	 * @params {organization_id:uuid, ...[[NewSettlementRequestInterface]]}
-	 * @required {organization_id:uuid, start_utc: Date, end_utc: Date}
-	 * @url /organizations/{organization_id}/settlements
-	 */
-	create(): VenueInterface {
-		return createRequestMethod({
-			method: "POST",
-			path: "/{organization_id}/settlements",
-			required: ["start_utc", "end_utc"],
-			requiresAuth: true
-		}) as any;
 	}
 
 	/**
@@ -64,8 +32,6 @@ class OrganizationSettlementsResource extends ResourceClass {
 			requiresAuth: true
 		}) as any;
 	}
-
-
 }
 
 export default OrganizationSettlementsResource;
