@@ -9,7 +9,7 @@ import {
 	TicketCountRowInterface,
 	TicketCountSalesRowInterface
 } from "../interfaces/resources/reports/report-ticket-count.interface";
-
+import { BoxOfficeOperatorInterface, BoxOfficePaymentInterface } from "../interfaces/resources/reports/report-box-office-sales-summary"
 /**
  * @endpoint reports
  * @url /reports
@@ -20,7 +20,7 @@ class ReportsResource extends ResourceClass {
 		transactionDetails: this.transactionDetails(),
 		eventSummary: this.eventSummary(),
 		ticketCount: this.ticketCount(),
-		weeklySettlement: this.weeklySettlement(),
+		boxOfficeSalesSummary: this.boxOfficeSalesSummary(),
 		promoCodeSales: this.promoCodeSales(),
 	};
 
@@ -94,16 +94,16 @@ class ReportsResource extends ResourceClass {
 	}
 
 	/**
-	 * Get weekly settlement report
+	 * Get box office sales summary report
 	 * @auth true
-	 * @params {organization_id:uuid}
+	 * @params {organization_id:uuid, start_utc?: Date, end_utc?: Date}
 	 * @required {organization_id:uuid}
-	 * @url /reports/{organization_id}?report=weekly_settlement
+	 * @url /reports/{organization_id}?report=box_office_sales_summary
 	 */
-	weeklySettlement(): { event_id: string, sales: Array<EventSummarySalesRowInterface>, ticket_fees: Array<EventSummaryFeesRowInterface>, other_fees: Array<EventSummaryOtherFeesInterface> } {
+	boxOfficeSalesSummary(): { operators: Array<BoxOfficeOperatorInterface>, payments: Array<BoxOfficePaymentInterface> } {
 		return createRequestMethod({
 			method: "GET",
-			path: "/{organization_id}?report=weekly_settlement",
+			path: "/{organization_id}?report=box_office_sales_summary",
 			required: [],
 			requiresAuth: true
 		}) as any;
