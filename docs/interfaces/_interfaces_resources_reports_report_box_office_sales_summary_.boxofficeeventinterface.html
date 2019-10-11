@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CartItemInterface | bn-api-node</title>
+	<title>BoxOfficeEventInterface | bn-api-node</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_interfaces_resources_cart_item_interface_.html">&quot;interfaces/resources/cart-item.interface&quot;</a>
+					<a href="../modules/_interfaces_resources_reports_report_box_office_sales_summary_.html">&quot;interfaces/resources/reports/report-box-office-sales-summary&quot;</a>
 				</li>
 				<li>
-					<a href="_interfaces_resources_cart_item_interface_.cartiteminterface.html">CartItemInterface</a>
+					<a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html">BoxOfficeEventInterface</a>
 				</li>
 			</ul>
-			<h1>Interface CartItemInterface</h1>
+			<h1>Interface BoxOfficeEventInterface</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CartItemInterface</span>
+						<span class="target">BoxOfficeEventInterface</span>
 					</li>
 				</ul>
 			</section>
@@ -84,8 +84,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_cart_item_interface_.cartiteminterface.html#quantity" class="tsd-kind-icon">quantity</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_cart_item_interface_.cartiteminterface.html#ticket_type_id" class="tsd-kind-icon">ticket_<wbr>type_<wbr>id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html#event_date" class="tsd-kind-icon">event_<wbr>date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html#event_name" class="tsd-kind-icon">event_<wbr>name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html#face_value_in_cents" class="tsd-kind-icon">face_<wbr>value_<wbr>in_<wbr>cents</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html#number_of_tickets" class="tsd-kind-icon">number_<wbr>of_<wbr>tickets</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html#revenue_share_value_in_cents" class="tsd-kind-icon">revenue_<wbr>share_<wbr>value_<wbr>in_<wbr>cents</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html#total_sales_in_cents" class="tsd-kind-icon">total_<wbr>sales_<wbr>in_<wbr>cents</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,22 +98,62 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="quantity" class="tsd-anchor"></a>
-					<h3>quantity</h3>
-					<div class="tsd-signature tsd-kind-icon">quantity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="event_date" class="tsd-anchor"></a>
+					<h3>event_<wbr>date</h3>
+					<div class="tsd-signature tsd-kind-icon">event_<wbr>date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/69c146e/src/interfaces/resources/cart-item.interface.ts#L3">interfaces/resources/cart-item.interface.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/69c146e/src/interfaces/resources/reports/report-box-office-sales-summary.ts#L15">interfaces/resources/reports/report-box-office-sales-summary.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="ticket_type_id" class="tsd-anchor"></a>
-					<h3>ticket_<wbr>type_<wbr>id</h3>
-					<div class="tsd-signature tsd-kind-icon">ticket_<wbr>type_<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="event_name" class="tsd-anchor"></a>
+					<h3>event_<wbr>name</h3>
+					<div class="tsd-signature tsd-kind-icon">event_<wbr>name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/69c146e/src/interfaces/resources/cart-item.interface.ts#L2">interfaces/resources/cart-item.interface.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/69c146e/src/interfaces/resources/reports/report-box-office-sales-summary.ts#L16">interfaces/resources/reports/report-box-office-sales-summary.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="face_value_in_cents" class="tsd-anchor"></a>
+					<h3>face_<wbr>value_<wbr>in_<wbr>cents</h3>
+					<div class="tsd-signature tsd-kind-icon">face_<wbr>value_<wbr>in_<wbr>cents<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/69c146e/src/interfaces/resources/reports/report-box-office-sales-summary.ts#L17">interfaces/resources/reports/report-box-office-sales-summary.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="number_of_tickets" class="tsd-anchor"></a>
+					<h3>number_<wbr>of_<wbr>tickets</h3>
+					<div class="tsd-signature tsd-kind-icon">number_<wbr>of_<wbr>tickets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/69c146e/src/interfaces/resources/reports/report-box-office-sales-summary.ts#L18">interfaces/resources/reports/report-box-office-sales-summary.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="revenue_share_value_in_cents" class="tsd-anchor"></a>
+					<h3>revenue_<wbr>share_<wbr>value_<wbr>in_<wbr>cents</h3>
+					<div class="tsd-signature tsd-kind-icon">revenue_<wbr>share_<wbr>value_<wbr>in_<wbr>cents<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/69c146e/src/interfaces/resources/reports/report-box-office-sales-summary.ts#L19">interfaces/resources/reports/report-box-office-sales-summary.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="total_sales_in_cents" class="tsd-anchor"></a>
+					<h3>total_<wbr>sales_<wbr>in_<wbr>cents</h3>
+					<div class="tsd-signature tsd-kind-icon">total_<wbr>sales_<wbr>in_<wbr>cents<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/69c146e/src/interfaces/resources/reports/report-box-office-sales-summary.ts#L20">interfaces/resources/reports/report-box-office-sales-summary.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -122,7 +166,7 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_interfaces_resources_cart_item_interface_.html">"interfaces/resources/cart-<wbr>item.interface"</a>
+						<a href="../modules/_interfaces_resources_reports_report_box_office_sales_summary_.html">"interfaces/resources/reports/report-<wbr>box-<wbr>office-<wbr>sales-<wbr>summary"</a>
 					</li>
 				</ul>
 			</nav>
@@ -131,20 +175,35 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_interfaces_resources_cart_item_interface_.cartiteminterface.html" class="tsd-kind-icon">Cart<wbr>Item<wbr>Interface</a>
+						<a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html" class="tsd-kind-icon">Box<wbr>Office<wbr>Event<wbr>Interface</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_interfaces_resources_cart_item_interface_.cartiteminterface.html#quantity" class="tsd-kind-icon">quantity</a>
+								<a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html#event_date" class="tsd-kind-icon">event_<wbr>date</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_interfaces_resources_cart_item_interface_.cartiteminterface.html#ticket_type_id" class="tsd-kind-icon">ticket_<wbr>type_<wbr>id</a>
+								<a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html#event_name" class="tsd-kind-icon">event_<wbr>name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html#face_value_in_cents" class="tsd-kind-icon">face_<wbr>value_<wbr>in_<wbr>cents</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html#number_of_tickets" class="tsd-kind-icon">number_<wbr>of_<wbr>tickets</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html#revenue_share_value_in_cents" class="tsd-kind-icon">revenue_<wbr>share_<wbr>value_<wbr>in_<wbr>cents</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeeventinterface.html#total_sales_in_cents" class="tsd-kind-icon">total_<wbr>sales_<wbr>in_<wbr>cents</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_interfaces_resources_cart_item_interface_.html#createcartitem" class="tsd-kind-icon">create<wbr>Cart<wbr>Item</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficeoperatorinterface.html" class="tsd-kind-icon">Box<wbr>Office<wbr>Operator<wbr>Interface</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_interfaces_resources_reports_report_box_office_sales_summary_.boxofficepaymentinterface.html" class="tsd-kind-icon">Box<wbr>Office<wbr>Payment<wbr>Interface</a>
 					</li>
 				</ul>
 			</nav>
