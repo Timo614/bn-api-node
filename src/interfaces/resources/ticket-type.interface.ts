@@ -2,7 +2,7 @@ import {
 	createTicketPricing,
 	TicketPricingInterface
 } from "./ticket-pricing.interface";
-import { SoldOutBehavior, Visibility } from "../enums/ticket-types.enum";
+import { SoldOutBehavior, Visibility, EndDateType } from "../enums/ticket-types.enum";
 
 export interface TicketTypeInterface {
 	readonly id?: string;
@@ -11,6 +11,7 @@ export interface TicketTypeInterface {
 	description?: string;
 	start_date: Date;
 	end_date: Date;
+	end_date_type: EndDateType;
 	quantity: number;
 	limit_per_person: number; //Per person
 	increment: number; //How many can be bought at a time (4 per table)

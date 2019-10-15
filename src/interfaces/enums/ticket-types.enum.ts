@@ -19,3 +19,17 @@ export const VISIBILITY = {
 	[Visibility.WHEN_AVAILABLE]: "Only When Available",
 	[Visibility.HIDDEN]: "Hidden (Promo/Hold Code Required)"
 };
+
+export enum EndDateType {
+	DOOR_TIME = "DoorTime",
+	EVENT_END = "EventEnd",
+	EVENT_START = "EventStart",
+	MANUAL = "Manual"
+}
+
+export const END_DATE_TYPE = {
+	[EndDateType.DOOR_TIME]: "Door Time",
+	[EndDateType.EVENT_END]: "Event End",
+	[EndDateType.EVENT_START]: "Event Start",
+	[EndDateType.MANUAL]: "At a specific time"
+};

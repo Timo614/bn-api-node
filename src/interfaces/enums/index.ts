@@ -10,7 +10,9 @@ import {
 	SoldOutBehavior,
 	SOLD_OUT_BEHAVIOR,
 	Visibility,
-	VISIBILITY
+	VISIBILITY,
+	EndDateType,
+	END_DATE_TYPE
 } from "./ticket-types.enum";
 import {
 	SettlementStatus,
@@ -50,6 +52,8 @@ export default {
 	SOLD_OUT_BEHAVIOR,
 	Visibility,
 	VISIBILITY,
+	EndDateType,
+	END_DATE_TYPE,
 	SettlementStatus,
 	SETTLEMENT_STATUS,
 	SettlementTransactionType,

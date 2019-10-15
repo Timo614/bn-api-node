@@ -33,7 +33,7 @@ class EventTicketTypesResource extends ResourceClass {
 			name: "create",
 			method: "POST",
 			path: "/{event_id}/ticket_types",
-			required: ["name", "price_in_cents", "start_date", "end_date", "limit_per_person", "visibility"],
+			required: ["name", "price_in_cents", "start_date", "end_date_type", "limit_per_person", "visibility"],
 			requiresAuth: true
 		}) as any;
 	}
