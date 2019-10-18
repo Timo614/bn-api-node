@@ -14,6 +14,7 @@ import Public from "./public";
 import Regions from "./regions";
 import Reports from "./reports";
 import Settlements from "./settlements";
+import Slugs from "./slugs";
 import Stages from "./stages";
 import Status from "./status";
 import UserInvites from "./user-invitations";
@@ -71,6 +72,7 @@ import Notes from "./notes";
  * @endpoint regions [[RegionsResource]]
  * @endpoint reports [[ReportsResource]]
  * @endpoint settlements [[SettlementsResource]]
+ * @endpoint slugs [[SlugsResource]]
  * @endpoint stages [[StagesResource]]
  * @endpoint status [[StatusResource]]
  * @endpoint transfers [[TransfersResource]]
@@ -109,6 +111,7 @@ export const endpoints: {
 	regions: Regions,
 	reports: Reports,
 	settlements: Settlements,
+	slugs: Slugs,
 	stages: Stages,
 	status: Status,
 	tickets: Tickets,
