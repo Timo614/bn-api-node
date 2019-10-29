@@ -94,14 +94,25 @@ export default class XhrClient {
 
 	public setTokens(tokens: AuthTokenInterface) {
 		this.authTokens = tokens;
-		this.token = tokens.access_token;
-		let accessToken = decodeJWT(tokens.access_token) || {};
-		this.authTokenExpires = accessToken.exp * 1000;
-		this.attemptReAuth = true;
-		if (process.env.DEBUG) {
-			let time = (new Date()).getTime();
-			console.debug("Token expires in", Math.trunc(((this.authTokenExpires - time) / 1000) / 60), "minutes");
+		const {access_token: accessTokenString} = tokens;
+		this.token = accessTokenString;
+
+		let accessToken =  {exp: 0};
+		let authTokenExpires = 0;
+		let attemptReAuth = true;
+		try {
+			accessToken = decodeJWT(accessTokenString);
+			authTokenExpires = accessToken.exp * 1000;
+
+			if (process.env.DEBUG) {
+				let time = (new Date()).getTime();
+				console.debug("Token expires in", Math.trunc(((authTokenExpires - time) / 1000) / 60), "minutes");
+			}
+		}catch (e) {
+			console.error("Invalid access token", tokens);
 		}
+		this.authTokenExpires = authTokenExpires;
+		this.attemptReAuth = attemptReAuth;
 	}
 
 	public isAuthed() {
