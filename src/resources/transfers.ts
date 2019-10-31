@@ -9,6 +9,7 @@ import { TransferInterface } from "../interfaces/resources/transfer.interface";
  */
 class TransfersResource extends ResourceClass {
 	methodDefinitions = {
+		activity: this.activity(),
 		index: this.index(),
 		read: this.read(),
 		cancel: this.cancel()
@@ -20,7 +21,7 @@ class TransfersResource extends ResourceClass {
 	}
 
 	/**
-	 * Cancel a transfer.
+	 * List transfers.
 	 * @auth true
 	 * @params {source_or_destination?: "source|destination", start_utc?: Date, end_utc?: Date}
 	 * @returns [[TransferInterface]]
@@ -34,6 +35,20 @@ class TransfersResource extends ResourceClass {
 		}) as any;
 	}
 
+	/**
+	 * Get transfer activity for a user
+	 * @auth true
+	 * @params {...[[PagingInterface]]}
+	 * @returns [{event: [[EventInterface]], ticket_activity_items: {ticket_id: [[[TransferActivityItem]]]}}]
+	 * @url /transfers/activity
+	 */
+	activity(): IndexInterface {
+		return createRequestMethod({
+			method: "GET",
+			path: "/activity",
+			requiresAuth: true
+		}) as any;
+	}
 
 	/**
 	 * Gets a single transfer by transfer_key
