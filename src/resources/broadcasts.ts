@@ -65,17 +65,16 @@ class BroadcastsResource extends ResourceClass {
 	}
 
 	/**
-	 * Opened a broadcast
-	 * @required {id:uuid, user_id: Uuid}
-	 * @params {id:uuid, user_id: Uuid}
+	 * Opened a broadcast, ping the tracking counter
+	 * @required {id:uuid}
+	 * @params {id:uuid}
 	 * @auth true
-	 * @url /broadcasts/{id}/opened
+	 * @url /broadcasts/{id}/tracking_count
 	 */
 	opened(): BroadcastInterface {
 		return createRequestMethod({
-			method: "PUT",
-			path: "/{id}/opened",
-			requireOne: ["user_id"],
+			method: "POST",
+			path: "/{id}/tracking_count",
 			requiresAuth: true
 		}) as any;
 	}
