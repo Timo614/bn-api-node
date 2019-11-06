@@ -94,21 +94,20 @@ export default class XhrClient {
 
 	public setTokens(tokens: AuthTokenInterface) {
 		this.authTokens = tokens;
-		const {access_token: accessTokenString} = tokens;
+		const { access_token: accessTokenString } = tokens;
 		this.token = accessTokenString;
 
-		let accessToken =  {exp: 0};
+		let accessToken = { exp: 0 };
 		let authTokenExpires = 0;
 		let attemptReAuth = true;
 		try {
 			accessToken = decodeJWT(accessTokenString);
 			authTokenExpires = accessToken.exp * 1000;
-
 			if (process.env.DEBUG) {
 				let time = (new Date()).getTime();
 				console.debug("Token expires in", Math.trunc(((authTokenExpires - time) / 1000) / 60), "minutes");
 			}
-		}catch (e) {
+		} catch (e) {
 			console.error("Invalid access token", tokens);
 		}
 		this.authTokenExpires = authTokenExpires;
@@ -118,16 +117,12 @@ export default class XhrClient {
 	public isAuthed() {
 		return (this.authTokens
 			&& this.authTokens.access_token
-			&& this.authTokenExpires > (new Date()).getTime());
+			&& this.authTokenExpires > (new Date()).getTime() + 30000);
 	}
 
 	public async getPublicAgent(headers: any = {}) {
-		if (this.isAuthed()) {
-			//Always attempt to send an authed one if there is a token
-			return await this.getAuthAgent(headers);
-		}
-
-		return this._getAgent(headers);
+		// Always attempt to get an auth'd agent, if there is no refresh_token it will fall back on a public agent
+		return await this.getAuthAgent(headers);
 	}
 
 	public async getAuthAgent(headers: any = {}): Promise<any> {
@@ -138,16 +133,15 @@ export default class XhrClient {
 			this.attemptReAuth = false;
 			let server: any = this.server;
 			if (process.env.DEBUG) {
-				console.debug("Token has expired, attempting refresh");
+				console.log("Token has expired, attempting refresh");
 			}
 			try {
 				await server.auth.refresh({ refresh_token: this.authTokens.refresh_token });
 				return await this.getAuthAgent(headers);
-			}catch(e) {
+			} catch (e) {
+				console.error("Failed auth", e);
 				return await this.getPublicAgent(headers);
 			}
-
-
 		}
 		headers = {
 			...headers,
