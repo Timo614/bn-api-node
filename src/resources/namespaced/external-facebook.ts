@@ -6,7 +6,8 @@ import { FacebookEventInterface } from "../../interfaces/resources/facebook-even
 class ExternalFacebookResource extends ResourceClass {
 	methodDefinitions = {
 		pages: this.pages(),
-		createEvent: this.createEvent()
+		createEvent: this.createEvent(),
+		del: this.del()
 	};
 
 	constructor() {
@@ -44,6 +45,19 @@ class ExternalFacebookResource extends ResourceClass {
 			required: ["event_id", "page_id", "category"],
 			requiresAuth: true
 		}) as any;
+	}
+
+	/**
+	 * Unlinks the current user's Facebook account
+	 * @auth  true
+	 * @url /external/facebook
+	 */
+	del(): any {
+		return createRequestMethod({
+			method: "DELETE",
+			path: "/facebook",
+			requiresAuth: true
+		});
 	}
 }
 
