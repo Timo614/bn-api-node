@@ -53,7 +53,7 @@ function compare(a, b) {
 
 describe("Unit::Compare bn-api endpoints to bn-api-node endpoints", () => {
 	let remoteUrlsAndMethods = {}, localUrlsAndMethods= {};
-	let branch = process.env.TEST_ROUTING_BRANCH || "master";
+	let branch = process.env.TEST_ROUTING_BRANCH || "develop";
 	before(function(done) {
 		this.timeout(30000);
 

@@ -121,6 +121,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_transfers_.transfersresource.html#activity" class="tsd-kind-icon">activity</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_resources_transfers_.transfersresource.html#buildaliases" class="tsd-kind-icon">build<wbr>Aliases</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_transfers_.transfersresource.html#cancel" class="tsd-kind-icon">cancel</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_resources_transfers_.transfersresource.html#index" class="tsd-kind-icon">index</a></li>
@@ -149,7 +150,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/c705e93/src/resources/transfers.ts#L15">resources/transfers.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/resources/transfers.ts#L16">resources/transfers.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_resources_transfers_.transfersresource.html" class="tsd-signature-type">TransfersResource</a></h4>
@@ -167,7 +168,7 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#methods">methods</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#methods">methods</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/c705e93/src/classes/abstracts/resource.class.ts#L9">classes/abstracts/resource.class.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/classes/abstracts/resource.class.ts#L9">classes/abstracts/resource.class.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -179,7 +180,7 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#namespaces">namespaces</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#namespaces">namespaces</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/c705e93/src/classes/abstracts/resource.class.ts#L7">classes/abstracts/resource.class.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/classes/abstracts/resource.class.ts#L7">classes/abstracts/resource.class.ts:7</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -199,13 +200,47 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#path">path</a></p>
 						<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#path">path</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/c705e93/src/classes/abstracts/resource.class.ts#L5">classes/abstracts/resource.class.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/classes/abstracts/resource.class.ts#L5">classes/abstracts/resource.class.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="activity" class="tsd-anchor"></a>
+					<h3>activity</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">activity<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_resources_structures_index_interface_.indexinterface.html" class="tsd-signature-type">IndexInterface</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/resources/transfers.ts#L45">resources/transfers.ts:45</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get transfer activity for a user</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>auth</dt>
+									<dd><p>true</p>
+									</dd>
+									<dt>params</dt>
+									<dd><p>{...<a href="../interfaces/_interfaces_resources_structures_paging_interface_.paginginterface.html">PagingInterface</a>}</p>
+									</dd>
+									<dt>url</dt>
+									<dd><p>/transfers/activity</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_resources_structures_index_interface_.indexinterface.html" class="tsd-signature-type">IndexInterface</a></h4>
+							<p>, ticket_activity_items: {ticket_id: [[[TransferActivityItem]]]}}]</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="buildaliases" class="tsd-anchor"></a>
 					<h3>build<wbr>Aliases</h3>
@@ -217,7 +252,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#buildaliases">buildAliases</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/c705e93/src/classes/abstracts/resource.class.ts#L18">classes/abstracts/resource.class.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/classes/abstracts/resource.class.ts#L18">classes/abstracts/resource.class.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -234,7 +269,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/c705e93/src/resources/transfers.ts#L61">resources/transfers.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/resources/transfers.ts#L76">resources/transfers.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -270,12 +305,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/c705e93/src/resources/transfers.ts#L29">resources/transfers.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/resources/transfers.ts#L30">resources/transfers.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Cancel a transfer.</p>
+									<p>List transfers.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>auth</dt>
@@ -304,7 +339,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/c705e93/src/resources/transfers.ts#L45">resources/transfers.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/resources/transfers.ts#L60">resources/transfers.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -341,16 +376,26 @@
 						<p>Implementation of <a href="../interfaces/_interfaces_server_resource_.resourceinterface.html">ResourceInterface</a>.<a href="../interfaces/_interfaces_server_resource_.resourceinterface.html#methoddefinitions">methodDefinitions</a></p>
 						<p>Overrides <a href="_classes_abstracts_resource_class_.resourceclass.html">ResourceClass</a>.<a href="_classes_abstracts_resource_class_.resourceclass.html#methoddefinitions">methodDefinitions</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/c705e93/src/resources/transfers.ts#L11">resources/transfers.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/resources/transfers.ts#L11">resources/transfers.ts:11</a></li>
 						</ul>
 					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="methoddefinitions.activity-1" class="tsd-anchor"></a>
+						<h3>activity</h3>
+						<div class="tsd-signature tsd-kind-icon">activity<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_resources_structures_index_interface_.indexinterface.html" class="tsd-signature-type">IndexInterface</a><span class="tsd-signature-symbol"> =&nbsp;this.activity()</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/resources/transfers.ts#L12">resources/transfers.ts:12</a></li>
+							</ul>
+						</aside>
+					</section>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 						<a name="methoddefinitions.cancel-1" class="tsd-anchor"></a>
 						<h3>cancel</h3>
 						<div class="tsd-signature tsd-kind-icon">cancel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> =&nbsp;this.cancel()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/c705e93/src/resources/transfers.ts#L14">resources/transfers.ts:14</a></li>
+								<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/resources/transfers.ts#L15">resources/transfers.ts:15</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -360,7 +405,7 @@
 						<div class="tsd-signature tsd-kind-icon">index<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_resources_structures_index_interface_.indexinterface.html" class="tsd-signature-type">IndexInterface</a><span class="tsd-signature-symbol"> =&nbsp;this.index()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/c705e93/src/resources/transfers.ts#L12">resources/transfers.ts:12</a></li>
+								<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/resources/transfers.ts#L13">resources/transfers.ts:13</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -370,7 +415,7 @@
 						<div class="tsd-signature tsd-kind-icon">read<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_resources_transfer_interface_.transferinterface.html" class="tsd-signature-type">TransferInterface</a><span class="tsd-signature-symbol"> =&nbsp;this.read()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/c705e93/src/resources/transfers.ts#L13">resources/transfers.ts:13</a></li>
+								<li>Defined in <a href="https://github.com/big-neon/bn-api-node/blob/3341d7b/src/resources/transfers.ts#L14">resources/transfers.ts:14</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -406,6 +451,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_resources_transfers_.transfersresource.html#path" class="tsd-kind-icon">path</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_resources_transfers_.transfersresource.html#activity" class="tsd-kind-icon">activity</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_resources_transfers_.transfersresource.html#buildaliases" class="tsd-kind-icon">build<wbr>Aliases</a>

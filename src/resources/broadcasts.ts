@@ -11,6 +11,7 @@ class BroadcastsResource extends ResourceClass {
 		read: this.read(),
 		update: this.update(),
 		del: this.del(),
+		opened: this.opened(),
 	};
 
 	constructor() {
@@ -59,6 +60,21 @@ class BroadcastsResource extends ResourceClass {
 			name: "cancel",
 			method: "DELETE",
 			path: "/{id}",
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Opened a broadcast, ping the tracking counter
+	 * @required {id:uuid}
+	 * @params {id:uuid}
+	 * @auth true
+	 * @url /broadcasts/{id}/tracking_count
+	 */
+	opened(): BroadcastInterface {
+		return createRequestMethod({
+			method: "POST",
+			path: "/{id}/tracking_count",
 			requiresAuth: true
 		}) as any;
 	}

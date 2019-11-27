@@ -4,6 +4,7 @@ export enum UserRole {
 	ORG_ADMIN = "OrgAdmin",
 	ORG_BOX_OFFICE = "OrgBoxOffice",
 	DOOR_PERSON = "DoorPerson",
+	PRISM_INTEGRATION = "PrismIntegration",
 }
 
 export const USER_ROLES_STRING = {
@@ -12,4 +13,5 @@ export const USER_ROLES_STRING = {
 	[UserRole.ORG_MEMBER]: "Member",
 	[UserRole.ORG_BOX_OFFICE]: "Box Office",
 	[UserRole.DOOR_PERSON]: "Door Person",
+	[UserRole.PRISM_INTEGRATION]: "Prism Integration",
 };

@@ -34,7 +34,8 @@ class EventsResource extends ResourceClass {
 		read: this.read(),
 		publish: this.publish(),
 		unpublish: this.unpublish(),
-		createLink: this.createLink()
+		createLink: this.createLink(),
+		ticketHolderCount: this.ticketHolderCount()
 	};
 
 	constructor() {
@@ -171,6 +172,22 @@ class EventsResource extends ResourceClass {
 		return createRequestMethod({
 			method: "GET",
 			path: "/{id}/dashboard",
+			required: [],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Ticket holders for an event
+	 * @auth false
+	 * @params {id:uuid}
+	 * @required {id: uuid}
+	 * @url /events/{id}/ticket_holder_count
+	 */
+	ticketHolderCount() {
+		return createRequestMethod({
+			method: "GET",
+			path: "/{id}/ticket_holder_count",
 			required: [],
 			requiresAuth: true
 		}) as any;
