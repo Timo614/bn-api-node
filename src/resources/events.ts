@@ -17,6 +17,7 @@ import XhrClient from "../classes/xhr-client";
 import { EventTypes } from "../interfaces/enums/events.enum";
 import EventUsersResource from "./namespaced/event-users";
 import EventBroadcastsResource from "./namespaced/event-broadcasts";
+import EventReportSubscribersResource from "./namespaced/event-report-subscribers";
 
 /**
  * @endpoint events
@@ -51,7 +52,8 @@ class EventsResource extends ResourceClass {
 			broadcasts: EventBroadcastsResource,
 			ticketTypes: EventTicketTypesResource,
 			tickets: EventTicketsResource,
-			users: EventUsersResource
+			users: EventUsersResource,
+			reports: EventReportSubscribersResource
 		};
 	}
 

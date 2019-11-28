@@ -5,6 +5,7 @@ import Broadcast from "./broadcasts";
 import Cart from "./cart";
 import Code from "./codes";
 import Comps from "./comps";
+import EventReportSubscribers from "./event-report-subscribers";
 import Event from "./events";
 import External from "./external";
 import Holds from "./holds";
@@ -39,6 +40,7 @@ import Notes from "./notes";
  * @endpoint cart [[CartResource]]
  * @endpoint codes [[CodesResource]]
  * @endpoint comps [[CompsResource]]
+ * @endpoint event_report_subscribers [[EventReportSubscribers]]
  * @endpoint events [[EventsResource]]
  * @endpoint events.artists [[EventArtistsResource]]
  * @endpoint events.broadcasts [[EventBroadcastsResource]]
@@ -97,6 +99,7 @@ export const endpoints: {
 	cart: Cart,
 	codes: Code,
 	comps: Comps,
+	event_report_subscribers: EventReportSubscribers,
 	events: Event,
 	external: External,
 	holds: Holds,
