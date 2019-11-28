@@ -18,7 +18,6 @@ import { EventTypes } from "../interfaces/enums/events.enum";
 import EventUsersResource from "./namespaced/event-users";
 import EventBroadcastsResource from "./namespaced/event-broadcasts";
 import EventReportSubscribersResource from "./namespaced/event-report-subscribers";
-import EventReportSubscribersDeleteResource from "./namespaced/event-report-subscribers-delete";
 
 /**
  * @endpoint events
@@ -54,8 +53,7 @@ class EventsResource extends ResourceClass {
 			ticketTypes: EventTicketTypesResource,
 			tickets: EventTicketsResource,
 			users: EventUsersResource,
-			reports: EventReportSubscribersResource,
-			subscribers: EventReportSubscribersDeleteResource
+			reports: EventReportSubscribersResource
 		};
 	}
 
