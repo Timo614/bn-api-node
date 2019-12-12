@@ -20,7 +20,8 @@ class OrdersResource extends ResourceClass {
 		refund: this.refund(),
 		activity: this.activity(),
 		sendPublicRedeemLink: this.sendPublicRedeemLink(),
-		sendBoxOfficeInstructions: this.sendBoxOfficeInstructions()
+		sendBoxOfficeInstructions: this.sendBoxOfficeInstructions(),
+		resendOrderConfirmation: this.resendOrderConfirmation()
 	};
 
 	constructor() {
@@ -138,6 +139,22 @@ class OrdersResource extends ResourceClass {
 			method: "POST",
 			path: "/{id}/send_public_redeem_link",
 			required: ["email_or_phone"],
+			requiresAuth: true
+		}) as any;
+	}
+
+	/**
+	 * Resends confirmation email (last refund or initial order) for purchaser
+	 * @auth true
+	 * @params {id:uuid}
+	 * @required {id:uuid}
+	 * @url /orders/{id}/resend_confirmation
+	 */
+	resendOrderConfirmation(): void {
+		return createRequestMethod({
+			method: "POST",
+			path: "/{id}/resend_confirmation",
+			required: [],
 			requiresAuth: true
 		}) as any;
 	}
