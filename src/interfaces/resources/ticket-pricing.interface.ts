@@ -22,7 +22,7 @@ export const createTicketPricing = (base: any = {}): TicketPricingInterface => {
 			start_date: "",
 			end_date: "",
 			price_in_cents: 0,
-      associated_with_active_orders: false,
+			associated_with_active_orders: false,
 			created_at: "",
 			updated_at: "",
 		},
